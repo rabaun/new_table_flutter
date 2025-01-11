@@ -11,6 +11,7 @@ class ProtocolDao {
   static const table = 'protocol_name';
   static const columnId = 'id';
   static const columnOrganizationName = 'organizationName';
+  static const columnOrganizationId = 'organizationId';
   static const columnWorkplace = 'workplace';
   static const columnProtocolName = 'protocolName';
   static const columnWorkplaceId = 'workplaceId';
@@ -36,9 +37,10 @@ class ProtocolDao {
   Future<dynamic> addProtocolName(ProtocolNameModel? protocol) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, workplace, workplaceId, protocolName) VALUES (?, ?, ?, ?)',
+        'INSERT INTO $table (organizationName, organizationId, workplace, workplaceId, protocolName) VALUES (?, ?, ?, ?, ?)',
         [
           (protocol?.organizationName),
+          (protocol?.organizationId),
           (protocol?.workplace),
           (protocol?.workplaceId),
           (protocol?.protocolName),
@@ -50,7 +52,7 @@ class ProtocolDao {
     final db = await dbHelper.database;
     try {
       var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [organization?.organizationName, workplaceName?.workplaceId]);
+          [organization?.organizationId, workplaceName?.workplaceId]);
       list = maps!.isNotEmpty ? maps.map((e) => ProtocolNameModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -64,9 +66,10 @@ class ProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, workplace = ?, workplaceId =?, protocolName = ?,  WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationNId = ?, workplace = ?, workplaceId =?, protocolName = ?,  WHERE id = ?',
         [
           protocol?.organizationName,
+          protocol?.organizationId,
           protocol?.workplace,
           protocol?.workplaceId,
           protocol?.protocolName,

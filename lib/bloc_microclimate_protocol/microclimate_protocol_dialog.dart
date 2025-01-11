@@ -19,6 +19,7 @@ class AddMicroclimateDialog extends StatefulWidget {
 
 class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
   final organizationNameController = TextEditingController();
+  final organizationIdController = TextEditingController();
   final measurementDateController = TextEditingController();
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
@@ -61,6 +62,7 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
     selectedId = widget.microclimate?.id;
     organizationNameController.text =
         (widget.microclimate?.organizationName ?? widget.protocolName?.organizationName)!;
+    organizationIdController.text =  (widget.microclimate?.organizationId ?? widget.protocolName?.organizationId)!;
     measurementDateController.text =
         DateFormat('dd.MM.yyyy', 'ru_RU').format(selectedDate ?? DateTime.now());
     workplaceController.text = (widget.microclimate?.workplace ?? widget.protocolName?.workplace)!;

@@ -22,6 +22,7 @@ WorkplaceModel _$WorkplaceModelFromJson(Map<String, dynamic> json) {
 mixin _$WorkplaceModel {
   int? get id => throw _privateConstructorUsedError;
   String? get organizationName => throw _privateConstructorUsedError;
+  String? get organizationId => throw _privateConstructorUsedError;
   String? get departmentName => throw _privateConstructorUsedError;
   String? get workplaceName => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $WorkplaceModelCopyWith<$Res> {
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? departmentName,
       String? workplaceName,
       String? workplaceId});
@@ -67,6 +69,7 @@ class _$WorkplaceModelCopyWithImpl<$Res, $Val extends WorkplaceModel>
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? departmentName = freezed,
     Object? workplaceName = freezed,
     Object? workplaceId = freezed,
@@ -79,6 +82,10 @@ class _$WorkplaceModelCopyWithImpl<$Res, $Val extends WorkplaceModel>
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       departmentName: freezed == departmentName
           ? _value.departmentName
@@ -107,6 +114,7 @@ abstract class _$$WorkplaceModelImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? departmentName,
       String? workplaceName,
       String? workplaceId});
@@ -127,6 +135,7 @@ class __$$WorkplaceModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? departmentName = freezed,
     Object? workplaceName = freezed,
     Object? workplaceId = freezed,
@@ -139,6 +148,10 @@ class __$$WorkplaceModelImplCopyWithImpl<$Res>
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       departmentName: freezed == departmentName
           ? _value.departmentName
@@ -162,6 +175,7 @@ class _$WorkplaceModelImpl implements _WorkplaceModel {
   const _$WorkplaceModelImpl(
       {this.id,
       this.organizationName,
+      this.organizationId,
       this.departmentName,
       this.workplaceName,
       this.workplaceId});
@@ -174,6 +188,8 @@ class _$WorkplaceModelImpl implements _WorkplaceModel {
   @override
   final String? organizationName;
   @override
+  final String? organizationId;
+  @override
   final String? departmentName;
   @override
   final String? workplaceName;
@@ -182,7 +198,7 @@ class _$WorkplaceModelImpl implements _WorkplaceModel {
 
   @override
   String toString() {
-    return 'WorkplaceModel(id: $id, organizationName: $organizationName, departmentName: $departmentName, workplaceName: $workplaceName, workplaceId: $workplaceId)';
+    return 'WorkplaceModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, departmentName: $departmentName, workplaceName: $workplaceName, workplaceId: $workplaceId)';
   }
 
   @override
@@ -193,6 +209,8 @@ class _$WorkplaceModelImpl implements _WorkplaceModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organizationName, organizationName) ||
                 other.organizationName == organizationName) &&
+            (identical(other.organizationId, organizationId) ||
+                other.organizationId == organizationId) &&
             (identical(other.departmentName, departmentName) ||
                 other.departmentName == departmentName) &&
             (identical(other.workplaceName, workplaceName) ||
@@ -204,7 +222,7 @@ class _$WorkplaceModelImpl implements _WorkplaceModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, organizationName,
-      departmentName, workplaceName, workplaceId);
+      organizationId, departmentName, workplaceName, workplaceId);
 
   /// Create a copy of WorkplaceModel
   /// with the given fields replaced by the non-null parameter values.
@@ -227,6 +245,7 @@ abstract class _WorkplaceModel implements WorkplaceModel {
   const factory _WorkplaceModel(
       {final int? id,
       final String? organizationName,
+      final String? organizationId,
       final String? departmentName,
       final String? workplaceName,
       final String? workplaceId}) = _$WorkplaceModelImpl;
@@ -238,6 +257,8 @@ abstract class _WorkplaceModel implements WorkplaceModel {
   int? get id;
   @override
   String? get organizationName;
+  @override
+  String? get organizationId;
   @override
   String? get departmentName;
   @override

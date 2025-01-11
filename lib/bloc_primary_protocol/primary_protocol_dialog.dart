@@ -19,6 +19,7 @@ class AddPrimaryProtocolDialog extends StatefulWidget {
 
 class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
   final organizationNameController = TextEditingController();
+  final organizationIdController = TextEditingController();
   final measurementDateController = TextEditingController();
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
@@ -55,6 +56,8 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
     selectedId = widget.primaryProtocolName?.id;
     organizationNameController.text =
         (widget.primaryProtocolName?.organizationName ?? widget.protocolName?.organizationName)!;
+    organizationIdController.text =
+    (widget.primaryProtocolName?.organizationId ?? widget.protocolName?.organizationId)!;
     measurementDateController.text =
         DateFormat('dd.MM.yyyy', 'ru_RU').format(selectedDate ?? DateTime.now());
     workplaceController.text =
@@ -95,6 +98,21 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                     border: OutlineInputBorder(),
                     labelText: 'Наименование организации',
                     hintText: 'Введите наименование организации',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: organizationIdController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Уникальный номер организации',
+                    hintText: 'Введите уникальный номер организации',
                   ),
                 ),
                 const SizedBox(
@@ -209,6 +227,7 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                 MaterialButton(
                   onPressed: () {
                     final organizationName = organizationNameController.text;
+                    final organizationId = organizationIdController.text;
                     final measurementDate = measurementDateController.text;
                     final workplace = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
@@ -218,6 +237,7 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       var primaryProtocol = PrimaryProtocolModel(
                           id: selectedId,
                           organizationName: organizationName,
+                          organizationId: organizationId,
                           measurementDate: measurementDate,
                           workplace: workplace,
                           workplaceId: workplaceId,
@@ -228,6 +248,7 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                           : PrimaryProtocolEvent.update(primaryProtocol: primaryProtocol));
                       selectedId = null;
                       organizationNameController.clear();
+                      organizationIdController.clear();
                       measurementDateController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();

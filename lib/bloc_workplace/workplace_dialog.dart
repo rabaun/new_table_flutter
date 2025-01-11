@@ -20,6 +20,7 @@ class AddWorkplaceDialog extends StatefulWidget {
 
 class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
   final organizationNameController = TextEditingController();
+  final organizationIdController = TextEditingController();
   final departmentNameController = TextEditingController();
   final workplaceNameController = TextEditingController();
   final workplaceIdController = TextEditingController();
@@ -35,6 +36,7 @@ class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
   Widget build(BuildContext context) {
     BlocProvider.of<WorkplaceBloc>(context).add(WorkplaceEvent.getOrganization(organization: widget.organization));
     organizationNameController.text = (widget.workplace?.organizationName ?? widget.organization?.organizationName)!;
+    organizationIdController.text =  (widget.workplace?.organizationId ?? widget.organization?.organizationId)!;
     departmentNameController.text = widget.workplace?.departmentName ?? '';
     workplaceNameController.text = widget.workplace?.workplaceName ?? '';
     workplaceIdController.text = uuid.v4();
@@ -72,6 +74,21 @@ class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
                   border: OutlineInputBorder(),
                   labelText: 'Наименование организации',
                   hintText: 'Введите наименование организации',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: organizationIdController,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  filled: true,
+                  //<-- SEE HERE
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(),
+                  labelText: 'Уникальный номер организации',
+                  hintText: 'Введите уникальный номер организации',
                 ),
               ),
               const SizedBox(
@@ -125,6 +142,7 @@ class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
               MaterialButton(
                 onPressed: () {
                   final organizationName = organizationNameController.text;
+                  final organizationId = organizationIdController.text;
                   final departmentName = departmentNameController.text;
                   final workplaceName = workplaceNameController.text;
                   final workplaceId = workplaceIdController.text;
@@ -132,6 +150,7 @@ class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
                     var workplace = WorkplaceModel(
                         id: selectedId,
                         organizationName: organizationName,
+                        organizationId: organizationId,
                         departmentName: departmentName,
                         workplaceName: workplaceName,
                         workplaceId:workplaceId);
@@ -140,6 +159,7 @@ class _AddProtocolNameDialogState extends State<AddWorkplaceDialog> {
                         : WorkplaceEvent.update(workplaceName: workplace));
                     selectedId = null;
                     organizationNameController.clear();
+                    organizationIdController.clear();
                     departmentNameController.clear();
                     workplaceNameController.clear();
                     workplaceIdController.clear();

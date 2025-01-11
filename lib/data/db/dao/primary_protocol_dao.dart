@@ -9,6 +9,7 @@ class PrimaryProtocolDao {
   static const table = 'primary_protocol';
   static const columnId = 'id';
   static const columnOrganizationName = 'organizationName';
+  static const columnOrganizationId = 'organizationId';
   static const columnMeasurementDate = 'measurementDate';
   static const columnWorkplace = 'workplace';
   static const columnParameterName = 'parameterName';
@@ -34,9 +35,10 @@ class PrimaryProtocolDao {
   Future<dynamic> addInTableProtocol(PrimaryProtocolModel? primaryProtocol) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, measurementDate, workplace,workplaceId, parameterName, parameterValue) VALUES (?, ?, ?, ?, ?, ?)',
+        'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, parameterValue) VALUES (?, ?, ?, ?, ?, ?, ?)',
         [
           (primaryProtocol?.organizationName),
+          (primaryProtocol?.organizationId),
           (primaryProtocol?.measurementDate),
           (primaryProtocol?.workplace),
           (primaryProtocol?.workplaceId),
@@ -50,7 +52,7 @@ class PrimaryProtocolDao {
     final db = await dbHelper.database;
     try {
       var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationName, protocolName?.workplaceId]);
+          [protocolName?.organizationId, protocolName?.workplaceId]);
       list = maps!.isNotEmpty ? maps.map((e) => PrimaryProtocolModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -65,9 +67,10 @@ class PrimaryProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, measurementDate = ?, workplace = ?, workplaceId = ?, parameterName =?, parameterValue =? WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?, workplaceId = ?, parameterName =?, parameterValue =? WHERE id = ?',
         [
           primaryProtocol?.organizationName,
+          primaryProtocol?.organizationId,
           primaryProtocol?.measurementDate,
           primaryProtocol?.workplace,
           primaryProtocol?.workplaceId,

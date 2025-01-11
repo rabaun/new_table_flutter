@@ -8,7 +8,7 @@ part of 'device_model.dart';
 
 _$DeviceModelImpl _$$DeviceModelImplFromJson(Map<String, dynamic> json) =>
     _$DeviceModelImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       serialNumber: json['serialNumber'] as String?,
       registryNumber: json['registryNumber'] as String?,

@@ -8,6 +8,7 @@ class WorkplaceDao {
   static const table = 'workplace_name';
   static const columnId = 'id';
   static const columnOrganizationName = 'organizationName';
+  static const columnOrganizationId = 'organizationId';
   static const columnDpartmentName = 'departmentName';
   static const columnWorkplaceName = 'workplaceName';
   static const columnWorkplaceId = 'workplaceId';
@@ -32,9 +33,10 @@ class WorkplaceDao {
   Future<dynamic> addInTable(WorkplaceModel? workplaceModel) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, departmentName, workplaceName, workplaceId) VALUES (?, ?, ?, ?)',
+        'INSERT INTO $table (organizationName, organizationId, departmentName, workplaceName, workplaceId) VALUES (?, ?, ?, ?, ?)',
         [
           (workplaceModel?.organizationName),
+          (workplaceModel?.organizationId),
           (workplaceModel?.departmentName),
           (workplaceModel?.workplaceName),
           (workplaceModel?.workplaceId),
@@ -45,7 +47,7 @@ class WorkplaceDao {
   Future<List<WorkplaceModel>> getWorkplace(OrganizationModel? organization) async {
     final db = await dbHelper.database;
     try {
-      var maps = db?.select('SELECT * FROM $table WHERE organizationId = ?', [organization?.organizationName]);
+      var maps = db?.select('SELECT * FROM $table WHERE organizationId = ?', [organization?.organizationId]);
       list = maps!.isNotEmpty ? maps.map((e) => WorkplaceModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -59,9 +61,10 @@ class WorkplaceDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, departmentName = ?, workplaceName = ?, workplaceId = ?, WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, departmentName = ?, workplaceName = ?, workplaceId = ?, WHERE id = ?',
         [
           (workplaceModel?.organizationName),
+          (workplaceModel?.organizationId),
           (workplaceModel?.departmentName),
           (workplaceModel?.workplaceName),
           (workplaceModel?.workplaceId),

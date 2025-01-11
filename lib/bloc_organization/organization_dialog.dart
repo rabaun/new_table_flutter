@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uuid/uuid.dart';
 
 import '../data/models/organization_model/organization_model.dart';
 import 'bloc_organization.dart';
@@ -16,7 +17,9 @@ class AddOrganizationDialog extends StatefulWidget {
 
 class _AddOrganizationDialogState extends State<AddOrganizationDialog> {
   final organizationNameController = TextEditingController();
+  final organizatioIdController = TextEditingController();
   int? selectedId;
+  final uuid = const Uuid();
 
   @override
   void initState() {
@@ -28,6 +31,7 @@ class _AddOrganizationDialogState extends State<AddOrganizationDialog> {
     BlocProvider.of<OrganizationBloc>(context).add(const OrganizationEvent.getOrganization());
     organizationNameController.text = widget.organization?.organizationName ?? '';
     selectedId = widget.organization?.id;
+    organizatioIdController.text = uuid.v4();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -66,21 +70,37 @@ class _AddOrganizationDialogState extends State<AddOrganizationDialog> {
               const SizedBox(
                 height: 30,
               ),
+              TextField(
+                controller: organizatioIdController,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  filled: true,
+                  //<-- SEE HERE
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(),
+                  labelText: 'Уникальный идентификатор для рабочего места',
+                  hintText: 'Введите уникальный идентификатор для рабочего места',
+                ),
+              ),
               const SizedBox(
                 height: 30,
               ),
               MaterialButton(
                 onPressed: () {
                   final organizationName = organizationNameController.text;
+                  final organizationId = organizatioIdController.text;
                   if (organizationName.isNotEmpty) {
                     var organization = OrganizationModel(
-                        id: selectedId,
-                      organizationName: organizationName,);
+                      id: selectedId,
+                      organizationName: organizationName,
+                      organizationId: organizationId,
+                    );
                     BlocProvider.of<OrganizationBloc>(context).add(selectedId == null
                         ? OrganizationEvent.addOrganization(organization: organization)
                         : OrganizationEvent.update(organization: organization));
                     selectedId = null;
                     organizationNameController.clear();
+                    organizatioIdController.clear();
                     Navigator.pop(context);
                   } else {
                     // Показать сообщение об ошибке или подсветить пустые поля

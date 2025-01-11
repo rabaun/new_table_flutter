@@ -9,8 +9,9 @@ part of 'microclimate_protocol_model.dart';
 _$MicroclimateProtocolModelImpl _$$MicroclimateProtocolModelImplFromJson(
         Map<String, dynamic> json) =>
     _$MicroclimateProtocolModelImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       organizationName: json['organizationName'] as String?,
+      organizationId: json['organizationId'] as String?,
       measurementDate: json['measurementDate'] as String?,
       workplace: json['workplace'] as String?,
       workplaceId: json['workplaceId'] as String?,
@@ -29,6 +30,7 @@ Map<String, dynamic> _$$MicroclimateProtocolModelImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'organizationName': instance.organizationName,
+      'organizationId': instance.organizationId,
       'measurementDate': instance.measurementDate,
       'workplace': instance.workplace,
       'workplaceId': instance.workplaceId,

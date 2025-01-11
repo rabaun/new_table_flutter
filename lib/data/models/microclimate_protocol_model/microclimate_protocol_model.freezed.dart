@@ -23,6 +23,7 @@ MicroclimateProtocolModel _$MicroclimateProtocolModelFromJson(
 mixin _$MicroclimateProtocolModel {
   int? get id => throw _privateConstructorUsedError;
   String? get organizationName => throw _privateConstructorUsedError;
+  String? get organizationId => throw _privateConstructorUsedError;
   String? get measurementDate => throw _privateConstructorUsedError;
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
@@ -54,6 +55,7 @@ abstract class $MicroclimateProtocolModelCopyWith<$Res> {
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? measurementDate,
       String? workplace,
       String? workplaceId,
@@ -85,6 +87,7 @@ class _$MicroclimateProtocolModelCopyWithImpl<$Res,
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? measurementDate = freezed,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
@@ -105,6 +108,10 @@ class _$MicroclimateProtocolModelCopyWithImpl<$Res,
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       measurementDate: freezed == measurementDate
           ? _value.measurementDate
@@ -166,6 +173,7 @@ abstract class _$$MicroclimateProtocolModelImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? measurementDate,
       String? workplace,
       String? workplaceId,
@@ -196,6 +204,7 @@ class __$$MicroclimateProtocolModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? measurementDate = freezed,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
@@ -216,6 +225,10 @@ class __$$MicroclimateProtocolModelImplCopyWithImpl<$Res>
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       measurementDate: freezed == measurementDate
           ? _value.measurementDate
@@ -271,6 +284,7 @@ class _$MicroclimateProtocolModelImpl implements _MicroclimateProtocolModel {
   const _$MicroclimateProtocolModelImpl(
       {this.id,
       this.organizationName,
+      this.organizationId,
       this.measurementDate,
       this.workplace,
       this.workplaceId,
@@ -290,6 +304,8 @@ class _$MicroclimateProtocolModelImpl implements _MicroclimateProtocolModel {
   final int? id;
   @override
   final String? organizationName;
+  @override
+  final String? organizationId;
   @override
   final String? measurementDate;
   @override
@@ -315,7 +331,7 @@ class _$MicroclimateProtocolModelImpl implements _MicroclimateProtocolModel {
 
   @override
   String toString() {
-    return 'MicroclimateProtocolModel(id: $id, organizationName: $organizationName, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, airTemperature01m: $airTemperature01m, airTemperature15m: $airTemperature15m, tncIndex01m: $tncIndex01m, tncIndex15m: $tncIndex15m, airVelocity01m: $airVelocity01m, airVelocity15m: $airVelocity15m, relativeHumidity: $relativeHumidity)';
+    return 'MicroclimateProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, airTemperature01m: $airTemperature01m, airTemperature15m: $airTemperature15m, tncIndex01m: $tncIndex01m, tncIndex15m: $tncIndex15m, airVelocity01m: $airVelocity01m, airVelocity15m: $airVelocity15m, relativeHumidity: $relativeHumidity)';
   }
 
   @override
@@ -326,6 +342,8 @@ class _$MicroclimateProtocolModelImpl implements _MicroclimateProtocolModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organizationName, organizationName) ||
                 other.organizationName == organizationName) &&
+            (identical(other.organizationId, organizationId) ||
+                other.organizationId == organizationId) &&
             (identical(other.measurementDate, measurementDate) ||
                 other.measurementDate == measurementDate) &&
             (identical(other.workplace, workplace) ||
@@ -356,6 +374,7 @@ class _$MicroclimateProtocolModelImpl implements _MicroclimateProtocolModel {
       runtimeType,
       id,
       organizationName,
+      organizationId,
       measurementDate,
       workplace,
       workplaceId,
@@ -389,6 +408,7 @@ abstract class _MicroclimateProtocolModel implements MicroclimateProtocolModel {
   const factory _MicroclimateProtocolModel(
       {final int? id,
       final String? organizationName,
+      final String? organizationId,
       final String? measurementDate,
       final String? workplace,
       final String? workplaceId,
@@ -408,6 +428,8 @@ abstract class _MicroclimateProtocolModel implements MicroclimateProtocolModel {
   int? get id;
   @override
   String? get organizationName;
+  @override
+  String? get organizationId;
   @override
   String? get measurementDate;
   @override

@@ -8,6 +8,7 @@ class ProtocolNameModel with _$ProtocolNameModel {
   const factory ProtocolNameModel({
     int? id,
     String? organizationName,
+    String? organizationId,
     String? workplace,
     String? workplaceId,
     String? protocolName,

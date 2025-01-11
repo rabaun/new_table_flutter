@@ -22,6 +22,7 @@ ProtocolNameModel _$ProtocolNameModelFromJson(Map<String, dynamic> json) {
 mixin _$ProtocolNameModel {
   int? get id => throw _privateConstructorUsedError;
   String? get organizationName => throw _privateConstructorUsedError;
+  String? get organizationId => throw _privateConstructorUsedError;
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
   String? get protocolName => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $ProtocolNameModelCopyWith<$Res> {
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? workplace,
       String? workplaceId,
       String? protocolName});
@@ -67,6 +69,7 @@ class _$ProtocolNameModelCopyWithImpl<$Res, $Val extends ProtocolNameModel>
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? protocolName = freezed,
@@ -79,6 +82,10 @@ class _$ProtocolNameModelCopyWithImpl<$Res, $Val extends ProtocolNameModel>
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       workplace: freezed == workplace
           ? _value.workplace
@@ -107,6 +114,7 @@ abstract class _$$ProtocolNameModelImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? organizationName,
+      String? organizationId,
       String? workplace,
       String? workplaceId,
       String? protocolName});
@@ -127,6 +135,7 @@ class __$$ProtocolNameModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? organizationName = freezed,
+    Object? organizationId = freezed,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? protocolName = freezed,
@@ -139,6 +148,10 @@ class __$$ProtocolNameModelImplCopyWithImpl<$Res>
       organizationName: freezed == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      organizationId: freezed == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String?,
       workplace: freezed == workplace
           ? _value.workplace
@@ -162,6 +175,7 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
   const _$ProtocolNameModelImpl(
       {this.id,
       this.organizationName,
+      this.organizationId,
       this.workplace,
       this.workplaceId,
       this.protocolName});
@@ -174,6 +188,8 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
   @override
   final String? organizationName;
   @override
+  final String? organizationId;
+  @override
   final String? workplace;
   @override
   final String? workplaceId;
@@ -182,7 +198,7 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
 
   @override
   String toString() {
-    return 'ProtocolNameModel(id: $id, organizationName: $organizationName, workplace: $workplace, workplaceId: $workplaceId, protocolName: $protocolName)';
+    return 'ProtocolNameModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, workplace: $workplace, workplaceId: $workplaceId, protocolName: $protocolName)';
   }
 
   @override
@@ -193,6 +209,8 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organizationName, organizationName) ||
                 other.organizationName == organizationName) &&
+            (identical(other.organizationId, organizationId) ||
+                other.organizationId == organizationId) &&
             (identical(other.workplace, workplace) ||
                 other.workplace == workplace) &&
             (identical(other.workplaceId, workplaceId) ||
@@ -203,8 +221,8 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, organizationName, workplace, workplaceId, protocolName);
+  int get hashCode => Object.hash(runtimeType, id, organizationName,
+      organizationId, workplace, workplaceId, protocolName);
 
   /// Create a copy of ProtocolNameModel
   /// with the given fields replaced by the non-null parameter values.
@@ -227,6 +245,7 @@ abstract class _ProtocolNameModel implements ProtocolNameModel {
   const factory _ProtocolNameModel(
       {final int? id,
       final String? organizationName,
+      final String? organizationId,
       final String? workplace,
       final String? workplaceId,
       final String? protocolName}) = _$ProtocolNameModelImpl;
@@ -238,6 +257,8 @@ abstract class _ProtocolNameModel implements ProtocolNameModel {
   int? get id;
   @override
   String? get organizationName;
+  @override
+  String? get organizationId;
   @override
   String? get workplace;
   @override

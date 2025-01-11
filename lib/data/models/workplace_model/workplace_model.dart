@@ -8,6 +8,7 @@ class WorkplaceModel with _$WorkplaceModel {
   const factory WorkplaceModel({
     int? id,
     String? organizationName,
+    String? organizationId,
     String? departmentName,
     String? workplaceName,
     String? workplaceId,

@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 
 import '../data/models/microclimate_protocol_model/microclimate_protocol_model.dart';
-import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import '../data/models/workplace_model/workplace_model.dart';
 import '../generated/l10n.dart';
 import 'bloc_microclimate_protocol.dart';
 import 'microclimate_protocol_dialog.dart';
@@ -28,7 +26,8 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<MicroclimateProtocolBloc>(context).add(MicroclimateEvent.getOrganization(protocolName: widget.protocolNameModel));
+    BlocProvider.of<MicroclimateProtocolBloc>(context)
+        .add(MicroclimateEvent.getOrganization(protocolName: widget.protocolNameModel));
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -90,7 +89,9 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
           showDialog(
             context: context,
             builder: (context) {
-              return AddMicroclimateDialog(protocolName: widget.protocolNameModel,);
+              return AddMicroclimateDialog(
+                protocolName: widget.protocolNameModel,
+              );
             },
           );
         },
@@ -186,15 +187,15 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
               child: SizedBox(
                 width: 124,
                 child: InkWell(
-                  // onTap: () {
-                  //   if (selectedId == user.id) {
-                  //     textController.text = "";
-                  //     selectedId = null;
-                  //   } else {
-                  //     textController.text = user.name!;
-                  //     selectedId = user.id;
-                  //   }
-                  // },
+                    // onTap: () {
+                    //   if (selectedId == user.id) {
+                    //     textController.text = "";
+                    //     selectedId = null;
+                    //   } else {
+                    //     textController.text = user.name!;
+                    //     selectedId = user.id;
+                    //   }
+                    // },
                     onLongPress: () {},
                     child: Text("${widget.microclimate?[index].measurementDate.toString()}")),
               )),
@@ -220,15 +221,15 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
               child: SizedBox(
                 width: 124,
                 child: InkWell(
-                  // onTap: () {
-                  //   if (selectedId == user.id) {
-                  //     textController.text = "";
-                  //     selectedId = null;
-                  //   } else {
-                  //     textController.text = user.name!;
-                  //     selectedId = user.id;
-                  //   }
-                  // },
+                    // onTap: () {
+                    //   if (selectedId == user.id) {
+                    //     textController.text = "";
+                    //     selectedId = null;
+                    //   } else {
+                    //     textController.text = user.name!;
+                    //     selectedId = user.id;
+                    //   }
+                    // },
                     onLongPress: () {},
                     child: Text("${widget.microclimate?[index].airTemperature01m.toString()}")),
               )),

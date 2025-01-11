@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 
 import '../data/models/organization_model/organization_model.dart';
-import '../screen/protocol_screen.dart';
 import '../screen/workplace_screen.dart';
 import 'bloc_organization.dart';
 import 'organization_dialog.dart';
@@ -100,7 +99,7 @@ class _BodyOrganizationState extends State<BodyOrganization> {
       height: MediaQuery.of(context).size.height,
       child: HorizontalDataTable(
         leftHandSideColumnWidth: 500,
-        rightHandSideColumnWidth: 1000,
+        rightHandSideColumnWidth: 900,
         isFixedHeader: true,
         headerWidgets: _getTitleWidget(),
         leftSideItemBuilder: _generateFirstColumnRow,
@@ -117,8 +116,8 @@ class _BodyOrganizationState extends State<BodyOrganization> {
 
   List<Widget> _getTitleWidget() {
     return [
-      _getTitleItemWidget('Наименование организации', 500),
-      _getTitleItemWidget(' ', 1000),
+      _getTitleItemWidget('Наименование организации', 350),
+      _getTitleItemWidget('УИД рабочего места', 350),
     ];
   }
 
@@ -176,39 +175,24 @@ class _BodyOrganizationState extends State<BodyOrganization> {
       constraints: const BoxConstraints(),
       child: Row(
         children: <Widget>[
-          SizedBox(
-            width: 500,
-            child: InkWell(
-              // onTap: () {
-              //   if (selectedId == user.id) {
-              //     textController.text = "";
-              //     selectedId = null;
-              //   } else {
-              //     textController.text = user.name!;
-              //     selectedId = user.id;
-              //   }
-              // },
-                onLongPress: () {   },
-                child: const Text('')),
-          ),
           Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: SizedBox(
-              width: 224,
-              child: InkWell(
-                // onTap: () {
-                //   if (selectedId == user.id) {
-                //     textController.text = "";
-                //     selectedId = null;
-                //   } else {
-                //     textController.text = user.name!;
-                //     selectedId = user.id;
-                //   }
-                // },
-                  onLongPress: () { },
-                  child: const Text('')),
-            ),
-          ),
+              padding: const EdgeInsets.all(6.0),
+              child: SizedBox(
+                width: 350,
+                child: InkWell(
+                  // onTap: () {
+                  //   if (selectedId == user.id) {
+                  //     textController.text = "";
+                  //     selectedId = null;
+                  //   } else {
+                  //     textController.text = user.name!;
+                  //     selectedId = user.id;
+                  //   }
+                  // },
+                    onLongPress: () {},
+                    child: Text(
+                        "${widget.organizationList?[index].organizationId.toString()}")),
+              )),
         ],
       ),
     );

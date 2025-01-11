@@ -8,6 +8,7 @@ class MicroclimateProtocolModel with _$MicroclimateProtocolModel {
   const factory MicroclimateProtocolModel({
     int? id,
     String? organizationName,
+    String? organizationId,
     String? measurementDate,
     String? workplace,
     String? workplaceId,

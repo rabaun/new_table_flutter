@@ -8,6 +8,7 @@ class PrimaryProtocolModel with _$PrimaryProtocolModel {
   const factory PrimaryProtocolModel({
     int? id,
     String? organizationName,
+    String? organizationId,
     String? measurementDate,
     String? workplace,
     String? workplaceId,

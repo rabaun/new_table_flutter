@@ -23,6 +23,7 @@ class AddProtocolNameDialog extends StatefulWidget {
 
 class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
   final organizationNameController = TextEditingController();
+  final organizationIdController = TextEditingController();
   final workplaceNameController = TextEditingController();
   final protocolNameController = TextEditingController();
   final workplaceIdController = TextEditingController();
@@ -155,6 +156,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
     selectedId = widget.protocolName?.id;
     organizationNameController.text =
         (widget.protocolName?.organizationName ?? widget.workplace?.organizationName)!;
+    organizationIdController.text = (widget.protocolName?.workplaceId ?? widget.workplace?.organizationId)!;
     workplaceNameController.text =
         (widget.protocolName?.workplace ?? widget.workplace?.workplaceName)!;
     protocolNameController.text = _factor ?? '';
@@ -190,6 +192,21 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                   border: OutlineInputBorder(),
                   labelText: 'Наименование организации',
                   hintText: 'Введите наименование организации',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: organizationIdController,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  filled: true,
+                  //<-- SEE HERE
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(),
+                  labelText: 'Уникальный номер организации',
+                  hintText: 'Введите уникальный номер организации',
                 ),
               ),
               const SizedBox(
@@ -232,6 +249,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
               MaterialButton(
                 onPressed: () {
                   final organizationName = organizationNameController.text;
+                  final organizationId = organizationIdController.text;
                   final workplace = workplaceNameController.text;
                   final protocolName = protocolNameController.text;
                   final workplaceId = workplaceIdController.text;
@@ -239,6 +257,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                     var organization = ProtocolNameModel(
                         id: selectedId,
                         organizationName: organizationName,
+                        organizationId: organizationId,
                         workplace: workplace,
                         workplaceId: workplaceId,
                         protocolName: protocolName);
@@ -247,6 +266,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                         : ProtocolNameEvent.update(protocolName: organization));
                     selectedId = null;
                     organizationNameController.clear();
+                    organizationIdController.clear();
                     workplaceNameController.clear();
                     protocolNameController.clear();
                     workplaceIdController.clear();
