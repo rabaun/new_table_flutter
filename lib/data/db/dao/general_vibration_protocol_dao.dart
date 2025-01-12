@@ -17,7 +17,6 @@ class GeneralVibrationProtocolDao {
   static const columnCorrectedLevelZ = 'correctedLevelZ';
 
   List<GeneralVibrationProtocolModel> list = [];
-  GeneralVibrationProtocolModel? generalVibrationProtocolModel;
 
   Future<List<GeneralVibrationProtocolModel>> initialTable() async {
     final db = await dbHelper.database;

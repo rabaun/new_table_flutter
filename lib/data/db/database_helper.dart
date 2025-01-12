@@ -165,12 +165,10 @@ class DatabaseHelper {
        workplace VARCHAR(32) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       uvAIntensityH05-10 VARCHAR(32) NOT NULL,
+       uvAIntensityH05_10 VARCHAR(32) NOT NULL,
        uvAIntensityH15 VARCHAR(32) NOT NULL,
-       uvBIntensityH05-10 VARCHAR(32) NOT NULL,
+       uvBIntensityH05_10 VARCHAR(32) NOT NULL,
        uvBIntensityH15 VARCHAR(32) NOT NULL,
-       uvCIntensityH05-10 VARCHAR(32) NOT NULL,
-       uvCIntensityH15 VARCHAR(32) NOT NULL,
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

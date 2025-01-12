@@ -24,6 +24,8 @@ import 'bloc_primary_protocol/bloc_primary_protocol.dart';
 import 'bloc_primary_protocol/primary_protocol_event.dart';
 import 'bloc_protocol/bloc_protocol.dart';
 import 'bloc_protocol/protocol_event.dart';
+import 'bloc_ultraviolet_radiation_protocol/bloc_ultraviolet_radiation_protocol.dart';
+import 'bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_event.dart';
 import 'bloc_workplace/bloc_workplace.dart';
 import 'bloc_workplace/workplace_event.dart';
 import 'data/db/dao/device_cert_dao.dart';
@@ -34,6 +36,7 @@ import 'data/db/dao/microclimate_protocol_dao.dart';
 import 'data/db/dao/organization_dao.dart';
 import 'data/db/dao/primary_protocol_dao.dart';
 import 'data/db/dao/protocol_dao.dart';
+import 'data/db/dao/ultraviolet_radiation_protocol_dao.dart';
 import 'data/db/dao/workplace_dao.dart';
 import 'di_container/di.dart';
 import 'generated/l10n.dart';
@@ -57,6 +60,7 @@ class MyApp extends StatelessWidget {
   final MicroclimateProtocolDao microclimateDao = MicroclimateProtocolDao();
   final GeneralVibrationProtocolDao generalVibrationProtocolDao = GeneralVibrationProtocolDao();
   final LocalVibrationProtocolDao localVibrationProtocolDao = LocalVibrationProtocolDao();
+  final UltravioletRadiationProtocolDao ultravioletRadiationProtocolDao = UltravioletRadiationProtocolDao();
 
   MyApp({super.key});
 
@@ -90,6 +94,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<LocalVibrationProtocolBloc>(
               create: (context) => LocalVibrationProtocolBloc(localVibrationProtocolDao)
                 ..add(const LocalVibrationProtocolEvent.initial())),
+          BlocProvider<UltravioletRadiationProtocolBloc>(
+              create: (context) => UltravioletRadiationProtocolBloc(ultravioletRadiationProtocolDao)
+                ..add(const UltravioletRadiationProtocolEvent.initial())),
         ],
         child: MaterialApp(
           localizationsDelegates: const [

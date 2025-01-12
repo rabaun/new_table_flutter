@@ -17,7 +17,6 @@ class LocalVibrationProtocolDao {
   static const columnCorrectedLevelZ = 'correctedLevelZ';
 
   List<LocalVibrationProtocolModel> list = [];
-  LocalVibrationProtocolModel? generalVibrationProtocolModel;
 
   Future<List<LocalVibrationProtocolModel>> initialTable() async {
     final db = await dbHelper.database;

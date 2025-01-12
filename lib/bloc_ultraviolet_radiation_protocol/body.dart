@@ -1,42 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
-import 'package:new_table_flutter/bloc_protocol/protocol_dialog.dart';
-import 'package:new_table_flutter/bloc_protocol/protocol_event.dart';
+import 'package:new_table_flutter/bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_dialog.dart';
+import 'package:new_table_flutter/bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_event.dart';
 
-import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import '../data/models/workplace_model/workplace_model.dart';
-import '../screen/general_vibration_protocol_screen.dart';
-import '../screen/local_vibration_protocol_screen.dart';
-import '../screen/microclimate_protocol_screen.dart';
-import '../screen/primary_protocol_screen.dart';
-import '../screen/ultraviolet_radiation_protocol_screen.dart';
-import 'bloc_protocol.dart';
+import '../data/models/ultraviolet_radiation_protocol_model/ultraviolet_radiation_protocol_model.dart';
+import '../generated/l10n.dart';
+import 'bloc_ultraviolet_radiation_protocol.dart';
 
-class BodyProtocolName extends StatefulWidget {
-  final List<ProtocolNameModel>? protocolNameList;
-  final OrganizationModel? organization;
-  final WorkplaceModel? workplaceName;
+class BodyUltravioletRadiationProtocol extends StatefulWidget {
+  final List<UltravioletRadiationProtocolModel>? ultravioletRadiation;
+  final ProtocolNameModel? protocolNameModel;
 
-  const BodyProtocolName(
-      {super.key,
-      required this.protocolNameList,
-      required this.organization,
-      required this.workplaceName});
+  const BodyUltravioletRadiationProtocol(
+      {super.key, required this.ultravioletRadiation, required this.protocolNameModel});
 
   @override
-  _BodyProtocolNameState createState() => _BodyProtocolNameState();
+  _BodyUltravioletRadiationProtocolState createState() => _BodyUltravioletRadiationProtocolState();
 }
 
-class _BodyProtocolNameState extends State<BodyProtocolName> {
+class _BodyUltravioletRadiationProtocolState extends State<BodyUltravioletRadiationProtocol> {
   int? selectedId;
   final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ProtocolNameBloc>(context).add(ProtocolNameEvent.getProtocol(
-        organization: widget.organization, workplaceName: widget.workplaceName));
+    BlocProvider.of<UltravioletRadiationProtocolBloc>(context)
+        .add(UltravioletRadiationProtocolEvent.getOrganization(protocolName: widget.protocolNameModel));
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -98,9 +89,8 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
           showDialog(
             context: context,
             builder: (context) {
-              return AddProtocolNameDialog(
-                workplace: widget.workplaceName,
-                organization: widget.organization,
+              return AddUltravioletRadiationProtocolDialog(
+                protocolName: widget.protocolNameModel,
               );
             },
           );
@@ -114,13 +104,13 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: HorizontalDataTable(
-        leftHandSideColumnWidth: 297,
+        leftHandSideColumnWidth: 197,
         rightHandSideColumnWidth: 1233,
         isFixedHeader: true,
         headerWidgets: _getTitleWidget(),
         leftSideItemBuilder: _generateFirstColumnRow,
         rightSideItemBuilder: _generateRightHandSideColumnRow,
-        itemCount: widget.protocolNameList?.length ?? 0,
+        itemCount: widget.ultravioletRadiation?.length ?? 0,
         rowSeparatorWidget: const Divider(
           color: Colors.black54,
           height: 1.0,
@@ -132,10 +122,13 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
 
   List<Widget> _getTitleWidget() {
     return [
-      _getTitleItemWidget('Наименование организации', 250),
-      _getTitleItemWidget('Наименование рабочего места', 250),
-      _getTitleItemWidget('УИД рабочего места', 350),
-      _getTitleItemWidget('Наименование вредных факторов на РМ', 300),
+      _getTitleItemWidget(S.of(context).name_company, 124),
+      _getTitleItemWidget('Дата замера', 124),
+      _getTitleItemWidget('Раб места', 124),
+      _getTitleItemWidget('Значение УФ-А на 0.5-1.0м', 144),
+      _getTitleItemWidget('Значение УФ-А на 1.5м', 144),
+      _getTitleItemWidget('Значение УФ-В на 0.5-1.0м', 144),
+      _getTitleItemWidget('Значение УФ-В на 1.5м', 144),
     ];
   }
 
@@ -161,99 +154,24 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
             onLongPress: () {
               selectedId = null;
               textController.clear();
-              BlocProvider.of<ProtocolNameBloc>(context)
-                  .add(ProtocolNameEvent.remove(protocolName: widget.protocolNameList?[index]));
+              BlocProvider.of<UltravioletRadiationProtocolBloc>(context)
+                  .add(UltravioletRadiationProtocolEvent.remove(ultravioletRadiation: widget.ultravioletRadiation?[index]));
             },
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        getName(widget.protocolNameList![index].protocolName.toString(), index)),
-              );
-            },
+            // onTap: () {
+            //   Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (_) => ProtocolScreen(organization: widget.organization),
+            //     ),
+            //   );
+            // },
             child: Text(
-                "${widget.protocolNameList?[index].id} ${widget.protocolNameList?[index].organizationName.toString()}"),
+                "${widget.ultravioletRadiation?[index].id} ${widget.ultravioletRadiation?[index].organizationName.toString()}"),
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      getName(widget.protocolNameList![index].protocolName.toString(), index)),
-            );
-          },
+          onPressed: () {},
         ),
       ],
     );
-  }
-
-  getName(String value, int index) {
-    dynamic title = PrimaryProtocolScreen(
-      protocolName: widget.protocolNameList?[index],
-    );
-    switch (value) {
-      case "Шум":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Вибрация локальная":
-        title = LocalVibrationProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Вибрация общая":
-        title = GeneralVibrationProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Освещение":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Химический":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "УФ-излучение":
-        title = UltravioletRadiationProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Микроклимат":
-        title = MicroclimateProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Аэрозоли АПДФ":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Лазерное излучение":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Тяжесть турдового процесса":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      case "Напряженность турдового процесса":
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-        break;
-      default:
-        title = PrimaryProtocolScreen(
-          protocolName: widget.protocolNameList?[index],
-        );
-    }
-    return title;
   }
 
   Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
@@ -264,7 +182,7 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
           Padding(
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
-                width: 250,
+                width: 124,
                 child: InkWell(
                     // onTap: () {
                     //   if (selectedId == user.id) {
@@ -276,12 +194,12 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.protocolNameList?[index].workplace.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].measurementDate.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
-                width: 350,
+                width: 124,
                 child: InkWell(
                     // onTap: () {
                     //   if (selectedId == user.id) {
@@ -293,12 +211,12 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.protocolNameList?[index].workplaceId.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].workplace.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
               child: SizedBox(
-                width: 250,
+                width: 124,
                 child: InkWell(
                     // onTap: () {
                     //   if (selectedId == user.id) {
@@ -310,7 +228,58 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.protocolNameList?[index].protocolName.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH05_10.toString()}")),
+              )),
+          Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: SizedBox(
+                width: 144,
+                child: InkWell(
+                    // onTap: () {
+                    //   if (selectedId == user.id) {
+                    //     textController.text = "";
+                    //     selectedId = null;
+                    //   } else {
+                    //     textController.text = user.name!;
+                    //     selectedId = user.id;
+                    //   }
+                    // },
+                    onLongPress: () {},
+                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH15.toString()}")),
+              )),
+          Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: SizedBox(
+                width: 144,
+                child: InkWell(
+                    // onTap: () {
+                    //   if (selectedId == user.id) {
+                    //     textController.text = "";
+                    //     selectedId = null;
+                    //   } else {
+                    //     textController.text = user.name!;
+                    //     selectedId = user.id;
+                    //   }
+                    // },
+                    onLongPress: () {},
+                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH05_10.toString()}")),
+              )),
+          Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: SizedBox(
+                width: 144,
+                child: InkWell(
+                    // onTap: () {
+                    //   if (selectedId == user.id) {
+                    //     textController.text = "";
+                    //     selectedId = null;
+                    //   } else {
+                    //     textController.text = user.name!;
+                    //     selectedId = user.id;
+                    //   }
+                    // },
+                    onLongPress: () {},
+                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH15.toString()}")),
               )),
         ],
       ),

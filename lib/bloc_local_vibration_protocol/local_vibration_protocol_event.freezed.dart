@@ -21,8 +21,8 @@ mixin _$LocalVibrationProtocolEvent {
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -36,8 +36,8 @@ mixin _$LocalVibrationProtocolEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -49,8 +49,8 @@ mixin _$LocalVibrationProtocolEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -63,9 +63,9 @@ mixin _$LocalVibrationProtocolEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
@@ -75,9 +75,9 @@ mixin _$LocalVibrationProtocolEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -87,9 +87,9 @@ mixin _$LocalVibrationProtocolEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -166,8 +166,8 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -184,8 +184,8 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -200,8 +200,8 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -220,9 +220,9 @@ class _$InitialImpl implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
@@ -235,9 +235,9 @@ class _$InitialImpl implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -250,9 +250,9 @@ class _$InitialImpl implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -334,7 +334,7 @@ class _$AddLocalVibrationProtocolEventImpl
 
   @override
   String toString() {
-    return 'LocalVibrationProtocolEvent.addGeneralVibrationProtocol(localVibrationProtocol: $localVibrationProtocol)';
+    return 'LocalVibrationProtocolEvent.addLocalVibrationProtocol(localVibrationProtocol: $localVibrationProtocol)';
   }
 
   @override
@@ -365,8 +365,8 @@ class _$AddLocalVibrationProtocolEventImpl
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -375,7 +375,7 @@ class _$AddLocalVibrationProtocolEventImpl
             LocalVibrationProtocolModel? localVibrationProtocol)
         update,
   }) {
-    return addGeneralVibrationProtocol(localVibrationProtocol);
+    return addLocalVibrationProtocol(localVibrationProtocol);
   }
 
   @override
@@ -383,15 +383,15 @@ class _$AddLocalVibrationProtocolEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         update,
   }) {
-    return addGeneralVibrationProtocol?.call(localVibrationProtocol);
+    return addLocalVibrationProtocol?.call(localVibrationProtocol);
   }
 
   @override
@@ -399,8 +399,8 @@ class _$AddLocalVibrationProtocolEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -408,8 +408,8 @@ class _$AddLocalVibrationProtocolEventImpl
         update,
     required TResult orElse(),
   }) {
-    if (addGeneralVibrationProtocol != null) {
-      return addGeneralVibrationProtocol(localVibrationProtocol);
+    if (addLocalVibrationProtocol != null) {
+      return addLocalVibrationProtocol(localVibrationProtocol);
     }
     return orElse();
   }
@@ -419,14 +419,14 @@ class _$AddLocalVibrationProtocolEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
   }) {
-    return addGeneralVibrationProtocol(this);
+    return addLocalVibrationProtocol(this);
   }
 
   @override
@@ -434,14 +434,14 @@ class _$AddLocalVibrationProtocolEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
   }) {
-    return addGeneralVibrationProtocol?.call(this);
+    return addLocalVibrationProtocol?.call(this);
   }
 
   @override
@@ -449,16 +449,16 @@ class _$AddLocalVibrationProtocolEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
     required TResult orElse(),
   }) {
-    if (addGeneralVibrationProtocol != null) {
-      return addGeneralVibrationProtocol(this);
+    if (addLocalVibrationProtocol != null) {
+      return addLocalVibrationProtocol(this);
     }
     return orElse();
   }
@@ -510,7 +510,7 @@ class _$GetLocalVibrationProtocolEventImpl
 
   @override
   String toString() {
-    return 'LocalVibrationProtocolEvent.getGeneralVibrationProtocol()';
+    return 'LocalVibrationProtocolEvent.getLocalVibrationProtocol()';
   }
 
   @override
@@ -529,8 +529,8 @@ class _$GetLocalVibrationProtocolEventImpl
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -539,7 +539,7 @@ class _$GetLocalVibrationProtocolEventImpl
             LocalVibrationProtocolModel? localVibrationProtocol)
         update,
   }) {
-    return getGeneralVibrationProtocol();
+    return getLocalVibrationProtocol();
   }
 
   @override
@@ -547,15 +547,15 @@ class _$GetLocalVibrationProtocolEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         update,
   }) {
-    return getGeneralVibrationProtocol?.call();
+    return getLocalVibrationProtocol?.call();
   }
 
   @override
@@ -563,8 +563,8 @@ class _$GetLocalVibrationProtocolEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -572,8 +572,8 @@ class _$GetLocalVibrationProtocolEventImpl
         update,
     required TResult orElse(),
   }) {
-    if (getGeneralVibrationProtocol != null) {
-      return getGeneralVibrationProtocol();
+    if (getLocalVibrationProtocol != null) {
+      return getLocalVibrationProtocol();
     }
     return orElse();
   }
@@ -583,14 +583,14 @@ class _$GetLocalVibrationProtocolEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
   }) {
-    return getGeneralVibrationProtocol(this);
+    return getLocalVibrationProtocol(this);
   }
 
   @override
@@ -598,14 +598,14 @@ class _$GetLocalVibrationProtocolEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
   }) {
-    return getGeneralVibrationProtocol?.call(this);
+    return getLocalVibrationProtocol?.call(this);
   }
 
   @override
@@ -613,16 +613,16 @@ class _$GetLocalVibrationProtocolEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
     required TResult orElse(),
   }) {
-    if (getGeneralVibrationProtocol != null) {
-      return getGeneralVibrationProtocol(this);
+    if (getLocalVibrationProtocol != null) {
+      return getLocalVibrationProtocol(this);
     }
     return orElse();
   }
@@ -730,8 +730,8 @@ class _$DeleteLocalVibrationProtocolEventImpl
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -748,8 +748,8 @@ class _$DeleteLocalVibrationProtocolEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -764,8 +764,8 @@ class _$DeleteLocalVibrationProtocolEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -784,9 +784,9 @@ class _$DeleteLocalVibrationProtocolEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
@@ -799,9 +799,9 @@ class _$DeleteLocalVibrationProtocolEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -814,9 +814,9 @@ class _$DeleteLocalVibrationProtocolEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -936,8 +936,8 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -954,8 +954,8 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -970,8 +970,8 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -990,9 +990,9 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
@@ -1005,9 +1005,9 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -1020,9 +1020,9 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -1145,8 +1145,8 @@ class _$UpdateLocalVibrationProtocolEventImpl
     required TResult Function() initial,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
-        addGeneralVibrationProtocol,
-    required TResult Function() getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    required TResult Function() getLocalVibrationProtocol,
     required TResult Function(
             LocalVibrationProtocolModel? localVibrationProtocol)
         remove,
@@ -1163,8 +1163,8 @@ class _$UpdateLocalVibrationProtocolEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult? Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult? Function()? getLocalVibrationProtocol,
     TResult? Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -1179,8 +1179,8 @@ class _$UpdateLocalVibrationProtocolEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
-        addGeneralVibrationProtocol,
-    TResult Function()? getGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
+    TResult Function()? getLocalVibrationProtocol,
     TResult Function(LocalVibrationProtocolModel? localVibrationProtocol)?
         remove,
     TResult Function(ProtocolNameModel? protocolName)? getOrganization,
@@ -1199,9 +1199,9 @@ class _$UpdateLocalVibrationProtocolEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(AddLocalVibrationProtocolEvent value)
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     required TResult Function(GetLocalVibrationProtocolEvent value)
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     required TResult Function(DeleteLocalVibrationProtocolEvent value) remove,
     required TResult Function(GetOrganizationEvent value) getOrganization,
     required TResult Function(UpdateLocalVibrationProtocolEvent value) update,
@@ -1214,9 +1214,9 @@ class _$UpdateLocalVibrationProtocolEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult? Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult? Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult? Function(GetOrganizationEvent value)? getOrganization,
     TResult? Function(UpdateLocalVibrationProtocolEvent value)? update,
@@ -1229,9 +1229,9 @@ class _$UpdateLocalVibrationProtocolEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(AddLocalVibrationProtocolEvent value)?
-        addGeneralVibrationProtocol,
+        addLocalVibrationProtocol,
     TResult Function(GetLocalVibrationProtocolEvent value)?
-        getGeneralVibrationProtocol,
+        getLocalVibrationProtocol,
     TResult Function(DeleteLocalVibrationProtocolEvent value)? remove,
     TResult Function(GetOrganizationEvent value)? getOrganization,
     TResult Function(UpdateLocalVibrationProtocolEvent value)? update,
