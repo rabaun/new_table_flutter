@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
 
-import '../../models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
 import '../../models/local_vibration_protocol_model/local_vibration_protocol_model.dart';
 import '../../models/protocol_name_model/protocol_name_model.dart';
 import '../database_helper.dart';
 
 class LocalVibrationProtocolDao {
   final dbHelper = DatabaseHelper.instance;
-  static const table = 'microclimate_protocol';
+  static const table = 'local_vibration_protocol';
   static const columnId = 'id';
   static const columnOrganizationName = 'organizationName';
   static const columnWorkplace = 'workplace';
@@ -18,7 +17,7 @@ class LocalVibrationProtocolDao {
   static const columnCorrectedLevelZ = 'correctedLevelZ';
 
   List<LocalVibrationProtocolModel> list = [];
-  GeneralVibrationProtocolModel? generalVibrationProtocolModel;
+  LocalVibrationProtocolModel? generalVibrationProtocolModel;
 
   Future<List<LocalVibrationProtocolModel>> initialTable() async {
     final db = await dbHelper.database;
@@ -40,6 +39,7 @@ class LocalVibrationProtocolDao {
         'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, correctedLevelX, correctedLevelY, correctedLevelZ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           (localVibration?.organizationName),
+          (localVibration?.organizationId),
           (localVibration?.measurementDate),
           (localVibration?.workplace),
           (localVibration?.workplaceId),
@@ -51,12 +51,12 @@ class LocalVibrationProtocolDao {
     return result;
   }
 
-  Future<List<LocalVibrationProtocolModel>> getWorkplace(ProtocolNameModel? protocolName) async {
+  Future<List<LocalVibrationProtocolModel>> getProtocol(ProtocolNameModel? protocolName) async {
     final db = await dbHelper.database;
     List<LocalVibrationProtocolModel> list = [];
     try {
       var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationName, protocolName?.workplaceId]);
+          [protocolName?.organizationId, protocolName?.workplaceId]);
       list = maps!.isNotEmpty ? maps.map((e) => LocalVibrationProtocolModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -66,7 +66,6 @@ class LocalVibrationProtocolDao {
     return list;
   }
 
-
   Future<List<LocalVibrationProtocolModel>> updateTableProtocol(
       LocalVibrationProtocolModel? localVibration) async {
     final db = await dbHelper.database;
@@ -75,6 +74,7 @@ class LocalVibrationProtocolDao {
         'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, correctedLevelX =?, correctedLevelY =?, correctedLevelZ =? WHERE id = ?',
         [
           (localVibration?.organizationName),
+          (localVibration?.organizationId),
           (localVibration?.measurementDate),
           (localVibration?.workplace),
           (localVibration?.workplaceId),

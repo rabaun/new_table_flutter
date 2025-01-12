@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
-import '../bloc_general_vibration_protocol/body.dart';
-import '../bloc_general_vibration_protocol/general_vibration_protocol_state.dart';
+import '../bloc_local_vibration_protocol/bloc_local_vibration_protocol.dart';
+import '../bloc_local_vibration_protocol/body.dart';
+import '../bloc_local_vibration_protocol/local_vibration_protocol_state.dart';
 import '../bloc_organization/bloc_organization.dart';
 import '../bloc_organization/organization_event.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 
-class GeneralVibrationProtocolScreen extends StatefulWidget {
-  const GeneralVibrationProtocolScreen({super.key, required this.protocolName});
+class LocalVibrationProtocolScreen extends StatefulWidget {
+  const LocalVibrationProtocolScreen({super.key, required this.protocolName});
 
   final ProtocolNameModel? protocolName;
 
   @override
-  State<GeneralVibrationProtocolScreen> createState() => _GeneralVibrationProtocolState();
+  State<LocalVibrationProtocolScreen> createState() => _LocalVibrationProtocolState();
 }
 
-class _GeneralVibrationProtocolState extends State<GeneralVibrationProtocolScreen> {
+class _LocalVibrationProtocolState extends State<LocalVibrationProtocolScreen> {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<OrganizationBloc>(context).add(const OrganizationEvent.getOrganization());
     return Scaffold(
         appBar: AppBar(
-          title: const Center(child: Text("Первичный протокол по общей вибрации")),
+          title: const Center(child: Text("Первичный протокол по локальной вибрации")),
           centerTitle: true, // this is all you need
         ),
-        body: BlocConsumer<GeneralVibrationProtocolBloc, GeneralVibrationProtocolState>(
+        body: BlocConsumer<LocalVibrationProtocolBloc, LocalVibrationProtocolState>(
           listener: (context, state) {
             // ScaffoldMessenger.of(context).showSnackBar(
             //   const SnackBar(
@@ -43,8 +43,8 @@ class _GeneralVibrationProtocolState extends State<GeneralVibrationProtocolScree
                 ],
               ),
               data: (data) {
-                return BodyGeneralVibrationProtocol(
-                  generalVibrationProtocol: data.generalVibrationProtocol,
+                return BodyLocalVibrationProtocol(
+                  localVibrationProtocol: data.localVibrationProtocol,
                   protocolNameModel: widget.protocolName,
                 );
               },
