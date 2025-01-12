@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc_microclimate_protocol/bloc_microclimate_protocol.dart';
-import '../bloc_microclimate_protocol/body.dart';
-import '../bloc_microclimate_protocol/microclimate_protocol_state.dart';
+import '../bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
+import '../bloc_general_vibration_protocol/body.dart';
+import '../bloc_general_vibration_protocol/general_vibration_protocol_state.dart';
 import '../bloc_organization/bloc_organization.dart';
 import '../bloc_organization/organization_event.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 
-class MicroclimateProtocolScreen extends StatefulWidget {
-  const MicroclimateProtocolScreen({super.key, required this.protocolName});
+class GeneralVibrationProtocolScreen extends StatefulWidget {
+  const GeneralVibrationProtocolScreen({super.key, required this.protocolName});
 
   final ProtocolNameModel? protocolName;
 
   @override
-  State<MicroclimateProtocolScreen> createState() => _WorkplaceScreenState();
+  State<GeneralVibrationProtocolScreen> createState() => _GeneralVibrationProtocolState();
 }
 
-class _WorkplaceScreenState extends State<MicroclimateProtocolScreen> {
+class _GeneralVibrationProtocolState extends State<GeneralVibrationProtocolScreen> {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<OrganizationBloc>(context).add(const OrganizationEvent.getOrganization());
@@ -26,7 +26,7 @@ class _WorkplaceScreenState extends State<MicroclimateProtocolScreen> {
           title: const Center(child: Text("Первичный протокол по микроклимату")),
           centerTitle: true, // this is all you need
         ),
-        body: BlocConsumer<MicroclimateProtocolBloc, MicroclimateState>(
+        body: BlocConsumer<GeneralVibrationProtocolBloc, GeneralVibrationProtocolState>(
           listener: (context, state) {
             // ScaffoldMessenger.of(context).showSnackBar(
             //   const SnackBar(
@@ -43,8 +43,8 @@ class _WorkplaceScreenState extends State<MicroclimateProtocolScreen> {
                 ],
               ),
               data: (data) {
-                return BodyMicroclimateProtocol(
-                  microclimate: data.microclimateList,
+                return BodyGeneralVibrationProtocol(
+                  generalVibrationProtocol: data.generalVibrationProtocol,
                   protocolNameModel: widget.protocolName,
                 );
               },

@@ -13,12 +13,12 @@ class DatabaseHelper {
   static const table4 = 'protocol_name';
   static const table5 = 'primary_protocol';
   static const table6 = 'microclimate_protocol';
-  static const table7 = 'local_vibration_protocol';
-  static const table8 = 'general_vibration_protocol';
+  static const table7 = 'local_vibration_protocol'; // нужно сделать
+  static const table8 = 'general_vibration_protocol'; // нужно сделать
   static const table9 = 'electromagnetic_field_protocol';
-  static const table10 = 'ultraviolet_radiation_protocol';
-  static const table11 = 'severity_work_process';
-  static const table12 = 'intensity_work_process';
+  static const table10 = 'ultraviolet_radiation_protocol'; // нужно сделать
+  static const table11 = 'severity_work_process'; // нужно сделать
+  static const table12 = 'intensity_work_process'; // нужно сделать
 
   static final DatabaseHelper instance = DatabaseHelper();
   static Database? db;

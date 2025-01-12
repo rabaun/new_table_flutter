@@ -12,6 +12,8 @@ import 'bloc_device/bloc_device.dart';
 import 'bloc_device/device_event.dart';
 import 'bloc_device_cert/bloc_device_cert.dart';
 import 'bloc_device_cert/device_cert_event.dart';
+import 'bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
+import 'bloc_general_vibration_protocol/general_vibration_protocol_event.dart';
 import 'bloc_microclimate_protocol/bloc_microclimate_protocol.dart';
 import 'bloc_microclimate_protocol/microclimate_protocol_event.dart';
 import 'bloc_organization/bloc_organization.dart';
@@ -24,6 +26,7 @@ import 'bloc_workplace/bloc_workplace.dart';
 import 'bloc_workplace/workplace_event.dart';
 import 'data/db/dao/device_cert_dao.dart';
 import 'data/db/dao/device_dao.dart';
+import 'data/db/dao/general_vibration_protocol_dao.dart';
 import 'data/db/dao/microclimate_protocol_dao.dart';
 import 'data/db/dao/organization_dao.dart';
 import 'data/db/dao/primary_protocol_dao.dart';
@@ -49,6 +52,7 @@ class MyApp extends StatelessWidget {
   final PrimaryProtocolDao primaryProtocolDao = PrimaryProtocolDao();
   final WorkplaceDao workplaceDao = WorkplaceDao();
   final MicroclimateProtocolDao microclimateDao = MicroclimateProtocolDao();
+  final GeneralVibrationProtocolDao generalVibrationProtocolDao = GeneralVibrationProtocolDao();
 
   MyApp({super.key});
 
@@ -75,6 +79,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<MicroclimateProtocolBloc>(
               create: (context) =>
               MicroclimateProtocolBloc(microclimateDao)..add(const MicroclimateEvent.initial())),
+          BlocProvider<GeneralVibrationProtocolBloc>(
+              create: (context) =>
+              GeneralVibrationProtocolBloc(generalVibrationProtocolDao)..add(const GeneralVibrationProtocolEvent.initial())),
         ],
         child: MaterialApp(
           localizationsDelegates: const [

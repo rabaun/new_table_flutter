@@ -2,35 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../data/models/microclimate_protocol_model/microclimate_protocol_model.dart';
+import '../data/models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import 'bloc_microclimate_protocol.dart';
-import 'microclimate_protocol_event.dart';
+import 'bloc_general_vibration_protocol.dart';
+import 'general_vibration_protocol_event.dart';
 
-class AddMicroclimateDialog extends StatefulWidget {
-  const AddMicroclimateDialog({super.key, this.microclimate, required this.protocolName});
+class AddGeneralVibrationProtocolDialog extends StatefulWidget {
+  const AddGeneralVibrationProtocolDialog(
+      {super.key, this.generalVibrationProtocol, required this.protocolName});
 
-  final MicroclimateProtocolModel? microclimate;
+  final GeneralVibrationProtocolModel? generalVibrationProtocol;
   final ProtocolNameModel? protocolName;
 
   @override
-  State<AddMicroclimateDialog> createState() => _AddMicroclimateDialogState();
+  State<AddGeneralVibrationProtocolDialog> createState() =>
+      _AddGeneralVibrationProtocolDialogState();
 }
 
-class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
+class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationProtocolDialog> {
   final organizationNameController = TextEditingController();
   final organizationIdController = TextEditingController();
   final measurementDateController = TextEditingController();
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final airTemperature01mController = TextEditingController();
-  final airTemperature15mController = TextEditingController();
-  final tncIndex01mController = TextEditingController();
-  final tncIndex15mController = TextEditingController();
-  final airVelocity01mController = TextEditingController();
-  final airVelocity15mController = TextEditingController();
-  final relativeHumidityController = TextEditingController();
+  final correctedLevelXController = TextEditingController();
+  final correctedLevelYController = TextEditingController();
+  final correctedLevelZController = TextEditingController();
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -57,26 +55,24 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<MicroclimateProtocolBloc>(context)
-        .add(MicroclimateEvent.getOrganization(protocolName: widget.protocolName));
-    selectedId = widget.microclimate?.id;
-    organizationNameController.text =
-        (widget.microclimate?.organizationName ?? widget.protocolName?.organizationName)!;
-    organizationIdController.text =  (widget.microclimate?.organizationId ?? widget.protocolName?.organizationId)!;
+    BlocProvider.of<GeneralVibrationProtocolBloc>(context)
+        .add(GeneralVibrationProtocolEvent.getOrganization(protocolName: widget.protocolName));
+    selectedId = widget.generalVibrationProtocol?.id;
+    organizationNameController.text = (widget.generalVibrationProtocol?.organizationName ??
+        widget.protocolName?.organizationName)!;
+    organizationIdController.text =
+        (widget.generalVibrationProtocol?.organizationId ?? widget.protocolName?.organizationId)!;
     measurementDateController.text =
         DateFormat('dd.MM.yyyy', 'ru_RU').format(selectedDate ?? DateTime.now());
-    workplaceController.text = (widget.microclimate?.workplace ?? widget.protocolName?.workplace)!;
+    workplaceController.text =
+        (widget.generalVibrationProtocol?.workplace ?? widget.protocolName?.workplace)!;
     workplaceIdController.text =
-        (widget.microclimate?.workplaceId ?? widget.protocolName?.workplaceId)!;
+        (widget.generalVibrationProtocol?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
-        (widget.microclimate?.parameterName ?? widget.protocolName?.protocolName)!;
-    airTemperature01mController.text = widget.microclimate?.airTemperature01m ?? '';
-    airTemperature15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    tncIndex01mController.text = widget.microclimate?.tncIndex01m ?? '';
-    tncIndex15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    airVelocity01mController.text = widget.microclimate?.airVelocity01m ?? '';
-    airVelocity15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    relativeHumidityController.text = widget.microclimate?.relativeHumidity ?? '';
+        (widget.generalVibrationProtocol?.parameterName ?? widget.protocolName?.protocolName)!;
+    correctedLevelXController.text = widget.generalVibrationProtocol?.correctedLevelX ?? '';
+    correctedLevelYController.text = widget.generalVibrationProtocol?.correctedLevelY ?? '';
+    correctedLevelZController.text = widget.generalVibrationProtocol?.correctedLevelZ ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -209,105 +205,45 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: airTemperature01mController,
+                  controller: correctedLevelXController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Температура воздуха на высоте 0.1м',
-                    hintText: 'Введите значение температуры воздуха на высоте 0.1м',
+                    labelText: 'Вибрация по X',
+                    hintText: 'Введите значение вибрация по X',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: airTemperature15mController,
+                  controller: correctedLevelYController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Температура воздуха на высоте 1.5м',
-                    hintText: 'Введите значение температуры воздуха на высоте 1.5м',
+                    labelText: 'Вибрация по Y',
+                    hintText: 'Введите значение вибрация по Y',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: tncIndex01mController,
+                  controller: correctedLevelZController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Значение ТНС на высоте 0.1м',
-                    hintText: 'Введите значение ТНС на высоте 0.1м',
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: tncIndex15mController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Значение ТНС на высоте 1.5м',
-                    hintText: 'Введите значение ТНС на высоте 1.5м',
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: airVelocity01mController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Скорость воздушного потока 0.1м',
-                    hintText: 'Введите значение скорость воздушного потока 0.1м',
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: airVelocity15mController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Скорость воздушного потока 1.5м',
-                    hintText: 'Введите значение скорость воздушного потока 1.5м',
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: relativeHumidityController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Значение влажности воздуха',
-                    hintText: 'Введите значение влажности воздуха',
+                    labelText: 'Вибрация по Z',
+                    hintText: 'Введите значение вибрация по Z',
                   ),
                 ),
                 const SizedBox(
@@ -321,45 +257,36 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
-                    final airTemperature01m = airTemperature01mController.text;
-                    final airTemperature15m = airTemperature15mController.text;
-                    final tncIndex01m = tncIndex01mController.text;
-                    final tncIndex15m = tncIndex15mController.text;
-                    final airVelocity01m = airVelocity01mController.text;
-                    final airVelocity15m = airVelocity15mController.text;
-                    final relativeHumidity = relativeHumidityController.text;
+                    final correctedLevelX = correctedLevelXController.text;
+                    final correctedLevelY = correctedLevelYController.text;
+                    final correctedLevelZ = correctedLevelZController.text;
 
                     if (organizationName.isNotEmpty) {
-                      var microclimate = MicroclimateProtocolModel(
-                          id: selectedId,
-                          organizationName: organizationName,
-                          organizationId: organizationId,
-                          measurementDate: measurementDate,
-                          workplace: workplaceName,
-                          workplaceId: workplaceId,
-                          parameterName: parameterName,
-                          airTemperature01m: airTemperature01m,
-                          airTemperature15m: airTemperature15m,
-                          tncIndex01m: tncIndex01m,
-                          tncIndex15m: tncIndex15m,
-                          airVelocity01m: airVelocity01m,
-                          airVelocity15m: airVelocity15m,
-                          relativeHumidity: relativeHumidity);
-                      BlocProvider.of<MicroclimateProtocolBloc>(context).add(selectedId == null
-                          ? MicroclimateEvent.addMicroclimate(microclimate: microclimate)
-                          : MicroclimateEvent.update(microclimate: microclimate));
+                      var generalVibrationProtocol = GeneralVibrationProtocolModel(
+                        id: selectedId,
+                        organizationName: organizationName,
+                        organizationId: organizationId,
+                        measurementDate: measurementDate,
+                        workplace: workplaceName,
+                        workplaceId: workplaceId,
+                        parameterName: parameterName,
+                        correctedLevelX: correctedLevelX,
+                        correctedLevelY: correctedLevelY,
+                        correctedLevelZ: correctedLevelZ,
+                      );
+                      BlocProvider.of<GeneralVibrationProtocolBloc>(context).add(selectedId == null
+                          ? GeneralVibrationProtocolEvent.addGeneralVibrationProtocol(
+                              generalVibrationProtocol: generalVibrationProtocol)
+                          : GeneralVibrationProtocolEvent.update(
+                              generalVibrationProtocol: generalVibrationProtocol));
                       selectedId = null;
                       organizationNameController.clear();
                       organizationIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
-                      airTemperature01mController.clear();
-                      airTemperature15mController.clear();
-                      tncIndex01mController.clear();
-                      tncIndex15mController.clear();
-                      airVelocity01mController.clear();
-                      airVelocity15mController.clear();
-                      relativeHumidityController.clear();
+                      correctedLevelXController.clear();
+                      correctedLevelYController.clear();
+                      correctedLevelZController.clear();
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля

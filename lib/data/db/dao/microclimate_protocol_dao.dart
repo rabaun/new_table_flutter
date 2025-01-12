@@ -40,9 +40,10 @@ class MicroclimateProtocolDao {
   Future<dynamic> addInTableProtocol(MicroclimateProtocolModel? microclimate) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, measurementDate, workplace, workplaceId, parameterName, airTemperature01m, airTemperature15m, tncIndex01m, tncIndex15m, airVelocity01m, airVelocity15m, relativeHumidity) VALUES (?, ?,?,?, ?, ?, ?, ?,?,?,?,?)',
+        'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, airTemperature01m, airTemperature15m, tncIndex01m, tncIndex15m, airVelocity01m, airVelocity15m, relativeHumidity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [
           (microclimate?.organizationName),
+          (microclimate?.organizationId),
           (microclimate?.measurementDate),
           (microclimate?.workplace),
           (microclimate?.workplaceId),
@@ -64,7 +65,7 @@ class MicroclimateProtocolDao {
     List<MicroclimateProtocolModel> list = [];
     try {
       var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationName, protocolName?.workplaceId]);
+          [protocolName?.organizationId, protocolName?.workplaceId]);
       list = maps!.isNotEmpty ? maps.map((e) => MicroclimateProtocolModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -80,9 +81,10 @@ class MicroclimateProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, parameterValue =? WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, parameterValue =? WHERE id = ?',
         [
           (microclimate?.organizationName),
+          (microclimate?.organizationId),
           (microclimate?.measurementDate),
           (microclimate?.workplace),
           (microclimate?.workplaceId),
