@@ -11,6 +11,7 @@ import '../screen/general_vibration_protocol_screen.dart';
 import '../screen/local_vibration_protocol_screen.dart';
 import '../screen/microclimate_protocol_screen.dart';
 import '../screen/primary_protocol_screen.dart';
+import '../screen/severity_work_process_screen.dart';
 import '../screen/ultraviolet_radiation_protocol_screen.dart';
 import 'bloc_protocol.dart';
 
@@ -239,7 +240,7 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
         );
         break;
       case "Тяжесть турдового процесса":
-        title = PrimaryProtocolScreen(
+        title = SeverityWorkProcessScreen(
           protocolName: widget.protocolNameList?[index],
         );
         break;

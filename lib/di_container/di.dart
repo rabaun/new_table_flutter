@@ -9,6 +9,7 @@ import '../data/db/dao/microclimate_protocol_dao.dart';
 import '../data/db/dao/organization_dao.dart';
 import '../data/db/dao/primary_protocol_dao.dart';
 import '../data/db/dao/protocol_dao.dart';
+import '../data/db/dao/severity_work_process_dao.dart';
 import '../data/db/dao/ultraviolet_radiation_protocol_dao.dart';
 import '../data/db/dao/workplace_dao.dart';
 
@@ -23,6 +24,7 @@ Future<bool?>? startGetIt(GetIt getIt) async {
   getIt.registerSingleton<GeneralVibrationProtocolDao>(GeneralVibrationProtocolDao());
   getIt.registerSingleton<LocalVibrationProtocolDao>(LocalVibrationProtocolDao());
   getIt.registerSingleton<UltravioletRadiationProtocolDao>(UltravioletRadiationProtocolDao());
+  getIt.registerSingleton<SeverityWorkProcessDao>(SeverityWorkProcessDao());
 
   return null;
 }

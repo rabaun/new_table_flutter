@@ -24,6 +24,8 @@ import 'bloc_primary_protocol/bloc_primary_protocol.dart';
 import 'bloc_primary_protocol/primary_protocol_event.dart';
 import 'bloc_protocol/bloc_protocol.dart';
 import 'bloc_protocol/protocol_event.dart';
+import 'bloc_severity_work_process_protocol/bloc_severity_work_process_protocol.dart';
+import 'bloc_severity_work_process_protocol/severity_work_process_event.dart';
 import 'bloc_ultraviolet_radiation_protocol/bloc_ultraviolet_radiation_protocol.dart';
 import 'bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_event.dart';
 import 'bloc_workplace/bloc_workplace.dart';
@@ -36,6 +38,7 @@ import 'data/db/dao/microclimate_protocol_dao.dart';
 import 'data/db/dao/organization_dao.dart';
 import 'data/db/dao/primary_protocol_dao.dart';
 import 'data/db/dao/protocol_dao.dart';
+import 'data/db/dao/severity_work_process_dao.dart';
 import 'data/db/dao/ultraviolet_radiation_protocol_dao.dart';
 import 'data/db/dao/workplace_dao.dart';
 import 'di_container/di.dart';
@@ -61,6 +64,7 @@ class MyApp extends StatelessWidget {
   final GeneralVibrationProtocolDao generalVibrationProtocolDao = GeneralVibrationProtocolDao();
   final LocalVibrationProtocolDao localVibrationProtocolDao = LocalVibrationProtocolDao();
   final UltravioletRadiationProtocolDao ultravioletRadiationProtocolDao = UltravioletRadiationProtocolDao();
+  final SeverityWorkProcessDao severityWorkProcessDao = SeverityWorkProcessDao();
 
   MyApp({super.key});
 
@@ -97,8 +101,12 @@ class MyApp extends StatelessWidget {
           BlocProvider<UltravioletRadiationProtocolBloc>(
               create: (context) => UltravioletRadiationProtocolBloc(ultravioletRadiationProtocolDao)
                 ..add(const UltravioletRadiationProtocolEvent.initial())),
+          BlocProvider<SeverityWorkProcessBloc>(
+              create: (context) => SeverityWorkProcessBloc(severityWorkProcessDao)
+                ..add(const SeverityWorkProcessEvent.initial())),
         ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

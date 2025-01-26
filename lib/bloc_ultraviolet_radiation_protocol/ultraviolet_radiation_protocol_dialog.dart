@@ -304,8 +304,11 @@ class _AddUltravioletRadiationProtocolDialogState
                       selectedId = null;
                       organizationNameController.clear();
                       organizationIdController.clear();
+                      measurementDateController.clear();
+                      workplaceIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
+
                       uvAIntensityH05_10Controller.clear();
                       uvAIntensityH15Controller.clear();
                       uvBIntensityH05_10Controller.clear();

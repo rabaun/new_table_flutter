@@ -13,10 +13,10 @@ class DatabaseHelper {
   static const table4 = 'protocol_name';
   static const table5 = 'primary_protocol';
   static const table6 = 'microclimate_protocol';
-  static const table7 = 'local_vibration_protocol'; // нужно сделать
-  static const table8 = 'general_vibration_protocol'; // нужно сделать
+  static const table7 = 'local_vibration_protocol';
+  static const table8 = 'general_vibration_protocol';
   static const table9 = 'electromagnetic_field_protocol';
-  static const table10 = 'ultraviolet_radiation_protocol'; // нужно сделать
+  static const table10 = 'ultraviolet_radiation_protocol'; 
   static const table11 = 'severity_work_process'; // нужно сделать
   static const table12 = 'intensity_work_process'; // нужно сделать
 
@@ -174,48 +174,99 @@ class DatabaseHelper {
 
       db?.execute('''
       CREATE TABLE IF NOT EXISTS $table11
-    (id INTEGER PRIMARY KEY,
-    organizationName VARCHAR(100) NOT NULL,
-    organizationId VARCHAR(100) NOT NULL,
-    total_dynamic_load DECIMAL(10, 2), 
-    distance DECIMAL(10, 2),
-    mass DECIMAL(10, 2),
-    movement_count INT,
-    lifting_movement DECIMAL(10, 2),
-    constant_movement DECIMAL(10, 2), 
-    hourly_sum_mass DECIMAL(10, 2),
-    local_movement_count INT, 
-    regional_movement_count INT, 
-    one_hand_load DECIMAL(10, 2),
-    two_hand_load DECIMAL(10, 2),
-    core_and_leg_load DECIMAL(10, 2),
-    free_posture_percentage DECIMAL(5, 2),
-    standing_posture_percentage DECIMAL(5, 2),
-    uncomfortable_posture_percentage DECIMAL(5, 2),
-    fixed_posture_percentage DECIMAL(5, 2),
-    forced_posture_percentage DECIMAL(5, 2),
-    sitting_posture_percentage DECIMAL(5, 2),
-    bends_per_operation INT,
-    operation_count INT,
-    horizontal_movement_km DECIMAL(10, 2), 
-    vertical_movement_km DECIMAL(10, 2), 
-    total_movement_km DECIMAL(10, 2));
+      (id INTEGER PRIMARY KEY,
+      organizationName VARCHAR(100) NOT NULL,
+      organizationId VARCHAR(100) NOT NULL,
+      measurementDate VARCHAR(32) NOT NULL,
+      workplace VARCHAR(32) NOT NULL,
+      workplaceId VARCHAR(32) NOT NULL,
+      parameterName VARCHAR(100) NOT NULL,
+      
+      massUpTo1mKg VARCHAR(32) NOT NULL,
+      distanceUpTo1mM VARCHAR(32) NOT NULL,
+      movementCountUpTo1m VARCHAR(32) NOT NULL,
+      
+      mass1To5mKg VARCHAR(32) NOT NULL,
+      distance1To5mM VARCHAR(32) NOT NULL,
+      movementCount1To5m VARCHAR(32) NOT NULL,
+      
+      massMoreThan5mKg VARCHAR(32) NOT NULL,
+      distanceMoreThan5mM VARCHAR(32) NOT NULL,
+      movementCountMoreThan5m VARCHAR(32) NOT NULL,
+      
+      liftingIntermittentMassKg VARCHAR(32) NOT NULL,
+      liftingIntermittentMovementCount VARCHAR(32) NOT NULL,
+      
+      liftingConstantMassKg VARCHAR(32) NOT NULL,
+      liftingConstantMovementCount VARCHAR(32) NOT NULL,
+      
+      liftingFromSurfaceMassKg VARCHAR(32) NOT NULL,
+      liftingFromSurfaceMovementCount VARCHAR(32) NOT NULL,
+      
+      liftingFromFloorMassKg VARCHAR(32) NOT NULL,
+      liftingFromFloorMovementCount VARCHAR(32) NOT NULL,
+      
+      stereotypicalLocalMovementPerOperation VARCHAR(32) NOT NULL,
+      stereotypicalLocalOperationCount VARCHAR(32) NOT NULL,
+      
+      stereotypicalRegionalMovementPerOperation VARCHAR(32) NOT NULL,
+      stereotypicalRegionalOperationCount VARCHAR(32) NOT NULL,
+      
+      staticLoadOneHandMassKg VARCHAR(32) NOT NULL,
+      staticLoadOneHandHoldingTimeS VARCHAR(32) NOT NULL,
+      staticLoadOneHandOperationCount VARCHAR(32) NOT NULL,
+      
+      staticLoadTwoHandsMassKg VARCHAR(32) NOT NULL,
+      staticLoadTwoHandsHoldingTimeS VARCHAR(32) NOT NULL,
+      staticLoadTwoHandsOperationCount VARCHAR(32) NOT NULL,
+      
+      staticLoadBodyAndLegsMassKg VARCHAR(32) NOT NULL,
+      staticLoadBodyAndLegsHoldingTimeS VARCHAR(32) NOT NULL,
+      staticLoadBodyAndLegsOperationCount VARCHAR(32) NOT NULL,
+      
+      freePosturePercentage VARCHAR(32) NOT NULL,
+      standingPosturePercentage VARCHAR(32) NOT NULL,
+      uncomfortablePosturePercentage VARCHAR(32) NOT NULL,
+      fixedPosturePercentage VARCHAR(32) NOT NULL,
+      forcedPosturePercentage VARCHAR(32) NOT NULL,
+      sittingPosturePercentage VARCHAR(32) NOT NULL,
+      
+      tiltsPerOperation VARCHAR(32) NOT NULL,
+      tiltsOperationCount VARCHAR(32) NOT NULL,
+      
+      horizontalMovementDistanceKm VARCHAR(32) NOT NULL,
+      horizontalMovementDistancePerMoveM VARCHAR(32) NOT NULL,
+      horizontalMovementCount VARCHAR(32) NOT NULL,
+      
+      verticalMovementDistanceKm VARCHAR(32) NOT NULL,
+      verticalMovementDistancePerMoveM VARCHAR(32) NOT NULL,
+      verticalMovementCount VARCHAR(32) NOT NULL,
+      FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
         ''');
 
       db?.execute('''
     CREATE TABLE IF NOT EXISTS $table12
-    (id INTEGER PRIMARY KEY,
-    signal_density DECIMAL(10, 2), 
-    simultaneous_objects_count INT, 
-    optical_device_usage DECIMAL(5, 2), 
-    voice_apparatus_load_hours DECIMAL(10, 2), 
-    auditory_analyzer_load DECIMAL(10, 2), 
-    focused_observation_duration DECIMAL(5, 2), 
-    monotony_loads DECIMAL(5, 2), 
-    elements_count INT,  
-    monotony_environment DECIMAL(5, 2),  
-    active_observation_time DECIMAL(10, 2));
-      ''');
+    id INTEGER PRIMARY KEY,                      -- Уникальный идентификатор записи
+    organizationName VARCHAR(100) NOT NULL,
+    organizationId VARCHAR(100) NOT NULL,
+    measurementDate VARCHAR(32) NOT NULL,
+    workplace VARCHAR(32) NOT NULL,
+    workplaceId VARCHAR(32) NOT NULL,
+    parameterName VARCHAR(100) NOT NULL,
+    
+    signal_density DECIMAL(10, 2),              -- Плотность сигналов (световых, звуковых) и сообщений
+    simultaneous_objects_count INT,             -- Число производственных объектов, наблюдаемых одновременно
+    optical_device_usage DECIMAL(5, 2),         -- Процент времени использования оптических приборов
+    voice_apparatus_load_hours DECIMAL(10, 2),  -- Нагрузка на голосовой аппарат (суммарное количество часов в неделю)
+    auditory_analyzer_load DECIMAL(10, 2),      -- Нагрузка на слуховой анализатор
+    focused_observation_duration DECIMAL(5, 2), -- Длительность сосредоточенного наблюдения (в % от времени смены)
+    monotony_loads DECIMAL(5, 2),               -- Уровень монотонности нагрузок
+    elements_count INT,                         -- Число элементов (приемов), необходимых для выполнения задания
+    monotony_environment DECIMAL(5, 2),         -- Уровень монотонности производственной обстановки
+    active_observation_time DECIMAL(10, 2)      -- Время активного наблюдения за ходом производственного процесса
+    );
+     ''');
+
     } catch (e) {
       if (kDebugMode) {
         print("Error");
