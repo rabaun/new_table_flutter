@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../data/models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
 import '../data/models/local_vibration_protocol_model/local_vibration_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 

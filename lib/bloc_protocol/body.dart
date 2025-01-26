@@ -8,6 +8,7 @@ import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 import '../data/models/workplace_model/workplace_model.dart';
 import '../screen/general_vibration_protocol_screen.dart';
+import '../screen/intensity_work_process_screen.dart';
 import '../screen/local_vibration_protocol_screen.dart';
 import '../screen/microclimate_protocol_screen.dart';
 import '../screen/primary_protocol_screen.dart';
@@ -135,7 +136,6 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
     return [
       _getTitleItemWidget('Наименование организации', 250),
       _getTitleItemWidget('Наименование рабочего места', 250),
-      _getTitleItemWidget('УИД рабочего места', 350),
       _getTitleItemWidget('Наименование вредных факторов на РМ', 300),
     ];
   }
@@ -245,7 +245,7 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
         );
         break;
       case "Напряженность турдового процесса":
-        title = PrimaryProtocolScreen(
+        title = IntensityWorkProcessScreen(
           protocolName: widget.protocolNameList?[index],
         );
         break;
@@ -278,23 +278,6 @@ class _BodyProtocolNameState extends State<BodyProtocolName> {
                     // },
                     onLongPress: () {},
                     child: Text("${widget.protocolNameList?[index].workplace.toString()}")),
-              )),
-          Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: SizedBox(
-                width: 350,
-                child: InkWell(
-                    // onTap: () {
-                    //   if (selectedId == user.id) {
-                    //     textController.text = "";
-                    //     selectedId = null;
-                    //   } else {
-                    //     textController.text = user.name!;
-                    //     selectedId = user.id;
-                    //   }
-                    // },
-                    onLongPress: () {},
-                    child: Text("${widget.protocolNameList?[index].workplaceId.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),

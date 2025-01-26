@@ -121,7 +121,6 @@ class _BodyProtocolNameState extends State<BodyWorkplace> {
       _getTitleItemWidget('Наименование организации', 250),
       _getTitleItemWidget('Наименование подразделения', 250),
       _getTitleItemWidget('Наименование рабочего места', 250),
-      _getTitleItemWidget('УИД рабочего места', 350),
     ];
   }
 
@@ -206,24 +205,6 @@ class _BodyProtocolNameState extends State<BodyWorkplace> {
                     onLongPress: () { },
                     child: Text(
                         "${widget.workplaceList?[index].workplaceName.toString()}")),
-              )),
-          Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: SizedBox(
-                width: 350,
-                child: InkWell(
-                  // onTap: () {
-                  //   if (selectedId == user.id) {
-                  //     textController.text = "";
-                  //     selectedId = null;
-                  //   } else {
-                  //     textController.text = user.name!;
-                  //     selectedId = user.id;
-                  //   }
-                  // },
-                    onLongPress: () {},
-                    child: Text(
-                        "${widget.workplaceList?[index].workplaceId.toString()}")),
               )),
         ],
       ),

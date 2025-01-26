@@ -113,7 +113,7 @@ class SeverityWorkProcessBody extends StatelessWidget {
 
   Widget _buildListItem(String title, String? value) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.lightBlueAccent, // Цвет фона карточки
@@ -146,7 +146,11 @@ class SeverityWorkProcessBody extends StatelessWidget {
               ),
               child: Text(
                 value ?? 'N/A',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal, // Жирный текст
+                  fontSize: 18, // Увеличенный размер шрифта
+                ),
               ),
             ),
           ],

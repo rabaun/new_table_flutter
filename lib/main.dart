@@ -14,6 +14,8 @@ import 'bloc_device_cert/bloc_device_cert.dart';
 import 'bloc_device_cert/device_cert_event.dart';
 import 'bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
 import 'bloc_general_vibration_protocol/general_vibration_protocol_event.dart';
+import 'bloc_intensity_work_process/bloc_intensity_work_process.dart';
+import 'bloc_intensity_work_process/intensity_work_process_event.dart';
 import 'bloc_local_vibration_protocol/bloc_local_vibration_protocol.dart';
 import 'bloc_local_vibration_protocol/local_vibration_protocol_event.dart';
 import 'bloc_microclimate_protocol/bloc_microclimate_protocol.dart';
@@ -33,6 +35,7 @@ import 'bloc_workplace/workplace_event.dart';
 import 'data/db/dao/device_cert_dao.dart';
 import 'data/db/dao/device_dao.dart';
 import 'data/db/dao/general_vibration_protocol_dao.dart';
+import 'data/db/dao/intensity_work_process_dao.dart';
 import 'data/db/dao/local_vibration_protocol_dao.dart';
 import 'data/db/dao/microclimate_protocol_dao.dart';
 import 'data/db/dao/organization_dao.dart';
@@ -65,6 +68,7 @@ class MyApp extends StatelessWidget {
   final LocalVibrationProtocolDao localVibrationProtocolDao = LocalVibrationProtocolDao();
   final UltravioletRadiationProtocolDao ultravioletRadiationProtocolDao = UltravioletRadiationProtocolDao();
   final SeverityWorkProcessDao severityWorkProcessDao = SeverityWorkProcessDao();
+  final IntensityWorkProcessDao intensityWorkProcessDao = IntensityWorkProcessDao();
 
   MyApp({super.key});
 
@@ -104,6 +108,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<SeverityWorkProcessBloc>(
               create: (context) => SeverityWorkProcessBloc(severityWorkProcessDao)
                 ..add(const SeverityWorkProcessEvent.initial())),
+          BlocProvider<IntensityWorkProcessBloc>(
+              create: (context) => IntensityWorkProcessBloc(intensityWorkProcessDao)
+                ..add(const IntensityWorkProcessEvent.initial())),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

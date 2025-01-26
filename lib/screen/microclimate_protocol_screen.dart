@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc_microclimate_protocol/bloc_microclimate_protocol.dart';
 import '../bloc_microclimate_protocol/body.dart';
 import '../bloc_microclimate_protocol/microclimate_protocol_state.dart';
+import '../bloc_microclimate_protocol/new_body.dart';
 import '../bloc_organization/bloc_organization.dart';
 import '../bloc_organization/organization_event.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
@@ -22,10 +23,6 @@ class _WorkplaceScreenState extends State<MicroclimateProtocolScreen> {
   Widget build(BuildContext context) {
     BlocProvider.of<OrganizationBloc>(context).add(const OrganizationEvent.getOrganization());
     return Scaffold(
-        appBar: AppBar(
-          title: const Center(child: Text("Первичный протокол по микроклимату")),
-          centerTitle: true, // this is all you need
-        ),
         body: BlocConsumer<MicroclimateProtocolBloc, MicroclimateState>(
           listener: (context, state) {
             // ScaffoldMessenger.of(context).showSnackBar(
@@ -43,7 +40,7 @@ class _WorkplaceScreenState extends State<MicroclimateProtocolScreen> {
                 ],
               ),
               data: (data) {
-                return BodyMicroclimateProtocol(
+                return NewMicroclimateProtocolBody(
                   microclimate: data.microclimateList,
                   protocolNameModel: widget.protocolName,
                 );

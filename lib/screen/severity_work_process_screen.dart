@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc_organization/bloc_organization.dart';
 import '../bloc_organization/organization_event.dart';
 import '../bloc_severity_work_process_protocol/bloc_severity_work_process_protocol.dart';
-import '../bloc_severity_work_process_protocol/body.dart';
+import '../bloc_severity_work_process_protocol/new_body.dart';
 import '../bloc_severity_work_process_protocol/severity_work_process_state.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 

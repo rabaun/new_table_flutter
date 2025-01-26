@@ -24,7 +24,7 @@ mixin _$SeverityWorkProcessEvent {
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) =>
@@ -36,7 +36,7 @@ mixin _$SeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ mixin _$SeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) =>
@@ -60,7 +60,7 @@ mixin _$SeverityWorkProcessEvent {
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) =>
       throw _privateConstructorUsedError;
@@ -72,7 +72,7 @@ mixin _$SeverityWorkProcessEvent {
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +83,7 @@ mixin _$SeverityWorkProcessEvent {
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) =>
@@ -159,7 +159,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
@@ -174,7 +174,7 @@ class _$InitialImpl implements Initial {
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
     return initial?.call();
@@ -188,7 +188,7 @@ class _$InitialImpl implements Initial {
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
@@ -207,7 +207,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
     return initial(this);
@@ -222,7 +222,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
     return initial?.call(this);
@@ -236,7 +236,7 @@ class _$InitialImpl implements Initial {
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {
@@ -347,7 +347,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
@@ -362,7 +362,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
     return addSeverityWorkProcess?.call(severityWorkProcess);
@@ -376,7 +376,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
@@ -395,7 +395,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
     return addSeverityWorkProcess(this);
@@ -410,7 +410,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
     return addSeverityWorkProcess?.call(this);
@@ -424,7 +424,7 @@ class _$AddSeverityWorkProcessEventImpl implements AddSeverityWorkProcessEvent {
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {
@@ -500,7 +500,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
@@ -515,7 +515,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
     return getSeverityWorkProcessn?.call();
@@ -529,7 +529,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
@@ -548,7 +548,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
     return getSeverityWorkProcessn(this);
@@ -563,7 +563,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
     return getSeverityWorkProcessn?.call(this);
@@ -577,7 +577,7 @@ class _$GetSeverityWorkProcessEventImpl implements GetSeverityWorkProcessEvent {
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {
@@ -692,7 +692,7 @@ class _$DeleteSeverityWorkProcessEventImpl
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
@@ -707,7 +707,7 @@ class _$DeleteSeverityWorkProcessEventImpl
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
     return remove?.call(severityWorkProcess);
@@ -721,7 +721,7 @@ class _$DeleteSeverityWorkProcessEventImpl
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
@@ -740,7 +740,7 @@ class _$DeleteSeverityWorkProcessEventImpl
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
     return remove(this);
@@ -755,7 +755,7 @@ class _$DeleteSeverityWorkProcessEventImpl
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
     return remove?.call(this);
@@ -769,7 +769,7 @@ class _$DeleteSeverityWorkProcessEventImpl
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {
@@ -856,7 +856,7 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
 
   @override
   String toString() {
-    return 'SeverityWorkProcessEvent.getOrganization(protocolName: $protocolName)';
+    return 'SeverityWorkProcessEvent.getProtocol(protocolName: $protocolName)';
   }
 
   @override
@@ -890,11 +890,11 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
-    return getOrganization(protocolName);
+    return getProtocol(protocolName);
   }
 
   @override
@@ -905,10 +905,10 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
-    return getOrganization?.call(protocolName);
+    return getProtocol?.call(protocolName);
   }
 
   @override
@@ -919,12 +919,12 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
-    if (getOrganization != null) {
-      return getOrganization(protocolName);
+    if (getProtocol != null) {
+      return getProtocol(protocolName);
     }
     return orElse();
   }
@@ -938,10 +938,10 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
-    return getOrganization(this);
+    return getProtocol(this);
   }
 
   @override
@@ -953,10 +953,10 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
-    return getOrganization?.call(this);
+    return getProtocol?.call(this);
   }
 
   @override
@@ -967,12 +967,12 @@ class _$GetOrganizationEventImpl implements GetOrganizationEvent {
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {
-    if (getOrganization != null) {
-      return getOrganization(this);
+    if (getProtocol != null) {
+      return getProtocol(this);
     }
     return orElse();
   }
@@ -1091,7 +1091,7 @@ class _$UpdateSeverityWorkProcessEventImpl
     required TResult Function() getSeverityWorkProcessn,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         remove,
-    required TResult Function(ProtocolNameModel? protocolName) getOrganization,
+    required TResult Function(ProtocolNameModel? protocolName) getProtocol,
     required TResult Function(SeverityWorkProcessModel? severityWorkProcess)
         update,
   }) {
@@ -1106,7 +1106,7 @@ class _$UpdateSeverityWorkProcessEventImpl
         addSeverityWorkProcess,
     TResult? Function()? getSeverityWorkProcessn,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult? Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult? Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult? Function(SeverityWorkProcessModel? severityWorkProcess)? update,
   }) {
     return update?.call(severityWorkProcess);
@@ -1120,7 +1120,7 @@ class _$UpdateSeverityWorkProcessEventImpl
         addSeverityWorkProcess,
     TResult Function()? getSeverityWorkProcessn,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? remove,
-    TResult Function(ProtocolNameModel? protocolName)? getOrganization,
+    TResult Function(ProtocolNameModel? protocolName)? getProtocol,
     TResult Function(SeverityWorkProcessModel? severityWorkProcess)? update,
     required TResult orElse(),
   }) {
@@ -1139,7 +1139,7 @@ class _$UpdateSeverityWorkProcessEventImpl
     required TResult Function(GetSeverityWorkProcessEvent value)
         getSeverityWorkProcessn,
     required TResult Function(DeleteSeverityWorkProcessEvent value) remove,
-    required TResult Function(GetOrganizationEvent value) getOrganization,
+    required TResult Function(GetOrganizationEvent value) getProtocol,
     required TResult Function(UpdateSeverityWorkProcessEvent value) update,
   }) {
     return update(this);
@@ -1154,7 +1154,7 @@ class _$UpdateSeverityWorkProcessEventImpl
     TResult? Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult? Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult? Function(GetOrganizationEvent value)? getOrganization,
+    TResult? Function(GetOrganizationEvent value)? getProtocol,
     TResult? Function(UpdateSeverityWorkProcessEvent value)? update,
   }) {
     return update?.call(this);
@@ -1168,7 +1168,7 @@ class _$UpdateSeverityWorkProcessEventImpl
     TResult Function(GetSeverityWorkProcessEvent value)?
         getSeverityWorkProcessn,
     TResult Function(DeleteSeverityWorkProcessEvent value)? remove,
-    TResult Function(GetOrganizationEvent value)? getOrganization,
+    TResult Function(GetOrganizationEvent value)? getProtocol,
     TResult Function(UpdateSeverityWorkProcessEvent value)? update,
     required TResult orElse(),
   }) {

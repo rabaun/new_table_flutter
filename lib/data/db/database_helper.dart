@@ -16,7 +16,7 @@ class DatabaseHelper {
   static const table7 = 'local_vibration_protocol';
   static const table8 = 'general_vibration_protocol';
   static const table9 = 'electromagnetic_field_protocol';
-  static const table10 = 'ultraviolet_radiation_protocol'; 
+  static const table10 = 'ultraviolet_radiation_protocol';
   static const table11 = 'severity_work_process'; // нужно сделать
   static const table12 = 'intensity_work_process'; // нужно сделать
 
@@ -245,28 +245,26 @@ class DatabaseHelper {
         ''');
 
       db?.execute('''
-    CREATE TABLE IF NOT EXISTS $table12
-    id INTEGER PRIMARY KEY,                      -- Уникальный идентификатор записи
-    organizationName VARCHAR(100) NOT NULL,
-    organizationId VARCHAR(100) NOT NULL,
-    measurementDate VARCHAR(32) NOT NULL,
-    workplace VARCHAR(32) NOT NULL,
-    workplaceId VARCHAR(32) NOT NULL,
-    parameterName VARCHAR(100) NOT NULL,
-    
-    signal_density DECIMAL(10, 2),              -- Плотность сигналов (световых, звуковых) и сообщений
-    simultaneous_objects_count INT,             -- Число производственных объектов, наблюдаемых одновременно
-    optical_device_usage DECIMAL(5, 2),         -- Процент времени использования оптических приборов
-    voice_apparatus_load_hours DECIMAL(10, 2),  -- Нагрузка на голосовой аппарат (суммарное количество часов в неделю)
-    auditory_analyzer_load DECIMAL(10, 2),      -- Нагрузка на слуховой анализатор
-    focused_observation_duration DECIMAL(5, 2), -- Длительность сосредоточенного наблюдения (в % от времени смены)
-    monotony_loads DECIMAL(5, 2),               -- Уровень монотонности нагрузок
-    elements_count INT,                         -- Число элементов (приемов), необходимых для выполнения задания
-    monotony_environment DECIMAL(5, 2),         -- Уровень монотонности производственной обстановки
-    active_observation_time DECIMAL(10, 2)      -- Время активного наблюдения за ходом производственного процесса
-    );
+      CREATE TABLE IF NOT EXISTS $table12
+      (id INTEGER PRIMARY KEY,
+      organizationName VARCHAR(100) NOT NULL,
+      organizationId VARCHAR(100) NOT NULL,
+      measurementDate VARCHAR(32) NOT NULL,
+      workplace VARCHAR(32) NOT NULL,
+      workplaceId VARCHAR(32) NOT NULL,
+      parameterName VARCHAR(100) NOT NULL,
+      signalDensity VARCHAR(32) NOT NULL,
+      simultaneousObjectsCount VARCHAR(32) NOT NULL,
+      opticalDeviceUsage VARCHAR(32) NOT NULL,
+      voiceApparatusLoadHours VARCHAR(32) NOT NULL,
+      auditoryAnalyzerLoad VARCHAR(32) NOT NULL,
+      focusedObservationDuration VARCHAR(32) NOT NULL,
+      monotonyLoads VARCHAR(32) NOT NULL,
+      elementsCount VARCHAR(32) NOT NULL,
+      monotonyEnvironment VARCHAR(32) NOT NULL,
+      activeObservationTime VARCHAR(32) NOT NULL,
+      FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
      ''');
-
     } catch (e) {
       if (kDebugMode) {
         print("Error");
