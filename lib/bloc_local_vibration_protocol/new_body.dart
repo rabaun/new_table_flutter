@@ -2,23 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
+import '../data/models/local_vibration_protocol_model/local_vibration_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import 'bloc_general_vibration_protocol.dart';
-import 'general_vibration_protocol_dialog.dart';
-import 'general_vibration_protocol_event.dart';
+import 'bloc_local_vibration_protocol.dart';
+import 'local_vibration_protocol_dialog.dart';
+import 'local_vibration_protocol_event.dart';
 
-class NewGeneralVibrationProtocolBody extends StatelessWidget {
-  const NewGeneralVibrationProtocolBody(
-      {super.key, required this.generalVibrationProtocol, required this.protocolNameModel});
+class NewLocalVibrationProtocolBody extends StatelessWidget {
+  const NewLocalVibrationProtocolBody(
+      {super.key, required this.localVibrationProtocol, required this.protocolNameModel});
 
-  final List<GeneralVibrationProtocolModel>? generalVibrationProtocol;
+  final List<LocalVibrationProtocolModel>? localVibrationProtocol;
   final ProtocolNameModel? protocolNameModel;
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<GeneralVibrationProtocolBloc>(context)
-        .add(GeneralVibrationProtocolEvent.getOrganization(protocolName: protocolNameModel));
+    BlocProvider.of<LocalVibrationProtocolBloc>(context)
+        .add(LocalVibrationProtocolEvent.getOrganization(protocolName: protocolNameModel));
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -29,20 +29,20 @@ class NewGeneralVibrationProtocolBody extends StatelessWidget {
         ],
       ),
       body:ListView.builder(
-          itemCount: generalVibrationProtocol?.length ?? 0,
+          itemCount: localVibrationProtocol?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
               children: [
                 // _buildListItem('ИД', microclimate?[index].id?.toString()),
-                _buildListItem('Организация', generalVibrationProtocol?[index].organizationName),
+                _buildListItem('Организация', localVibrationProtocol?[index].organizationName),
                 // _buildListItem('ИД организации', microclimate?[index].organizationId),
-                _buildListItem('Дата измерения', generalVibrationProtocol?[index].measurementDate),
-                _buildListItem('Место работы', generalVibrationProtocol?[index].workplace),
+                _buildListItem('Дата измерения', localVibrationProtocol?[index].measurementDate),
+                _buildListItem('Место работы', localVibrationProtocol?[index].workplace),
                 // _buildListItem('ИД места работы', microclimate?[index].workplaceId),
-                _buildListItem('Название параметра', generalVibrationProtocol?[index].parameterName),
-                _buildListItem('Вибрация по X', generalVibrationProtocol?[index].correctedLevelX),
-                _buildListItem('Вибрация по Y', generalVibrationProtocol?[index].correctedLevelY),
-                _buildListItem('Вибрация по Z', generalVibrationProtocol?[index].correctedLevelZ),
+                _buildListItem('Название параметра', localVibrationProtocol?[index].parameterName),
+                _buildListItem('Вибрация по X', localVibrationProtocol?[index].correctedLevelX),
+                _buildListItem('Вибрация по Y', localVibrationProtocol?[index].correctedLevelY),
+                _buildListItem('Вибрация по Z', localVibrationProtocol?[index].correctedLevelZ),
               ],
             );
           }),
@@ -58,7 +58,7 @@ class NewGeneralVibrationProtocolBody extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
-                return AddGeneralVibrationProtocolDialog(
+                return AddLocalVibrationProtocolDialog(
                   protocolName: protocolNameModel,
                 );
               },

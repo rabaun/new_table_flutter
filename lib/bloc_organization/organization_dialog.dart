@@ -44,80 +44,82 @@ class _AddOrganizationDialogState extends State<AddOrganizationDialog> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: organizationNameController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Наименование организации',
-                  hintText: 'Введите наименование организации',
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 50,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: organizatioIdController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Уникальный идентификатор для рабочего места',
-                  hintText: 'Введите уникальный идентификатор для рабочего места',
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  final organizationName = organizationNameController.text;
-                  final organizationId = organizatioIdController.text;
-                  if (organizationName.isNotEmpty) {
-                    var organization = OrganizationModel(
-                      id: selectedId,
-                      organizationName: organizationName,
-                      organizationId: organizationId,
-                    );
-                    BlocProvider.of<OrganizationBloc>(context).add(selectedId == null
-                        ? OrganizationEvent.addOrganization(organization: organization)
-                        : OrganizationEvent.update(organization: organization));
-                    selectedId = null;
-                    organizationNameController.clear();
-                    organizatioIdController.clear();
-                    Navigator.pop(context);
-                  } else {
-                    // Показать сообщение об ошибке или подсветить пустые поля
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Пожалуйста, заполните все поля.'),
-                      ),
-                    );
-                  }
-                },
-                color: Colors.blue,
-                textColor: Colors.white,
-                minWidth: 300,
-                height: 40,
-                child: const Text('Добавить'),
-              ),
-            ],
+                TextField(
+                  controller: organizationNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование организации',
+                    hintText: 'Введите наименование организации',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: organizatioIdController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Уникальный идентификатор для рабочего места',
+                    hintText: 'Введите уникальный идентификатор для рабочего места',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    final organizationName = organizationNameController.text;
+                    final organizationId = organizatioIdController.text;
+                    if (organizationName.isNotEmpty) {
+                      var organization = OrganizationModel(
+                        id: selectedId,
+                        organizationName: organizationName,
+                        organizationId: organizationId,
+                      );
+                      BlocProvider.of<OrganizationBloc>(context).add(selectedId == null
+                          ? OrganizationEvent.addOrganization(organization: organization)
+                          : OrganizationEvent.update(organization: organization));
+                      selectedId = null;
+                      organizationNameController.clear();
+                      organizatioIdController.clear();
+                      Navigator.pop(context);
+                    } else {
+                      // Показать сообщение об ошибке или подсветить пустые поля
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Пожалуйста, заполните все поля.'),
+                        ),
+                      );
+                    }
+                  },
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  minWidth: 300,
+                  height: 40,
+                  child: const Text('Добавить'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

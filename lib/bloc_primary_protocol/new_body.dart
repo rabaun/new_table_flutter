@@ -1,48 +1,45 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_dialog.dart';
+import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_event.dart';
 
-import '../data/models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
+import '../data/models/primary_protocol_model/primary_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import 'bloc_general_vibration_protocol.dart';
-import 'general_vibration_protocol_dialog.dart';
-import 'general_vibration_protocol_event.dart';
+import 'bloc_primary_protocol.dart';
 
-class NewGeneralVibrationProtocolBody extends StatelessWidget {
-  const NewGeneralVibrationProtocolBody(
-      {super.key, required this.generalVibrationProtocol, required this.protocolNameModel});
+class NewPrimaryProtocolBody extends StatelessWidget {
+  const NewPrimaryProtocolBody(
+      {super.key, required this.primaryProtocolList, required this.protocolNameModel});
 
-  final List<GeneralVibrationProtocolModel>? generalVibrationProtocol;
+  final List<PrimaryProtocolModel>? primaryProtocolList;
   final ProtocolNameModel? protocolNameModel;
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<GeneralVibrationProtocolBloc>(context)
-        .add(GeneralVibrationProtocolEvent.getOrganization(protocolName: protocolNameModel));
+    BlocProvider.of<PrimaryProtocolBloc>(context).add(PrimaryProtocolEvent.getProtocol(
+        organization: protocolNameModel, workplaceName: protocolNameModel));
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Center(child: Text("Первичный протокол по общей вибрации")),
+        title: const Center(child: Text("Первичный протокол по шуму")),
         centerTitle: true, // this is all you need
         actions: [
           _floatingButton(context),
         ],
       ),
-      body:ListView.builder(
-          itemCount: generalVibrationProtocol?.length ?? 0,
+      body: ListView.builder(
+          itemCount: primaryProtocolList?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
               children: [
                 // _buildListItem('ИД', microclimate?[index].id?.toString()),
-                _buildListItem('Организация', generalVibrationProtocol?[index].organizationName),
+                _buildListItem('Организация', primaryProtocolList?[index].organizationName),
                 // _buildListItem('ИД организации', microclimate?[index].organizationId),
-                _buildListItem('Дата измерения', generalVibrationProtocol?[index].measurementDate),
-                _buildListItem('Место работы', generalVibrationProtocol?[index].workplace),
+                _buildListItem('Дата измерения', primaryProtocolList?[index].measurementDate),
+                _buildListItem('Рабочее место', primaryProtocolList?[index].workplace),
                 // _buildListItem('ИД места работы', microclimate?[index].workplaceId),
-                _buildListItem('Название параметра', generalVibrationProtocol?[index].parameterName),
-                _buildListItem('Вибрация по X', generalVibrationProtocol?[index].correctedLevelX),
-                _buildListItem('Вибрация по Y', generalVibrationProtocol?[index].correctedLevelY),
-                _buildListItem('Вибрация по Z', generalVibrationProtocol?[index].correctedLevelZ),
+                _buildListItem('Название параметра', primaryProtocolList?[index].parameterName),
+                _buildListItem('Значение уровня шума', primaryProtocolList?[index].parameterValue),
               ],
             );
           }),
@@ -58,15 +55,14 @@ class NewGeneralVibrationProtocolBody extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
-                return AddGeneralVibrationProtocolDialog(
+                return AddPrimaryProtocolDialog(
                   protocolName: protocolNameModel,
                 );
               },
             );
           },
           icon: const Icon(Icons.add, color: Colors.black),
-        )
-    );
+        ));
   }
 
   Widget _buildListItem(String title, String? value) {

@@ -174,119 +174,121 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: organizationNameController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Наименование организации',
-                  hintText: 'Введите наименование организации',
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: organizationIdController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Уникальный номер организации',
-                  hintText: 'Введите уникальный номер организации',
+                TextField(
+                  controller: organizationNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование организации',
+                    hintText: 'Введите наименование организации',
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: workplaceNameController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Наименование рабочего места',
-                  hintText: 'Введите наименование рабочего места',
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: workplaceIdController,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  filled: true,
-                  //<-- SEE HERE
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(),
-                  labelText: 'Уникальный идентификатор для рабочего места',
-                  hintText: 'Введите уникальный идентификатор для рабочего места',
+                TextField(
+                  controller: organizationIdController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Уникальный номер организации',
+                    hintText: 'Введите уникальный номер организации',
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              dropdownButtonWidget(),
-              const SizedBox(
-                height: 30,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  final organizationName = organizationNameController.text;
-                  final organizationId = organizationIdController.text;
-                  final workplace = workplaceNameController.text;
-                  final protocolName = protocolNameController.text;
-                  final workplaceId = workplaceIdController.text;
-                  if (organizationName.isNotEmpty) {
-                    var organization = ProtocolNameModel(
-                        id: selectedId,
-                        organizationName: organizationName,
-                        organizationId: organizationId,
-                        workplace: workplace,
-                        workplaceId: workplaceId,
-                        protocolName: protocolName);
-                    BlocProvider.of<ProtocolNameBloc>(context).add(selectedId == null
-                        ? ProtocolNameEvent.addProtocolName(protocolName: organization)
-                        : ProtocolNameEvent.update(protocolName: organization));
-                    selectedId = null;
-                    organizationNameController.clear();
-                    organizationIdController.clear();
-                    workplaceNameController.clear();
-                    protocolNameController.clear();
-                    workplaceIdController.clear();
-                    Navigator.pop(context);
-                  } else {
-                    // Показать сообщение об ошибке или подсветить пустые поля
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Пожалуйста, заполните все поля.'),
-                      ),
-                    );
-                  }
-                },
-                color: Colors.blue,
-                textColor: Colors.white,
-                minWidth: 300,
-                height: 40,
-                child: const Text('Добавить'),
-              ),
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: workplaceNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование рабочего места',
+                    hintText: 'Введите наименование рабочего места',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: workplaceIdController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Уникальный идентификатор для рабочего места',
+                    hintText: 'Введите уникальный идентификатор для рабочего места',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                dropdownButtonWidget(),
+                const SizedBox(
+                  height: 30,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    final organizationName = organizationNameController.text;
+                    final organizationId = organizationIdController.text;
+                    final workplace = workplaceNameController.text;
+                    final protocolName = protocolNameController.text;
+                    final workplaceId = workplaceIdController.text;
+                    if (organizationName.isNotEmpty) {
+                      var organization = ProtocolNameModel(
+                          id: selectedId,
+                          organizationName: organizationName,
+                          organizationId: organizationId,
+                          workplace: workplace,
+                          workplaceId: workplaceId,
+                          protocolName: protocolName);
+                      BlocProvider.of<ProtocolNameBloc>(context).add(selectedId == null
+                          ? ProtocolNameEvent.addProtocolName(protocolName: organization)
+                          : ProtocolNameEvent.update(protocolName: organization));
+                      selectedId = null;
+                      organizationNameController.clear();
+                      organizationIdController.clear();
+                      workplaceNameController.clear();
+                      protocolNameController.clear();
+                      workplaceIdController.clear();
+                      Navigator.pop(context);
+                    } else {
+                      // Показать сообщение об ошибке или подсветить пустые поля
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Пожалуйста, заполните все поля.'),
+                        ),
+                      );
+                    }
+                  },
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  minWidth: 300,
+                  height: 40,
+                  child: const Text('Добавить'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

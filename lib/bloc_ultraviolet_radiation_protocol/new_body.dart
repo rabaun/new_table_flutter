@@ -1,48 +1,49 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_table_flutter/bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_dialog.dart';
+import 'package:new_table_flutter/bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_event.dart';
 
-import '../data/models/general_vibration_protocol_model/general_vibration_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import 'bloc_general_vibration_protocol.dart';
-import 'general_vibration_protocol_dialog.dart';
-import 'general_vibration_protocol_event.dart';
+import '../data/models/ultraviolet_radiation_protocol_model/ultraviolet_radiation_protocol_model.dart';
+import 'bloc_ultraviolet_radiation_protocol.dart';
 
-class NewGeneralVibrationProtocolBody extends StatelessWidget {
-  const NewGeneralVibrationProtocolBody(
-      {super.key, required this.generalVibrationProtocol, required this.protocolNameModel});
+class NewUltravioletRadiationProtocolBody extends StatelessWidget {
+  const NewUltravioletRadiationProtocolBody(
+      {super.key, required this.ultravioletRadiation, required this.protocolNameModel});
 
-  final List<GeneralVibrationProtocolModel>? generalVibrationProtocol;
+  final List<UltravioletRadiationProtocolModel>? ultravioletRadiation;
   final ProtocolNameModel? protocolNameModel;
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<GeneralVibrationProtocolBloc>(context)
-        .add(GeneralVibrationProtocolEvent.getOrganization(protocolName: protocolNameModel));
+    BlocProvider.of<UltravioletRadiationProtocolBloc>(context)
+        .add(UltravioletRadiationProtocolEvent.getOrganization(protocolName: protocolNameModel));
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Center(child: Text("Первичный протокол по общей вибрации")),
+        title: const Center(child: Text("Первичный протокол по УФ-излучению")),
         centerTitle: true, // this is all you need
         actions: [
           _floatingButton(context),
         ],
       ),
       body:ListView.builder(
-          itemCount: generalVibrationProtocol?.length ?? 0,
+          itemCount: ultravioletRadiation?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                // _buildListItem('ИД', microclimate?[index].id?.toString()),
-                _buildListItem('Организация', generalVibrationProtocol?[index].organizationName),
-                // _buildListItem('ИД организации', microclimate?[index].organizationId),
-                _buildListItem('Дата измерения', generalVibrationProtocol?[index].measurementDate),
-                _buildListItem('Место работы', generalVibrationProtocol?[index].workplace),
-                // _buildListItem('ИД места работы', microclimate?[index].workplaceId),
-                _buildListItem('Название параметра', generalVibrationProtocol?[index].parameterName),
-                _buildListItem('Вибрация по X', generalVibrationProtocol?[index].correctedLevelX),
-                _buildListItem('Вибрация по Y', generalVibrationProtocol?[index].correctedLevelY),
-                _buildListItem('Вибрация по Z', generalVibrationProtocol?[index].correctedLevelZ),
+                // _buildListItem('ИД', ultravioletRadiation?[index].id?.toString()),
+                _buildListItem('Организация', ultravioletRadiation?[index].organizationName),
+                // _buildListItem('ИД организации', ultravioletRadiation?[index].organizationId),
+                _buildListItem('Дата измерения', ultravioletRadiation?[index].measurementDate),
+                _buildListItem('Место работы', ultravioletRadiation?[index].workplace),
+                // _buildListItem('ИД места работы', ultravioletRadiation?[index].workplaceId),
+                _buildListItem('Название параметра', ultravioletRadiation?[index].parameterName),
+                _buildListItem('Ф-А излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].uvAIntensityH05_10),
+                _buildListItem('УФ-А излучение на высоте 1.5м', ultravioletRadiation?[index].uvAIntensityH15),
+                _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].uvBIntensityH05_10),
+                _buildListItem('УФ-В излучение на высоте 1.5м', ultravioletRadiation?[index].uvBIntensityH15),
               ],
             );
           }),
@@ -58,7 +59,7 @@ class NewGeneralVibrationProtocolBody extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
-                return AddGeneralVibrationProtocolDialog(
+                return AddUltravioletRadiationProtocolDialog(
                   protocolName: protocolNameModel,
                 );
               },

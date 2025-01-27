@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc_primary_protocol/bloc_primary_protocol.dart';
-import '../bloc_primary_protocol/body.dart';
+import '../bloc_primary_protocol/new_body.dart';
 import '../bloc_primary_protocol/primary_protocol_event.dart';
 import '../bloc_primary_protocol/primary_protocol_state.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
@@ -19,10 +19,6 @@ class _PrimaryProtocolScreenState extends State<PrimaryProtocolScreen> {
   Widget build(BuildContext context) {
     BlocProvider.of<PrimaryProtocolBloc>(context).add(const PrimaryProtocolEvent.getTableProtocol());
     return Scaffold(
-        appBar: AppBar(
-          title: const Center(child: Text("Первичный протокол по шуму")),
-          centerTitle: true, // this is all you need
-        ),
         body: BlocConsumer<PrimaryProtocolBloc, PrimaryProtocolState>(
           listener: (context, state) {
             // ScaffoldMessenger.of(context).showSnackBar(
@@ -40,7 +36,7 @@ class _PrimaryProtocolScreenState extends State<PrimaryProtocolScreen> {
                 ],
               ),
               data: (data) {
-                return BodyPrimaryProtocol(
+                return NewPrimaryProtocolBody(
                   primaryProtocolList: data.primaryProtocolList, protocolNameModel: widget.protocolName,
                 );
               },

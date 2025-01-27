@@ -79,197 +79,199 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: organizationNameController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Наименование организации',
-                    hintText: 'Введите наименование организации',
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: organizationIdController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Уникальный номер организации',
-                    hintText: 'Введите уникальный номер организации',
+                  TextField(
+                    controller: organizationNameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Наименование организации',
+                      hintText: 'Введите наименование организации',
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: workplaceController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Наименование рабочего места',
-                    hintText: 'Введите наименование рабочего места',
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: workplaceIdController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Уникальный идентификатор для рабочего места',
-                    hintText: 'Введите уникальный идентификатор для рабочего места',
+                  TextField(
+                    controller: organizationIdController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Уникальный номер организации',
+                      hintText: 'Введите уникальный номер организации',
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4.0),
-                    border: Border.all(color: Colors.black),
+                  const SizedBox(
+                    height: 30,
                   ),
-                  child: MouseRegion(
-                    onEnter: (_) {
-                      setState(() {
-                        _color = const Color(0xfff5f5f5); // Генерируем случайный цвет
-                      });
-                    },
-                    onExit: (_) {
-                      setState(() {
-                        _color = Colors.white; // Исходный цвет
-                      });
-                    },
-                    child: InputDecorator(
-                      decoration: const InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: 'Выберите дату',
-                        hintStyle: TextStyle(color: Colors.transparent),
-                      ),
-                      child: GestureDetector(
-                        onTap: () => _selectDate(context),
-                        child: Container(
-                          color: _color,
-                          // Применяем цвет фона
-                          alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                          // Паддинг для лучшего вида
-                          child: Text(
-                            selectedDate == null
-                                ? 'Выберите дату замеров'
-                                : DateFormat('dd.MM.yyyy').format(selectedDate!),
-                            style: const TextStyle(
-                                color: Colors.black87, fontWeight: FontWeight.normal),
+                  TextField(
+                    controller: workplaceController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Наименование рабочего места',
+                      hintText: 'Введите наименование рабочего места',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: workplaceIdController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Уникальный идентификатор для рабочего места',
+                      hintText: 'Введите уникальный идентификатор для рабочего места',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4.0),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: MouseRegion(
+                      onEnter: (_) {
+                        setState(() {
+                          _color = const Color(0xfff5f5f5); // Генерируем случайный цвет
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          _color = Colors.white; // Исходный цвет
+                        });
+                      },
+                      child: InputDecorator(
+                        decoration: const InputDecoration(
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          hintText: 'Выберите дату',
+                          hintStyle: TextStyle(color: Colors.transparent),
+                        ),
+                        child: GestureDetector(
+                          onTap: () => _selectDate(context),
+                          child: Container(
+                            color: _color,
+                            // Применяем цвет фона
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                            // Паддинг для лучшего вида
+                            child: Text(
+                              selectedDate == null
+                                  ? 'Выберите дату замеров'
+                                  : DateFormat('dd.MM.yyyy').format(selectedDate!),
+                              style: const TextStyle(
+                                  color: Colors.black87, fontWeight: FontWeight.normal),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: parameterNameController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Наименование фактора',
-                    hintText: 'Введите наименование фактора',
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: parameterValueController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Значение фактора',
-                    hintText: 'Введите значение фактора',
+                  TextField(
+                    controller: parameterNameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Наименование фактора',
+                      hintText: 'Введите наименование фактора',
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                MaterialButton(
-                  onPressed: () {
-                    final organizationName = organizationNameController.text;
-                    final organizationId = organizationIdController.text;
-                    final measurementDate = measurementDateController.text;
-                    final workplace = workplaceController.text;
-                    final workplaceId = workplaceIdController.text;
-                    final parameterName = parameterNameController.text;
-                    final parameterValue = parameterValueController.text;
-                    if (organizationName.isNotEmpty) {
-                      var primaryProtocol = PrimaryProtocolModel(
-                          id: selectedId,
-                          organizationName: organizationName,
-                          organizationId: organizationId,
-                          measurementDate: measurementDate,
-                          workplace: workplace,
-                          workplaceId: workplaceId,
-                          parameterName: parameterName,
-                          parameterValue: parameterValue);
-                      BlocProvider.of<PrimaryProtocolBloc>(context).add(selectedId == null
-                          ? PrimaryProtocolEvent.addTableProtocol(primaryProtocol: primaryProtocol)
-                          : PrimaryProtocolEvent.update(primaryProtocol: primaryProtocol));
-                      selectedId = null;
-                      organizationNameController.clear();
-                      organizationIdController.clear();
-                      measurementDateController.clear();
-                      workplaceController.clear();
-                      parameterNameController.clear();
-                      parameterValueController.clear();
-                      Navigator.pop(context);
-                    } else {
-                      // Показать сообщение об ошибке или подсветить пустые поля
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Пожалуйста, заполните все поля.'),
-                        ),
-                      );
-                    }
-                  },
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  minWidth: 300,
-                  height: 40,
-                  child: const Text('Добавить'),
-                ),
-              ],
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: parameterValueController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Значение фактора',
+                      hintText: 'Введите значение фактора',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      final organizationName = organizationNameController.text;
+                      final organizationId = organizationIdController.text;
+                      final measurementDate = measurementDateController.text;
+                      final workplace = workplaceController.text;
+                      final workplaceId = workplaceIdController.text;
+                      final parameterName = parameterNameController.text;
+                      final parameterValue = parameterValueController.text;
+                      if (organizationName.isNotEmpty) {
+                        var primaryProtocol = PrimaryProtocolModel(
+                            id: selectedId,
+                            organizationName: organizationName,
+                            organizationId: organizationId,
+                            measurementDate: measurementDate,
+                            workplace: workplace,
+                            workplaceId: workplaceId,
+                            parameterName: parameterName,
+                            parameterValue: parameterValue);
+                        BlocProvider.of<PrimaryProtocolBloc>(context).add(selectedId == null
+                            ? PrimaryProtocolEvent.addTableProtocol(primaryProtocol: primaryProtocol)
+                            : PrimaryProtocolEvent.update(primaryProtocol: primaryProtocol));
+                        selectedId = null;
+                        organizationNameController.clear();
+                        organizationIdController.clear();
+                        measurementDateController.clear();
+                        workplaceController.clear();
+                        parameterNameController.clear();
+                        parameterValueController.clear();
+                        Navigator.pop(context);
+                      } else {
+                        // Показать сообщение об ошибке или подсветить пустые поля
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Пожалуйста, заполните все поля.'),
+                          ),
+                        );
+                      }
+                    },
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    minWidth: 300,
+                    height: 40,
+                    child: const Text('Добавить'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
