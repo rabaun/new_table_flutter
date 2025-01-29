@@ -116,7 +116,7 @@ class _AddDeviceCertDialogState extends State<AddDeviceCertDialog> {
               ),
               MaterialButton(
                 onPressed: () {
-                  BlocProvider.of<DeviceCertBloc>(context).add(const DeviceCertEvent.getDevice());
+                  // BlocProvider.of<DeviceCertBloc>(context).add(const DeviceCertEvent.getDevice());
                   final serialNumber = serialNumberController.text;
                   final cerVerification = cerVerificationController.text;
                   final startTime = startTimeController.text;

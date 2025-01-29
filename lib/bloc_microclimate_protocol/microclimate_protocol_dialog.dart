@@ -8,7 +8,7 @@ import 'bloc_microclimate_protocol.dart';
 import 'microclimate_protocol_event.dart';
 
 class AddMicroclimateDialog extends StatefulWidget {
-  const AddMicroclimateDialog({super.key, this.microclimate, required this.protocolName});
+  const AddMicroclimateDialog({super.key, required this.microclimate, required this.protocolName});
 
   final MicroclimateProtocolModel? microclimate;
   final ProtocolNameModel? protocolName;

@@ -71,7 +71,6 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
             ),
           ),
         ),
-        floatingActionButton: _floatingButton(context),
       ))
     ]);
   }
@@ -81,7 +80,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
     super.initState();
   }
 
-  Widget _floatingButton(context) {
+  Widget _floatingButton(context, int index) {
     return Theme(
       data: Theme.of(context).copyWith(splashColor: Colors.yellow),
       child: FloatingActionButton(
@@ -90,6 +89,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
             context: context,
             builder: (context) {
               return AddMicroclimateDialog(
+                microclimate: widget.microclimate?[index],
                 protocolName: widget.protocolNameModel,
               );
             },

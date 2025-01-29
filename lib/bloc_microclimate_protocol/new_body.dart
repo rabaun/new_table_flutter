@@ -25,7 +25,7 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
         title: const Center(child: Text("Первичный протокол по микроклимату")),
         centerTitle: true, // this is all you need
         actions: [
-          _floatingButton(context),
+
         ],
       ),
       body:ListView.builder(
@@ -47,6 +47,7 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
                 _buildListItem('Значение W потока на высоте 0,1м', microclimate?[index].airVelocity01m),
                 _buildListItem('Значение W потока на высоте 1,5м', microclimate?[index].airVelocity15m),
                 _buildListItem('Значение влажности воздуха', microclimate?[index].relativeHumidity),
+                updateButton(context, index)
               ],
             );
           }),
@@ -54,22 +55,31 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
     );
   }
 
-  Widget _floatingButton(context) {
-    return Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AddMicroclimateDialog(
-                  protocolName: protocolNameModel,
-                );
-              },
-            );
-          },
-          icon: const Icon(Icons.add, color: Colors.black),
-        )
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddMicroclimateDialog(
+                microclimate: microclimate?[index],
+                protocolName: protocolNameModel,
+              );
+            },
+          );
+        },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("Редактировать", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
+      ),
     );
   }
 

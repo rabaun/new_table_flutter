@@ -81,7 +81,7 @@ class MicroclimateProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, parameterValue =? WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, airTemperature01m =?, airTemperature15m =?, tncIndex01m=?, tncIndex15m =?, airVelocity01m =?, airVelocity15m =?, relativeHumidity =? WHERE id = ?',
         [
           (microclimate?.organizationName),
           (microclimate?.organizationId),
