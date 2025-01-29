@@ -25,7 +25,9 @@ class NewUltravioletRadiationProtocolBody extends StatelessWidget {
         title: const Center(child: Text("Первичный протокол по УФ-излучению")),
         centerTitle: true, // this is all you need
         actions: [
-          _floatingButton(context),
+          ultravioletRadiation != null && ultravioletRadiation!.isEmpty
+              ? _floatingButton(context)
+              : Container(),
         ],
       ),
       body:ListView.builder(
@@ -44,10 +46,39 @@ class NewUltravioletRadiationProtocolBody extends StatelessWidget {
                 _buildListItem('УФ-А излучение на высоте 1.5м', ultravioletRadiation?[index].uvAIntensityH15),
                 _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].uvBIntensityH05_10),
                 _buildListItem('УФ-В излучение на высоте 1.5м', ultravioletRadiation?[index].uvBIntensityH15),
+                updateButton(context, index)
               ],
             );
           }),
       // floatingActionButton: _floatingButton(context),
+    );
+  }
+
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddUltravioletRadiationProtocolDialog(
+                ultravioletRadiation: ultravioletRadiation?[index],
+                protocolName: protocolNameModel,
+              );
+            },
+          );
+        },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("Редактировать", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
+      ),
     );
   }
 

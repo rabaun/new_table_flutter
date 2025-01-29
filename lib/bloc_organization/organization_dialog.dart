@@ -71,21 +71,6 @@ class _AddOrganizationDialogState extends State<AddOrganizationDialog> {
                 const SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  controller: organizatioIdController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    //<-- SEE HERE
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Уникальный идентификатор для рабочего места',
-                    hintText: 'Введите уникальный идентификатор для рабочего места',
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
                 MaterialButton(
                   onPressed: () {
                     final organizationName = organizationNameController.text;

@@ -24,7 +24,9 @@ class IntensityWorkProcessBody extends StatelessWidget {
         title: const Center(child: Text("Первичный протокол по напряженности трудового процесса")),
         centerTitle: true, // this is all you need
         actions: [
-          _floatingButton(context),
+          intensityWorkProcess != null && intensityWorkProcess!.isEmpty
+              ? _floatingButton(context)
+              : Container(),
         ],
       ),
       body: intensityWorkProcess != null
@@ -34,8 +36,8 @@ class IntensityWorkProcessBody extends StatelessWidget {
                 return Column(
                   children: [
                     // _buildListItem('ИД', intensityWorkProcess?[index].id?.toString()),
-                    _buildListItem('Организация',
-                        intensityWorkProcess?[index].organizationName ?? ''),
+                    _buildListItem(
+                        'Организация', intensityWorkProcess?[index].organizationName ?? ''),
                     // _buildListItem('ИД организации', intensityWorkProcess?[index].organizationId),
                     _buildListItem(
                         'Дата измерения', intensityWorkProcess?[index].measurementDate ?? ''),
@@ -62,11 +64,40 @@ class IntensityWorkProcessBody extends StatelessWidget {
                         intensityWorkProcess?[index].monotonyEnvironment ?? ''),
                     _buildListItem('Время акт. наблюд. за ход. пр. процесса ',
                         intensityWorkProcess?[index].activeObservationTime ?? ''),
+                    updateButton(context, index)
                   ],
                 );
               })
           : Container(),
       // floatingActionButton: _floatingButton(context),
+    );
+  }
+
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddIntensityWorkProcessDialog(
+                intensityWorkProcess: intensityWorkProcess?[index],
+                protocolName: protocolNameModel,
+              );
+            },
+          );
+        },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("Редактировать", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
+      ),
     );
   }
 

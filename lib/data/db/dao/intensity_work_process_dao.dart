@@ -74,7 +74,7 @@ class IntensityWorkProcessDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, parameterValue =? WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, signalDensity =?, simultaneousObjectsCount =?, opticalDeviceUsage =?, voiceApparatusLoadHours =?, auditoryAnalyzerLoad =?, focusedObservationDuration =?, monotonyLoads =?, elementsCount =?, monotonyEnvironment =?, activeObservationTime =? WHERE id = ?',
         [
           (intensityWorkProcess?.organizationName),
           (intensityWorkProcess?.organizationId),

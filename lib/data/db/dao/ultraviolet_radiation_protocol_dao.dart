@@ -71,7 +71,7 @@ class UltravioletRadiationProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, uvAIntensityH05_10 =?, uvAIntensityH15 =?, uvBIntensityH05_10 =?, uvBIntensityH15 =?,  WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, uvAIntensityH05_10 =?, uvAIntensityH15 =?, uvBIntensityH05_10 =?, uvBIntensityH15 =?  WHERE id = ?',
         [
           (ultravioletRadiation?.organizationName),
           (ultravioletRadiation?.organizationId),

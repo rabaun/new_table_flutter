@@ -25,24 +25,26 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
         title: const Center(child: Text("Первичный протокол по общей вибрации")),
         centerTitle: true, // this is all you need
         actions: [
-          _floatingButton(context),
-        ],
+          localVibrationProtocol != null && localVibrationProtocol!.isEmpty
+              ? _floatingButton(context)
+              : Container(),        ],
       ),
       body:ListView.builder(
           itemCount: localVibrationProtocol?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                // _buildListItem('ИД', microclimate?[index].id?.toString()),
+                // _buildListItem('ИД', localVibrationProtocol?[index].id?.toString()),
                 _buildListItem('Организация', localVibrationProtocol?[index].organizationName),
-                // _buildListItem('ИД организации', microclimate?[index].organizationId),
+                // _buildListItem('ИД организации', localVibrationProtocol?[index].organizationId),
                 _buildListItem('Дата измерения', localVibrationProtocol?[index].measurementDate),
                 _buildListItem('Место работы', localVibrationProtocol?[index].workplace),
-                // _buildListItem('ИД места работы', microclimate?[index].workplaceId),
+                // _buildListItem('ИД места работы', localVibrationProtocol?[index].workplaceId),
                 _buildListItem('Название параметра', localVibrationProtocol?[index].parameterName),
                 _buildListItem('Вибрация по X', localVibrationProtocol?[index].correctedLevelX),
                 _buildListItem('Вибрация по Y', localVibrationProtocol?[index].correctedLevelY),
                 _buildListItem('Вибрация по Z', localVibrationProtocol?[index].correctedLevelZ),
+                updateButton(context, index)
               ],
             );
           }),
@@ -66,6 +68,34 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
           },
           icon: const Icon(Icons.add, color: Colors.black),
         )
+    );
+  }
+
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddLocalVibrationProtocolDialog(
+                localVibrationProtocol: localVibrationProtocol?[index],
+                protocolName: protocolNameModel,
+              );
+            },
+          );
+        },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("Редактировать", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
+      ),
     );
   }
 

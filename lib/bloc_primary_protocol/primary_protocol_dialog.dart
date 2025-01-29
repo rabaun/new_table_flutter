@@ -105,21 +105,6 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                     height: 30,
                   ),
                   TextField(
-                    controller: organizationIdController,
-                    keyboardType: TextInputType.text,
-                    decoration: const InputDecoration(
-                      filled: true,
-                      //<-- SEE HERE
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(),
-                      labelText: 'Уникальный номер организации',
-                      hintText: 'Введите уникальный номер организации',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextField(
                     controller: workplaceController,
                     keyboardType: TextInputType.text,
                     decoration: const InputDecoration(
@@ -129,21 +114,6 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       border: OutlineInputBorder(),
                       labelText: 'Наименование рабочего места',
                       hintText: 'Введите наименование рабочего места',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextField(
-                    controller: workplaceIdController,
-                    keyboardType: TextInputType.text,
-                    decoration: const InputDecoration(
-                      filled: true,
-                      //<-- SEE HERE
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(),
-                      labelText: 'Уникальный идентификатор для рабочего места',
-                      hintText: 'Введите уникальный идентификатор для рабочего места',
                     ),
                   ),
                   const SizedBox(
