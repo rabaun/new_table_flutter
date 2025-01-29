@@ -117,20 +117,56 @@ class SeverityWorkProcessDao {
   Future<dynamic> addInTableProtocol(SeverityWorkProcessModel? severityWork) async {
     final db = await dbHelper.database;
     var result = db?.execute(''' INSERT INTO $table
-    (organizationName, organizationId, measurementDate, workplace,  workplaceId,  parameterName,
-    massUpTo1mKg, distanceUpTo1mM,  movementCountUpTo1m, mass1To5mKg, distance1To5mM, movementCount1To5m,
-    massMoreThan5mKg, distanceMoreThan5mM, movementCountMoreThan5m, liftingIntermittentMassKg,
-    liftingIntermittentMovementCount, liftingConstantMassKg,liftingConstantMovementCount,
-    liftingFromSurfaceMassKg, liftingFromSurfaceMovementCount, liftingFromFloorMassKg, 
-    liftingFromFloorMovementCount, stereotypicalLocalMovementPerOperation,stereotypicalLocalOperationCount,
-    stereotypicalRegionalMovementPerOperation, stereotypicalRegionalOperationCount, staticLoadOneHandMassKg, 
-    staticLoadOneHandHoldingTimeS, staticLoadOneHandOperationCount, staticLoadTwoHandsMassKg,
-    staticLoadTwoHandsHoldingTimeS, staticLoadTwoHandsOperationCount, staticLoadBodyAndLegsMassKg, 
-    staticLoadBodyAndLegsHoldingTimeS, staticLoadBodyAndLegsOperationCount, freePosturePercentage,
-    standingPosturePercentage, uncomfortablePosturePercentage, fixedPosturePercentage, 
-    forcedPosturePercentage, sittingPosturePercentage, tiltsPerOperation, tiltsOperationCount,
-    horizontalMovementDistanceKm, horizontalMovementDistancePerMoveM, horizontalMovementCount, 
-    verticalMovementDistanceKm, verticalMovementDistancePerMoveM, verticalMovementCount)
+    (organizationName, 
+    organizationId, 
+    measurementDate, 
+    workplace,  
+    workplaceId,  
+    parameterName,
+    massUpTo1mKg, 
+    distanceUpTo1mM,  
+    movementCountUpTo1m, 
+    mass1To5mKg, 
+    distance1To5mM, 
+    movementCount1To5m,
+    massMoreThan5mKg, 
+    distanceMoreThan5mM, 
+    movementCountMoreThan5m, 
+    liftingIntermittentMassKg,
+    liftingIntermittentMovementCount, 
+    liftingConstantMassKg,
+    liftingConstantMovementCount,
+    liftingFromSurfaceMassKg, 
+    liftingFromSurfaceMovementCount, 
+    liftingFromFloorMassKg, 
+    liftingFromFloorMovementCount, 
+    stereotypicalLocalMovementPerOperation,
+    stereotypicalLocalOperationCount,
+    stereotypicalRegionalMovementPerOperation,
+    stereotypicalRegionalOperationCount, 
+    staticLoadOneHandMassKg, 
+    staticLoadOneHandHoldingTimeS, 
+    staticLoadOneHandOperationCount, 
+    staticLoadTwoHandsMassKg,
+    staticLoadTwoHandsHoldingTimeS, 
+    staticLoadTwoHandsOperationCount, 
+    staticLoadBodyAndLegsMassKg, 
+    staticLoadBodyAndLegsHoldingTimeS, 
+    staticLoadBodyAndLegsOperationCount, 
+    freePosturePercentage,
+    standingPosturePercentage, 
+    uncomfortablePosturePercentage, 
+    fixedPosturePercentage, 
+    forcedPosturePercentage, 
+    sittingPosturePercentage, 
+    tiltsPerOperation, 
+    tiltsOperationCount,
+    horizontalMovementDistanceKm, 
+    horizontalMovementDistancePerMoveM, 
+    horizontalMovementCount, 
+    verticalMovementDistanceKm, 
+    verticalMovementDistancePerMoveM, 
+    verticalMovementCount)
     VALUES (?, ?, ?,  ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       ''', [
@@ -236,94 +272,145 @@ class SeverityWorkProcessDao {
   }
 
   Future<List<SeverityWorkProcessModel>> updateTableProtocol(
-      SeverityWorkProcessModel? protocol) async {
+      SeverityWorkProcessModel? severityWork) async {
     final db = await dbHelper.database;
     try {
       db?.execute('''UPDATE $table SET 
-    $columnOrganizationName: ${protocol?.organizationName},
-    $columnOrganizationId: ${protocol?.organizationId},
-    $columnMeasurementDate: ${protocol?.measurementDate},
-    $columnWorkplace: ${protocol?.workplace},
-    $columnWorkplaceId: ${protocol?.workplaceId},
-    $columnParameterName: ${protocol?.parameterName},
+    organizationName = ?, 
+    organizationId = ?, 
+    measurementDate = ?, 
+    workplace = ?,  
+    workplaceId = ?,  
+    parameterName = ?, 
+    massUpTo1mKg = ?, 
+    distanceUpTo1mM = ?,  
+    movementCountUpTo1m = ?, 
+    mass1To5mKg = ?, 
+    distance1To5mM = ?, 
+    movementCount1To5m = ?, 
+    massMoreThan5mKg = ?, 
+    distanceMoreThan5mM = ?, 
+    movementCountMoreThan5m = ?, 
+    liftingIntermittentMassKg = ?, 
+    liftingIntermittentMovementCount = ?, 
+    liftingConstantMassKg = ?, 
+    liftingConstantMovementCount = ?, 
+    liftingFromSurfaceMassKg = ?, 
+    liftingFromSurfaceMovementCount = ?, 
+    liftingFromFloorMassKg = ?, 
+    liftingFromFloorMovementCount = ?, 
+    stereotypicalLocalMovementPerOperation = ?, 
+    stereotypicalLocalOperationCount = ?, 
+    stereotypicalRegionalMovementPerOperation = ?, 
+    stereotypicalRegionalOperationCount = ?, 
+    staticLoadOneHandMassKg = ?, 
+    staticLoadOneHandHoldingTimeS = ?, 
+    staticLoadOneHandOperationCount = ?, 
+    staticLoadTwoHandsMassKg = ?, 
+    staticLoadTwoHandsHoldingTimeS = ?, 
+    staticLoadTwoHandsOperationCount = ?, 
+    staticLoadBodyAndLegsMassKg = ?, 
+    staticLoadBodyAndLegsHoldingTimeS = ?, 
+    staticLoadBodyAndLegsOperationCount = ?, 
+    freePosturePercentage = ?, 
+    standingPosturePercentage = ?, 
+    uncomfortablePosturePercentage = ?, 
+    fixedPosturePercentage = ?, 
+    forcedPosturePercentage = ?, 
+    sittingPosturePercentage = ?, 
+    tiltsPerOperation = ?, 
+    tiltsOperationCount = ?, 
+    horizontalMovementDistanceKm = ?, 
+    horizontalMovementDistancePerMoveM = ?, 
+    horizontalMovementCount = ?, 
+    verticalMovementDistanceKm = ?, 
+    verticalMovementDistancePerMoveM = ?, 
+    verticalMovementCount = ? WHERE id = ? ''',
+    [
+    severityWork?.organizationName,
+    severityWork?.organizationId,
+    severityWork?.measurementDate,
+    severityWork?.workplace,
+    severityWork?.workplaceId,
+    severityWork?.parameterName,
 
     // Поля для перемещения груза на расстояние до 1 м
-    $columnMassUpTo1mKg: ${protocol?.massUpTo1mKg},
-    $columnDistanceUpTo1mM: ${protocol?.distanceUpTo1mM},
-    $columnMovementCountUpTo1m: ${protocol?.movementCountUpTo1m},
+    severityWork?.massUpTo1mKg,
+    severityWork?.distanceUpTo1mM,
+    severityWork?.movementCountUpTo1m,
 
     // Поля для перемещения груза на расстояние от 1 до 5 м
-    $columnMass1To5mKg: ${protocol?.mass1To5mKg},
-    $columnDistance1To5mM: ${protocol?.distance1To5mM},
-    $columnMovementCount1To5m: ${protocol?.movementCount1To5m},
+    severityWork?.mass1To5mKg,
+    severityWork?.distance1To5mM,
+    severityWork?.movementCount1To5m,
 
     // Поля для перемещения груза на расстояние более 5 м
-    $columnMassMoreThan5mKg: ${protocol?.massMoreThan5mKg},
-    $columnDistanceMoreThan5mM: ${protocol?.distanceMoreThan5mM},
-    $columnMovementCountMoreThan5m: ${protocol?.movementCountMoreThan5m},
+    severityWork?.massMoreThan5mKg,
+    severityWork?.distanceMoreThan5mM,
+    severityWork?.movementCountMoreThan5m,
 
     // Поля для подъема и перемещения тяжести
-    $columnLiftingIntermittentMassKg: ${protocol?.liftingIntermittentMassKg},
-    $columnLiftingIntermittentMovementCount: ${protocol?.liftingIntermittentMovementCount},
+    severityWork?.liftingIntermittentMassKg,
+    severityWork?.liftingIntermittentMovementCount,
 
     // Поля для постоянного подъема и перемещения тяжести
-    $columnLiftingConstantMassKg: ${protocol?.liftingConstantMassKg},
-    $columnLiftingConstantMovementCount: ${protocol?.liftingConstantMovementCount},
+    severityWork?.liftingConstantMassKg,
+    severityWork?.liftingConstantMovementCount,
 
     // Поля для подъема с рабочей поверхности
-    $columnLiftingFromSurfaceMassKg: ${protocol?.liftingFromSurfaceMassKg},
-    $columnLiftingFromSurfaceMovementCount: ${protocol?.liftingFromSurfaceMovementCount},
+    severityWork?.liftingFromSurfaceMassKg,
+    severityWork?.liftingFromSurfaceMovementCount,
 
     // Поля для подъема с пола
-    $columnLiftingFromFloorMassKg: ${protocol?.liftingFromFloorMassKg},
-    $columnLiftingFromFloorMovementCount: ${protocol?.liftingFromFloorMovementCount},
+    severityWork?.liftingFromFloorMassKg,
+    severityWork?.liftingFromFloorMovementCount,
 
     // Поля для стереотипных рабочих движений
-    $columnStereotypicalLocalMovementPerOperation: ${protocol?.stereotypicalLocalMovementPerOperation},
-    $columnStereotypicalLocalOperationCount: ${protocol?.stereotypicalLocalOperationCount},
+    severityWork?.stereotypicalLocalMovementPerOperation,
+    severityWork?.stereotypicalLocalOperationCount,
 
     // Поля для стереотипных движений при региональной нагрузке
-    $columnStereotypicalRegionalMovementPerOperation: ${protocol?.stereotypicalRegionalMovementPerOperation},
-   $columnStereotypicalRegionalOperationCount: ${protocol?.stereotypicalRegionalOperationCount},
+    severityWork?.stereotypicalRegionalMovementPerOperation,
+    severityWork?.stereotypicalRegionalOperationCount,
 
     // Поля для статической нагрузки (одной рукой)
-    $columnStaticLoadOneHandMassKg: ${protocol?.staticLoadOneHandMassKg},
-    $columnStaticLoadOneHandHoldingTimeS: ${protocol?.staticLoadOneHandHoldingTimeS},
-    $columnStaticLoadOneHandOperationCount: ${protocol?.staticLoadOneHandOperationCount},
+    severityWork?.staticLoadOneHandMassKg,
+    severityWork?.staticLoadOneHandHoldingTimeS,
+    severityWork?.staticLoadOneHandOperationCount,
 
     // Поля для статической нагрузки (двумя руками)
-    $columnStaticLoadTwoHandsMassKg: ${protocol?.staticLoadTwoHandsMassKg},
-    $columnStaticLoadTwoHandsHoldingTimeS: ${protocol?.staticLoadTwoHandsHoldingTimeS},
-    $columnStaticLoadTwoHandsOperationCount: ${protocol?.staticLoadTwoHandsOperationCount},
+    severityWork?.staticLoadTwoHandsMassKg,
+    severityWork?.staticLoadTwoHandsHoldingTimeS,
+    severityWork?.staticLoadTwoHandsOperationCount,
 
     // Поля для статической нагрузки (с участием мышц корпуса и ног)
-    $columnStaticLoadBodyAndLegsMassKg: ${protocol?.staticLoadBodyAndLegsMassKg},
-    $columnStaticLoadBodyAndLegsHoldingTimeS: ${protocol?.staticLoadBodyAndLegsHoldingTimeS},
-    $columnStaticLoadBodyAndLegsOperationCount: ${protocol?.staticLoadBodyAndLegsOperationCount},
+    severityWork?.staticLoadBodyAndLegsMassKg,
+    severityWork?.staticLoadBodyAndLegsHoldingTimeS,
+    severityWork?.staticLoadBodyAndLegsOperationCount,
 
     // Поля для рабочей позы
-    $columnFreePosturePercentage: ${protocol?.freePosturePercentage},
-    $columnStandingPosturePercentage: ${protocol?.standingPosturePercentage},
-    $columnUncomfortablePosturePercentage: ${protocol?.uncomfortablePosturePercentage},
-    $columnFixedPosturePercentage: ${protocol?.fixedPosturePercentage},
-    $columnForcedPosturePercentage: ${protocol?.forcedPosturePercentage},
-    $columnSittingPosturePercentage: ${protocol?.sittingPosturePercentage},
+    severityWork?.freePosturePercentage,
+    severityWork?.standingPosturePercentage,
+    severityWork?.uncomfortablePosturePercentage,
+    severityWork?.fixedPosturePercentage,
+    severityWork?.forcedPosturePercentage,
+    severityWork?.sittingPosturePercentage,
 
     // Поля для наклонов корпуса
-    $columnTiltsPerOperation: ${protocol?.tiltsPerOperation},
-    $columnTiltsOperationCount: ${protocol?.tiltsOperationCount},
+    severityWork?.tiltsPerOperation,
+    severityWork?.tiltsOperationCount,
 
     // Поля для перемещения в пространстве (горизонтально)
-    $columnHorizontalMovementDistanceKm: ${protocol?.horizontalMovementDistanceKm},
-    $columnHorizontalMovementDistancePerMoveM: ${protocol?.horizontalMovementDistancePerMoveM},
-    $columnHorizontalMovementCount: ${protocol?.horizontalMovementCount},
+    severityWork?.horizontalMovementDistanceKm,
+    severityWork?.horizontalMovementDistancePerMoveM,
+    severityWork?.horizontalMovementCount,
 
     // Поля для перемещения в пространстве (вертикально)
-    $columnVerticalMovementDistanceKm: ${protocol?.verticalMovementDistanceKm},
-    $columnVerticalMovementDistancePerMoveM: ${protocol?.verticalMovementDistancePerMoveM},
-    $columnVerticalMovementCount: ${protocol?.verticalMovementCount},
-       ''');
-      var result = db?.select('SELECT * FROM $table WHERE id = ?', [protocol?.id]);
+    severityWork?.verticalMovementDistanceKm,
+    severityWork?.verticalMovementDistancePerMoveM,
+    severityWork?.verticalMovementCount,  severityWork?.id,
+    ]);
+      var result = db?.select('SELECT * FROM $table WHERE id = ?', [severityWork?.id]);
       list = result!.isNotEmpty
           ? result.map((e) => SeverityWorkProcessModel.fromJson(e)).toList()
           : [];

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'dart:math';
 import '../data/models/microclimate_protocol_model/microclimate_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 import 'bloc_microclimate_protocol.dart';
@@ -25,7 +25,7 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
         title: const Center(child: Text("Первичный протокол по микроклимату")),
         centerTitle: true, // this is all you need
         actions: [
-
+          if (microclimate != null && microclimate!.isEmpty) _floatingButton(context),
         ],
       ),
       body:ListView.builder(
@@ -52,6 +52,25 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
             );
           }),
       // floatingActionButton: _floatingButton(context),
+    );
+  }
+
+  Widget _floatingButton(context) {
+    return Theme(
+        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
+        child: IconButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AddMicroclimateDialog(
+                  protocolName: protocolNameModel,
+                );
+              },
+            );
+          },
+          icon: const Icon(Icons.add, color: Colors.black),
+        )
     );
   }
 

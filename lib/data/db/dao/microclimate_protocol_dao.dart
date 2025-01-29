@@ -75,7 +75,6 @@ class MicroclimateProtocolDao {
     return list;
   }
 
-
   Future<List<MicroclimateProtocolModel>> updateTableProtocol(
       MicroclimateProtocolModel? microclimate) async {
     final db = await dbHelper.database;
