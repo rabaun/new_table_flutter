@@ -90,7 +90,10 @@ class DatabaseHelper {
        protocolId VARCHAR(32) NOT NULL,
        familyName VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       parameterValue VARCHAR(32) NOT NULL,
+       parameterValue1 VARCHAR(32) NOT NULL,
+       parameterValue2 VARCHAR(32) NOT NULL,
+       parameterValue3 VARCHAR(32) NOT NULL,
+       averageConcentration VARCHAR(32) NOT NULL,
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

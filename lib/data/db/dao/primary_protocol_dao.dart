@@ -37,7 +37,11 @@ class PrimaryProtocolDao {
         protocolId, 
         familyName, 
         parameterName, 
-        parameterValue) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+        parameterValue1,
+        parameterValue2,
+        parameterValue3,
+        averageConcentration
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         [
           (primaryProtocol?.organizationName),
           (primaryProtocol?.organizationId),
@@ -47,7 +51,10 @@ class PrimaryProtocolDao {
           (primaryProtocol?.protocolId),
           (primaryProtocol?.familyName),
           (primaryProtocol?.parameterName),
-          (primaryProtocol?.parameterValue),
+          (primaryProtocol?.parameterValue1),
+          (primaryProtocol?.parameterValue2),
+          (primaryProtocol?.parameterValue3),
+          (primaryProtocol?.averageConcentration),
         ]);
     return result;
   }
@@ -71,14 +78,19 @@ class PrimaryProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        '''UPDATE $table SET organizationName = ?, 
+        '''UPDATE $table SET 
+        organizationName = ?, 
         organizationId = ?, 
-        measurementDate = ?, 
+        measurementDate = ?,
         workplace = ?, 
-        workplaceId = ?, 
-        familyName, 
-        parameterName =?, 
-        parameterValue =? 
+        workplaceId = ?,
+        protocolId = ?,
+        familyName = ?, 
+        parameterName = ?,
+        parameterValue1 = ?,
+        parameterValue2 = ?,
+        parameterValue3 = ?,
+        averageConcentration = ?
         WHERE id = ?''',
         [
           primaryProtocol?.organizationName,
@@ -89,7 +101,10 @@ class PrimaryProtocolDao {
           primaryProtocol?.protocolId,
           primaryProtocol?.familyName,
           primaryProtocol?.parameterName,
-          primaryProtocol?.parameterValue,
+          primaryProtocol?.parameterValue1,
+          primaryProtocol?.parameterValue2,
+          primaryProtocol?.parameterValue3,
+          primaryProtocol?.averageConcentration,
           primaryProtocol?.id,
         ],
       );

@@ -15,7 +15,10 @@ class PrimaryProtocolModel with _$PrimaryProtocolModel {
     String? protocolId,
     String? familyName,
     String? parameterName,
-    String? parameterValue,
+    String? parameterValue1,
+    String? parameterValue2,
+    String? parameterValue3,
+    String? averageConcentration
   }) = _PrimaryProtocolModel;
 
   factory PrimaryProtocolModel.fromJson(Map<String, dynamic> json) => _$PrimaryProtocolModelFromJson(json);

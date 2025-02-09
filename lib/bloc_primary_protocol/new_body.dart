@@ -42,7 +42,10 @@ class NewPrimaryProtocolBody extends StatelessWidget {
                 // _buildListItem('ИД места работы', primaryProtocolList?[index].workplaceId),
                 _buildListItem('Фамилия работника', primaryProtocolList?[index].familyName),
                 _buildListItem('Название параметра', primaryProtocolList?[index].parameterName),
-                _buildListItem('Значение уровня шума', primaryProtocolList?[index].parameterValue),
+                _buildListItem('Значение уровня шума №1', primaryProtocolList?[index].parameterValue1),
+                _buildListItem('Значение уровня шума №2', primaryProtocolList?[index].parameterValue2),
+                _buildListItem('Значение уровня шума №3', primaryProtocolList?[index].parameterValue3),
+                _buildListItem('Среднее значение уровня шума', primaryProtocolList?[index].averageConcentration),
                 updateButton(context, index)
               ],
             );

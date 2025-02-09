@@ -18,7 +18,10 @@ _$PrimaryProtocolModelImpl _$$PrimaryProtocolModelImplFromJson(
       protocolId: json['protocolId'] as String?,
       familyName: json['familyName'] as String?,
       parameterName: json['parameterName'] as String?,
-      parameterValue: json['parameterValue'] as String?,
+      parameterValue1: json['parameterValue1'] as String?,
+      parameterValue2: json['parameterValue2'] as String?,
+      parameterValue3: json['parameterValue3'] as String?,
+      averageConcentration: json['averageConcentration'] as String?,
     );
 
 Map<String, dynamic> _$$PrimaryProtocolModelImplToJson(
@@ -33,5 +36,8 @@ Map<String, dynamic> _$$PrimaryProtocolModelImplToJson(
       'protocolId': instance.protocolId,
       'familyName': instance.familyName,
       'parameterName': instance.parameterName,
-      'parameterValue': instance.parameterValue,
+      'parameterValue1': instance.parameterValue1,
+      'parameterValue2': instance.parameterValue2,
+      'parameterValue3': instance.parameterValue3,
+      'averageConcentration': instance.averageConcentration,
     };

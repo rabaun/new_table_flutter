@@ -250,7 +250,7 @@ class _BodyPrimaryProtocolState extends State<BodyPrimaryProtocol> {
                   BlocProvider.of<PrimaryProtocolBloc>(context).add(PrimaryProtocolEvent.remove(
                       primaryProtocol: widget.primaryProtocolList?[index]));
                 },
-                child: Text(widget.primaryProtocolList?[index].parameterValue.toString() ?? ''),
+                child: Text(widget.primaryProtocolList?[index].parameterValue1.toString() ?? ''),
               ),
             ),
           ),

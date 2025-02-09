@@ -25,7 +25,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
   final workplaceIdController = TextEditingController();
   final familyNameController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final parameterValueController = TextEditingController();
+  final parameterValue1Controller = TextEditingController();
+  final parameterValue2Controller = TextEditingController();
+  final parameterValue3Controller = TextEditingController();
+  final averageConcentrationController = TextEditingController();
   final protocolIdController = TextEditingController();
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
@@ -69,7 +72,9 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
     familyNameController.text = widget.primaryProtocolName?.familyName ?? '';
     parameterNameController.text =
         (widget.primaryProtocolName?.parameterName ?? widget.protocolName?.protocolName)!;
-    parameterValueController.text = widget.primaryProtocolName?.parameterValue ?? '';
+    parameterValue1Controller.text = widget.primaryProtocolName?.parameterValue1 ?? '';
+    parameterValue2Controller.text = widget.primaryProtocolName?.parameterValue2 ?? '';
+    parameterValue3Controller.text = widget.primaryProtocolName?.parameterValue3 ?? '';
     protocolIdController.text = (widget.primaryProtocolName?.protocolId ?? widget.protocolName?.protocolId)!;
     return Scaffold(
       appBar: AppBar(
@@ -200,7 +205,7 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                     height: 30,
                   ),
                   TextField(
-                    controller: parameterValueController,
+                    controller: parameterValue1Controller,
                     keyboardType: TextInputType.text,
                     decoration: const InputDecoration(
                       filled: true,
@@ -209,6 +214,51 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       border: OutlineInputBorder(),
                       labelText: 'Значение фактора',
                       hintText: 'Введите значение фактора',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: parameterValue2Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Значение фактора',
+                      hintText: 'Введите значение фактора',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: parameterValue3Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Значение фактора',
+                      hintText: 'Введите значение фактора',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: averageConcentrationController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Среднее значение',
+                      hintText: 'Среднее значение',
                     ),
                   ),
                   const SizedBox(
@@ -223,7 +273,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       final workplaceId = workplaceIdController.text;
                       final familyName = familyNameController.text;
                       final parameterName = parameterNameController.text;
-                      final parameterValue = parameterValueController.text;
+                      final parameterValue1 = parameterValue1Controller.text;
+                      final parameterValue2 = parameterValue2Controller.text;
+                      final parameterValue3 = parameterValue3Controller.text;
+                      final averageConcentration = averageConcentrationController.text;
                       final protocolId = protocolIdController.text;
                       if (organizationName.isNotEmpty) {
                         var primaryProtocol = PrimaryProtocolModel(
@@ -235,7 +288,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                             workplaceId: workplaceId,
                             familyName: familyName,
                             parameterName: parameterName,
-                            parameterValue: parameterValue,
+                            parameterValue1: parameterValue1,
+                            parameterValue2: parameterValue2,
+                            parameterValue3: parameterValue3,
+                            averageConcentration: averageConcentration,
                             protocolId: protocolId);
                         BlocProvider.of<PrimaryProtocolBloc>(context).add(selectedId == null
                             ? PrimaryProtocolEvent.addTableProtocol(primaryProtocol: primaryProtocol)
@@ -247,7 +303,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                         workplaceController.clear();
                         familyNameController.clear();
                         parameterNameController.clear();
-                        parameterValueController.clear();
+                        parameterValue1Controller.clear();
+                        parameterValue2Controller.clear();
+                        parameterValue3Controller.clear();
+                        averageConcentrationController.clear();
                         protocolIdController.clear();
                         Navigator.pop(context);
                       } else {

@@ -29,7 +29,10 @@ mixin _$PrimaryProtocolModel {
   String? get protocolId => throw _privateConstructorUsedError;
   String? get familyName => throw _privateConstructorUsedError;
   String? get parameterName => throw _privateConstructorUsedError;
-  String? get parameterValue => throw _privateConstructorUsedError;
+  String? get parameterValue1 => throw _privateConstructorUsedError;
+  String? get parameterValue2 => throw _privateConstructorUsedError;
+  String? get parameterValue3 => throw _privateConstructorUsedError;
+  String? get averageConcentration => throw _privateConstructorUsedError;
 
   /// Serializes this PrimaryProtocolModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +60,10 @@ abstract class $PrimaryProtocolModelCopyWith<$Res> {
       String? protocolId,
       String? familyName,
       String? parameterName,
-      String? parameterValue});
+      String? parameterValue1,
+      String? parameterValue2,
+      String? parameterValue3,
+      String? averageConcentration});
 }
 
 /// @nodoc
@@ -85,7 +91,10 @@ class _$PrimaryProtocolModelCopyWithImpl<$Res,
     Object? protocolId = freezed,
     Object? familyName = freezed,
     Object? parameterName = freezed,
-    Object? parameterValue = freezed,
+    Object? parameterValue1 = freezed,
+    Object? parameterValue2 = freezed,
+    Object? parameterValue3 = freezed,
+    Object? averageConcentration = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -124,9 +133,21 @@ class _$PrimaryProtocolModelCopyWithImpl<$Res,
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      parameterValue: freezed == parameterValue
-          ? _value.parameterValue
-          : parameterValue // ignore: cast_nullable_to_non_nullable
+      parameterValue1: freezed == parameterValue1
+          ? _value.parameterValue1
+          : parameterValue1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      parameterValue2: freezed == parameterValue2
+          ? _value.parameterValue2
+          : parameterValue2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      parameterValue3: freezed == parameterValue3
+          ? _value.parameterValue3
+          : parameterValue3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageConcentration: freezed == averageConcentration
+          ? _value.averageConcentration
+          : averageConcentration // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -150,7 +171,10 @@ abstract class _$$PrimaryProtocolModelImplCopyWith<$Res>
       String? protocolId,
       String? familyName,
       String? parameterName,
-      String? parameterValue});
+      String? parameterValue1,
+      String? parameterValue2,
+      String? parameterValue3,
+      String? averageConcentration});
 }
 
 /// @nodoc
@@ -175,7 +199,10 @@ class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
     Object? protocolId = freezed,
     Object? familyName = freezed,
     Object? parameterName = freezed,
-    Object? parameterValue = freezed,
+    Object? parameterValue1 = freezed,
+    Object? parameterValue2 = freezed,
+    Object? parameterValue3 = freezed,
+    Object? averageConcentration = freezed,
   }) {
     return _then(_$PrimaryProtocolModelImpl(
       id: freezed == id
@@ -214,9 +241,21 @@ class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      parameterValue: freezed == parameterValue
-          ? _value.parameterValue
-          : parameterValue // ignore: cast_nullable_to_non_nullable
+      parameterValue1: freezed == parameterValue1
+          ? _value.parameterValue1
+          : parameterValue1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      parameterValue2: freezed == parameterValue2
+          ? _value.parameterValue2
+          : parameterValue2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      parameterValue3: freezed == parameterValue3
+          ? _value.parameterValue3
+          : parameterValue3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageConcentration: freezed == averageConcentration
+          ? _value.averageConcentration
+          : averageConcentration // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -235,7 +274,10 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
       this.protocolId,
       this.familyName,
       this.parameterName,
-      this.parameterValue});
+      this.parameterValue1,
+      this.parameterValue2,
+      this.parameterValue3,
+      this.averageConcentration});
 
   factory _$PrimaryProtocolModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PrimaryProtocolModelImplFromJson(json);
@@ -259,11 +301,17 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
   @override
   final String? parameterName;
   @override
-  final String? parameterValue;
+  final String? parameterValue1;
+  @override
+  final String? parameterValue2;
+  @override
+  final String? parameterValue3;
+  @override
+  final String? averageConcentration;
 
   @override
   String toString() {
-    return 'PrimaryProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, protocolId: $protocolId, familyName: $familyName, parameterName: $parameterName, parameterValue: $parameterValue)';
+    return 'PrimaryProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, protocolId: $protocolId, familyName: $familyName, parameterName: $parameterName, parameterValue1: $parameterValue1, parameterValue2: $parameterValue2, parameterValue3: $parameterValue3, averageConcentration: $averageConcentration)';
   }
 
   @override
@@ -288,8 +336,14 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
                 other.familyName == familyName) &&
             (identical(other.parameterName, parameterName) ||
                 other.parameterName == parameterName) &&
-            (identical(other.parameterValue, parameterValue) ||
-                other.parameterValue == parameterValue));
+            (identical(other.parameterValue1, parameterValue1) ||
+                other.parameterValue1 == parameterValue1) &&
+            (identical(other.parameterValue2, parameterValue2) ||
+                other.parameterValue2 == parameterValue2) &&
+            (identical(other.parameterValue3, parameterValue3) ||
+                other.parameterValue3 == parameterValue3) &&
+            (identical(other.averageConcentration, averageConcentration) ||
+                other.averageConcentration == averageConcentration));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -305,7 +359,10 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
       protocolId,
       familyName,
       parameterName,
-      parameterValue);
+      parameterValue1,
+      parameterValue2,
+      parameterValue3,
+      averageConcentration);
 
   /// Create a copy of PrimaryProtocolModel
   /// with the given fields replaced by the non-null parameter values.
@@ -336,7 +393,10 @@ abstract class _PrimaryProtocolModel implements PrimaryProtocolModel {
       final String? protocolId,
       final String? familyName,
       final String? parameterName,
-      final String? parameterValue}) = _$PrimaryProtocolModelImpl;
+      final String? parameterValue1,
+      final String? parameterValue2,
+      final String? parameterValue3,
+      final String? averageConcentration}) = _$PrimaryProtocolModelImpl;
 
   factory _PrimaryProtocolModel.fromJson(Map<String, dynamic> json) =
       _$PrimaryProtocolModelImpl.fromJson;
@@ -360,7 +420,13 @@ abstract class _PrimaryProtocolModel implements PrimaryProtocolModel {
   @override
   String? get parameterName;
   @override
-  String? get parameterValue;
+  String? get parameterValue1;
+  @override
+  String? get parameterValue2;
+  @override
+  String? get parameterValue3;
+  @override
+  String? get averageConcentration;
 
   /// Create a copy of PrimaryProtocolModel
   /// with the given fields replaced by the non-null parameter values.
