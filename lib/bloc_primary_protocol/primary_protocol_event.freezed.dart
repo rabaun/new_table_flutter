@@ -23,7 +23,7 @@ mixin _$PrimaryProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -35,7 +35,7 @@ mixin _$PrimaryProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -47,7 +47,7 @@ mixin _$PrimaryProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -155,7 +155,7 @@ class _$InitialImpl implements Initial {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -170,7 +170,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -185,7 +185,7 @@ class _$InitialImpl implements Initial {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -340,7 +340,7 @@ class _$AddPrimaryProtocolEventImpl implements AddPrimaryProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -355,7 +355,7 @@ class _$AddPrimaryProtocolEventImpl implements AddPrimaryProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -370,7 +370,7 @@ class _$AddPrimaryProtocolEventImpl implements AddPrimaryProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -490,7 +490,7 @@ class _$GetPrimaryProtocolEventImpl implements GetPrimaryProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -505,7 +505,7 @@ class _$GetPrimaryProtocolEventImpl implements GetPrimaryProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -520,7 +520,7 @@ class _$GetPrimaryProtocolEventImpl implements GetPrimaryProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -587,9 +587,9 @@ abstract class _$$GetProtocolEventImplCopyWith<$Res> {
       __$$GetProtocolEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {ProtocolNameModel? organization, ProtocolNameModel? workplaceName});
+      {ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName});
 
-  $ProtocolNameModelCopyWith<$Res>? get organization;
+  $ProtocolNameModelCopyWith<$Res>? get protocolName;
   $ProtocolNameModelCopyWith<$Res>? get workplaceName;
 }
 
@@ -606,13 +606,13 @@ class __$$GetProtocolEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? organization = freezed,
+    Object? protocolName = freezed,
     Object? workplaceName = freezed,
   }) {
     return _then(_$GetProtocolEventImpl(
-      organization: freezed == organization
-          ? _value.organization
-          : organization // ignore: cast_nullable_to_non_nullable
+      protocolName: freezed == protocolName
+          ? _value.protocolName
+          : protocolName // ignore: cast_nullable_to_non_nullable
               as ProtocolNameModel?,
       workplaceName: freezed == workplaceName
           ? _value.workplaceName
@@ -625,13 +625,13 @@ class __$$GetProtocolEventImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ProtocolNameModelCopyWith<$Res>? get organization {
-    if (_value.organization == null) {
+  $ProtocolNameModelCopyWith<$Res>? get protocolName {
+    if (_value.protocolName == null) {
       return null;
     }
 
-    return $ProtocolNameModelCopyWith<$Res>(_value.organization!, (value) {
-      return _then(_value.copyWith(organization: value));
+    return $ProtocolNameModelCopyWith<$Res>(_value.protocolName!, (value) {
+      return _then(_value.copyWith(protocolName: value));
     });
   }
 
@@ -654,16 +654,16 @@ class __$$GetProtocolEventImplCopyWithImpl<$Res>
 
 class _$GetProtocolEventImpl implements GetProtocolEvent {
   const _$GetProtocolEventImpl(
-      {required this.organization, required this.workplaceName});
+      {required this.protocolName, required this.workplaceName});
 
   @override
-  final ProtocolNameModel? organization;
+  final ProtocolNameModel? protocolName;
   @override
   final ProtocolNameModel? workplaceName;
 
   @override
   String toString() {
-    return 'PrimaryProtocolEvent.getProtocol(organization: $organization, workplaceName: $workplaceName)';
+    return 'PrimaryProtocolEvent.getProtocol(protocolName: $protocolName, workplaceName: $workplaceName)';
   }
 
   @override
@@ -671,14 +671,14 @@ class _$GetProtocolEventImpl implements GetProtocolEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetProtocolEventImpl &&
-            (identical(other.organization, organization) ||
-                other.organization == organization) &&
+            (identical(other.protocolName, protocolName) ||
+                other.protocolName == protocolName) &&
             (identical(other.workplaceName, workplaceName) ||
                 other.workplaceName == workplaceName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, organization, workplaceName);
+  int get hashCode => Object.hash(runtimeType, protocolName, workplaceName);
 
   /// Create a copy of PrimaryProtocolEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -697,12 +697,12 @@ class _$GetProtocolEventImpl implements GetProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
   }) {
-    return getProtocol(organization, workplaceName);
+    return getProtocol(protocolName, workplaceName);
   }
 
   @override
@@ -712,12 +712,12 @@ class _$GetProtocolEventImpl implements GetProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
   }) {
-    return getProtocol?.call(organization, workplaceName);
+    return getProtocol?.call(protocolName, workplaceName);
   }
 
   @override
@@ -727,14 +727,14 @@ class _$GetProtocolEventImpl implements GetProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
     required TResult orElse(),
   }) {
     if (getProtocol != null) {
-      return getProtocol(organization, workplaceName);
+      return getProtocol(protocolName, workplaceName);
     }
     return orElse();
   }
@@ -785,11 +785,11 @@ class _$GetProtocolEventImpl implements GetProtocolEvent {
 
 abstract class GetProtocolEvent implements PrimaryProtocolEvent {
   const factory GetProtocolEvent(
-          {required final ProtocolNameModel? organization,
+          {required final ProtocolNameModel? protocolName,
           required final ProtocolNameModel? workplaceName}) =
       _$GetProtocolEventImpl;
 
-  ProtocolNameModel? get organization;
+  ProtocolNameModel? get protocolName;
   ProtocolNameModel? get workplaceName;
 
   /// Create a copy of PrimaryProtocolEvent
@@ -894,7 +894,7 @@ class _$DeletePrimaryProtocolEventImpl implements DeletePrimaryProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -909,7 +909,7 @@ class _$DeletePrimaryProtocolEventImpl implements DeletePrimaryProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -924,7 +924,7 @@ class _$DeletePrimaryProtocolEventImpl implements DeletePrimaryProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -1089,7 +1089,7 @@ class _$UpdatePrimaryProtocolEventImpl implements UpdatePrimaryProtocolEvent {
         addTableProtocol,
     required TResult Function() getTableProtocol,
     required TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)
         getProtocol,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) remove,
     required TResult Function(PrimaryProtocolModel? primaryProtocol) update,
@@ -1104,7 +1104,7 @@ class _$UpdatePrimaryProtocolEventImpl implements UpdatePrimaryProtocolEvent {
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult? Function()? getTableProtocol,
     TResult? Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult? Function(PrimaryProtocolModel? primaryProtocol)? update,
@@ -1119,7 +1119,7 @@ class _$UpdatePrimaryProtocolEventImpl implements UpdatePrimaryProtocolEvent {
     TResult Function(PrimaryProtocolModel? primaryProtocol)? addTableProtocol,
     TResult Function()? getTableProtocol,
     TResult Function(
-            ProtocolNameModel? organization, ProtocolNameModel? workplaceName)?
+            ProtocolNameModel? protocolName, ProtocolNameModel? workplaceName)?
         getProtocol,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? remove,
     TResult Function(PrimaryProtocolModel? primaryProtocol)? update,

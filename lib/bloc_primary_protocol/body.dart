@@ -27,7 +27,7 @@ class _BodyPrimaryProtocolState extends State<BodyPrimaryProtocol> {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<PrimaryProtocolBloc>(context)
-        .add(PrimaryProtocolEvent.getProtocol(organization: widget.protocolNameModel,workplaceName: widget.protocolNameModel));
+        .add(PrimaryProtocolEvent.getProtocol(protocolName: widget.protocolNameModel,workplaceName: widget.protocolNameModel));
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.all(16.0),

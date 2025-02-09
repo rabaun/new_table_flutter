@@ -12,6 +12,8 @@ class PrimaryProtocolModel with _$PrimaryProtocolModel {
     String? measurementDate,
     String? workplace,
     String? workplaceId,
+    String? protocolId,
+    String? familyName,
     String? parameterName,
     String? parameterValue,
   }) = _PrimaryProtocolModel;

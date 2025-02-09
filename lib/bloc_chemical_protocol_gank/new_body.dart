@@ -1,48 +1,50 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_dialog.dart';
-import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_event.dart';
 
-import '../data/models/primary_protocol_model/primary_protocol_model.dart';
+import '../data/models/chemical_protocol_gank_model/chemical_protocol_gank_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
-import 'bloc_primary_protocol.dart';
+import 'bloc_chemical_protocol_gank.dart';
+import 'chemical_protocol_gank_dialog.dart';
+import 'chemical_protocol_gank_event.dart';
 
-class NewPrimaryProtocolBody extends StatelessWidget {
-  const NewPrimaryProtocolBody(
-      {super.key, required this.primaryProtocolList, required this.protocolNameModel});
+class NewChemicalProtocolGankBody extends StatelessWidget {
+  const NewChemicalProtocolGankBody(
+      {super.key, required this.chemicalProtocolGankList, required this.protocolNameModel});
 
-  final List<PrimaryProtocolModel>? primaryProtocolList;
+  final List<ChemicalProtocolGankModel>? chemicalProtocolGankList;
   final ProtocolNameModel? protocolNameModel;
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<PrimaryProtocolBloc>(context).add(PrimaryProtocolEvent.getProtocol(
-        protocolName: protocolNameModel, workplaceName: protocolNameModel));
+    BlocProvider.of<ChemicalProtocolGankBloc>(context)
+        .add(ChemicalProtocolGankEvent.getProtocol(protocolName: protocolNameModel));
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Center(child: Text("Первичный протокол по шуму")),
+        title: const Center(child: Text("Первичный протокол по общей вибрации")),
         centerTitle: true, // this is all you need
         actions: [
-          primaryProtocolList != null && primaryProtocolList!.isEmpty
+          chemicalProtocolGankList != null && chemicalProtocolGankList!.isEmpty
               ? _floatingButton(context)
-              : Container(),
-        ],
+              : Container(),          ],
       ),
-      body: ListView.builder(
-          itemCount: primaryProtocolList?.length ?? 0,
+      body:ListView.builder(
+          itemCount: chemicalProtocolGankList?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                // _buildListItem('ИД', primaryProtocolList?[index].id?.toString()),
-                _buildListItem('Организация', primaryProtocolList?[index].organizationName),
-                // _buildListItem('ИД организации', primaryProtocolList?[index].organizationId),
-                _buildListItem('Дата измерения', primaryProtocolList?[index].measurementDate),
-                _buildListItem('Рабочее место', primaryProtocolList?[index].workplace),
-                // _buildListItem('ИД места работы', primaryProtocolList?[index].workplaceId),
-                _buildListItem('Фамилия работника', primaryProtocolList?[index].familyName),
-                _buildListItem('Название параметра', primaryProtocolList?[index].parameterName),
-                _buildListItem('Значение уровня шума', primaryProtocolList?[index].parameterValue),
+                // _buildListItem('ИД', chemicalProtocolGankList?[index].id?.toString()),
+                _buildListItem('Организация', chemicalProtocolGankList?[index].organizationName),
+                // _buildListItem('ИД организации', chemicalProtocolGankList?[index].organizationId),
+                _buildListItem('Дата измерения', chemicalProtocolGankList?[index].measurementDate),
+                _buildListItem('Место работы', chemicalProtocolGankList?[index].workplace),
+                // _buildListItem('ИД места работы', chemicalProtocolGankList?[index].workplaceId),
+                _buildListItem('Название параметра', chemicalProtocolGankList?[index].parameterName),
+                _buildListItem('Фамилия работника', chemicalProtocolGankList?[index].familyName),
+                _buildListItem('Значение первой серии', chemicalProtocolGankList?[index].concentration1_1),
+                _buildListItem('Значение второй серии', chemicalProtocolGankList?[index].concentration2_1),
+                _buildListItem('Среднее значение', chemicalProtocolGankList?[index].averageConcentration),
                 updateButton(context, index)
               ],
             );
@@ -59,8 +61,8 @@ class NewPrimaryProtocolBody extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) {
-              return AddPrimaryProtocolDialog(
-                primaryProtocolName: primaryProtocolList?[index],
+              return AddChemicalProtocolGankDialog(
+                chemicalProtocolGankList: chemicalProtocolGankList?[index],
                 protocolName: protocolNameModel,
               );
             },
@@ -87,14 +89,15 @@ class NewPrimaryProtocolBody extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
-                return AddPrimaryProtocolDialog(
+                return AddChemicalProtocolGankDialog(
                   protocolName: protocolNameModel,
                 );
               },
             );
           },
           icon: const Icon(Icons.add, color: Colors.black),
-        ));
+        )
+    );
   }
 
   Widget _buildListItem(String title, String? value) {

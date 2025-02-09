@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'primary_protocol_model.dart';
+part of 'chemical_protocol_gank_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PrimaryProtocolModel _$PrimaryProtocolModelFromJson(Map<String, dynamic> json) {
-  return _PrimaryProtocolModel.fromJson(json);
+ChemicalProtocolGankModel _$ChemicalProtocolGankModelFromJson(
+    Map<String, dynamic> json) {
+  return _ChemicalProtocolGankModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PrimaryProtocolModel {
+mixin _$ChemicalProtocolGankModel {
   int? get id => throw _privateConstructorUsedError;
   String? get organizationName => throw _privateConstructorUsedError;
   String? get organizationId => throw _privateConstructorUsedError;
@@ -29,23 +30,25 @@ mixin _$PrimaryProtocolModel {
   String? get protocolId => throw _privateConstructorUsedError;
   String? get familyName => throw _privateConstructorUsedError;
   String? get parameterName => throw _privateConstructorUsedError;
-  String? get parameterValue => throw _privateConstructorUsedError;
+  String? get concentration1_1 => throw _privateConstructorUsedError;
+  String? get concentration2_1 => throw _privateConstructorUsedError;
+  String? get averageConcentration => throw _privateConstructorUsedError;
 
-  /// Serializes this PrimaryProtocolModel to a JSON map.
+  /// Serializes this ChemicalProtocolGankModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PrimaryProtocolModel
+  /// Create a copy of ChemicalProtocolGankModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PrimaryProtocolModelCopyWith<PrimaryProtocolModel> get copyWith =>
+  $ChemicalProtocolGankModelCopyWith<ChemicalProtocolGankModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PrimaryProtocolModelCopyWith<$Res> {
-  factory $PrimaryProtocolModelCopyWith(PrimaryProtocolModel value,
-          $Res Function(PrimaryProtocolModel) then) =
-      _$PrimaryProtocolModelCopyWithImpl<$Res, PrimaryProtocolModel>;
+abstract class $ChemicalProtocolGankModelCopyWith<$Res> {
+  factory $ChemicalProtocolGankModelCopyWith(ChemicalProtocolGankModel value,
+          $Res Function(ChemicalProtocolGankModel) then) =
+      _$ChemicalProtocolGankModelCopyWithImpl<$Res, ChemicalProtocolGankModel>;
   @useResult
   $Res call(
       {int? id,
@@ -57,21 +60,23 @@ abstract class $PrimaryProtocolModelCopyWith<$Res> {
       String? protocolId,
       String? familyName,
       String? parameterName,
-      String? parameterValue});
+      String? concentration1_1,
+      String? concentration2_1,
+      String? averageConcentration});
 }
 
 /// @nodoc
-class _$PrimaryProtocolModelCopyWithImpl<$Res,
-        $Val extends PrimaryProtocolModel>
-    implements $PrimaryProtocolModelCopyWith<$Res> {
-  _$PrimaryProtocolModelCopyWithImpl(this._value, this._then);
+class _$ChemicalProtocolGankModelCopyWithImpl<$Res,
+        $Val extends ChemicalProtocolGankModel>
+    implements $ChemicalProtocolGankModelCopyWith<$Res> {
+  _$ChemicalProtocolGankModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PrimaryProtocolModel
+  /// Create a copy of ChemicalProtocolGankModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -85,7 +90,9 @@ class _$PrimaryProtocolModelCopyWithImpl<$Res,
     Object? protocolId = freezed,
     Object? familyName = freezed,
     Object? parameterName = freezed,
-    Object? parameterValue = freezed,
+    Object? concentration1_1 = freezed,
+    Object? concentration2_1 = freezed,
+    Object? averageConcentration = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -124,20 +131,29 @@ class _$PrimaryProtocolModelCopyWithImpl<$Res,
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      parameterValue: freezed == parameterValue
-          ? _value.parameterValue
-          : parameterValue // ignore: cast_nullable_to_non_nullable
+      concentration1_1: freezed == concentration1_1
+          ? _value.concentration1_1
+          : concentration1_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      concentration2_1: freezed == concentration2_1
+          ? _value.concentration2_1
+          : concentration2_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageConcentration: freezed == averageConcentration
+          ? _value.averageConcentration
+          : averageConcentration // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$PrimaryProtocolModelImplCopyWith<$Res>
-    implements $PrimaryProtocolModelCopyWith<$Res> {
-  factory _$$PrimaryProtocolModelImplCopyWith(_$PrimaryProtocolModelImpl value,
-          $Res Function(_$PrimaryProtocolModelImpl) then) =
-      __$$PrimaryProtocolModelImplCopyWithImpl<$Res>;
+abstract class _$$ChemicalProtocolGankModelImplCopyWith<$Res>
+    implements $ChemicalProtocolGankModelCopyWith<$Res> {
+  factory _$$ChemicalProtocolGankModelImplCopyWith(
+          _$ChemicalProtocolGankModelImpl value,
+          $Res Function(_$ChemicalProtocolGankModelImpl) then) =
+      __$$ChemicalProtocolGankModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -150,18 +166,22 @@ abstract class _$$PrimaryProtocolModelImplCopyWith<$Res>
       String? protocolId,
       String? familyName,
       String? parameterName,
-      String? parameterValue});
+      String? concentration1_1,
+      String? concentration2_1,
+      String? averageConcentration});
 }
 
 /// @nodoc
-class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
-    extends _$PrimaryProtocolModelCopyWithImpl<$Res, _$PrimaryProtocolModelImpl>
-    implements _$$PrimaryProtocolModelImplCopyWith<$Res> {
-  __$$PrimaryProtocolModelImplCopyWithImpl(_$PrimaryProtocolModelImpl _value,
-      $Res Function(_$PrimaryProtocolModelImpl) _then)
+class __$$ChemicalProtocolGankModelImplCopyWithImpl<$Res>
+    extends _$ChemicalProtocolGankModelCopyWithImpl<$Res,
+        _$ChemicalProtocolGankModelImpl>
+    implements _$$ChemicalProtocolGankModelImplCopyWith<$Res> {
+  __$$ChemicalProtocolGankModelImplCopyWithImpl(
+      _$ChemicalProtocolGankModelImpl _value,
+      $Res Function(_$ChemicalProtocolGankModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PrimaryProtocolModel
+  /// Create a copy of ChemicalProtocolGankModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -175,9 +195,11 @@ class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
     Object? protocolId = freezed,
     Object? familyName = freezed,
     Object? parameterName = freezed,
-    Object? parameterValue = freezed,
+    Object? concentration1_1 = freezed,
+    Object? concentration2_1 = freezed,
+    Object? averageConcentration = freezed,
   }) {
-    return _then(_$PrimaryProtocolModelImpl(
+    return _then(_$ChemicalProtocolGankModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -214,9 +236,17 @@ class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      parameterValue: freezed == parameterValue
-          ? _value.parameterValue
-          : parameterValue // ignore: cast_nullable_to_non_nullable
+      concentration1_1: freezed == concentration1_1
+          ? _value.concentration1_1
+          : concentration1_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      concentration2_1: freezed == concentration2_1
+          ? _value.concentration2_1
+          : concentration2_1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageConcentration: freezed == averageConcentration
+          ? _value.averageConcentration
+          : averageConcentration // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -224,21 +254,23 @@ class __$$PrimaryProtocolModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
-  const _$PrimaryProtocolModelImpl(
+class _$ChemicalProtocolGankModelImpl implements _ChemicalProtocolGankModel {
+  const _$ChemicalProtocolGankModelImpl(
       {this.id,
-      this.organizationName,
-      this.organizationId,
-      this.measurementDate,
-      this.workplace,
-      this.workplaceId,
-      this.protocolId,
-      this.familyName,
-      this.parameterName,
-      this.parameterValue});
+      required this.organizationName,
+      required this.organizationId,
+      required this.measurementDate,
+      required this.workplace,
+      required this.workplaceId,
+      required this.protocolId,
+      required this.familyName,
+      required this.parameterName,
+      required this.concentration1_1,
+      required this.concentration2_1,
+      required this.averageConcentration});
 
-  factory _$PrimaryProtocolModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PrimaryProtocolModelImplFromJson(json);
+  factory _$ChemicalProtocolGankModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChemicalProtocolGankModelImplFromJson(json);
 
   @override
   final int? id;
@@ -259,18 +291,22 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
   @override
   final String? parameterName;
   @override
-  final String? parameterValue;
+  final String? concentration1_1;
+  @override
+  final String? concentration2_1;
+  @override
+  final String? averageConcentration;
 
   @override
   String toString() {
-    return 'PrimaryProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, protocolId: $protocolId, familyName: $familyName, parameterName: $parameterName, parameterValue: $parameterValue)';
+    return 'ChemicalProtocolGankModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, protocolId: $protocolId, familyName: $familyName, parameterName: $parameterName, concentration1_1: $concentration1_1, concentration2_1: $concentration2_1, averageConcentration: $averageConcentration)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PrimaryProtocolModelImpl &&
+            other is _$ChemicalProtocolGankModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organizationName, organizationName) ||
                 other.organizationName == organizationName) &&
@@ -288,8 +324,12 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
                 other.familyName == familyName) &&
             (identical(other.parameterName, parameterName) ||
                 other.parameterName == parameterName) &&
-            (identical(other.parameterValue, parameterValue) ||
-                other.parameterValue == parameterValue));
+            (identical(other.concentration1_1, concentration1_1) ||
+                other.concentration1_1 == concentration1_1) &&
+            (identical(other.concentration2_1, concentration2_1) ||
+                other.concentration2_1 == concentration2_1) &&
+            (identical(other.averageConcentration, averageConcentration) ||
+                other.averageConcentration == averageConcentration));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -305,41 +345,45 @@ class _$PrimaryProtocolModelImpl implements _PrimaryProtocolModel {
       protocolId,
       familyName,
       parameterName,
-      parameterValue);
+      concentration1_1,
+      concentration2_1,
+      averageConcentration);
 
-  /// Create a copy of PrimaryProtocolModel
+  /// Create a copy of ChemicalProtocolGankModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PrimaryProtocolModelImplCopyWith<_$PrimaryProtocolModelImpl>
-      get copyWith =>
-          __$$PrimaryProtocolModelImplCopyWithImpl<_$PrimaryProtocolModelImpl>(
-              this, _$identity);
+  _$$ChemicalProtocolGankModelImplCopyWith<_$ChemicalProtocolGankModelImpl>
+      get copyWith => __$$ChemicalProtocolGankModelImplCopyWithImpl<
+          _$ChemicalProtocolGankModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PrimaryProtocolModelImplToJson(
+    return _$$ChemicalProtocolGankModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _PrimaryProtocolModel implements PrimaryProtocolModel {
-  const factory _PrimaryProtocolModel(
-      {final int? id,
-      final String? organizationName,
-      final String? organizationId,
-      final String? measurementDate,
-      final String? workplace,
-      final String? workplaceId,
-      final String? protocolId,
-      final String? familyName,
-      final String? parameterName,
-      final String? parameterValue}) = _$PrimaryProtocolModelImpl;
+abstract class _ChemicalProtocolGankModel implements ChemicalProtocolGankModel {
+  const factory _ChemicalProtocolGankModel(
+          {final int? id,
+          required final String? organizationName,
+          required final String? organizationId,
+          required final String? measurementDate,
+          required final String? workplace,
+          required final String? workplaceId,
+          required final String? protocolId,
+          required final String? familyName,
+          required final String? parameterName,
+          required final String? concentration1_1,
+          required final String? concentration2_1,
+          required final String? averageConcentration}) =
+      _$ChemicalProtocolGankModelImpl;
 
-  factory _PrimaryProtocolModel.fromJson(Map<String, dynamic> json) =
-      _$PrimaryProtocolModelImpl.fromJson;
+  factory _ChemicalProtocolGankModel.fromJson(Map<String, dynamic> json) =
+      _$ChemicalProtocolGankModelImpl.fromJson;
 
   @override
   int? get id;
@@ -360,12 +404,16 @@ abstract class _PrimaryProtocolModel implements PrimaryProtocolModel {
   @override
   String? get parameterName;
   @override
-  String? get parameterValue;
+  String? get concentration1_1;
+  @override
+  String? get concentration2_1;
+  @override
+  String? get averageConcentration;
 
-  /// Create a copy of PrimaryProtocolModel
+  /// Create a copy of ChemicalProtocolGankModel
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PrimaryProtocolModelImplCopyWith<_$PrimaryProtocolModelImpl>
+  _$$ChemicalProtocolGankModelImplCopyWith<_$ChemicalProtocolGankModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

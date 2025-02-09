@@ -8,6 +8,8 @@ import 'package:new_table_flutter/screen/device_screen.dart';
 import 'package:new_table_flutter/screen/empty_screen.dart';
 import 'package:new_table_flutter/screen/organization_screen.dart';
 
+import 'bloc_chemical_protocol_gank/bloc_chemical_protocol_gank.dart';
+import 'bloc_chemical_protocol_gank/chemical_protocol_gank_event.dart';
 import 'bloc_device/bloc_device.dart';
 import 'bloc_device/device_event.dart';
 import 'bloc_device_cert/bloc_device_cert.dart';
@@ -32,6 +34,7 @@ import 'bloc_ultraviolet_radiation_protocol/bloc_ultraviolet_radiation_protocol.
 import 'bloc_ultraviolet_radiation_protocol/ultraviolet_radiation_protocol_event.dart';
 import 'bloc_workplace/bloc_workplace.dart';
 import 'bloc_workplace/workplace_event.dart';
+import 'data/db/dao/chemical_protocol_gank_dao.dart';
 import 'data/db/dao/device_cert_dao.dart';
 import 'data/db/dao/device_dao.dart';
 import 'data/db/dao/general_vibration_protocol_dao.dart';
@@ -69,6 +72,7 @@ class MyApp extends StatelessWidget {
   final UltravioletRadiationProtocolDao ultravioletRadiationProtocolDao = UltravioletRadiationProtocolDao();
   final SeverityWorkProcessDao severityWorkProcessDao = SeverityWorkProcessDao();
   final IntensityWorkProcessDao intensityWorkProcessDao = IntensityWorkProcessDao();
+  final ChemicalProtocolGankDao chemicalProtocolGankDao = ChemicalProtocolGankDao();
 
   MyApp({super.key});
 
@@ -111,6 +115,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<IntensityWorkProcessBloc>(
               create: (context) => IntensityWorkProcessBloc(intensityWorkProcessDao)
                 ..add(const IntensityWorkProcessEvent.initial())),
+          BlocProvider<ChemicalProtocolGankBloc>(
+              create: (context) => ChemicalProtocolGankBloc(chemicalProtocolGankDao)
+                ..add(const ChemicalProtocolGankEvent.initial())),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

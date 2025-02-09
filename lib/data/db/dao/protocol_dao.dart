@@ -9,12 +9,6 @@ class ProtocolDao {
   final dbHelper = DatabaseHelper.instance;
   List<ProtocolNameModel> deviceList = [];
   static const table = 'protocol_name';
-  static const columnId = 'id';
-  static const columnOrganizationName = 'organizationName';
-  static const columnOrganizationId = 'organizationId';
-  static const columnWorkplace = 'workplace';
-  static const columnProtocolName = 'protocolName';
-  static const columnWorkplaceId = 'workplaceId';
 
   List<ProtocolNameModel> list = [];
   ProtocolNameModel? tableModel;
@@ -37,13 +31,14 @@ class ProtocolDao {
   Future<dynamic> addProtocolName(ProtocolNameModel? protocol) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, organizationId, workplace, workplaceId, protocolName) VALUES (?, ?, ?, ?, ?)',
+        'INSERT INTO $table (organizationName, organizationId, workplace, workplaceId, protocolName, protocolId) VALUES (?, ?, ?, ?, ?, ?)',
         [
           (protocol?.organizationName),
           (protocol?.organizationId),
           (protocol?.workplace),
           (protocol?.workplaceId),
           (protocol?.protocolName),
+          (protocol?.protocolId),
         ]);
     return result;
   }
@@ -66,13 +61,14 @@ class ProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationNId = ?, workplace = ?, workplaceId =?, protocolName = ?,  WHERE id = ?',
+        'UPDATE $table SET organizationName = ?, organizationNId = ?, workplace = ?, workplaceId =?, protocolName = ?, protocolId = ?  WHERE id = ?',
         [
           protocol?.organizationName,
           protocol?.organizationId,
           protocol?.workplace,
           protocol?.workplaceId,
           protocol?.protocolName,
+          protocol?.protocolId,
           protocol?.id,
         ],
       );

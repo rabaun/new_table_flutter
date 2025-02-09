@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_table_flutter/bloc_protocol/protocol_event.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
@@ -27,7 +28,9 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
   final workplaceNameController = TextEditingController();
   final protocolNameController = TextEditingController();
   final workplaceIdController = TextEditingController();
+  final protocolIdController = TextEditingController();
   int? selectedId;
+  final uuid = const Uuid();
 
   @override
   void initState() {
@@ -40,7 +43,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
     'Вибрация локальная',
     'Вибрация общая',
     'Освещение',
-    'Химический',
+    'Химический ГАНК',
     'УФ-излучение',
     'Микроклимат',
     'Аэрозоли АПДФ',
@@ -123,7 +126,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
       case "Освещение":
         title = PrimaryProtocolScreen(protocolName: widget.protocolName,);
         break;
-      case "Химический":
+      case "Химический ГАНК":
         title = PrimaryProtocolScreen(protocolName: widget.protocolName,);
         break;
       case "УФ-излучение":
@@ -162,6 +165,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
     protocolNameController.text = _factor ?? '';
     workplaceIdController.text =
         (widget.protocolName?.workplaceId ?? widget.workplace?.workplaceId)!;
+    protocolIdController.text = uuid.v4();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -222,8 +226,10 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                     final organizationName = organizationNameController.text;
                     final organizationId = organizationIdController.text;
                     final workplace = workplaceNameController.text;
-                    final protocolName = protocolNameController.text;
                     final workplaceId = workplaceIdController.text;
+                    final protocolName = protocolNameController.text;
+                    final protocolId = protocolIdController.text;
+
                     if (organizationName.isNotEmpty) {
                       var organization = ProtocolNameModel(
                           id: selectedId,
@@ -231,7 +237,8 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                           organizationId: organizationId,
                           workplace: workplace,
                           workplaceId: workplaceId,
-                          protocolName: protocolName);
+                          protocolName: protocolName,
+                          protocolId: protocolId);
                       BlocProvider.of<ProtocolNameBloc>(context).add(selectedId == null
                           ? ProtocolNameEvent.addProtocolName(protocolName: organization)
                           : ProtocolNameEvent.update(protocolName: organization));
@@ -241,6 +248,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
                       workplaceNameController.clear();
                       protocolNameController.clear();
                       workplaceIdController.clear();
+                      protocolIdController.clear();
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля

@@ -16,7 +16,7 @@ class PrimaryProtocolEvent with _$PrimaryProtocolEvent {
   const factory PrimaryProtocolEvent.getTableProtocol() = GetPrimaryProtocolEvent;
 
   const factory PrimaryProtocolEvent.getProtocol({
-    required ProtocolNameModel? organization,
+    required ProtocolNameModel? protocolName,
     required ProtocolNameModel? workplaceName,
   }) = GetProtocolEvent;
 

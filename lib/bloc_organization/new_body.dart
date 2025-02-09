@@ -54,18 +54,54 @@ class NewOrganizationBody extends StatelessWidget {
               BlocProvider.of<OrganizationBloc>(context)
                   .add(OrganizationEvent.remove(organization: organizationList?[index]));
             },
-            child: Card(
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  organizationList?[index].organizationName ?? '', // Отображаем название организации
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: Card(
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // Размещаем элементы по краям
+                    children: [
+                      Expanded(
+                        child: Text(
+                          organizationList?[index].organizationName ?? '',
+                          // Отображаем название организации
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      updateButton(context, index),
+                    ],
+                  ),
                 ),
-              ),
-            ),
+              ));
+        },
+      ),
+    );
+  }
+
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddOrganizationDialog(
+                organization:  organizationList?[index],
+              );
+            },
           );
         },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("ред.", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
       ),
     );
   }

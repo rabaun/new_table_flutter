@@ -7,13 +7,6 @@ import '../database_helper.dart';
 class PrimaryProtocolDao {
   final dbHelper = DatabaseHelper.instance;
   static const table = 'primary_protocol';
-  static const columnId = 'id';
-  static const columnOrganizationName = 'organizationName';
-  static const columnOrganizationId = 'organizationId';
-  static const columnMeasurementDate = 'measurementDate';
-  static const columnWorkplace = 'workplace';
-  static const columnParameterName = 'parameterName';
-  static const columnParameterValue = 'parameterValue';
 
   List<PrimaryProtocolModel> list = [];
   PrimaryProtocolModel? tableModel;
@@ -35,13 +28,24 @@ class PrimaryProtocolDao {
   Future<dynamic> addInTableProtocol(PrimaryProtocolModel? primaryProtocol) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, parameterValue) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        '''INSERT INTO $table (
+        organizationName, 
+        organizationId, 
+        measurementDate, 
+        workplace, 
+        workplaceId, 
+        protocolId, 
+        familyName, 
+        parameterName, 
+        parameterValue) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         [
           (primaryProtocol?.organizationName),
           (primaryProtocol?.organizationId),
           (primaryProtocol?.measurementDate),
           (primaryProtocol?.workplace),
           (primaryProtocol?.workplaceId),
+          (primaryProtocol?.protocolId),
+          (primaryProtocol?.familyName),
           (primaryProtocol?.parameterName),
           (primaryProtocol?.parameterValue),
         ]);
@@ -51,8 +55,8 @@ class PrimaryProtocolDao {
   Future<List<PrimaryProtocolModel>?> getProtocol(ProtocolNameModel? protocolName) async {
     final db = await dbHelper.database;
     try {
-      var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationId, protocolName?.workplaceId]);
+      var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ? AND protocolId = ?',
+          [protocolName?.organizationId, protocolName?.workplaceId, protocolName?.protocolId]);
       list = maps!.isNotEmpty ? maps.map((e) => PrimaryProtocolModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -67,13 +71,23 @@ class PrimaryProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?, workplaceId = ?, parameterName =?, parameterValue =? WHERE id = ?',
+        '''UPDATE $table SET organizationName = ?, 
+        organizationId = ?, 
+        measurementDate = ?, 
+        workplace = ?, 
+        workplaceId = ?, 
+        familyName, 
+        parameterName =?, 
+        parameterValue =? 
+        WHERE id = ?''',
         [
           primaryProtocol?.organizationName,
           primaryProtocol?.organizationId,
           primaryProtocol?.measurementDate,
           primaryProtocol?.workplace,
           primaryProtocol?.workplaceId,
+          primaryProtocol?.protocolId,
+          primaryProtocol?.familyName,
           primaryProtocol?.parameterName,
           primaryProtocol?.parameterValue,
           primaryProtocol?.id,

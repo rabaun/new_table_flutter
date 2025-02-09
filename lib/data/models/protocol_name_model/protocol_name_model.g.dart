@@ -15,6 +15,7 @@ _$ProtocolNameModelImpl _$$ProtocolNameModelImplFromJson(
       workplace: json['workplace'] as String?,
       workplaceId: json['workplaceId'] as String?,
       protocolName: json['protocolName'] as String?,
+      protocolId: json['protocolId'] as String?,
     );
 
 Map<String, dynamic> _$$ProtocolNameModelImplToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$ProtocolNameModelImplToJson(
       'workplace': instance.workplace,
       'workplaceId': instance.workplaceId,
       'protocolName': instance.protocolName,
+      'protocolId': instance.protocolId,
     };

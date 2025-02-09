@@ -23,8 +23,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
   final measurementDateController = TextEditingController();
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
+  final familyNameController = TextEditingController();
   final parameterNameController = TextEditingController();
   final parameterValueController = TextEditingController();
+  final protocolIdController = TextEditingController();
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -64,9 +66,11 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
         (widget.primaryProtocolName?.workplace ?? widget.protocolName?.workplace)!;
     workplaceIdController.text =
         (widget.primaryProtocolName?.workplaceId ?? widget.protocolName?.workplaceId)!;
+    familyNameController.text = widget.primaryProtocolName?.familyName ?? '';
     parameterNameController.text =
         (widget.primaryProtocolName?.parameterName ?? widget.protocolName?.protocolName)!;
     parameterValueController.text = widget.primaryProtocolName?.parameterValue ?? '';
+    protocolIdController.text = (widget.primaryProtocolName?.protocolId ?? widget.protocolName?.protocolId)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -166,6 +170,21 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                     height: 30,
                   ),
                   TextField(
+                    controller: familyNameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Фамилия работника',
+                      hintText: 'Введите фамилию работника',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
                     controller: parameterNameController,
                     keyboardType: TextInputType.text,
                     decoration: const InputDecoration(
@@ -202,8 +221,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       final measurementDate = measurementDateController.text;
                       final workplace = workplaceController.text;
                       final workplaceId = workplaceIdController.text;
+                      final familyName = familyNameController.text;
                       final parameterName = parameterNameController.text;
                       final parameterValue = parameterValueController.text;
+                      final protocolId = protocolIdController.text;
                       if (organizationName.isNotEmpty) {
                         var primaryProtocol = PrimaryProtocolModel(
                             id: selectedId,
@@ -212,8 +233,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                             measurementDate: measurementDate,
                             workplace: workplace,
                             workplaceId: workplaceId,
+                            familyName: familyName,
                             parameterName: parameterName,
-                            parameterValue: parameterValue);
+                            parameterValue: parameterValue,
+                            protocolId: protocolId);
                         BlocProvider.of<PrimaryProtocolBloc>(context).add(selectedId == null
                             ? PrimaryProtocolEvent.addTableProtocol(primaryProtocol: primaryProtocol)
                             : PrimaryProtocolEvent.update(primaryProtocol: primaryProtocol));
@@ -222,8 +245,10 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                         organizationIdController.clear();
                         measurementDateController.clear();
                         workplaceController.clear();
+                        familyNameController.clear();
                         parameterNameController.clear();
                         parameterValueController.clear();
+                        protocolIdController.clear();
                         Navigator.pop(context);
                       } else {
                         // Показать сообщение об ошибке или подсветить пустые поля

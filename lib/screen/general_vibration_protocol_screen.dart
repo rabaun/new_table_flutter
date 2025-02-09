@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
-import '../bloc_general_vibration_protocol/body.dart';
 import '../bloc_general_vibration_protocol/general_vibration_protocol_state.dart';
 import '../bloc_general_vibration_protocol/new_body.dart';
 import '../bloc_organization/bloc_organization.dart';

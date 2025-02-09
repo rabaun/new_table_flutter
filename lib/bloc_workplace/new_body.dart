@@ -31,45 +31,80 @@ class NewWorkplaceBody extends StatelessWidget {
         itemCount: workplaceList?.length ?? 0,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              // Переход на новый экран с анимацией
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => ProtocolScreen(
-                      organization: organization, workplaceName: workplaceList?[index]),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(1.0, 0.0); // Начальная позиция (справа)
-                    const end = Offset.zero; // Конечная позиция (центр)
-                    const curve = Curves.easeInOut; // Кривая анимации
+              onTap: () {
+                // Переход на новый экран с анимацией
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => ProtocolScreen(
+                        organization: organization, workplaceName: workplaceList?[index]),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0); // Начальная позиция (справа)
+                      const end = Offset.zero; // Конечная позиция (центр)
+                      const curve = Curves.easeInOut; // Кривая анимации
 
-                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                    var offsetAnimation = animation.drive(tween);
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
 
-                    return SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    );
-                  },
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
+              onLongPress: () {
+                BlocProvider.of<WorkplaceBloc>(context)
+                    .add(WorkplaceEvent.remove(workplace: workplaceList?[index]));
+              },
+              child: Card(
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // Размещаем элементы по краям
+                    children: [
+                      Expanded(
+                        child: Text(
+                          workplaceList?[index].workplaceName ?? '',
+                          // Отображаем название организации
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                     updateButton(context, index),
+                    ],
+                  ),
                 ),
-              );
+              ));
+        },
+      ),
+    );
+  }
+
+  Widget updateButton(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AddWorkplaceDialog(
+                  workplace: workplaceList?[index], organization: organization);
             },
-            onLongPress: () {
-              BlocProvider.of<WorkplaceBloc>(context)
-                  .add(WorkplaceEvent.remove(workplace: workplaceList?[index]));
-            },
-            child: Card(
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  workplaceList?[index].workplaceName ?? '', // Отображаем название организации
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
           );
         },
+        icon: const Icon(Icons.edit, color: Colors.white), // Иконка
+        label: const Text("ред.", style: TextStyle(color: Colors.white)), // Текст
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue, // Цвет фона кнопки
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Отступы
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Закругленные углы
+          ),
+        ),
       ),
     );
   }

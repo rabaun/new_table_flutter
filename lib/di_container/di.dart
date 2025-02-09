@@ -1,6 +1,7 @@
 
 import 'package:get_it/get_it.dart';
 
+import '../data/db/dao/chemical_protocol_gank_dao.dart';
 import '../data/db/dao/device_cert_dao.dart';
 import '../data/db/dao/device_dao.dart';
 import '../data/db/dao/general_vibration_protocol_dao.dart';
@@ -27,6 +28,7 @@ Future<bool?>? startGetIt(GetIt getIt) async {
   getIt.registerSingleton<UltravioletRadiationProtocolDao>(UltravioletRadiationProtocolDao());
   getIt.registerSingleton<SeverityWorkProcessDao>(SeverityWorkProcessDao());
   getIt.registerSingleton<IntensityWorkProcessDao>(IntensityWorkProcessDao());
+  getIt.registerSingleton<ChemicalProtocolGankDao>(ChemicalProtocolGankDao());
 
   return null;
 }

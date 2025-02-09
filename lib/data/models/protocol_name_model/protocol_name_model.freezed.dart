@@ -26,6 +26,7 @@ mixin _$ProtocolNameModel {
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
   String? get protocolName => throw _privateConstructorUsedError;
+  String? get protocolId => throw _privateConstructorUsedError;
 
   /// Serializes this ProtocolNameModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +50,8 @@ abstract class $ProtocolNameModelCopyWith<$Res> {
       String? organizationId,
       String? workplace,
       String? workplaceId,
-      String? protocolName});
+      String? protocolName,
+      String? protocolId});
 }
 
 /// @nodoc
@@ -73,6 +75,7 @@ class _$ProtocolNameModelCopyWithImpl<$Res, $Val extends ProtocolNameModel>
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? protocolName = freezed,
+    Object? protocolId = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -99,6 +102,10 @@ class _$ProtocolNameModelCopyWithImpl<$Res, $Val extends ProtocolNameModel>
           ? _value.protocolName
           : protocolName // ignore: cast_nullable_to_non_nullable
               as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -117,7 +124,8 @@ abstract class _$$ProtocolNameModelImplCopyWith<$Res>
       String? organizationId,
       String? workplace,
       String? workplaceId,
-      String? protocolName});
+      String? protocolName,
+      String? protocolId});
 }
 
 /// @nodoc
@@ -139,6 +147,7 @@ class __$$ProtocolNameModelImplCopyWithImpl<$Res>
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? protocolName = freezed,
+    Object? protocolId = freezed,
   }) {
     return _then(_$ProtocolNameModelImpl(
       id: freezed == id
@@ -165,6 +174,10 @@ class __$$ProtocolNameModelImplCopyWithImpl<$Res>
           ? _value.protocolName
           : protocolName // ignore: cast_nullable_to_non_nullable
               as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -178,7 +191,8 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
       this.organizationId,
       this.workplace,
       this.workplaceId,
-      this.protocolName});
+      this.protocolName,
+      this.protocolId});
 
   factory _$ProtocolNameModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProtocolNameModelImplFromJson(json);
@@ -195,10 +209,12 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
   final String? workplaceId;
   @override
   final String? protocolName;
+  @override
+  final String? protocolId;
 
   @override
   String toString() {
-    return 'ProtocolNameModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, workplace: $workplace, workplaceId: $workplaceId, protocolName: $protocolName)';
+    return 'ProtocolNameModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, workplace: $workplace, workplaceId: $workplaceId, protocolName: $protocolName, protocolId: $protocolId)';
   }
 
   @override
@@ -216,13 +232,15 @@ class _$ProtocolNameModelImpl implements _ProtocolNameModel {
             (identical(other.workplaceId, workplaceId) ||
                 other.workplaceId == workplaceId) &&
             (identical(other.protocolName, protocolName) ||
-                other.protocolName == protocolName));
+                other.protocolName == protocolName) &&
+            (identical(other.protocolId, protocolId) ||
+                other.protocolId == protocolId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, organizationName,
-      organizationId, workplace, workplaceId, protocolName);
+      organizationId, workplace, workplaceId, protocolName, protocolId);
 
   /// Create a copy of ProtocolNameModel
   /// with the given fields replaced by the non-null parameter values.
@@ -248,7 +266,8 @@ abstract class _ProtocolNameModel implements ProtocolNameModel {
       final String? organizationId,
       final String? workplace,
       final String? workplaceId,
-      final String? protocolName}) = _$ProtocolNameModelImpl;
+      final String? protocolName,
+      final String? protocolId}) = _$ProtocolNameModelImpl;
 
   factory _ProtocolNameModel.fromJson(Map<String, dynamic> json) =
       _$ProtocolNameModelImpl.fromJson;
@@ -265,6 +284,8 @@ abstract class _ProtocolNameModel implements ProtocolNameModel {
   String? get workplaceId;
   @override
   String? get protocolName;
+  @override
+  String? get protocolId;
 
   /// Create a copy of ProtocolNameModel
   /// with the given fields replaced by the non-null parameter values.

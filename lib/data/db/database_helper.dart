@@ -11,14 +11,16 @@ class DatabaseHelper {
   static const table2 = 'organization_name';
   static const table3 = 'workplace_name';
   static const table4 = 'protocol_name';
-  static const table5 = 'primary_protocol';
+  static const table5 = 'primary_protocol'; // протокол по шуму
   static const table6 = 'microclimate_protocol';
   static const table7 = 'local_vibration_protocol';
   static const table8 = 'general_vibration_protocol';
   static const table9 = 'electromagnetic_field_protocol';
   static const table10 = 'ultraviolet_radiation_protocol';
-  static const table11 = 'severity_work_process'; // нужно сделать
-  static const table12 = 'intensity_work_process'; // нужно сделать
+  static const table11 = 'severity_work_process'; // сделал
+  static const table12 = 'intensity_work_process'; // сделал
+  static const table13 = 'chemical_protocol_geolan'; //нужно сделать
+  static const table14 = 'chemical_protocol_gank'; //нужно сделать
 
   static final DatabaseHelper instance = DatabaseHelper();
   static Database? db;
@@ -73,6 +75,7 @@ class DatabaseHelper {
        workplace VARCHAR(100) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        protocolName VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 
@@ -84,6 +87,8 @@ class DatabaseHelper {
        measurementDate VARCHAR(32) NOT NULL,
        workplace VARCHAR(100) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
        parameterValue VARCHAR(32) NOT NULL,
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
@@ -265,6 +270,39 @@ class DatabaseHelper {
       activeObservationTime VARCHAR(32) NOT NULL,
       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
      ''');
+
+      db?.execute('''
+       CREATE TABLE IF NOT EXISTS $table13
+       (id INTEGER PRIMARY KEY,
+       organizationName VARCHAR(100) NOT NULL,
+       organizationId VARCHAR(100) NOT NULL,
+       measurementDate VARCHAR(32) NOT NULL,
+       workplace VARCHAR(100) NOT NULL,
+       workplaceId VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       parameterName VARCHAR(100) NOT NULL,
+       parameterValue VARCHAR(32) NOT NULL,
+       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
+      ''');
+
+      db?.execute('''
+   CREATE TABLE IF NOT EXISTS $table14 (
+       id INTEGER PRIMARY KEY,
+       organizationName VARCHAR(100) NOT NULL,
+       organizationId VARCHAR(100) NOT NULL,
+       measurementDate VARCHAR(32) NOT NULL,
+       workplace VARCHAR(100) NOT NULL,
+       workplaceId VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       parameterName VARCHAR(100) NOT NULL,
+       concentration1_1 VARCHAR(100) NOT NULL,
+       concentration2_1 VARCHAR(100) NOT NULL,
+       averageConcentration VARCHAR(100) NOT NULL,
+       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName)
+   );
+''');
     } catch (e) {
       if (kDebugMode) {
         print("Error");

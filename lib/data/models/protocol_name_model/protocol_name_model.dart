@@ -12,6 +12,7 @@ class ProtocolNameModel with _$ProtocolNameModel {
     String? workplace,
     String? workplaceId,
     String? protocolName,
+    String? protocolId,
   }) = _ProtocolNameModel;
 
   factory ProtocolNameModel.fromJson(Map<String, dynamic> json) => _$ProtocolNameModelFromJson(json);

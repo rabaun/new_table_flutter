@@ -80,7 +80,7 @@ class PrimaryProtocolBloc extends Bloc<PrimaryProtocolEvent, PrimaryProtocolStat
       ) async {
     emit(const LoadingPrimaryProtocolState());
     try {
-      primaryProtocolList = await  primaryProtocolDao.getProtocol(event.organization);
+      primaryProtocolList = await  primaryProtocolDao.getProtocol(event.protocolName);
     } catch (e) {
       emit(const PrimaryProtocolError(error: "Form is empty!"));
     }
