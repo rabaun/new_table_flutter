@@ -85,7 +85,7 @@ class ChemicalProtocolGankDao {
         parameterName = ?, 
         concentration1_1 = ?,
         concentration2_1 = ?,
-        averageConcentration = ?,
+        averageConcentration = ?
         WHERE id = ?''',
         [
           (chemicalProtocolGank?.organizationName),
