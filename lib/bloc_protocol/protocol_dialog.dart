@@ -7,6 +7,8 @@ import 'package:uuid/uuid.dart';
 import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 import '../data/models/workplace_model/workplace_model.dart';
+import '../screen/chemical_protocol_gank_screen.dart';
+import '../screen/chemical_protocol_geolan_screen.dart';
 import '../screen/microclimate_protocol_screen.dart';
 import '../screen/primary_protocol_screen.dart';
 import 'bloc_protocol.dart';
@@ -44,6 +46,7 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
     'Вибрация общая',
     'Освещение',
     'Химический ГАНК',
+    'Химический Геолан',
     'УФ-излучение',
     'Микроклимат',
     'Аэрозоли АПДФ',
@@ -127,7 +130,10 @@ class _AddProtocolNameDialogState extends State<AddProtocolNameDialog> {
         title = PrimaryProtocolScreen(protocolName: widget.protocolName,);
         break;
       case "Химический ГАНК":
-        title = PrimaryProtocolScreen(protocolName: widget.protocolName,);
+        title = ChemicalProtocolGankScreen(protocolName: widget.protocolName,);
+        break;
+      case "Химический Геолан":
+        title = ChemicalProtocolGeolanScreen(protocolName: widget.protocolName,);
         break;
       case "УФ-излучение":
         title = PrimaryProtocolScreen(protocolName: widget.protocolName,);

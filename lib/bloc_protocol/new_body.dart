@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_table_flutter/bloc_protocol/protocol_dialog.dart';
 import 'package:new_table_flutter/bloc_protocol/protocol_event.dart';
 
+import '../bloc_chemical_protocol_geolan/bloc_chemical_protocol_geolan.dart';
 import '../data/models/organization_model/organization_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
 import '../data/models/workplace_model/workplace_model.dart';
 import '../screen/chemical_protocol_gank_screen.dart';
+import '../screen/chemical_protocol_geolan_screen.dart';
 import '../screen/general_vibration_protocol_screen.dart';
 import '../screen/intensity_work_process_screen.dart';
 import '../screen/local_vibration_protocol_screen.dart';
@@ -111,6 +113,11 @@ class NewProtocolNameBody extends StatelessWidget {
         break;
       case "Химический ГАНК":
         title = ChemicalProtocolGankScreen(
+          protocolName: protocolNameList?[index],
+        );
+        break;
+      case "Химический Геолан":
+        title = ChemicalProtocolGeolanScreen(
           protocolName: protocolNameList?[index],
         );
         break;
