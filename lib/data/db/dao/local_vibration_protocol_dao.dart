@@ -7,14 +7,6 @@ import '../database_helper.dart';
 class LocalVibrationProtocolDao {
   final dbHelper = DatabaseHelper.instance;
   static const table = 'local_vibration_protocol';
-  static const columnId = 'id';
-  static const columnOrganizationName = 'organizationName';
-  static const columnWorkplace = 'workplace';
-  static const columnWorkplaceId = 'workplaceId';
-  static const columnParameterName = 'parameterName';
-  static const columnCorrectedLevelX = 'correctedLevelX';
-  static const columnCorrectedLevelY = 'correctedLevelY';
-  static const columnCorrectedLevelZ = 'correctedLevelZ';
 
   List<LocalVibrationProtocolModel> list = [];
 
@@ -35,7 +27,31 @@ class LocalVibrationProtocolDao {
   Future<dynamic> addInTableProtocol(LocalVibrationProtocolModel? localVibration) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, correctedLevelX, correctedLevelY, correctedLevelZ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        '''INSERT INTO $table (
+        organizationName, 
+        organizationId, 
+        measurementDate, 
+        workplace, 
+        workplaceId, 
+        parameterName, 
+        protocolId, 
+        familyName, 
+        
+        correctedLevelX1,
+        correctedLevelX2, 
+        correctedLevelX3, 
+        averageCorrectedLevelX, 
+ 
+        correctedLevelY1, 
+        correctedLevelY2, 
+        correctedLevelY3, 
+        averageCorrectedLevelY,
+         
+        correctedLevelZ1,
+        correctedLevelZ2,
+        correctedLevelZ3,
+        averageCorrectedLevelZ
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         [
           (localVibration?.organizationName),
           (localVibration?.organizationId),
@@ -43,9 +59,24 @@ class LocalVibrationProtocolDao {
           (localVibration?.workplace),
           (localVibration?.workplaceId),
           (localVibration?.parameterName),
-          (localVibration?.correctedLevelX),
-          (localVibration?.correctedLevelY),
-          (localVibration?.correctedLevelZ),
+          (localVibration?.protocolId),
+          (localVibration?.familyName),
+
+          (localVibration?.correctedLevelX1),
+          (localVibration?.correctedLevelX2),
+          (localVibration?.correctedLevelX3),
+          (localVibration?.averageCorrectedLevelX),
+
+          (localVibration?.correctedLevelY1),
+          (localVibration?.correctedLevelY2),
+          (localVibration?.correctedLevelY3),
+          (localVibration?.averageCorrectedLevelY),
+
+          (localVibration?.correctedLevelZ1),
+          (localVibration?.correctedLevelZ2),
+          (localVibration?.correctedLevelZ3),
+          (localVibration?.averageCorrectedLevelZ),
+
         ]);
     return result;
   }
@@ -70,7 +101,32 @@ class LocalVibrationProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, correctedLevelX =?, correctedLevelY =?, correctedLevelZ =? WHERE id = ?',
+        '''UPDATE $table SET 
+        organizationName = ?, 
+        organizationId = ?, 
+        measurementDate = ?, 
+        workplace = ?,  
+        workplaceId =?, 
+        parameterName =?, 
+        protocolId = ?,
+        familyName = ?, 
+        
+        correctedLevelX1 =?, 
+        correctedLevelX2 =?, 
+        correctedLevelX3 =?, 
+        averageCorrectedLevelX =?, 
+
+        correctedLevelY1 =?, 
+        correctedLevelY2 =?, 
+        correctedLevelY3 =?, 
+        averageCorrectedLevelY =?, 
+
+        correctedLevelZ1 =?, 
+        correctedLevelZ2 =?,
+        correctedLevelZ3 =?,
+        averageCorrectedLevelZ =? 
+        
+        WHERE id = ?''',
         [
           (localVibration?.organizationName),
           (localVibration?.organizationId),
@@ -78,9 +134,24 @@ class LocalVibrationProtocolDao {
           (localVibration?.workplace),
           (localVibration?.workplaceId),
           (localVibration?.parameterName),
-          (localVibration?.correctedLevelX),
-          (localVibration?.correctedLevelY),
-          (localVibration?.correctedLevelZ),
+          (localVibration?.protocolId),
+          (localVibration?.familyName),
+
+          (localVibration?.correctedLevelX1),
+          (localVibration?.correctedLevelX2),
+          (localVibration?.correctedLevelX3),
+          (localVibration?.averageCorrectedLevelX),
+
+          (localVibration?.correctedLevelY1),
+          (localVibration?.correctedLevelY2),
+          (localVibration?.correctedLevelY3),
+          (localVibration?.averageCorrectedLevelY),
+
+          (localVibration?.correctedLevelZ1),
+          (localVibration?.correctedLevelZ2),
+          (localVibration?.correctedLevelZ3),
+          (localVibration?.averageCorrectedLevelZ),
+
           localVibration?.id,
         ],
       );

@@ -25,9 +25,24 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final correctedLevelXController = TextEditingController();
-  final correctedLevelYController = TextEditingController();
-  final correctedLevelZController = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
+
+  final correctedLevelX1Controller = TextEditingController();
+  final correctedLevelX2Controller = TextEditingController();
+  final correctedLevelX3Controller = TextEditingController();
+  final averageCorrectedLevelXController = TextEditingController();
+
+  final correctedLevelY1Controller = TextEditingController();
+  final correctedLevelY2Controller = TextEditingController();
+  final correctedLevelY3Controller = TextEditingController();
+  final averageCorrectedLevelYController = TextEditingController();
+
+  final correctedLevelZ1Controller = TextEditingController();
+  final correctedLevelZ2Controller = TextEditingController();
+  final correctedLevelZ3Controller = TextEditingController();
+  final averageCorrectedLevelZController = TextEditingController();
+
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -69,9 +84,23 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
         (widget.localVibrationProtocol?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.localVibrationProtocol?.parameterName ?? widget.protocolName?.protocolName)!;
-    correctedLevelXController.text = widget.localVibrationProtocol?.correctedLevelX ?? '';
-    correctedLevelYController.text = widget.localVibrationProtocol?.correctedLevelY ?? '';
-    correctedLevelZController.text = widget.localVibrationProtocol?.correctedLevelZ ?? '';
+    protocolIdController.text = (widget.localVibrationProtocol?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.localVibrationProtocol?.familyName ?? '';
+
+    correctedLevelX1Controller.text = widget.localVibrationProtocol?.correctedLevelX1 ?? '';
+    correctedLevelX2Controller.text = widget.localVibrationProtocol?.correctedLevelX2 ?? '';
+    correctedLevelX3Controller.text = widget.localVibrationProtocol?.correctedLevelX3 ?? '';
+    averageCorrectedLevelXController.text = widget.localVibrationProtocol?.averageCorrectedLevelX ?? '';
+
+    correctedLevelY1Controller.text = widget.localVibrationProtocol?.correctedLevelY1 ?? '';
+    correctedLevelY2Controller.text = widget.localVibrationProtocol?.correctedLevelY2 ?? '';
+    correctedLevelY3Controller.text = widget.localVibrationProtocol?.correctedLevelY3 ?? '';
+    averageCorrectedLevelYController.text = widget.localVibrationProtocol?.averageCorrectedLevelY ?? '';
+
+    correctedLevelZ1Controller.text = widget.localVibrationProtocol?.correctedLevelZ1 ?? '';
+    correctedLevelZ2Controller.text = widget.localVibrationProtocol?.correctedLevelZ2 ?? '';
+    correctedLevelZ3Controller.text = widget.localVibrationProtocol?.correctedLevelZ3 ?? '';
+    averageCorrectedLevelZController.text = widget.localVibrationProtocol?.averageCorrectedLevelZ ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -174,7 +203,22 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelXController,
+                  controller: familyNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Фамилия работника',
+                    hintText: 'Введите фамилию работника',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelX1Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
@@ -189,7 +233,52 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelYController,
+                  controller: correctedLevelX2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по X',
+                    hintText: 'Введите значение вибрация по X',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelX3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по X',
+                    hintText: 'Введите значение вибрация по X',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelXController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по X',
+                    hintText: 'Введите среднее значение вибрация по X',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelY1Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
@@ -204,7 +293,52 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelZController,
+                  controller: correctedLevelY2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Y',
+                    hintText: 'Введите значение вибрация по Y',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelY3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Y',
+                    hintText: 'Введите значение вибрация по Y',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelYController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по Y',
+                    hintText: 'Введите среднее значение вибрация по Y',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelZ1Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
@@ -218,6 +352,51 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                 const SizedBox(
                   height: 30,
                 ),
+                TextField(
+                  controller: correctedLevelZ2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Z',
+                    hintText: 'Введите значение вибрация по Z',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelZ3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Z',
+                    hintText: 'Введите значение вибрация по Z',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelZController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по Z',
+                    hintText: 'Введите среднее значение вибрация  по Z',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
                 MaterialButton(
                   onPressed: () {
                     final organizationName = organizationNameController.text;
@@ -226,9 +405,24 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
-                    final correctedLevelX = correctedLevelXController.text;
-                    final correctedLevelY = correctedLevelYController.text;
-                    final correctedLevelZ = correctedLevelZController.text;
+                    final protocolId = protocolIdController.text;
+                    final familyName = familyNameController.text;
+
+                    final correctedLevelX1 = correctedLevelX1Controller.text;
+                    final correctedLevelX2 = correctedLevelX2Controller.text;
+                    final correctedLevelX3 = correctedLevelX3Controller.text;
+                    final averageCorrectedLevelX = averageCorrectedLevelXController.text;
+
+                    final correctedLevelY1 = correctedLevelY1Controller.text;
+                    final correctedLevelY2 = correctedLevelY2Controller.text;
+                    final correctedLevelY3 = correctedLevelY3Controller.text;
+                    final averageCorrectedLevelY = averageCorrectedLevelYController.text;
+
+                    final correctedLevelZ1 = correctedLevelZ1Controller.text;
+                    final correctedLevelZ2 = correctedLevelZ2Controller.text;
+                    final correctedLevelZ3 = correctedLevelZ3Controller.text;
+                    final averageCorrectedLevelZ = averageCorrectedLevelZController.text;
+
 
                     if (organizationName.isNotEmpty) {
                       var localVibrationProtocol = LocalVibrationProtocolModel(
@@ -239,9 +433,23 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                         workplace: workplaceName,
                         workplaceId: workplaceId,
                         parameterName: parameterName,
-                        correctedLevelX: correctedLevelX,
-                        correctedLevelY: correctedLevelY,
-                        correctedLevelZ: correctedLevelZ,
+                        protocolId: protocolId,
+                        familyName: familyName,
+
+                        correctedLevelX1: correctedLevelX1,
+                        correctedLevelX2: correctedLevelX2,
+                        correctedLevelX3: correctedLevelX3,
+                        averageCorrectedLevelX: averageCorrectedLevelX,
+
+                        correctedLevelY1: correctedLevelY1,
+                        correctedLevelY2: correctedLevelY2,
+                        correctedLevelY3: correctedLevelY3,
+                        averageCorrectedLevelY: averageCorrectedLevelY,
+
+                        correctedLevelZ1: correctedLevelZ1,
+                        correctedLevelZ2: correctedLevelZ2,
+                        correctedLevelZ3: correctedLevelZ3,
+                        averageCorrectedLevelZ: averageCorrectedLevelZ,
                       );
                       BlocProvider.of<LocalVibrationProtocolBloc>(context).add(selectedId == null
                           ? LocalVibrationProtocolEvent.addLocalVibrationProtocol(
@@ -253,9 +461,22 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                       organizationIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
-                      correctedLevelXController.clear();
-                      correctedLevelYController.clear();
-                      correctedLevelZController.clear();
+
+                      correctedLevelX1Controller.clear();
+                      correctedLevelX2Controller.clear();
+                      correctedLevelX3Controller.clear();
+                      averageCorrectedLevelXController.clear();
+
+                      correctedLevelY1Controller.clear();
+                      correctedLevelY2Controller.clear();
+                      correctedLevelY3Controller.clear();
+                      averageCorrectedLevelYController.clear();
+
+                      correctedLevelZ1Controller.clear();
+                      correctedLevelZ2Controller.clear();
+                      correctedLevelZ3Controller.clear();
+                      averageCorrectedLevelZController.clear();
+
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля

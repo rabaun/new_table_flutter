@@ -13,14 +13,14 @@ class DatabaseHelper {
   static const table4 = 'protocol_name';
   static const table5 = 'primary_protocol'; // протокол по шуму
   static const table6 = 'microclimate_protocol';
-  static const table7 = 'local_vibration_protocol';
-  static const table8 = 'general_vibration_protocol';
+  static const table7 = 'local_vibration_protocol'; // нужно сделать
+  static const table8 = 'general_vibration_protocol';  // нужно сделать
   static const table9 = 'electromagnetic_field_protocol';
   static const table10 = 'ultraviolet_radiation_protocol';
   static const table11 = 'severity_work_process'; // сделал
   static const table12 = 'intensity_work_process'; // сделал
-  static const table13 = 'chemical_protocol_geolan'; //нужно сделать
-  static const table14 = 'chemical_protocol_gank'; //нужно сделать
+  static const table13 = 'chemical_protocol_geolan'; // сделал
+  static const table14 = 'chemical_protocol_gank'; // сделал
 
   static final DatabaseHelper instance = DatabaseHelper();
   static Database? db;
@@ -176,9 +176,24 @@ class DatabaseHelper {
        workplace VARCHAR(32) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       correctedLevelX VARCHAR(32) NOT NULL,
-       correctedLevelY VARCHAR(32) NOT NULL,
-       correctedLevelZ VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       
+       correctedLevelX1 VARCHAR(32) NOT NULL,
+       correctedLevelX2 VARCHAR(32) NOT NULL,
+       correctedLevelX3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelX VARCHAR(32) NOT NULL,
+       
+       correctedLevelY1 VARCHAR(32) NOT NULL,
+       correctedLevelY2 VARCHAR(32) NOT NULL,
+       correctedLevelY3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelY VARCHAR(32) NOT NULL,
+       
+       correctedLevelZ1 VARCHAR(32) NOT NULL,
+       correctedLevelZ2 VARCHAR(32) NOT NULL,
+       correctedLevelZ3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelZ VARCHAR(32) NOT NULL,
+       
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

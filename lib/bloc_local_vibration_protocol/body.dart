@@ -230,7 +230,7 @@ class _BodyLocalVibrationProtocolState extends State<BodyLocalVibrationProtocol>
                     // },
                     onLongPress: () {},
                     child: Text(
-                        "${widget.localVibrationProtocol?[index].correctedLevelX.toString()}")),
+                        "${widget.localVibrationProtocol?[index].correctedLevelX1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -248,7 +248,7 @@ class _BodyLocalVibrationProtocolState extends State<BodyLocalVibrationProtocol>
                     // },
                     onLongPress: () {},
                     child: Text(
-                        "${widget.localVibrationProtocol?[index].correctedLevelY.toString()}")),
+                        "${widget.localVibrationProtocol?[index].correctedLevelY1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -266,7 +266,7 @@ class _BodyLocalVibrationProtocolState extends State<BodyLocalVibrationProtocol>
                     // },
                     onLongPress: () {},
                     child: Text(
-                        "${widget.localVibrationProtocol?[index].correctedLevelZ.toString()}")),
+                        "${widget.localVibrationProtocol?[index].correctedLevelZ1.toString()}")),
               )),
         ],
       ),

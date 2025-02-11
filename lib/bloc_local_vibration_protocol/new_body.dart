@@ -41,9 +41,23 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
                 _buildListItem('Место работы', localVibrationProtocol?[index].workplace),
                 // _buildListItem('ИД места работы', localVibrationProtocol?[index].workplaceId),
                 _buildListItem('Название параметра', localVibrationProtocol?[index].parameterName),
-                _buildListItem('Вибрация по X', localVibrationProtocol?[index].correctedLevelX),
-                _buildListItem('Вибрация по Y', localVibrationProtocol?[index].correctedLevelY),
-                _buildListItem('Вибрация по Z', localVibrationProtocol?[index].correctedLevelZ),
+                _buildListItem('Фамилия работника', localVibrationProtocol?[index].familyName),
+
+                _buildListItem('Вибрация по X №1', localVibrationProtocol?[index].correctedLevelX1),
+                _buildListItem('Вибрация по X №2', localVibrationProtocol?[index].correctedLevelX2),
+                _buildListItem('Вибрация по X №3', localVibrationProtocol?[index].correctedLevelX3),
+                _buildListItem('Среднее значение вибрация по X', localVibrationProtocol?[index].averageCorrectedLevelX),
+
+                _buildListItem('Вибрация по Y №1', localVibrationProtocol?[index].correctedLevelY1),
+                _buildListItem('Вибрация по Y №2', localVibrationProtocol?[index].correctedLevelY2),
+                _buildListItem('Вибрация по Y №3', localVibrationProtocol?[index].correctedLevelY3),
+                _buildListItem('Среднее значение вибрация по Y', localVibrationProtocol?[index].averageCorrectedLevelY),
+
+                _buildListItem('Вибрация по Z №1', localVibrationProtocol?[index].correctedLevelZ1),
+                _buildListItem('Вибрация по Z №2', localVibrationProtocol?[index].correctedLevelZ2),
+                _buildListItem('Вибрация по Z №3', localVibrationProtocol?[index].correctedLevelZ3),
+                _buildListItem('Среднее значение вибрация по Z', localVibrationProtocol?[index].averageCorrectedLevelZ),
+
                 updateButton(context, index)
               ],
             );
