@@ -206,9 +206,23 @@ class DatabaseHelper {
        workplace VARCHAR(32) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       correctedLevelX VARCHAR(32) NOT NULL,
-       correctedLevelY VARCHAR(32) NOT NULL,
-       correctedLevelZ VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       
+       correctedLevelX1 VARCHAR(32) NOT NULL,
+       correctedLevelX2 VARCHAR(32) NOT NULL,
+       correctedLevelX3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelX VARCHAR(32) NOT NULL,
+       
+       correctedLevelY1 VARCHAR(32) NOT NULL,
+       correctedLevelY2 VARCHAR(32) NOT NULL,
+       correctedLevelY3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelY VARCHAR(32) NOT NULL,
+       
+       correctedLevelZ1 VARCHAR(32) NOT NULL,
+       correctedLevelZ2 VARCHAR(32) NOT NULL,
+       correctedLevelZ3 VARCHAR(32) NOT NULL,
+       averageCorrectedLevelZ VARCHAR(32) NOT NULL,
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

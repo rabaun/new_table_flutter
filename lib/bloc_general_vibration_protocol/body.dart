@@ -227,7 +227,7 @@ class _BodyGeneralVibrationProtocolState extends State<BodyGeneralVibrationProto
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelX.toString()}")),
+                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelX1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -244,7 +244,7 @@ class _BodyGeneralVibrationProtocolState extends State<BodyGeneralVibrationProto
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelY.toString()}")),
+                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelY2.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -261,7 +261,7 @@ class _BodyGeneralVibrationProtocolState extends State<BodyGeneralVibrationProto
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelZ.toString()}")),
+                    child: Text("${widget.generalVibrationProtocol?[index].correctedLevelZ3.toString()}")),
               )),
         ],
       ),

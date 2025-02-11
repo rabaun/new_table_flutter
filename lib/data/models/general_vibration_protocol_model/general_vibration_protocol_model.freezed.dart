@@ -28,9 +28,20 @@ mixin _$GeneralVibrationProtocolModel {
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
   String? get parameterName => throw _privateConstructorUsedError;
-  String? get correctedLevelX => throw _privateConstructorUsedError;
-  String? get correctedLevelY => throw _privateConstructorUsedError;
-  String? get correctedLevelZ => throw _privateConstructorUsedError;
+  String? get protocolId => throw _privateConstructorUsedError;
+  String? get familyName => throw _privateConstructorUsedError;
+  String? get correctedLevelX1 => throw _privateConstructorUsedError;
+  String? get correctedLevelX2 => throw _privateConstructorUsedError;
+  String? get correctedLevelX3 => throw _privateConstructorUsedError;
+  String? get averageCorrectedLevelX => throw _privateConstructorUsedError;
+  String? get correctedLevelY1 => throw _privateConstructorUsedError;
+  String? get correctedLevelY2 => throw _privateConstructorUsedError;
+  String? get correctedLevelY3 => throw _privateConstructorUsedError;
+  String? get averageCorrectedLevelY => throw _privateConstructorUsedError;
+  String? get correctedLevelZ1 => throw _privateConstructorUsedError;
+  String? get correctedLevelZ2 => throw _privateConstructorUsedError;
+  String? get correctedLevelZ3 => throw _privateConstructorUsedError;
+  String? get averageCorrectedLevelZ => throw _privateConstructorUsedError;
 
   /// Serializes this GeneralVibrationProtocolModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,9 +69,20 @@ abstract class $GeneralVibrationProtocolModelCopyWith<$Res> {
       String? workplace,
       String? workplaceId,
       String? parameterName,
-      String? correctedLevelX,
-      String? correctedLevelY,
-      String? correctedLevelZ});
+      String? protocolId,
+      String? familyName,
+      String? correctedLevelX1,
+      String? correctedLevelX2,
+      String? correctedLevelX3,
+      String? averageCorrectedLevelX,
+      String? correctedLevelY1,
+      String? correctedLevelY2,
+      String? correctedLevelY3,
+      String? averageCorrectedLevelY,
+      String? correctedLevelZ1,
+      String? correctedLevelZ2,
+      String? correctedLevelZ3,
+      String? averageCorrectedLevelZ});
 }
 
 /// @nodoc
@@ -86,9 +108,20 @@ class _$GeneralVibrationProtocolModelCopyWithImpl<$Res,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
-    Object? correctedLevelX = freezed,
-    Object? correctedLevelY = freezed,
-    Object? correctedLevelZ = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
+    Object? correctedLevelX1 = freezed,
+    Object? correctedLevelX2 = freezed,
+    Object? correctedLevelX3 = freezed,
+    Object? averageCorrectedLevelX = freezed,
+    Object? correctedLevelY1 = freezed,
+    Object? correctedLevelY2 = freezed,
+    Object? correctedLevelY3 = freezed,
+    Object? averageCorrectedLevelY = freezed,
+    Object? correctedLevelZ1 = freezed,
+    Object? correctedLevelZ2 = freezed,
+    Object? correctedLevelZ3 = freezed,
+    Object? averageCorrectedLevelZ = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -119,17 +152,61 @@ class _$GeneralVibrationProtocolModelCopyWithImpl<$Res,
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelX: freezed == correctedLevelX
-          ? _value.correctedLevelX
-          : correctedLevelX // ignore: cast_nullable_to_non_nullable
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelY: freezed == correctedLevelY
-          ? _value.correctedLevelY
-          : correctedLevelY // ignore: cast_nullable_to_non_nullable
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelZ: freezed == correctedLevelZ
-          ? _value.correctedLevelZ
-          : correctedLevelZ // ignore: cast_nullable_to_non_nullable
+      correctedLevelX1: freezed == correctedLevelX1
+          ? _value.correctedLevelX1
+          : correctedLevelX1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelX2: freezed == correctedLevelX2
+          ? _value.correctedLevelX2
+          : correctedLevelX2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelX3: freezed == correctedLevelX3
+          ? _value.correctedLevelX3
+          : correctedLevelX3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelX: freezed == averageCorrectedLevelX
+          ? _value.averageCorrectedLevelX
+          : averageCorrectedLevelX // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY1: freezed == correctedLevelY1
+          ? _value.correctedLevelY1
+          : correctedLevelY1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY2: freezed == correctedLevelY2
+          ? _value.correctedLevelY2
+          : correctedLevelY2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY3: freezed == correctedLevelY3
+          ? _value.correctedLevelY3
+          : correctedLevelY3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelY: freezed == averageCorrectedLevelY
+          ? _value.averageCorrectedLevelY
+          : averageCorrectedLevelY // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ1: freezed == correctedLevelZ1
+          ? _value.correctedLevelZ1
+          : correctedLevelZ1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ2: freezed == correctedLevelZ2
+          ? _value.correctedLevelZ2
+          : correctedLevelZ2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ3: freezed == correctedLevelZ3
+          ? _value.correctedLevelZ3
+          : correctedLevelZ3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelZ: freezed == averageCorrectedLevelZ
+          ? _value.averageCorrectedLevelZ
+          : averageCorrectedLevelZ // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -152,9 +229,20 @@ abstract class _$$GeneralVibrationProtocolModelImplCopyWith<$Res>
       String? workplace,
       String? workplaceId,
       String? parameterName,
-      String? correctedLevelX,
-      String? correctedLevelY,
-      String? correctedLevelZ});
+      String? protocolId,
+      String? familyName,
+      String? correctedLevelX1,
+      String? correctedLevelX2,
+      String? correctedLevelX3,
+      String? averageCorrectedLevelX,
+      String? correctedLevelY1,
+      String? correctedLevelY2,
+      String? correctedLevelY3,
+      String? averageCorrectedLevelY,
+      String? correctedLevelZ1,
+      String? correctedLevelZ2,
+      String? correctedLevelZ3,
+      String? averageCorrectedLevelZ});
 }
 
 /// @nodoc
@@ -179,9 +267,20 @@ class __$$GeneralVibrationProtocolModelImplCopyWithImpl<$Res>
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
-    Object? correctedLevelX = freezed,
-    Object? correctedLevelY = freezed,
-    Object? correctedLevelZ = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
+    Object? correctedLevelX1 = freezed,
+    Object? correctedLevelX2 = freezed,
+    Object? correctedLevelX3 = freezed,
+    Object? averageCorrectedLevelX = freezed,
+    Object? correctedLevelY1 = freezed,
+    Object? correctedLevelY2 = freezed,
+    Object? correctedLevelY3 = freezed,
+    Object? averageCorrectedLevelY = freezed,
+    Object? correctedLevelZ1 = freezed,
+    Object? correctedLevelZ2 = freezed,
+    Object? correctedLevelZ3 = freezed,
+    Object? averageCorrectedLevelZ = freezed,
   }) {
     return _then(_$GeneralVibrationProtocolModelImpl(
       id: freezed == id
@@ -212,17 +311,61 @@ class __$$GeneralVibrationProtocolModelImplCopyWithImpl<$Res>
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelX: freezed == correctedLevelX
-          ? _value.correctedLevelX
-          : correctedLevelX // ignore: cast_nullable_to_non_nullable
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelY: freezed == correctedLevelY
-          ? _value.correctedLevelY
-          : correctedLevelY // ignore: cast_nullable_to_non_nullable
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      correctedLevelZ: freezed == correctedLevelZ
-          ? _value.correctedLevelZ
-          : correctedLevelZ // ignore: cast_nullable_to_non_nullable
+      correctedLevelX1: freezed == correctedLevelX1
+          ? _value.correctedLevelX1
+          : correctedLevelX1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelX2: freezed == correctedLevelX2
+          ? _value.correctedLevelX2
+          : correctedLevelX2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelX3: freezed == correctedLevelX3
+          ? _value.correctedLevelX3
+          : correctedLevelX3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelX: freezed == averageCorrectedLevelX
+          ? _value.averageCorrectedLevelX
+          : averageCorrectedLevelX // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY1: freezed == correctedLevelY1
+          ? _value.correctedLevelY1
+          : correctedLevelY1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY2: freezed == correctedLevelY2
+          ? _value.correctedLevelY2
+          : correctedLevelY2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelY3: freezed == correctedLevelY3
+          ? _value.correctedLevelY3
+          : correctedLevelY3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelY: freezed == averageCorrectedLevelY
+          ? _value.averageCorrectedLevelY
+          : averageCorrectedLevelY // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ1: freezed == correctedLevelZ1
+          ? _value.correctedLevelZ1
+          : correctedLevelZ1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ2: freezed == correctedLevelZ2
+          ? _value.correctedLevelZ2
+          : correctedLevelZ2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      correctedLevelZ3: freezed == correctedLevelZ3
+          ? _value.correctedLevelZ3
+          : correctedLevelZ3 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      averageCorrectedLevelZ: freezed == averageCorrectedLevelZ
+          ? _value.averageCorrectedLevelZ
+          : averageCorrectedLevelZ // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -240,9 +383,20 @@ class _$GeneralVibrationProtocolModelImpl
       this.workplace,
       this.workplaceId,
       this.parameterName,
-      this.correctedLevelX,
-      this.correctedLevelY,
-      this.correctedLevelZ});
+      required this.protocolId,
+      required this.familyName,
+      required this.correctedLevelX1,
+      required this.correctedLevelX2,
+      required this.correctedLevelX3,
+      required this.averageCorrectedLevelX,
+      required this.correctedLevelY1,
+      required this.correctedLevelY2,
+      required this.correctedLevelY3,
+      required this.averageCorrectedLevelY,
+      required this.correctedLevelZ1,
+      required this.correctedLevelZ2,
+      required this.correctedLevelZ3,
+      required this.averageCorrectedLevelZ});
 
   factory _$GeneralVibrationProtocolModelImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -263,15 +417,37 @@ class _$GeneralVibrationProtocolModelImpl
   @override
   final String? parameterName;
   @override
-  final String? correctedLevelX;
+  final String? protocolId;
   @override
-  final String? correctedLevelY;
+  final String? familyName;
   @override
-  final String? correctedLevelZ;
+  final String? correctedLevelX1;
+  @override
+  final String? correctedLevelX2;
+  @override
+  final String? correctedLevelX3;
+  @override
+  final String? averageCorrectedLevelX;
+  @override
+  final String? correctedLevelY1;
+  @override
+  final String? correctedLevelY2;
+  @override
+  final String? correctedLevelY3;
+  @override
+  final String? averageCorrectedLevelY;
+  @override
+  final String? correctedLevelZ1;
+  @override
+  final String? correctedLevelZ2;
+  @override
+  final String? correctedLevelZ3;
+  @override
+  final String? averageCorrectedLevelZ;
 
   @override
   String toString() {
-    return 'GeneralVibrationProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, correctedLevelX: $correctedLevelX, correctedLevelY: $correctedLevelY, correctedLevelZ: $correctedLevelZ)';
+    return 'GeneralVibrationProtocolModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, protocolId: $protocolId, familyName: $familyName, correctedLevelX1: $correctedLevelX1, correctedLevelX2: $correctedLevelX2, correctedLevelX3: $correctedLevelX3, averageCorrectedLevelX: $averageCorrectedLevelX, correctedLevelY1: $correctedLevelY1, correctedLevelY2: $correctedLevelY2, correctedLevelY3: $correctedLevelY3, averageCorrectedLevelY: $averageCorrectedLevelY, correctedLevelZ1: $correctedLevelZ1, correctedLevelZ2: $correctedLevelZ2, correctedLevelZ3: $correctedLevelZ3, averageCorrectedLevelZ: $averageCorrectedLevelZ)';
   }
 
   @override
@@ -292,28 +468,62 @@ class _$GeneralVibrationProtocolModelImpl
                 other.workplaceId == workplaceId) &&
             (identical(other.parameterName, parameterName) ||
                 other.parameterName == parameterName) &&
-            (identical(other.correctedLevelX, correctedLevelX) ||
-                other.correctedLevelX == correctedLevelX) &&
-            (identical(other.correctedLevelY, correctedLevelY) ||
-                other.correctedLevelY == correctedLevelY) &&
-            (identical(other.correctedLevelZ, correctedLevelZ) ||
-                other.correctedLevelZ == correctedLevelZ));
+            (identical(other.protocolId, protocolId) ||
+                other.protocolId == protocolId) &&
+            (identical(other.familyName, familyName) ||
+                other.familyName == familyName) &&
+            (identical(other.correctedLevelX1, correctedLevelX1) ||
+                other.correctedLevelX1 == correctedLevelX1) &&
+            (identical(other.correctedLevelX2, correctedLevelX2) ||
+                other.correctedLevelX2 == correctedLevelX2) &&
+            (identical(other.correctedLevelX3, correctedLevelX3) ||
+                other.correctedLevelX3 == correctedLevelX3) &&
+            (identical(other.averageCorrectedLevelX, averageCorrectedLevelX) ||
+                other.averageCorrectedLevelX == averageCorrectedLevelX) &&
+            (identical(other.correctedLevelY1, correctedLevelY1) ||
+                other.correctedLevelY1 == correctedLevelY1) &&
+            (identical(other.correctedLevelY2, correctedLevelY2) ||
+                other.correctedLevelY2 == correctedLevelY2) &&
+            (identical(other.correctedLevelY3, correctedLevelY3) ||
+                other.correctedLevelY3 == correctedLevelY3) &&
+            (identical(other.averageCorrectedLevelY, averageCorrectedLevelY) ||
+                other.averageCorrectedLevelY == averageCorrectedLevelY) &&
+            (identical(other.correctedLevelZ1, correctedLevelZ1) ||
+                other.correctedLevelZ1 == correctedLevelZ1) &&
+            (identical(other.correctedLevelZ2, correctedLevelZ2) ||
+                other.correctedLevelZ2 == correctedLevelZ2) &&
+            (identical(other.correctedLevelZ3, correctedLevelZ3) ||
+                other.correctedLevelZ3 == correctedLevelZ3) &&
+            (identical(other.averageCorrectedLevelZ, averageCorrectedLevelZ) ||
+                other.averageCorrectedLevelZ == averageCorrectedLevelZ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      organizationName,
-      organizationId,
-      measurementDate,
-      workplace,
-      workplaceId,
-      parameterName,
-      correctedLevelX,
-      correctedLevelY,
-      correctedLevelZ);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        organizationName,
+        organizationId,
+        measurementDate,
+        workplace,
+        workplaceId,
+        parameterName,
+        protocolId,
+        familyName,
+        correctedLevelX1,
+        correctedLevelX2,
+        correctedLevelX3,
+        averageCorrectedLevelX,
+        correctedLevelY1,
+        correctedLevelY2,
+        correctedLevelY3,
+        averageCorrectedLevelY,
+        correctedLevelZ1,
+        correctedLevelZ2,
+        correctedLevelZ3,
+        averageCorrectedLevelZ
+      ]);
 
   /// Create a copy of GeneralVibrationProtocolModel
   /// with the given fields replaced by the non-null parameter values.
@@ -336,16 +546,28 @@ class _$GeneralVibrationProtocolModelImpl
 abstract class _GeneralVibrationProtocolModel
     implements GeneralVibrationProtocolModel {
   const factory _GeneralVibrationProtocolModel(
-      {final int? id,
-      final String? organizationName,
-      final String? organizationId,
-      final String? measurementDate,
-      final String? workplace,
-      final String? workplaceId,
-      final String? parameterName,
-      final String? correctedLevelX,
-      final String? correctedLevelY,
-      final String? correctedLevelZ}) = _$GeneralVibrationProtocolModelImpl;
+          {final int? id,
+          final String? organizationName,
+          final String? organizationId,
+          final String? measurementDate,
+          final String? workplace,
+          final String? workplaceId,
+          final String? parameterName,
+          required final String? protocolId,
+          required final String? familyName,
+          required final String? correctedLevelX1,
+          required final String? correctedLevelX2,
+          required final String? correctedLevelX3,
+          required final String? averageCorrectedLevelX,
+          required final String? correctedLevelY1,
+          required final String? correctedLevelY2,
+          required final String? correctedLevelY3,
+          required final String? averageCorrectedLevelY,
+          required final String? correctedLevelZ1,
+          required final String? correctedLevelZ2,
+          required final String? correctedLevelZ3,
+          required final String? averageCorrectedLevelZ}) =
+      _$GeneralVibrationProtocolModelImpl;
 
   factory _GeneralVibrationProtocolModel.fromJson(Map<String, dynamic> json) =
       _$GeneralVibrationProtocolModelImpl.fromJson;
@@ -365,11 +587,33 @@ abstract class _GeneralVibrationProtocolModel
   @override
   String? get parameterName;
   @override
-  String? get correctedLevelX;
+  String? get protocolId;
   @override
-  String? get correctedLevelY;
+  String? get familyName;
   @override
-  String? get correctedLevelZ;
+  String? get correctedLevelX1;
+  @override
+  String? get correctedLevelX2;
+  @override
+  String? get correctedLevelX3;
+  @override
+  String? get averageCorrectedLevelX;
+  @override
+  String? get correctedLevelY1;
+  @override
+  String? get correctedLevelY2;
+  @override
+  String? get correctedLevelY3;
+  @override
+  String? get averageCorrectedLevelY;
+  @override
+  String? get correctedLevelZ1;
+  @override
+  String? get correctedLevelZ2;
+  @override
+  String? get correctedLevelZ3;
+  @override
+  String? get averageCorrectedLevelZ;
 
   /// Create a copy of GeneralVibrationProtocolModel
   /// with the given fields replaced by the non-null parameter values.

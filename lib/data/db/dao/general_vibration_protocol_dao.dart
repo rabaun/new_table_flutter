@@ -7,14 +7,6 @@ import '../database_helper.dart';
 class GeneralVibrationProtocolDao {
   final dbHelper = DatabaseHelper.instance;
   static const table = 'general_vibration_protocol';
-  static const columnId = 'id';
-  static const columnOrganizationName = 'organizationName';
-  static const columnWorkplace = 'workplace';
-  static const columnWorkplaceId = 'workplaceId';
-  static const columnParameterName = 'parameterName';
-  static const columnCorrectedLevelX = 'correctedLevelX';
-  static const columnCorrectedLevelY = 'correctedLevelY';
-  static const columnCorrectedLevelZ = 'correctedLevelZ';
 
   List<GeneralVibrationProtocolModel> list = [];
 
@@ -35,7 +27,35 @@ class GeneralVibrationProtocolDao {
   Future<dynamic> addInTableProtocol(GeneralVibrationProtocolModel? generalVibration) async {
     final db = await dbHelper.database;
     var result = db?.execute(
-        'INSERT INTO $table (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName, correctedLevelX, correctedLevelY, correctedLevelZ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        '''INSERT INTO $table (
+        organizationName, 
+        organizationId, 
+        measurementDate, 
+        workplace, 
+        workplaceId, 
+        parameterName, 
+        protocolId, 
+        familyName, 
+        
+        correctedLevelX1,
+        correctedLevelX2, 
+        correctedLevelX3, 
+        averageCorrectedLevelX, 
+ 
+        correctedLevelY1, 
+        correctedLevelY2, 
+        correctedLevelY3, 
+        averageCorrectedLevelY,
+         
+        correctedLevelZ1,
+        correctedLevelZ2,
+        correctedLevelZ3,
+        averageCorrectedLevelZ
+        ) VALUES (
+        ?, ?, ?, ?, ?,
+        ?, ?, ?, ?, ?,
+        ?, ?, ?, ?, ?, 
+        ?, ?, ?, ?, ?)''',
         [
           (generalVibration?.organizationName),
           (generalVibration?.organizationId),
@@ -43,9 +63,24 @@ class GeneralVibrationProtocolDao {
           (generalVibration?.workplace),
           (generalVibration?.workplaceId),
           (generalVibration?.parameterName),
-          (generalVibration?.correctedLevelX),
-          (generalVibration?.correctedLevelY),
-          (generalVibration?.correctedLevelZ),
+          (generalVibration?.protocolId),
+          (generalVibration?.familyName),
+
+          (generalVibration?.correctedLevelX1),
+          (generalVibration?.correctedLevelX2),
+          (generalVibration?.correctedLevelX3),
+          (generalVibration?.averageCorrectedLevelX),
+
+          (generalVibration?.correctedLevelY1),
+          (generalVibration?.correctedLevelY2),
+          (generalVibration?.correctedLevelY3),
+          (generalVibration?.averageCorrectedLevelY),
+
+          (generalVibration?.correctedLevelZ1),
+          (generalVibration?.correctedLevelZ2),
+          (generalVibration?.correctedLevelZ3),
+          (generalVibration?.averageCorrectedLevelZ),
+
         ]);
     return result;
   }
@@ -70,7 +105,32 @@ class GeneralVibrationProtocolDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, correctedLevelX =?, correctedLevelY =?, correctedLevelZ =? WHERE id = ?',
+        '''UPDATE $table SET 
+        organizationName = ?, 
+        organizationId = ?, 
+        measurementDate = ?, 
+        workplace = ?,  
+        workplaceId =?, 
+        parameterName =?, 
+        protocolId = ?,
+        familyName = ?, 
+        
+        correctedLevelX1 =?, 
+        correctedLevelX2 =?, 
+        correctedLevelX3 =?, 
+        averageCorrectedLevelX =?, 
+
+        correctedLevelY1 =?, 
+        correctedLevelY2 =?, 
+        correctedLevelY3 =?, 
+        averageCorrectedLevelY =?, 
+
+        correctedLevelZ1 =?, 
+        correctedLevelZ2 =?,
+        correctedLevelZ3 =?,
+        averageCorrectedLevelZ =? 
+        
+        WHERE id = ?''',
         [
           (generalVibration?.organizationName),
           (generalVibration?.organizationId),
@@ -78,9 +138,24 @@ class GeneralVibrationProtocolDao {
           (generalVibration?.workplace),
           (generalVibration?.workplaceId),
           (generalVibration?.parameterName),
-          (generalVibration?.correctedLevelX),
-          (generalVibration?.correctedLevelY),
-          (generalVibration?.correctedLevelZ),
+          (generalVibration?.protocolId),
+          (generalVibration?.familyName),
+
+          (generalVibration?.correctedLevelX1),
+          (generalVibration?.correctedLevelX2),
+          (generalVibration?.correctedLevelX3),
+          (generalVibration?.averageCorrectedLevelX),
+
+          (generalVibration?.correctedLevelY1),
+          (generalVibration?.correctedLevelY2),
+          (generalVibration?.correctedLevelY3),
+          (generalVibration?.averageCorrectedLevelY),
+
+          (generalVibration?.correctedLevelZ1),
+          (generalVibration?.correctedLevelZ2),
+          (generalVibration?.correctedLevelZ3),
+          (generalVibration?.averageCorrectedLevelZ),
+
           generalVibration?.id,
         ],
       );

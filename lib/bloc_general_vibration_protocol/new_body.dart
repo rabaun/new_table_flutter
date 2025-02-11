@@ -40,10 +40,24 @@ class NewGeneralVibrationProtocolBody extends StatelessWidget {
                 _buildListItem('Дата измерения', generalVibrationProtocol?[index].measurementDate),
                 _buildListItem('Место работы', generalVibrationProtocol?[index].workplace),
                 // _buildListItem('ИД места работы', generalVibrationProtocol?[index].workplaceId),
+                _buildListItem('Фамилия работника', generalVibrationProtocol?[index].familyName),
                 _buildListItem('Название параметра', generalVibrationProtocol?[index].parameterName),
-                _buildListItem('Вибрация по X', generalVibrationProtocol?[index].correctedLevelX),
-                _buildListItem('Вибрация по Y', generalVibrationProtocol?[index].correctedLevelY),
-                _buildListItem('Вибрация по Z', generalVibrationProtocol?[index].correctedLevelZ),
+
+                _buildListItem('Вибрация по X №1', generalVibrationProtocol?[index].correctedLevelX1),
+                _buildListItem('Вибрация по X №2', generalVibrationProtocol?[index].correctedLevelX2),
+                _buildListItem('Вибрация по X №3', generalVibrationProtocol?[index].correctedLevelX3),
+                _buildListItem('Среднее значение вибрация по X', generalVibrationProtocol?[index].averageCorrectedLevelX),
+
+                _buildListItem('Вибрация по Y №1', generalVibrationProtocol?[index].correctedLevelY1),
+                _buildListItem('Вибрация по Y №2', generalVibrationProtocol?[index].correctedLevelY2),
+                _buildListItem('Вибрация по Y №3', generalVibrationProtocol?[index].correctedLevelY3),
+                _buildListItem('Среднее значение вибрация по Y', generalVibrationProtocol?[index].averageCorrectedLevelY),
+
+                _buildListItem('Вибрация по Z №1', generalVibrationProtocol?[index].correctedLevelZ1),
+                _buildListItem('Вибрация по Z №2', generalVibrationProtocol?[index].correctedLevelZ2),
+                _buildListItem('Вибрация по Z №3', generalVibrationProtocol?[index].correctedLevelZ3),
+                _buildListItem('Среднее значение вибрация по Z', generalVibrationProtocol?[index].averageCorrectedLevelZ),
+
                 updateButton(context, index)
               ],
             );

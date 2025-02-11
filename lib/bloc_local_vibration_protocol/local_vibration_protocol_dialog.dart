@@ -203,6 +203,21 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                   height: 30,
                 ),
                 TextField(
+                  controller: parameterNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование фактора',
+                    hintText: 'Введите наименование фактора',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
                   controller: familyNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
@@ -422,7 +437,6 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
                     final correctedLevelZ2 = correctedLevelZ2Controller.text;
                     final correctedLevelZ3 = correctedLevelZ3Controller.text;
                     final averageCorrectedLevelZ = averageCorrectedLevelZController.text;
-
 
                     if (organizationName.isNotEmpty) {
                       var localVibrationProtocol = LocalVibrationProtocolModel(

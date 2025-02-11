@@ -26,9 +26,23 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final correctedLevelXController = TextEditingController();
-  final correctedLevelYController = TextEditingController();
-  final correctedLevelZController = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
+
+  final correctedLevelX1Controller = TextEditingController();
+  final correctedLevelX2Controller = TextEditingController();
+  final correctedLevelX3Controller = TextEditingController();
+  final averageCorrectedLevelXController = TextEditingController();
+
+  final correctedLevelY1Controller = TextEditingController();
+  final correctedLevelY2Controller = TextEditingController();
+  final correctedLevelY3Controller = TextEditingController();
+  final averageCorrectedLevelYController = TextEditingController();
+
+  final correctedLevelZ1Controller = TextEditingController();
+  final correctedLevelZ2Controller = TextEditingController();
+  final correctedLevelZ3Controller = TextEditingController();
+  final averageCorrectedLevelZController = TextEditingController();
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -70,9 +84,23 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
         (widget.generalVibrationProtocol?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.generalVibrationProtocol?.parameterName ?? widget.protocolName?.protocolName)!;
-    correctedLevelXController.text = widget.generalVibrationProtocol?.correctedLevelX ?? '';
-    correctedLevelYController.text = widget.generalVibrationProtocol?.correctedLevelY ?? '';
-    correctedLevelZController.text = widget.generalVibrationProtocol?.correctedLevelZ ?? '';
+    protocolIdController.text = (widget.generalVibrationProtocol?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.generalVibrationProtocol?.familyName ?? '';
+
+    correctedLevelX1Controller.text = widget.generalVibrationProtocol?.correctedLevelX1 ?? '';
+    correctedLevelX2Controller.text = widget.generalVibrationProtocol?.correctedLevelX2 ?? '';
+    correctedLevelX3Controller.text = widget.generalVibrationProtocol?.correctedLevelX3 ?? '';
+    averageCorrectedLevelXController.text = widget.generalVibrationProtocol?.averageCorrectedLevelX ?? '';
+
+    correctedLevelY1Controller.text = widget.generalVibrationProtocol?.correctedLevelY1 ?? '';
+    correctedLevelY2Controller.text = widget.generalVibrationProtocol?.correctedLevelY2 ?? '';
+    correctedLevelY3Controller.text = widget.generalVibrationProtocol?.correctedLevelY3 ?? '';
+    averageCorrectedLevelYController.text = widget.generalVibrationProtocol?.averageCorrectedLevelY ?? '';
+
+    correctedLevelZ1Controller.text = widget.generalVibrationProtocol?.correctedLevelZ1 ?? '';
+    correctedLevelZ2Controller.text = widget.generalVibrationProtocol?.correctedLevelZ2 ?? '';
+    correctedLevelZ3Controller.text = widget.generalVibrationProtocol?.correctedLevelZ3 ?? '';
+    averageCorrectedLevelZController.text = widget.generalVibrationProtocol?.averageCorrectedLevelZ ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -175,45 +203,210 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelXController,
+                  controller: parameterNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Вибрация по X',
-                    hintText: 'Введите значение вибрация по X',
+                    labelText: 'Наименование фактора',
+                    hintText: 'Введите наименование фактора',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelYController,
+                  controller: familyNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Вибрация по Y',
-                    hintText: 'Введите значение вибрация по Y',
+                    labelText: 'Фамилия работника',
+                    hintText: 'Введите фамилию работника',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: correctedLevelZController,
+                  controller: correctedLevelX1Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Вибрация по Z',
-                    hintText: 'Введите значение вибрация по Z',
+                    labelText: 'Вибрация по X №1',
+                    hintText: 'Введите значение вибрация по X №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelX2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по X №2',
+                    hintText: 'Введите значение вибрация по X №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelX3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по X №3',
+                    hintText: 'Введите значение вибрация по X №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelXController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по X',
+                    hintText: 'Введите среднее значение вибрация по X',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelY1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Y №1',
+                    hintText: 'Введите значение вибрация по Y №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelY2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Y №2',
+                    hintText: 'Введите значение вибрация по Y №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelY3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Y №3',
+                    hintText: 'Введите значение вибрация по Y №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelYController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по Y',
+                    hintText: 'Введите среднее значение вибрация по Y',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelZ1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Z №1',
+                    hintText: 'Введите значение вибрация по Z №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelZ2Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Z №2',
+                    hintText: 'Введите значение вибрация по Z №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: correctedLevelZ3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Вибрация по Z №3',
+                    hintText: 'Введите значение вибрация по Z №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageCorrectedLevelZController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение вибрация по Z',
+                    hintText: 'Введите среднее значение вибрация  по Z',
                   ),
                 ),
                 const SizedBox(
@@ -227,9 +420,24 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
-                    final correctedLevelX = correctedLevelXController.text;
-                    final correctedLevelY = correctedLevelYController.text;
-                    final correctedLevelZ = correctedLevelZController.text;
+                    final protocolId = protocolIdController.text;
+                    final familyName = familyNameController.text;
+
+                    final correctedLevelX1 = correctedLevelX1Controller.text;
+                    final correctedLevelX2 = correctedLevelX2Controller.text;
+                    final correctedLevelX3 = correctedLevelX3Controller.text;
+                    final averageCorrectedLevelX = averageCorrectedLevelXController.text;
+
+                    final correctedLevelY1 = correctedLevelY1Controller.text;
+                    final correctedLevelY2 = correctedLevelY2Controller.text;
+                    final correctedLevelY3 = correctedLevelY3Controller.text;
+                    final averageCorrectedLevelY = averageCorrectedLevelYController.text;
+
+                    final correctedLevelZ1 = correctedLevelZ1Controller.text;
+                    final correctedLevelZ2 = correctedLevelZ2Controller.text;
+                    final correctedLevelZ3 = correctedLevelZ3Controller.text;
+                    final averageCorrectedLevelZ = averageCorrectedLevelZController.text;
+
 
                     if (organizationName.isNotEmpty) {
                       var generalVibrationProtocol = GeneralVibrationProtocolModel(
@@ -240,9 +448,23 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                         workplace: workplaceName,
                         workplaceId: workplaceId,
                         parameterName: parameterName,
-                        correctedLevelX: correctedLevelX,
-                        correctedLevelY: correctedLevelY,
-                        correctedLevelZ: correctedLevelZ,
+                        protocolId: protocolId,
+                        familyName: familyName,
+
+                        correctedLevelX1: correctedLevelX1,
+                        correctedLevelX2: correctedLevelX2,
+                        correctedLevelX3: correctedLevelX3,
+                        averageCorrectedLevelX: averageCorrectedLevelX,
+
+                        correctedLevelY1: correctedLevelY1,
+                        correctedLevelY2: correctedLevelY2,
+                        correctedLevelY3: correctedLevelY3,
+                        averageCorrectedLevelY: averageCorrectedLevelY,
+
+                        correctedLevelZ1: correctedLevelZ1,
+                        correctedLevelZ2: correctedLevelZ2,
+                        correctedLevelZ3: correctedLevelZ3,
+                        averageCorrectedLevelZ: averageCorrectedLevelZ,
                       );
                       BlocProvider.of<GeneralVibrationProtocolBloc>(context).add(selectedId == null
                           ? GeneralVibrationProtocolEvent.addGeneralVibrationProtocol(
@@ -254,9 +476,21 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                       organizationIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
-                      correctedLevelXController.clear();
-                      correctedLevelYController.clear();
-                      correctedLevelZController.clear();
+
+                      correctedLevelX1Controller.clear();
+                      correctedLevelX2Controller.clear();
+                      correctedLevelX3Controller.clear();
+                      averageCorrectedLevelXController.clear();
+
+                      correctedLevelY1Controller.clear();
+                      correctedLevelY2Controller.clear();
+                      correctedLevelY3Controller.clear();
+                      averageCorrectedLevelYController.clear();
+
+                      correctedLevelZ1Controller.clear();
+                      correctedLevelZ2Controller.clear();
+                      correctedLevelZ3Controller.clear();
+                      averageCorrectedLevelZController.clear();
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля
