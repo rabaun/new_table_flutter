@@ -27,7 +27,7 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
           if (microclimate != null && microclimate!.isEmpty) _floatingButton(context),
         ],
       ),
-      body:ListView.builder(
+      body: ListView.builder(
           itemCount: microclimate?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
@@ -39,17 +39,74 @@ class NewMicroclimateProtocolBody extends StatelessWidget {
                 _buildListItem('Рабочее место', microclimate?[index].workplace),
                 // _buildListItem('ИД места работы', microclimate?[index].workplaceId),
                 _buildListItem('Название параметра', microclimate?[index].parameterName),
-                _buildListItem('Температура на высоте 0,1м', microclimate?[index].airTemperature01m),
-                _buildListItem('Температура на высоте 1,5м', microclimate?[index].airTemperature15m),
-                _buildListItem('Значение ТНС на высоте 0,1м', microclimate?[index].tncIndex01m),
-                _buildListItem('Значение ТНС на высоте 1,5м', microclimate?[index].tncIndex15m),
-                _buildListItem('Значение W потока на высоте 0,1м', microclimate?[index].airVelocity01m),
-                _buildListItem('Значение W потока на высоте 1,5м', microclimate?[index].airVelocity15m),
-                _buildListItem('Значение влажности воздуха', microclimate?[index].relativeHumidity),
+
+                // Измерения на высоте 0,1м
+                _buildListItem('Температура на высоте 0,1м (1)', microclimate?[index].airTemperature01m1),
+                _buildListItem('Температура на высоте 0,1м (2)', microclimate?[index].airTemperature01m2),
+                _buildListItem('Температура на высоте 0,1м (3)', microclimate?[index].airTemperature01m3),
+                _buildListItem('Средняя температура на высоте 0,1м', microclimate?[index].averageAirTemperature01m),
+
+                // Измерения на высоте 1,5м
+                _buildListItem('Температура на высоте 1,5м (1)', microclimate?[index].airTemperature15m1),
+                _buildListItem('Температура на высоте 1,5м (2)', microclimate?[index].airTemperature15m2),
+                _buildListItem('Температура на высоте 1,5м (3)', microclimate?[index].airTemperature15m3),
+                _buildListItem('Средняя температура на высоте 1,5м', microclimate?[index].averageAirTemperature15m),
+
+                // Значения ТНС на высоте 0,1м
+                _buildListItem('Значение ТНС на высоте 0,1м (1)', microclimate?[index].tncIndex01m1),
+                _buildListItem('Значение ТНС на высоте 0,1м (2)', microclimate?[index].tncIndex01m2),
+                _buildListItem('Значение ТНС на высоте 0,1м (3)', microclimate?[index].tncIndex01m3),
+                _buildListItem('Среднее значение ТНС на высоте 0,1м', microclimate?[index].averageTncIndex01m),
+
+                // Значения ТНС на высоте 1,5м
+                _buildListItem('Значение ТНС на высоте 1,5м (1)', microclimate?[index].tncIndex15m1),
+                _buildListItem('Значение ТНС на высоте 1,5м (2)', microclimate?[index].tncIndex15m2),
+                _buildListItem('Значение ТНС на высоте 1,5м (3)', microclimate?[index].tncIndex15m3),
+                _buildListItem('Среднее значение ТНС на высоте 1,5м', microclimate?[index].averageTncIndex15m),
+
+                // Значения W потока на высоте 0,1м
+                _buildListItem('Значение W потока на высоте 0,1м (1)', microclimate?[index].airVelocity01m1),
+                _buildListItem('Значение W потока на высоте 0,1м (2)', microclimate?[index].airVelocity01m2),
+                _buildListItem('Значение W потока на высоте 0,1м (3)', microclimate?[index].airVelocity01m3),
+                _buildListItem('Среднее значение W потока на высоте 0,1м', microclimate?[index].averageAirVelocity01m),
+
+                // Значения W потока на высоте 1,5м
+                _buildListItem('Значение W потока на высоте 1,5м (1)', microclimate?[index].airVelocity15m1),
+                _buildListItem('Значение W потока на высоте 1,5м (2)', microclimate?[index].airVelocity15m2),
+                _buildListItem('Значение W потока на высоте 1,5м (3)', microclimate?[index].airVelocity15m3),
+                _buildListItem('Среднее значение W потока на высоте 1,5м', microclimate?[index].averageAirVelocity15m),
+
+                // Значения влажности
+                _buildListItem('Влажность воздуха (1)', microclimate?[index].relativeHumidity1),
+                _buildListItem('Влажность воздуха (2)', microclimate?[index].relativeHumidity2),
+                _buildListItem('Влажность воздуха (3)', microclimate?[index].relativeHumidity3),
+                _buildListItem('Средняя влажность воздуха', microclimate?[index].averageRelativeHumidity),
+
+                _buildListItem('Интенсивность теплового излучения (h-0,5 м), Вт/м2 №1', microclimate?[index].thermalRadiationIntensity05m1),
+                _buildListItem('Интенсивность теплового излучения (h-0,5 м), Вт/м2 №2', microclimate?[index].thermalRadiationIntensity05m2),
+                _buildListItem('Интенсивность теплового излучения (h-0,5 м), Вт/м2 №3', microclimate?[index].thermalRadiationIntensity05m3),
+                _buildListItem('Среднее значение интенсивность теплового излучения (h-0,5 м)', microclimate?[index].averageThermalRadiationIntensity05m),
+
+                _buildListItem('Интенсивность теплового излучения (h-1,0 м), Вт/м2 №1', microclimate?[index].thermalRadiationIntensity1m1),
+                _buildListItem('Интенсивность теплового излучения (h-1,0 м), Вт/м2 №2', microclimate?[index].thermalRadiationIntensity1m2),
+                _buildListItem('Интенсивность теплового излучения (h-1,0 м), Вт/м2 №3', microclimate?[index].thermalRadiationIntensity1m3),
+                _buildListItem('Среднее значение интенсивность теплового излучения (h-1,0 м)', microclimate?[index].averageThermalRadiationIntensity05m),
+
+                _buildListItem('Интенсивность теплового излучения (h-1,5 м), Вт/м2 №1', microclimate?[index].thermalRadiationIntensity15m1),
+                _buildListItem('Интенсивность теплового излучения (h-1,5 м), Вт/м2 №2', microclimate?[index].thermalRadiationIntensity15m2),
+                _buildListItem('Интенсивность теплового излучения (h-1,5 м), Вт/м2 №3', microclimate?[index].thermalRadiationIntensity15m3),
+                _buildListItem('Среднее значение интенсивность теплового излучения (h-1,5 м)', microclimate?[index].averageThermalRadiationIntensity15m),
+
+                _buildListItem('Экспозиционная доза теплового излучения, Вт·ч №1', microclimate?[index].thermalRadiationExposureDose1),
+                _buildListItem('Экспозиционная доза теплового излучения, Вт·ч №2', microclimate?[index].thermalRadiationExposureDose2),
+                _buildListItem('Экспозиционная доза теплового излучения, Вт·ч №3', microclimate?[index].thermalRadiationExposureDose3),
+                _buildListItem('Среднее значение экспозиционной дозы теплового излучения, Вт·ч', microclimate?[index].averageThermalRadiationExposureDose),
+
                 updateButton(context, index)
               ],
             );
-          }),
+          }
+      ),
       // floatingActionButton: _floatingButton(context),
     );
   }

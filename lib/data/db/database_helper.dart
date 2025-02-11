@@ -106,13 +106,64 @@ class DatabaseHelper {
        workplace VARCHAR(32) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       airTemperature01m VARCHAR(32) NOT NULL,
-       airTemperature15m VARCHAR(32) NOT NULL,
-       tncIndex01m VARCHAR(32) NOT NULL,
-       tncIndex15m VARCHAR(32) NOT NULL,
-       airVelocity01m VARCHAR(32) NOT NULL,
-       airVelocity15m VARCHAR(32) NOT NULL,
-       relativeHumidity VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       
+       airTemperature01m1 VARCHAR(32) NOT NULL,
+       airTemperature01m2 VARCHAR(32) NOT NULL,
+       airTemperature01m3 VARCHAR(32) NOT NULL,
+       averageAirTemperature01m VARCHAR(32) NOT NULL,
+       
+       airTemperature15m1 VARCHAR(32) NOT NULL,
+       airTemperature15m2 VARCHAR(32) NOT NULL,
+       airTemperature15m3 VARCHAR(32) NOT NULL,
+       averageAirTemperature15m VARCHAR(32) NOT NULL,
+       
+       tncIndex01m1 VARCHAR(32) NOT NULL,
+       tncIndex01m2 VARCHAR(32) NOT NULL,
+       tncIndex01m3 VARCHAR(32) NOT NULL,
+       averageTncIndex01m VARCHAR(32) NOT NULL,
+       
+       tncIndex15m1 VARCHAR(32) NOT NULL,
+       tncIndex15m2 VARCHAR(32) NOT NULL,
+       tncIndex15m3 VARCHAR(32) NOT NULL,
+       averageTncIndex15m VARCHAR(32) NOT NULL,
+
+       airVelocity01m1 VARCHAR(32) NOT NULL,
+       airVelocity01m2 VARCHAR(32) NOT NULL,
+       airVelocity01m3 VARCHAR(32) NOT NULL,
+       averageAirVelocity01m VARCHAR(32) NOT NULL,
+       
+       airVelocity15m1 VARCHAR(32) NOT NULL,
+       airVelocity15m2 VARCHAR(32) NOT NULL,
+       airVelocity15m3 VARCHAR(32) NOT NULL,
+       averageAirVelocity15m VARCHAR(32) NOT NULL,
+       
+       relativeHumidity1 VARCHAR(32) NOT NULL,
+       relativeHumidity2 VARCHAR(32) NOT NULL,
+       relativeHumidity3 VARCHAR(32) NOT NULL,
+       averageRelativeHumidity VARCHAR(32) NOT NULL,
+       
+       thermalRadiationIntensity05m1 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity05m2 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity05m3 VARCHAR(32) NOT NULL,
+       averageThermalRadiationIntensity05m VARCHAR(32) NOT NULL,
+       
+       thermalRadiationIntensity1m1 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity1m2 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity1m3 VARCHAR(32) NOT NULL,
+       averageThermalRadiationIntensity1m VARCHAR(32) NOT NULL,
+
+       thermalRadiationIntensity15m1 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity15m2 VARCHAR(32) NOT NULL,
+       thermalRadiationIntensity15m3 VARCHAR(32) NOT NULL,
+       averageThermalRadiationIntensity15m VARCHAR(32) NOT NULL,
+       
+       thermalRadiationExposureDose1 VARCHAR(32) NOT NULL,
+       thermalRadiationExposureDose2 VARCHAR(32) NOT NULL,
+       thermalRadiationExposureDose3 VARCHAR(32) NOT NULL,
+       averageThermalRadiationExposureDose VARCHAR(32) NOT NULL,
+       
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

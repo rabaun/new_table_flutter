@@ -24,13 +24,64 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final airTemperature01mController = TextEditingController();
-  final airTemperature15mController = TextEditingController();
-  final tncIndex01mController = TextEditingController();
-  final tncIndex15mController = TextEditingController();
-  final airVelocity01mController = TextEditingController();
-  final airVelocity15mController = TextEditingController();
-  final relativeHumidityController = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
+
+  final airTemperature01m1Controller = TextEditingController();
+  final airTemperature01m2Controller = TextEditingController();
+  final airTemperature01m3Controller = TextEditingController();
+  final averageAirTemperature01mController = TextEditingController();
+
+  final airTemperature15m1Controller = TextEditingController();
+  final airTemperature15m2Controller = TextEditingController();
+  final airTemperature15m3Controller = TextEditingController();
+  final averageAirTemperature15mController = TextEditingController();
+
+  final tncIndex01m1Controller = TextEditingController();
+  final tncIndex01m2Controller = TextEditingController();
+  final tncIndex01m3Controller = TextEditingController();
+  final averageTncIndex01mController = TextEditingController();
+
+  final tncIndex15m1Controller = TextEditingController();
+  final tncIndex15m2Controller = TextEditingController();
+  final tncIndex15m3Controller = TextEditingController();
+  final averageTncIndex15mController = TextEditingController();
+
+  final airVelocity01m1Controller = TextEditingController();
+  final airVelocity01m2Controller = TextEditingController();
+  final airVelocity01m3Controller = TextEditingController();
+  final averageAirVelocity01mController = TextEditingController();
+
+  final airVelocity15m1Controller = TextEditingController();
+  final airVelocity15m2Controller = TextEditingController();
+  final airVelocity15m3Controller = TextEditingController();
+  final averageAirVelocity15mController = TextEditingController();
+
+  final relativeHumidity1Controller = TextEditingController();
+  final relativeHumidity2Controller = TextEditingController();
+  final relativeHumidity3Controller = TextEditingController();
+  final averageRelativeHumidityController = TextEditingController();
+
+  final thermalRadiationIntensity05m1Controller = TextEditingController();
+  final thermalRadiationIntensity05m2Controller = TextEditingController();
+  final thermalRadiationIntensity05m3Controller = TextEditingController();
+  final averageThermalRadiationIntensity05mController = TextEditingController();
+
+  final thermalRadiationIntensity1m1Controller = TextEditingController();
+  final thermalRadiationIntensity1m2Controller = TextEditingController();
+  final thermalRadiationIntensity1m3Controller = TextEditingController();
+  final averageThermalRadiationIntensity1mController = TextEditingController();
+
+  final thermalRadiationIntensity15m1Controller = TextEditingController();
+  final thermalRadiationIntensity15m2Controller = TextEditingController();
+  final thermalRadiationIntensity15m3Controller = TextEditingController();
+  final averageThermalRadiationIntensity15mController = TextEditingController();
+
+  final thermalRadiationExposureDose1Controller = TextEditingController();
+  final thermalRadiationExposureDose2Controller = TextEditingController();
+  final thermalRadiationExposureDose3Controller = TextEditingController();
+  final averageThermalRadiationExposureDoseController = TextEditingController();
+
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -62,7 +113,8 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
     selectedId = widget.microclimate?.id;
     organizationNameController.text =
         (widget.microclimate?.organizationName ?? widget.protocolName?.organizationName)!;
-    organizationIdController.text =  (widget.microclimate?.organizationId ?? widget.protocolName?.organizationId)!;
+    organizationIdController.text =
+        (widget.microclimate?.organizationId ?? widget.protocolName?.organizationId)!;
     measurementDateController.text =
         DateFormat('dd.MM.yyyy', 'ru_RU').format(selectedDate ?? DateTime.now());
     workplaceController.text = (widget.microclimate?.workplace ?? widget.protocolName?.workplace)!;
@@ -70,13 +122,80 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
         (widget.microclimate?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.microclimate?.parameterName ?? widget.protocolName?.protocolName)!;
-    airTemperature01mController.text = widget.microclimate?.airTemperature01m ?? '';
-    airTemperature15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    tncIndex01mController.text = widget.microclimate?.tncIndex01m ?? '';
-    tncIndex15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    airVelocity01mController.text = widget.microclimate?.airVelocity01m ?? '';
-    airVelocity15mController.text = widget.microclimate?.airTemperature15m ?? '';
-    relativeHumidityController.text = widget.microclimate?.relativeHumidity ?? '';
+    protocolIdController.text =
+        (widget.microclimate?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.microclimate?.familyName ?? '';
+
+    airTemperature01m1Controller.text = widget.microclimate?.airTemperature01m1 ?? '';
+    airTemperature01m2Controller.text = widget.microclimate?.airTemperature01m2 ?? '';
+    airTemperature01m3Controller.text = widget.microclimate?.airTemperature01m3 ?? '';
+    averageAirTemperature01mController.text = widget.microclimate?.averageAirTemperature01m ?? '';
+
+    airTemperature15m1Controller.text = widget.microclimate?.airTemperature15m1 ?? '';
+    airTemperature15m2Controller.text = widget.microclimate?.airTemperature15m2 ?? '';
+    airTemperature15m3Controller.text = widget.microclimate?.airTemperature15m3 ?? '';
+    averageAirTemperature15mController.text = widget.microclimate?.averageAirTemperature15m ?? '';
+
+    tncIndex01m1Controller.text = widget.microclimate?.tncIndex01m1 ?? '';
+    tncIndex01m2Controller.text = widget.microclimate?.tncIndex01m2 ?? '';
+    tncIndex01m3Controller.text = widget.microclimate?.tncIndex01m3 ?? '';
+    averageTncIndex01mController.text = widget.microclimate?.averageTncIndex01m ?? '';
+
+    tncIndex15m1Controller.text = widget.microclimate?.tncIndex15m1 ?? '';
+    tncIndex15m2Controller.text = widget.microclimate?.tncIndex15m2 ?? '';
+    tncIndex15m3Controller.text = widget.microclimate?.tncIndex15m3 ?? '';
+    averageTncIndex15mController.text = widget.microclimate?.averageTncIndex15m ?? '';
+
+    airVelocity01m1Controller.text = widget.microclimate?.airVelocity01m1 ?? '';
+    airVelocity01m2Controller.text = widget.microclimate?.airVelocity01m2 ?? '';
+    airVelocity01m3Controller.text = widget.microclimate?.airVelocity01m3 ?? '';
+    averageAirVelocity01mController.text = widget.microclimate?.averageAirVelocity01m ?? '';
+
+    airVelocity15m1Controller.text = widget.microclimate?.airVelocity15m1 ?? '';
+    airVelocity15m2Controller.text = widget.microclimate?.airVelocity15m2 ?? '';
+    airVelocity15m3Controller.text = widget.microclimate?.airVelocity15m3 ?? '';
+    averageAirVelocity15mController.text = widget.microclimate?.averageAirVelocity15m ?? '';
+
+    relativeHumidity1Controller.text = widget.microclimate?.relativeHumidity1 ?? '';
+    relativeHumidity2Controller.text = widget.microclimate?.relativeHumidity2 ?? '';
+    relativeHumidity3Controller.text = widget.microclimate?.relativeHumidity3 ?? '';
+    averageRelativeHumidityController.text = widget.microclimate?.averageRelativeHumidity ?? '';
+
+    thermalRadiationIntensity05m1Controller.text =
+        widget.microclimate?.thermalRadiationIntensity05m1 ?? '';
+    thermalRadiationIntensity05m2Controller.text =
+        widget.microclimate?.thermalRadiationIntensity05m2 ?? '';
+    thermalRadiationIntensity05m3Controller.text =
+        widget.microclimate?.thermalRadiationIntensity05m3 ?? '';
+    averageThermalRadiationIntensity05mController.text =
+        widget.microclimate?.averageThermalRadiationIntensity05m ?? '';
+
+    thermalRadiationIntensity1m1Controller.text =
+        widget.microclimate?.thermalRadiationIntensity1m1 ?? '';
+    thermalRadiationIntensity1m2Controller.text =
+        widget.microclimate?.thermalRadiationIntensity1m2 ?? '';
+    thermalRadiationIntensity1m3Controller.text =
+        widget.microclimate?.thermalRadiationIntensity1m3 ?? '';
+    averageThermalRadiationIntensity1mController.text =
+        widget.microclimate?.averageThermalRadiationIntensity1m ?? '';
+
+    thermalRadiationIntensity15m1Controller.text =
+        widget.microclimate?.thermalRadiationIntensity15m1 ?? '';
+    thermalRadiationIntensity15m2Controller.text =
+        widget.microclimate?.thermalRadiationIntensity15m2 ?? '';
+    thermalRadiationIntensity15m3Controller.text =
+        widget.microclimate?.thermalRadiationIntensity15m3 ?? '';
+    averageThermalRadiationIntensity15mController.text =
+        widget.microclimate?.averageThermalRadiationIntensity15m ?? '';
+
+    thermalRadiationExposureDose1Controller.text =
+        widget.microclimate?.thermalRadiationExposureDose1 ?? '';
+    thermalRadiationExposureDose2Controller.text =
+        widget.microclimate?.thermalRadiationExposureDose2 ?? '';
+    thermalRadiationExposureDose3Controller.text =
+        widget.microclimate?.thermalRadiationExposureDose3 ?? '';
+    averageThermalRadiationExposureDoseController.text =
+        widget.microclimate?.averageThermalRadiationExposureDose ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -179,14 +298,44 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: airTemperature01mController,
+                  controller: familyNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Температура воздуха на высоте 0.1м',
+                    labelText: 'Фамилия работника',
+                    hintText: 'Введите фамилию работника',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: parameterNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование фактора',
+                    hintText: 'Введите наименование фактора',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airTemperature01m1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Температура воздуха на высоте 0.1м №1',
                     hintText: 'Введите значение температуры воздуха на высоте 0.1м',
                   ),
                 ),
@@ -194,14 +343,59 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: airTemperature15mController,
+                  controller: airTemperature01m2Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Температура воздуха на высоте 1.5м',
+                    labelText: 'Температура воздуха на высоте 0.1м №2',
+                    hintText: 'Введите значение температуры воздуха на высоте 0.1м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airTemperature01m3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Температура воздуха на высоте 0.1м №3',
+                    hintText: 'Введите значение температуры воздуха на высоте 0.1м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageAirTemperature01mController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Средняя температура на высоте 0,1м',
+                    hintText: 'Введите среднее значение температуры воздуха на высоте 0.1м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airTemperature15m1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Температура воздуха на высоте 1.5м №1',
                     hintText: 'Введите значение температуры воздуха на высоте 1.5м',
                   ),
                 ),
@@ -209,14 +403,59 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: tncIndex01mController,
+                  controller: airTemperature15m2Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Значение ТНС на высоте 0.1м',
+                    labelText: 'Температура воздуха на высоте 1.5м №2',
+                    hintText: 'Введите значение температуры воздуха на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airTemperature15m3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Температура воздуха на высоте 1.5м №3',
+                    hintText: 'Введите значение температуры воздуха на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageAirTemperature15mController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Средняя температура на высоте 1.5м',
+                    hintText: 'Введите среднее значение температуры воздуха на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: tncIndex01m1Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Значение ТНС на высоте 0.1м №1',
                     hintText: 'Введите значение ТНС на высоте 0.1м',
                   ),
                 ),
@@ -224,14 +463,57 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: tncIndex15mController,
+                  controller: tncIndex01m2Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Значение ТНС на высоте 1.5м',
+                    labelText: 'Значение ТНС на высоте 0.1м №2',
+                    hintText: 'Введите значение ТНС на высоте 0.1м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: tncIndex01m3Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Значение ТНС на высоте 0.1м №3',
+                    hintText: 'Введите значение ТНС на высоте 0.1м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageTncIndex01mController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее ТНС на высоте 0.1м',
+                    hintText: 'Введите среднее значение ТНС',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: tncIndex15m1Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Значение ТНС на высоте 1.5м №1',
                     hintText: 'Введите значение ТНС на высоте 1.5м',
                   ),
                 ),
@@ -239,50 +521,445 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: airVelocity01mController,
-                  keyboardType: TextInputType.text,
+                  controller: tncIndex15m2Controller,
+                  keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                     filled: true,
-                    //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Скорость воздушного потока 0.1м',
-                    hintText: 'Введите значение скорость воздушного потока 0.1м',
+                    labelText: 'Значение ТНС на высоте 1.5м №2',
+                    hintText: 'Введите значение ТНС на высоте 1.5м',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: airVelocity15mController,
-                  keyboardType: TextInputType.text,
+                  controller: tncIndex15m3Controller,
+                  keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                     filled: true,
-                    //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Скорость воздушного потока 1.5м',
-                    hintText: 'Введите значение скорость воздушного потока 1.5м',
+                    labelText: 'Значение ТНС на высоте 1.5м №3',
+                    hintText: 'Введите значение ТНС на высоте 1.5м',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: relativeHumidityController,
-                  keyboardType: TextInputType.text,
+                  controller: averageTncIndex01mController,
+                  keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                     filled: true,
-                    //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Значение влажности воздуха',
-                    hintText: 'Введите значение влажности воздуха',
+                    labelText: 'Среднее ТНС на высоте 1.5м',
+                    hintText: 'Введите среднее значение ТНС',
+                  ),
+                ),
+                // Поля для ТНС на высоте 1.5м
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageTncIndex15mController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее ТНС на высоте 1.5м',
+                    hintText: 'Введите среднее значение ТНС',
+                  ),
+                ),
+                // Поля для скорости воздушного потока на высоте 0.1м
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text('Скорость воздушного потока на высоте 0.1м'),
+                TextField(
+                  controller: airVelocity01m1Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость 1',
+                    hintText: 'Введите скорость 1',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
+                TextField(
+                  controller: airVelocity01m2Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость 2',
+                    hintText: 'Введите скорость 2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airVelocity01m3Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость 3',
+                    hintText: 'Введите скорость 3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageAirVelocity01mController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Средняя скорость на высоте 0.1м',
+                    hintText: 'Введите среднее значение скорости',
+                  ),
+                ),
+                // Поля для скорости воздушного потока на высоте 1.5м
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text('Скорость воздушного потока на высоте 1.5м'),
+                TextField(
+                  controller: airVelocity15m1Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость воздушного потока на высоте 1.5м №1',
+                    hintText: 'Введите скорость на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airVelocity15m2Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость воздушного потока на высоте 1.5м №2',
+                    hintText: 'Введите скорость на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: airVelocity15m3Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Скорость воздушного потока на высоте 1.5м №3',
+                    hintText: 'Введите скорость на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageAirVelocity15mController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Средняя скорость на высоте 1.5м',
+                    hintText: 'Введите среднее значение скорости',
+                  ),
+                ),
+
+                // Поля для относительной влажности
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text('Относительная влажность'),
+                TextField(
+                  controller: relativeHumidity1Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Влажность 1',
+                    hintText: 'Введите влажность 1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: relativeHumidity2Controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Влажность 2',
+                    hintText: 'Введите влажность 2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: relativeHumidity3Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Влажность 3",
+                        hintText: "Введите влажность 3")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: averageRelativeHumidityController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Средняя относительная влажность",
+                        hintText: "Введите среднее значение влажности")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity05m1Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-0,5 м), Вт/м2 №1",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-0,5 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity05m2Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-0,5 м), Вт/м2 №2",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-0,5 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity05m3Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-0,5 м), Вт/м2 №3",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-0,5 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: averageThermalRadiationIntensity05mController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText:
+                            "Среднее значение интенсивности теплового излучения (h-0,5 м), Вт/м2",
+                        hintText:
+                            "Введите Среднее значение интенсивности теплового излучения (h-0,5 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity1m1Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1 м), Вт/м2 №1",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity1m2Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1 м), Вт/м2 №2",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity1m3Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1 м), Вт/м2 №3",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: averageThermalRadiationIntensity1mController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText:
+                            "Среднее значение интенсивности теплового излучения (h-1 м), Вт/м2",
+                        hintText:
+                            "Введите среднее значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity15m1Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1,5 м), Вт/м2 №1",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity15m2Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1,5 м), Вт/м2 №2",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationIntensity15m3Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Интенсивность теплового излучения (h-1,5 м), Вт/м2 №3",
+                        hintText:
+                            "Введите значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: averageThermalRadiationIntensity15mController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText:
+                            "Среднее значение интенсивности теплового излучения (h-1,5 м), Вт/м2",
+                        hintText:
+                            "Введите среднее значение интенсивности теплового излучения (h-1 м), Вт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationExposureDose1Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Экспозиционная доза теплового излучения, Вт·ч №1",
+                        hintText:
+                            "Введите значение экспозиционной дозы теплового излучения, Вт·чВт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationExposureDose2Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Экспозиционная доза теплового излучения, Вт·ч №2",
+                        hintText:
+                            "Введите значение экспозиционной дозы теплового излучения, Вт·чВт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: thermalRadiationExposureDose3Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Экспозиционная доза теплового излучения, Вт·ч №3",
+                        hintText:
+                            "Введите значение экспозиционной дозы теплового излучения, Вт·чВт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                    controller: averageThermalRadiationExposureDoseController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: "Среднее значение экспозиционной дозы теплового излучения, Вт·ч",
+                        hintText:
+                            "Введите Среднее значение экспозиционной дозы теплового излучения, Вт·чВт/м2")),
+                const SizedBox(
+                  height: 30,
+                ),
+
                 MaterialButton(
                   onPressed: () {
                     final organizationName = organizationNameController.text;
@@ -291,30 +968,136 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
-                    final airTemperature01m = airTemperature01mController.text;
-                    final airTemperature15m = airTemperature15mController.text;
-                    final tncIndex01m = tncIndex01mController.text;
-                    final tncIndex15m = tncIndex15mController.text;
-                    final airVelocity01m = airVelocity01mController.text;
-                    final airVelocity15m = airVelocity15mController.text;
-                    final relativeHumidity = relativeHumidityController.text;
+                    final protocolId = protocolIdController.text;
+                    final familyName = familyNameController.text;
+
+                    final airTemperature01m1 = airTemperature01m1Controller.text;
+                    final airTemperature01m2 = airTemperature01m2Controller.text;
+                    final airTemperature01m3 = airTemperature01m3Controller.text;
+                    final averageAirTemperature01m = averageAirTemperature01mController.text;
+
+                    final airTemperature15m1 = airTemperature15m1Controller.text;
+                    final airTemperature15m2 = airTemperature15m2Controller.text;
+                    final airTemperature15m3 = airTemperature15m3Controller.text;
+                    final averageAirTemperature15m = averageAirTemperature15mController.text;
+
+                    final tncIndex01m1 = tncIndex01m1Controller.text;
+                    final tncIndex01m2 = tncIndex01m2Controller.text;
+                    final tncIndex01m3 = tncIndex01m3Controller.text;
+                    final averageTncIndex01m = averageTncIndex01mController.text;
+
+                    final tncIndex15m1 = tncIndex15m1Controller.text;
+                    final tncIndex15m2 = tncIndex15m2Controller.text;
+                    final tncIndex15m3 = tncIndex15m3Controller.text;
+                    final averageTncIndex15m = averageTncIndex15mController.text;
+
+                    final airVelocity01m1 = airVelocity01m1Controller.text;
+                    final airVelocity01m2 = airVelocity01m2Controller.text;
+                    final airVelocity01m3 = airVelocity01m3Controller.text;
+                    final averageAirVelocity01m = averageAirVelocity01mController.text;
+
+                    final airVelocity15m1 = airVelocity15m1Controller.text;
+                    final airVelocity15m2 = airVelocity15m2Controller.text;
+                    final airVelocity15m3 = airVelocity15m3Controller.text;
+                    final averageAirVelocity15m = averageAirVelocity15mController.text;
+
+                    final relativeHumidity1 = relativeHumidity1Controller.text;
+                    final relativeHumidity2 = relativeHumidity2Controller.text;
+                    final relativeHumidity3 = relativeHumidity3Controller.text;
+                    final averageRelativeHumidity = averageRelativeHumidityController.text;
+
+                    final thermalRadiationIntensity05m1 =
+                        thermalRadiationIntensity05m1Controller.text;
+                    final thermalRadiationIntensity05m2 =
+                        thermalRadiationIntensity05m2Controller.text;
+                    final thermalRadiationIntensity05m3 =
+                        thermalRadiationIntensity05m3Controller.text;
+                    final averageThermalRadiationIntensity05m =
+                        averageThermalRadiationIntensity05mController.text;
+
+                    final thermalRadiationIntensity1m1 =
+                        thermalRadiationIntensity1m1Controller.text;
+                    final thermalRadiationIntensity1m2 =
+                        thermalRadiationIntensity1m2Controller.text;
+                    final thermalRadiationIntensity1m3 =
+                        thermalRadiationIntensity1m3Controller.text;
+                    final averageThermalRadiationIntensity1m =
+                        averageThermalRadiationIntensity1mController.text;
+
+                    final thermalRadiationIntensity15m1 =
+                        thermalRadiationIntensity15m1Controller.text;
+                    final thermalRadiationIntensity15m2 =
+                        thermalRadiationIntensity15m2Controller.text;
+                    final thermalRadiationIntensity15m3 =
+                        thermalRadiationIntensity15m3Controller.text;
+                    final averageThermalRadiationIntensity15m =
+                        averageThermalRadiationIntensity15mController.text;
+
+                    final thermalRadiationExposureDose1 =
+                        thermalRadiationExposureDose1Controller.text;
+                    final thermalRadiationExposureDose2 =
+                        thermalRadiationExposureDose2Controller.text;
+                    final thermalRadiationExposureDose3 =
+                        thermalRadiationExposureDose3Controller.text;
+                    final averageThermalRadiationExposureDose =
+                        averageThermalRadiationExposureDoseController.text;
 
                     if (organizationName.isNotEmpty) {
                       var microclimate = MicroclimateProtocolModel(
-                          id: selectedId,
-                          organizationName: organizationName,
-                          organizationId: organizationId,
-                          measurementDate: measurementDate,
-                          workplace: workplaceName,
-                          workplaceId: workplaceId,
-                          parameterName: parameterName,
-                          airTemperature01m: airTemperature01m,
-                          airTemperature15m: airTemperature15m,
-                          tncIndex01m: tncIndex01m,
-                          tncIndex15m: tncIndex15m,
-                          airVelocity01m: airVelocity01m,
-                          airVelocity15m: airVelocity15m,
-                          relativeHumidity: relativeHumidity);
+                        id: selectedId,
+                        organizationName: organizationName,
+                        organizationId: organizationId,
+                        measurementDate: measurementDate,
+                        workplace: workplaceName,
+                        workplaceId: workplaceId,
+                        parameterName: parameterName,
+                        protocolId: protocolId,
+                        familyName: familyName,
+                        airTemperature01m1: airTemperature01m1,
+                        airTemperature01m2: airTemperature01m2,
+                        airTemperature01m3: airTemperature01m3,
+                        averageAirTemperature01m: averageAirTemperature01m,
+                        airTemperature15m1: airTemperature15m1,
+                        airTemperature15m2: airTemperature15m2,
+                        airTemperature15m3: airTemperature15m3,
+                        averageAirTemperature15m: averageAirTemperature15m,
+                        tncIndex01m1: tncIndex01m1,
+                        tncIndex01m2: tncIndex01m2,
+                        tncIndex01m3: tncIndex01m3,
+                        averageTncIndex01m: averageTncIndex01m,
+                        tncIndex15m1: tncIndex15m1,
+                        tncIndex15m2: tncIndex15m2,
+                        tncIndex15m3: tncIndex15m3,
+                        averageTncIndex15m: averageTncIndex15m,
+                        airVelocity01m1: airVelocity01m1,
+                        airVelocity01m2: airVelocity01m2,
+                        airVelocity01m3: airVelocity01m3,
+                        averageAirVelocity01m: averageAirVelocity01m,
+                        airVelocity15m1: airVelocity15m1,
+                        airVelocity15m2: airVelocity15m2,
+                        airVelocity15m3: airVelocity15m3,
+                        averageAirVelocity15m: averageAirVelocity15m,
+                        relativeHumidity1: relativeHumidity1,
+                        relativeHumidity2: relativeHumidity2,
+                        relativeHumidity3: relativeHumidity3,
+                        averageRelativeHumidity: averageRelativeHumidity,
+                        thermalRadiationIntensity05m1: thermalRadiationIntensity05m1,
+                        thermalRadiationIntensity05m2: thermalRadiationIntensity05m2,
+                        thermalRadiationIntensity05m3: thermalRadiationIntensity05m3,
+                        averageThermalRadiationIntensity05m: averageThermalRadiationIntensity05m,
+                        thermalRadiationIntensity1m1: thermalRadiationIntensity1m1,
+                        thermalRadiationIntensity1m2: thermalRadiationIntensity1m2,
+                        thermalRadiationIntensity1m3: thermalRadiationIntensity1m3,
+                        averageThermalRadiationIntensity1m: averageThermalRadiationIntensity1m,
+                        thermalRadiationIntensity15m1: thermalRadiationIntensity15m1,
+                        thermalRadiationIntensity15m2: thermalRadiationIntensity15m2,
+                        thermalRadiationIntensity15m3: thermalRadiationIntensity15m3,
+                        averageThermalRadiationIntensity15m: averageThermalRadiationIntensity15m,
+                        thermalRadiationExposureDose1: thermalRadiationExposureDose1,
+                        thermalRadiationExposureDose2: thermalRadiationExposureDose2,
+                        thermalRadiationExposureDose3: thermalRadiationExposureDose3,
+                        averageThermalRadiationExposureDose: averageThermalRadiationExposureDose,
+                      );
                       BlocProvider.of<MicroclimateProtocolBloc>(context).add(selectedId == null
                           ? MicroclimateEvent.addMicroclimate(microclimate: microclimate)
                           : MicroclimateEvent.update(microclimate: microclimate));
@@ -323,13 +1106,53 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                       organizationIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
-                      airTemperature01mController.clear();
-                      airTemperature15mController.clear();
-                      tncIndex01mController.clear();
-                      tncIndex15mController.clear();
-                      airVelocity01mController.clear();
-                      airVelocity15mController.clear();
-                      relativeHumidityController.clear();
+                      airTemperature01m1Controller.clear();
+                      airTemperature01m2Controller.clear();
+                      airTemperature01m3Controller.clear();
+                      airTemperature15m1Controller.clear();
+                      airTemperature15m2Controller.clear();
+                      airTemperature15m3Controller.clear();
+
+                      tncIndex01m1Controller.clear();
+                      tncIndex01m2Controller.clear();
+                      tncIndex01m3Controller.clear();
+
+                      tncIndex15m1Controller.clear();
+                      tncIndex15m2Controller.clear();
+                      tncIndex15m3Controller.clear();
+
+                      airVelocity01m1Controller.clear();
+                      airVelocity01m2Controller.clear();
+                      airVelocity01m3Controller.clear();
+
+                      airVelocity15m1Controller.clear();
+                      airVelocity15m2Controller.clear();
+                      airVelocity15m3Controller.clear();
+
+                      relativeHumidity1Controller.clear();
+                      relativeHumidity2Controller.clear();
+                      relativeHumidity3Controller.clear();
+
+                      thermalRadiationIntensity05m1Controller.clear();
+                      thermalRadiationIntensity05m2Controller.clear();
+                      thermalRadiationIntensity05m3Controller.clear();
+                      averageThermalRadiationIntensity05mController.clear();
+
+                      thermalRadiationIntensity1m1Controller.clear();
+                      thermalRadiationIntensity1m2Controller.clear();
+                      thermalRadiationIntensity1m3Controller.clear();
+                      averageThermalRadiationIntensity1mController.clear();
+
+                      thermalRadiationIntensity15m1Controller.clear();
+                      thermalRadiationIntensity15m2Controller.clear();
+                      thermalRadiationIntensity15m3Controller.clear();
+                      averageThermalRadiationIntensity15mController.clear();
+
+                      thermalRadiationExposureDose1Controller.clear();
+                      thermalRadiationExposureDose2Controller.clear();
+                      thermalRadiationExposureDose3Controller.clear();
+                      averageThermalRadiationExposureDoseController.clear();
+
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля

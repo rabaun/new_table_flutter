@@ -231,7 +231,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].airTemperature01m.toString()}")),
+                    child: Text("${widget.microclimate?[index].airTemperature01m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -248,7 +248,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].airTemperature15m.toString()}")),
+                    child: Text("${widget.microclimate?[index].airTemperature15m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -265,7 +265,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].tncIndex01m.toString()}")),
+                    child: Text("${widget.microclimate?[index].tncIndex01m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -282,7 +282,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].tncIndex15m.toString()}")),
+                    child: Text("${widget.microclimate?[index].tncIndex15m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -299,7 +299,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].airVelocity01m.toString()}")),
+                    child: Text("${widget.microclimate?[index].airVelocity01m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -316,7 +316,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].airVelocity15m.toString()}")),
+                    child: Text("${widget.microclimate?[index].airVelocity15m1.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -333,7 +333,7 @@ class _BodyMicroclimateProtocolState extends State<BodyMicroclimateProtocol> {
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.microclimate?[index].relativeHumidity.toString()}")),
+                    child: Text("${widget.microclimate?[index].relativeHumidity1.toString()}")),
               )),
         ],
       ),

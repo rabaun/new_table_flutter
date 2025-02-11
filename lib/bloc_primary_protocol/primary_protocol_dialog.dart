@@ -23,13 +23,13 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
   final measurementDateController = TextEditingController();
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
+  final protocolIdController = TextEditingController();
   final familyNameController = TextEditingController();
   final parameterNameController = TextEditingController();
   final parameterValue1Controller = TextEditingController();
   final parameterValue2Controller = TextEditingController();
   final parameterValue3Controller = TextEditingController();
   final averageConcentrationController = TextEditingController();
-  final protocolIdController = TextEditingController();
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
 
@@ -69,13 +69,14 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
         (widget.primaryProtocolName?.workplace ?? widget.protocolName?.workplace)!;
     workplaceIdController.text =
         (widget.primaryProtocolName?.workplaceId ?? widget.protocolName?.workplaceId)!;
+    protocolIdController.text = (widget.primaryProtocolName?.protocolId ?? widget.protocolName?.protocolId)!;
     familyNameController.text = widget.primaryProtocolName?.familyName ?? '';
+
     parameterNameController.text =
         (widget.primaryProtocolName?.parameterName ?? widget.protocolName?.protocolName)!;
     parameterValue1Controller.text = widget.primaryProtocolName?.parameterValue1 ?? '';
     parameterValue2Controller.text = widget.primaryProtocolName?.parameterValue2 ?? '';
     parameterValue3Controller.text = widget.primaryProtocolName?.parameterValue3 ?? '';
-    protocolIdController.text = (widget.primaryProtocolName?.protocolId ?? widget.protocolName?.protocolId)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -271,13 +272,14 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                       final measurementDate = measurementDateController.text;
                       final workplace = workplaceController.text;
                       final workplaceId = workplaceIdController.text;
+                      final protocolId = protocolIdController.text;
                       final familyName = familyNameController.text;
+
                       final parameterName = parameterNameController.text;
                       final parameterValue1 = parameterValue1Controller.text;
                       final parameterValue2 = parameterValue2Controller.text;
                       final parameterValue3 = parameterValue3Controller.text;
                       final averageConcentration = averageConcentrationController.text;
-                      final protocolId = protocolIdController.text;
                       if (organizationName.isNotEmpty) {
                         var primaryProtocol = PrimaryProtocolModel(
                             id: selectedId,
@@ -286,13 +288,14 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
                             measurementDate: measurementDate,
                             workplace: workplace,
                             workplaceId: workplaceId,
+                            protocolId: protocolId,
                             familyName: familyName,
                             parameterName: parameterName,
                             parameterValue1: parameterValue1,
                             parameterValue2: parameterValue2,
                             parameterValue3: parameterValue3,
                             averageConcentration: averageConcentration,
-                            protocolId: protocolId);
+                        );
                         BlocProvider.of<PrimaryProtocolBloc>(context).add(selectedId == null
                             ? PrimaryProtocolEvent.addTableProtocol(primaryProtocol: primaryProtocol)
                             : PrimaryProtocolEvent.update(primaryProtocol: primaryProtocol));

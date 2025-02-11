@@ -1,15 +1,18 @@
 import 'package:bloc/bloc.dart';
+
 import '../../main.dart';
 import '../data/db/dao/chemical_protocol_geolan_dao.dart';
 import '../data/models/chemical_protocol_geolan_model/chemical_protocol_geolan_model.dart';
 import 'chemical_protocol_geolan_event.dart';
 import 'chemical_protocol_geolan_state.dart';
 
-class ChemicalProtocolGeolanBloc extends Bloc<ChemicalProtocolGeolanEvent, ChemicalProtocolGeolanState> {
+class ChemicalProtocolGeolanBloc
+    extends Bloc<ChemicalProtocolGeolanEvent, ChemicalProtocolGeolanState> {
   late ChemicalProtocolGeolanDao chemicalProtocolGeolanDao;
   List<ChemicalProtocolGeolanModel>? chemicalProtocolGeolan = [];
 
-  ChemicalProtocolGeolanBloc(this.chemicalProtocolGeolanDao) : super(const ChemicalProtocolGeolanState.initial()) {
+  ChemicalProtocolGeolanBloc(this.chemicalProtocolGeolanDao)
+      : super(const ChemicalProtocolGeolanState.initial()) {
     on<InitialChemicalProtocolEvent>(initial);
     on<GetChemicalProtocolGeolanEvent>(getChemicalProtocolGeolan);
     on<AddChemicalProtocolGeolanEvent>(addChemicalProtocolGeolan);
@@ -19,9 +22,9 @@ class ChemicalProtocolGeolanBloc extends Bloc<ChemicalProtocolGeolanEvent, Chemi
   }
 
   void initial(
-      InitialChemicalProtocolEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    InitialChemicalProtocolEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     emit(const LoadingChemicalProtocolGeolan());
     try {
       if (chemicalProtocolGeolan!.isEmpty) {
@@ -41,29 +44,30 @@ class ChemicalProtocolGeolanBloc extends Bloc<ChemicalProtocolGeolanEvent, Chemi
   }
 
   void getChemicalProtocolGeolan(
-      GetChemicalProtocolGeolanEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    GetChemicalProtocolGeolanEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     emit(const LoadingChemicalProtocolGeolan());
     try {
-      chemicalProtocolGeolan = await  chemicalProtocolGeolanDao.getFromTableProtocol();
+      chemicalProtocolGeolan = await chemicalProtocolGeolanDao.getFromTableProtocol();
     } catch (e) {
       emit(const ChemicalProtocolGeolanError(error: "Form is empty!"));
     }
     emit(
       DataChemicalProtocolGeolanState(
-        chemicalProtocolGeolan:  chemicalProtocolGeolan,
+        chemicalProtocolGeolan: chemicalProtocolGeolan,
       ),
     );
   }
 
   void addChemicalProtocolGeolan(
-      AddChemicalProtocolGeolanEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    AddChemicalProtocolGeolanEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     try {
       emit(const LoadingChemicalProtocolGeolan());
-      chemicalProtocolGeolan = await  chemicalProtocolGeolanDao.addInTableProtocol(event. chemicalProtocolGeolan);
+      chemicalProtocolGeolan =
+          await chemicalProtocolGeolanDao.addInTableProtocol(event.chemicalProtocolGeolan);
     } catch (e) {
       emit(const ChemicalProtocolGeolanError(error: "Form is empty!"));
     }
@@ -75,46 +79,48 @@ class ChemicalProtocolGeolanBloc extends Bloc<ChemicalProtocolGeolanEvent, Chemi
   }
 
   void getProtocol(
-      GetChemicalProtocolEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    GetChemicalProtocolEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     emit(const LoadingChemicalProtocolGeolan());
     try {
-      chemicalProtocolGeolan = await  chemicalProtocolGeolanDao.getProtocol(event.protocolName);
+      chemicalProtocolGeolan = await chemicalProtocolGeolanDao.getProtocol(event.protocolName);
     } catch (e) {
       emit(const ChemicalProtocolGeolanError(error: "Form is empty!"));
     }
     emit(
       DataChemicalProtocolGeolanState(
-        chemicalProtocolGeolan:  chemicalProtocolGeolan,
+        chemicalProtocolGeolan: chemicalProtocolGeolan,
       ),
     );
   }
 
   void updateDatabase(
-      UpdateChemicalProtocolGeolanEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    UpdateChemicalProtocolGeolanEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     try {
       emit(const LoadingChemicalProtocolGeolan());
-      chemicalProtocolGeolan = await  chemicalProtocolGeolanDao.updateTableProtocol(event.chemicalProtocolGeolan);
+      chemicalProtocolGeolan =
+          await chemicalProtocolGeolanDao.updateTableProtocol(event.chemicalProtocolGeolan);
     } catch (e) {
       emit(const ChemicalProtocolGeolanError(error: "Form is empty!"));
     }
     emit(
       DataChemicalProtocolGeolanState(
-        chemicalProtocolGeolan:  chemicalProtocolGeolan,
+        chemicalProtocolGeolan: chemicalProtocolGeolan,
       ),
     );
   }
 
   void removeDatabase(
-      DeleteChemicalProtocolGeolanEvent event,
-      Emitter<ChemicalProtocolGeolanState> emit,
-      ) async {
+    DeleteChemicalProtocolGeolanEvent event,
+    Emitter<ChemicalProtocolGeolanState> emit,
+  ) async {
     emit(const LoadingChemicalProtocolGeolan());
     try {
-      chemicalProtocolGeolan = await chemicalProtocolGeolanDao.removeTableProtocol(event.chemicalProtocolGeolan);
+      chemicalProtocolGeolan =
+          await chemicalProtocolGeolanDao.removeTableProtocol(event.chemicalProtocolGeolan);
     } catch (e) {
       emit(const ChemicalProtocolGeolanError(error: "Form is empty!"));
     }
