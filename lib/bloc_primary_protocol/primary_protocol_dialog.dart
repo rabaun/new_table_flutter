@@ -36,6 +36,25 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
   @override
   void initState() {
     super.initState();
+
+    // Инициализация значений из виджета
+    parameterValue1Controller.text = widget.primaryProtocolName?.parameterValue1 ?? '';
+    parameterValue2Controller.text = widget.primaryProtocolName?.parameterValue2 ?? '';
+    parameterValue3Controller.text = widget.primaryProtocolName?.parameterValue3 ?? '';
+
+    // Слушатели для контроллеров параметров
+    parameterValue1Controller.addListener(_updateAverageParameterValue);
+    parameterValue2Controller.addListener(_updateAverageParameterValue);
+    parameterValue3Controller.addListener(_updateAverageParameterValue);
+  }
+
+  void _updateAverageParameterValue() {
+    double p1 = double.tryParse(parameterValue1Controller.text) ?? 0;
+    double p2 = double.tryParse(parameterValue2Controller.text) ?? 0;
+    double p3 = double.tryParse(parameterValue3Controller.text) ?? 0;
+
+    double averageP = (p1 + p2 + p3) / 3;
+    averageConcentrationController.text = averageP.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;
@@ -77,6 +96,7 @@ class _AddPrimaryProtocolDialogState extends State<AddPrimaryProtocolDialog> {
     parameterValue1Controller.text = widget.primaryProtocolName?.parameterValue1 ?? '';
     parameterValue2Controller.text = widget.primaryProtocolName?.parameterValue2 ?? '';
     parameterValue3Controller.text = widget.primaryProtocolName?.parameterValue3 ?? '';
+    averageConcentrationController.text = widget.primaryProtocolName?.averageConcentration ?? '';
     return Scaffold(
       appBar: AppBar(
         title: const Text(

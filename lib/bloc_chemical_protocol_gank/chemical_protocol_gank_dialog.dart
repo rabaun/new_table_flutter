@@ -37,6 +37,23 @@ class _AddChemicalProtocolGankDialogState extends State<AddChemicalProtocolGankD
   @override
   void initState() {
     super.initState();
+
+    // Инициализация значений из виджета
+    concentration1_1Controller.text = widget.chemicalProtocolGankList?.concentration1_1 ?? '';
+    concentration2_1Controller.text = widget.chemicalProtocolGankList?.concentration2_1 ?? '';
+    averageConcentrationController.text = widget.chemicalProtocolGankList?.averageConcentration ?? '';
+
+    // Слушатели для контроллеров концентраций
+    concentration1_1Controller.addListener(_updateAverageConcentration);
+    concentration2_1Controller.addListener(_updateAverageConcentration);
+  }
+
+  void _updateAverageConcentration() {
+    double c1 = double.tryParse(concentration1_1Controller.text) ?? 0;
+    double c2 = double.tryParse(concentration2_1Controller.text) ?? 0;
+
+    double averageC = (c1 + c2) / 2;
+    averageConcentrationController.text = averageC.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;

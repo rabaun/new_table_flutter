@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,9 +26,10 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
         actions: [
           localVibrationProtocol != null && localVibrationProtocol!.isEmpty
               ? _floatingButton(context)
-              : Container(),        ],
+              : Container(),
+        ],
       ),
-      body:ListView.builder(
+      body: ListView.builder(
           itemCount: localVibrationProtocol?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
@@ -46,17 +46,20 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
                 _buildListItem('Вибрация по X №1', localVibrationProtocol?[index].correctedLevelX1),
                 _buildListItem('Вибрация по X №2', localVibrationProtocol?[index].correctedLevelX2),
                 _buildListItem('Вибрация по X №3', localVibrationProtocol?[index].correctedLevelX3),
-                _buildListItem('Среднее значение вибрация по X', localVibrationProtocol?[index].averageCorrectedLevelX),
+                _buildListItem('Среднее значение вибрация по X',
+                    localVibrationProtocol?[index].averageCorrectedLevelX),
 
                 _buildListItem('Вибрация по Y №1', localVibrationProtocol?[index].correctedLevelY1),
                 _buildListItem('Вибрация по Y №2', localVibrationProtocol?[index].correctedLevelY2),
                 _buildListItem('Вибрация по Y №3', localVibrationProtocol?[index].correctedLevelY3),
-                _buildListItem('Среднее значение вибрация по Y', localVibrationProtocol?[index].averageCorrectedLevelY),
+                _buildListItem('Среднее значение вибрация по Y',
+                    localVibrationProtocol?[index].averageCorrectedLevelY),
 
                 _buildListItem('Вибрация по Z №1', localVibrationProtocol?[index].correctedLevelZ1),
                 _buildListItem('Вибрация по Z №2', localVibrationProtocol?[index].correctedLevelZ2),
                 _buildListItem('Вибрация по Z №3', localVibrationProtocol?[index].correctedLevelZ3),
-                _buildListItem('Среднее значение вибрация по Z', localVibrationProtocol?[index].averageCorrectedLevelZ),
+                _buildListItem('Среднее значение вибрация по Z',
+                    localVibrationProtocol?[index].averageCorrectedLevelZ),
 
                 updateButton(context, index)
               ],
@@ -67,22 +70,37 @@ class NewLocalVibrationProtocolBody extends StatelessWidget {
   }
 
   Widget _floatingButton(context) {
-    return Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AddLocalVibrationProtocolDialog(
-                  protocolName: protocolNameModel,
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+        child: Container(
+            width: 40.0, // Установите ширину круга
+            height: 40.0, // Установите высоту круга
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red.withOpacity(0.7), // Полупрозрачный красный фон
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Цвет тени
+                  blurRadius: 10.0, // Размытие тени
+                  spreadRadius: 2.0, // Расширение тени
+                  offset: Offset(0, 4), // Смещение тени
+                ),
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddLocalVibrationProtocolDialog(
+                      protocolName: protocolNameModel,
+                    );
+                  },
                 );
               },
-            );
-          },
-          icon: const Icon(Icons.add, color: Colors.black),
-        )
-    );
+              icon: const Icon(Icons.add, color: Colors.white),
+              iconSize: 20.0, // Размер иконк
+            )));
   }
 
   Widget updateButton(BuildContext context, int index) {

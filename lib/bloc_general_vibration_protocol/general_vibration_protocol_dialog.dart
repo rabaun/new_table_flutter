@@ -49,6 +49,46 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
   @override
   void initState() {
     super.initState();
+
+    // Добавляем слушателей для контроллеров
+    correctedLevelX1Controller.addListener(_updateAverageX);
+    correctedLevelX2Controller.addListener(_updateAverageX);
+    correctedLevelX3Controller.addListener(_updateAverageX);
+
+    correctedLevelY1Controller.addListener(_updateAverageY);
+    correctedLevelY2Controller.addListener(_updateAverageY);
+    correctedLevelY3Controller.addListener(_updateAverageY);
+
+    correctedLevelZ1Controller.addListener(_updateAverageZ);
+    correctedLevelZ2Controller.addListener(_updateAverageZ);
+    correctedLevelZ3Controller.addListener(_updateAverageZ);
+  }
+
+  void _updateAverageX() {
+    double x1 = double.tryParse(correctedLevelX1Controller.text) ?? 0;
+    double x2 = double.tryParse(correctedLevelX2Controller.text) ?? 0;
+    double x3 = double.tryParse(correctedLevelX3Controller.text) ?? 0;
+
+    double averageX = (x1 + x2 + x3) / 3;
+    averageCorrectedLevelXController.text = averageX.toStringAsFixed(2); // Ограничиваем до двух знаков после запятой
+  }
+
+  void _updateAverageY() {
+    double y1 = double.tryParse(correctedLevelY1Controller.text) ?? 0;
+    double y2 = double.tryParse(correctedLevelY2Controller.text) ?? 0;
+    double y3 = double.tryParse(correctedLevelY3Controller.text) ?? 0;
+
+    double averageY = (y1 + y2 + y3) / 3;
+    averageCorrectedLevelYController.text = averageY.toStringAsFixed(2);
+  }
+
+  void _updateAverageZ() {
+    double z1 = double.tryParse(correctedLevelZ1Controller.text) ?? 0;
+    double z2 = double.tryParse(correctedLevelZ2Controller.text) ?? 0;
+    double z3 = double.tryParse(correctedLevelZ3Controller.text) ?? 0;
+
+    double averageZ = (z1 + z2 + z3) / 3;
+    averageCorrectedLevelZController.text = averageZ.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;
@@ -84,23 +124,27 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
         (widget.generalVibrationProtocol?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.generalVibrationProtocol?.parameterName ?? widget.protocolName?.protocolName)!;
-    protocolIdController.text = (widget.generalVibrationProtocol?.protocolId ?? widget.protocolName?.protocolId)!;
+    protocolIdController.text =
+        (widget.generalVibrationProtocol?.protocolId ?? widget.protocolName?.protocolId)!;
     familyNameController.text = widget.generalVibrationProtocol?.familyName ?? '';
 
     correctedLevelX1Controller.text = widget.generalVibrationProtocol?.correctedLevelX1 ?? '';
     correctedLevelX2Controller.text = widget.generalVibrationProtocol?.correctedLevelX2 ?? '';
     correctedLevelX3Controller.text = widget.generalVibrationProtocol?.correctedLevelX3 ?? '';
-    averageCorrectedLevelXController.text = widget.generalVibrationProtocol?.averageCorrectedLevelX ?? '';
+    averageCorrectedLevelXController.text =
+        widget.generalVibrationProtocol?.averageCorrectedLevelX ?? '';
 
     correctedLevelY1Controller.text = widget.generalVibrationProtocol?.correctedLevelY1 ?? '';
     correctedLevelY2Controller.text = widget.generalVibrationProtocol?.correctedLevelY2 ?? '';
     correctedLevelY3Controller.text = widget.generalVibrationProtocol?.correctedLevelY3 ?? '';
-    averageCorrectedLevelYController.text = widget.generalVibrationProtocol?.averageCorrectedLevelY ?? '';
+    averageCorrectedLevelYController.text =
+        widget.generalVibrationProtocol?.averageCorrectedLevelY ?? '';
 
     correctedLevelZ1Controller.text = widget.generalVibrationProtocol?.correctedLevelZ1 ?? '';
     correctedLevelZ2Controller.text = widget.generalVibrationProtocol?.correctedLevelZ2 ?? '';
     correctedLevelZ3Controller.text = widget.generalVibrationProtocol?.correctedLevelZ3 ?? '';
-    averageCorrectedLevelZController.text = widget.generalVibrationProtocol?.averageCorrectedLevelZ ?? '';
+    averageCorrectedLevelZController.text =
+        widget.generalVibrationProtocol?.averageCorrectedLevelZ ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -438,7 +482,6 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                     final correctedLevelZ3 = correctedLevelZ3Controller.text;
                     final averageCorrectedLevelZ = averageCorrectedLevelZController.text;
 
-
                     if (organizationName.isNotEmpty) {
                       var generalVibrationProtocol = GeneralVibrationProtocolModel(
                         id: selectedId,
@@ -450,17 +493,14 @@ class _AddGeneralVibrationProtocolDialogState extends State<AddGeneralVibrationP
                         parameterName: parameterName,
                         protocolId: protocolId,
                         familyName: familyName,
-
                         correctedLevelX1: correctedLevelX1,
                         correctedLevelX2: correctedLevelX2,
                         correctedLevelX3: correctedLevelX3,
                         averageCorrectedLevelX: averageCorrectedLevelX,
-
                         correctedLevelY1: correctedLevelY1,
                         correctedLevelY2: correctedLevelY2,
                         correctedLevelY3: correctedLevelY3,
                         averageCorrectedLevelY: averageCorrectedLevelY,
-
                         correctedLevelZ1: correctedLevelZ1,
                         correctedLevelZ2: correctedLevelZ2,
                         correctedLevelZ3: correctedLevelZ3,

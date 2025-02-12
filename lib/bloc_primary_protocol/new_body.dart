@@ -42,10 +42,14 @@ class NewPrimaryProtocolBody extends StatelessWidget {
                 // _buildListItem('ИД места работы', primaryProtocolList?[index].workplaceId),
                 _buildListItem('Фамилия работника', primaryProtocolList?[index].familyName),
                 _buildListItem('Название параметра', primaryProtocolList?[index].parameterName),
-                _buildListItem('Значение уровня шума №1', primaryProtocolList?[index].parameterValue1),
-                _buildListItem('Значение уровня шума №2', primaryProtocolList?[index].parameterValue2),
-                _buildListItem('Значение уровня шума №3', primaryProtocolList?[index].parameterValue3),
-                _buildListItem('Среднее значение уровня шума', primaryProtocolList?[index].averageConcentration),
+                _buildListItem(
+                    'Значение уровня шума №1', primaryProtocolList?[index].parameterValue1),
+                _buildListItem(
+                    'Значение уровня шума №2', primaryProtocolList?[index].parameterValue2),
+                _buildListItem(
+                    'Значение уровня шума №3', primaryProtocolList?[index].parameterValue3),
+                _buildListItem('Среднее значение уровня шума',
+                    primaryProtocolList?[index].averageConcentration),
                 updateButton(context, index)
               ],
             );
@@ -83,21 +87,37 @@ class NewPrimaryProtocolBody extends StatelessWidget {
   }
 
   Widget _floatingButton(context) {
-    return Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AddPrimaryProtocolDialog(
-                  protocolName: protocolNameModel,
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+        child: Container(
+            width: 40.0, // Установите ширину круга
+            height: 40.0, // Установите высоту круга
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red.withOpacity(0.7), // Полупрозрачный красный фон
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Цвет тени
+                  blurRadius: 10.0, // Размытие тени
+                  spreadRadius: 2.0, // Расширение тени
+                  offset: Offset(0, 4), // Смещение тени
+                ),
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddPrimaryProtocolDialog(
+                      protocolName: protocolNameModel,
+                    );
+                  },
                 );
               },
-            );
-          },
-          icon: const Icon(Icons.add, color: Colors.black),
-        ));
+              icon: const Icon(Icons.add, color: Colors.white),
+              iconSize: 20.0, // Размер иконк
+            )));
   }
 
   Widget _buildListItem(String title, String? value) {

@@ -16,8 +16,9 @@ class NewChemicalProtocolGeolanBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ChemicalProtocolGeolanBloc>(context).add(ChemicalProtocolGeolanEvent.getProtocol(
-        protocolName: protocolNameModel, workplaceName: protocolNameModel));
+    BlocProvider.of<ChemicalProtocolGeolanBloc>(context).add(
+        ChemicalProtocolGeolanEvent.getProtocol(
+            protocolName: protocolNameModel, workplaceName: protocolNameModel));
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -42,7 +43,8 @@ class NewChemicalProtocolGeolanBody extends StatelessWidget {
                 // _buildListItem('ИД места работы', chemicalProtocolGeolan?[index].workplaceId),
                 _buildListItem('Фамилия работника', chemicalProtocolGeolan?[index].familyName),
                 _buildListItem('Название параметра', chemicalProtocolGeolan?[index].parameterName),
-                _buildListItem('Значение концентрации №1', chemicalProtocolGeolan?[index].parameterValue),
+                _buildListItem(
+                    'Значение концентрации №1', chemicalProtocolGeolan?[index].parameterValue),
                 updateButton(context, index)
               ],
             );
@@ -80,21 +82,37 @@ class NewChemicalProtocolGeolanBody extends StatelessWidget {
   }
 
   Widget _floatingButton(context) {
-    return Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AddChemicalProtocolGeolanDialog(
-                  protocolName: protocolNameModel,
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+        child: Container(
+            width: 40.0, // Установите ширину круга
+            height: 40.0, // Установите высоту круга
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red.withOpacity(0.7), // Полупрозрачный красный фон
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Цвет тени
+                  blurRadius: 10.0, // Размытие тени
+                  spreadRadius: 2.0, // Расширение тени
+                  offset: Offset(0, 4), // Смещение тени
+                ),
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddChemicalProtocolGeolanDialog(
+                      protocolName: protocolNameModel,
+                    );
+                  },
                 );
               },
-            );
-          },
-          icon: const Icon(Icons.add, color: Colors.black),
-        ));
+              icon: const Icon(Icons.add, color: Colors.white),
+              iconSize: 20.0, // Размер иконки
+            )));
   }
 
   Widget _buildListItem(String title, String? value) {

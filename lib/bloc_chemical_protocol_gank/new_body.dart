@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,9 +26,10 @@ class NewChemicalProtocolGankBody extends StatelessWidget {
         actions: [
           chemicalProtocolGankList != null && chemicalProtocolGankList!.isEmpty
               ? _floatingButton(context)
-              : Container(),          ],
+              : Container(),
+        ],
       ),
-      body:ListView.builder(
+      body: ListView.builder(
           itemCount: chemicalProtocolGankList?.length ?? 0,
           itemBuilder: (context, index) {
             return Column(
@@ -40,11 +40,15 @@ class NewChemicalProtocolGankBody extends StatelessWidget {
                 _buildListItem('Дата измерения', chemicalProtocolGankList?[index].measurementDate),
                 _buildListItem('Место работы', chemicalProtocolGankList?[index].workplace),
                 // _buildListItem('ИД места работы', chemicalProtocolGankList?[index].workplaceId),
-                _buildListItem('Название параметра', chemicalProtocolGankList?[index].parameterName),
+                _buildListItem(
+                    'Название параметра', chemicalProtocolGankList?[index].parameterName),
                 _buildListItem('Фамилия работника', chemicalProtocolGankList?[index].familyName),
-                _buildListItem('Значение первой серии', chemicalProtocolGankList?[index].concentration1_1),
-                _buildListItem('Значение второй серии', chemicalProtocolGankList?[index].concentration2_1),
-                _buildListItem('Среднее значение', chemicalProtocolGankList?[index].averageConcentration),
+                _buildListItem(
+                    'Значение первой серии', chemicalProtocolGankList?[index].concentration1_1),
+                _buildListItem(
+                    'Значение второй серии', chemicalProtocolGankList?[index].concentration2_1),
+                _buildListItem(
+                    'Среднее значение', chemicalProtocolGankList?[index].averageConcentration),
                 updateButton(context, index)
               ],
             );
@@ -82,22 +86,37 @@ class NewChemicalProtocolGankBody extends StatelessWidget {
   }
 
   Widget _floatingButton(context) {
-    return Theme(
-        data: Theme.of(context).copyWith(splashColor: Colors.yellow),
-        child: IconButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AddChemicalProtocolGankDialog(
-                  protocolName: protocolNameModel,
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+        child: Container(
+            width: 40.0, // Установите ширину круга
+            height: 40.0, // Установите высоту круга
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red.withOpacity(0.7), // Полупрозрачный красный фон
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Цвет тени
+                  blurRadius: 10.0, // Размытие тени
+                  spreadRadius: 2.0, // Расширение тени
+                  offset: Offset(0, 4), // Смещение тени
+                ),
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AddChemicalProtocolGankDialog(
+                      protocolName: protocolNameModel,
+                    );
+                  },
                 );
               },
-            );
-          },
-          icon: const Icon(Icons.add, color: Colors.black),
-        )
-    );
+              icon: const Icon(Icons.add, color: Colors.white),
+              iconSize: 20.0, // Размер иконки
+            )));
   }
 
   Widget _buildListItem(String title, String? value) {

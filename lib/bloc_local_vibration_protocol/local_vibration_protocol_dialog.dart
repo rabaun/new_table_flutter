@@ -49,6 +49,46 @@ class _AddLocalVibrationProtocolDialogState extends State<AddLocalVibrationProto
   @override
   void initState() {
     super.initState();
+
+    // Добавляем слушателей для контроллеров
+    correctedLevelX1Controller.addListener(_updateAverageX);
+    correctedLevelX2Controller.addListener(_updateAverageX);
+    correctedLevelX3Controller.addListener(_updateAverageX);
+
+    correctedLevelY1Controller.addListener(_updateAverageY);
+    correctedLevelY2Controller.addListener(_updateAverageY);
+    correctedLevelY3Controller.addListener(_updateAverageY);
+
+    correctedLevelZ1Controller.addListener(_updateAverageZ);
+    correctedLevelZ2Controller.addListener(_updateAverageZ);
+    correctedLevelZ3Controller.addListener(_updateAverageZ);
+  }
+
+  void _updateAverageX() {
+    double x1 = double.tryParse(correctedLevelX1Controller.text) ?? 0;
+    double x2 = double.tryParse(correctedLevelX2Controller.text) ?? 0;
+    double x3 = double.tryParse(correctedLevelX3Controller.text) ?? 0;
+
+    double averageX = (x1 + x2 + x3) / 3;
+    averageCorrectedLevelXController.text = averageX.toStringAsFixed(2); // Ограничиваем до двух знаков после запятой
+  }
+
+  void _updateAverageY() {
+    double y1 = double.tryParse(correctedLevelY1Controller.text) ?? 0;
+    double y2 = double.tryParse(correctedLevelY2Controller.text) ?? 0;
+    double y3 = double.tryParse(correctedLevelY3Controller.text) ?? 0;
+
+    double averageY = (y1 + y2 + y3) / 3;
+    averageCorrectedLevelYController.text = averageY.toStringAsFixed(2);
+  }
+
+  void _updateAverageZ() {
+    double z1 = double.tryParse(correctedLevelZ1Controller.text) ?? 0;
+    double z2 = double.tryParse(correctedLevelZ2Controller.text) ?? 0;
+    double z3 = double.tryParse(correctedLevelZ3Controller.text) ?? 0;
+
+    double averageZ = (z1 + z2 + z3) / 3;
+    averageCorrectedLevelZController.text = averageZ.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;

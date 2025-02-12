@@ -61,13 +61,20 @@ class WorkplaceDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, departmentName = ?, workplaceName = ?, workplaceId = ?, WHERE id = ?',
+        '''UPDATE $table SET 
+        organizationName = ?, 
+        organizationId = ?, 
+        departmentName = ?, 
+        workplaceName = ?, 
+        workplaceId = ? 
+        WHERE id = ?''',
         [
           (workplaceModel?.organizationName),
           (workplaceModel?.organizationId),
           (workplaceModel?.departmentName),
           (workplaceModel?.workplaceName),
           (workplaceModel?.workplaceId),
+          (workplaceModel?.id),
         ],
       );
       var result =

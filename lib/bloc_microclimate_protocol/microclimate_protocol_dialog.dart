@@ -88,6 +88,163 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
   @override
   void initState() {
     super.initState();
+
+
+    // Добавляем слушателей для контроллеров температуры на 1 м
+    airTemperature01m1Controller.addListener(_updateAverageAirTemperature01m);
+    airTemperature01m2Controller.addListener(_updateAverageAirTemperature01m);
+    airTemperature01m3Controller.addListener(_updateAverageAirTemperature01m);
+
+    // Добавляем слушателей для контроллеров температуры на 15 м
+    airTemperature15m1Controller.addListener(_updateAverageAirTemperature15m);
+    airTemperature15m2Controller.addListener(_updateAverageAirTemperature15m);
+    airTemperature15m3Controller.addListener(_updateAverageAirTemperature15m);
+
+    // Добавляем слушателей для контроллеров TNC на 1 м
+    tncIndex01m1Controller.addListener(_updateAverageTncIndex01m);
+    tncIndex01m2Controller.addListener(_updateAverageTncIndex01m);
+    tncIndex01m3Controller.addListener(_updateAverageTncIndex01m);
+
+    // Добавляем слушателей для контроллеров TNC на 15 м
+    tncIndex15m1Controller.addListener(_updateAverageTncIndex15m);
+    tncIndex15m2Controller.addListener(_updateAverageTncIndex15m);
+    tncIndex15m3Controller.addListener(_updateAverageTncIndex15m);
+  }
+
+  void _updateAverageAirTemperature01m() {
+    double t1 = double.tryParse(airTemperature01m1Controller.text) ?? 0;
+    double t2 = double.tryParse(airTemperature01m2Controller.text) ?? 0;
+    double t3 = double.tryParse(airTemperature01m3Controller.text) ?? 0;
+
+    double averageT = (t1 + t2 + t3) / 3;
+    averageAirTemperature01mController.text = averageT.toStringAsFixed(2);
+  }
+
+  void _updateAverageAirTemperature15m() {
+    double t1 = double.tryParse(airTemperature15m1Controller.text) ?? 0;
+    double t2 = double.tryParse(airTemperature15m2Controller.text) ?? 0;
+    double t3 = double.tryParse(airTemperature15m3Controller.text) ?? 0;
+
+    double averageT = (t1 + t2 + t3) / 3;
+    averageAirTemperature15mController.text = averageT.toStringAsFixed(2);
+  }
+
+  void _updateAverageTncIndex01m() {
+    double t1 = double.tryParse(tncIndex01m1Controller.text) ?? 0;
+    double t2 = double.tryParse(tncIndex01m2Controller.text) ?? 0;
+    double t3 = double.tryParse(tncIndex01m3Controller.text) ?? 0;
+
+    double averageT = (t1 + t2 + t3) / 3;
+    averageTncIndex01mController.text = averageT.toStringAsFixed(2);
+  }
+
+  void _updateAverageTncIndex15m() {
+    double t1 = double.tryParse(tncIndex15m1Controller.text) ?? 0;
+    double t2 = double.tryParse(tncIndex15m2Controller.text) ?? 0;
+    double t3 = double.tryParse(tncIndex15m3Controller.text) ?? 0;
+
+    double averageT = (t1 + t2 + t3) / 3;
+    averageTncIndex15mController.text = averageT.toStringAsFixed(2);
+
+
+    // Слушатели для контроллеров скорости воздуха на 1 м
+    airVelocity01m1Controller.addListener(_updateAverageAirVelocity01m);
+    airVelocity01m2Controller.addListener(_updateAverageAirVelocity01m);
+    airVelocity01m3Controller.addListener(_updateAverageAirVelocity01m);
+
+    // Слушатели для контроллеров скорости воздуха на 15 м
+    airVelocity15m1Controller.addListener(_updateAverageAirVelocity15m);
+    airVelocity15m2Controller.addListener(_updateAverageAirVelocity15m);
+    airVelocity15m3Controller.addListener(_updateAverageAirVelocity15m);
+
+    // Слушатели для контроллеров относительной влажности
+    relativeHumidity1Controller.addListener(_updateAverageRelativeHumidity);
+    relativeHumidity2Controller.addListener(_updateAverageRelativeHumidity);
+    relativeHumidity3Controller.addListener(_updateAverageRelativeHumidity);
+
+    // Слушатели для контроллеров интенсивности теплового излучения на 0.5 м
+    thermalRadiationIntensity05m1Controller.addListener(_updateAverageThermalRadiationIntensity05m);
+    thermalRadiationIntensity05m2Controller.addListener(_updateAverageThermalRadiationIntensity05m);
+    thermalRadiationIntensity05m3Controller.addListener(_updateAverageThermalRadiationIntensity05m);
+  }
+
+  void _updateAverageAirVelocity01m() {
+    double v1 = double.tryParse(airVelocity01m1Controller.text) ?? 0;
+    double v2 = double.tryParse(airVelocity01m2Controller.text) ?? 0;
+    double v3 = double.tryParse(airVelocity01m3Controller.text) ?? 0;
+
+    double averageV = (v1 + v2 + v3) / 3;
+    averageAirVelocity01mController.text = averageV.toStringAsFixed(2);
+  }
+
+  void _updateAverageAirVelocity15m() {
+    double v1 = double.tryParse(airVelocity15m1Controller.text) ?? 0;
+    double v2 = double.tryParse(airVelocity15m2Controller.text) ?? 0;
+    double v3 = double.tryParse(airVelocity15m3Controller.text) ?? 0;
+
+    double averageV = (v1 + v2 + v3) / 3;
+    averageAirVelocity15mController.text = averageV.toStringAsFixed(2);
+  }
+
+  void _updateAverageRelativeHumidity() {
+    double h1 = double.tryParse(relativeHumidity1Controller.text) ?? 0;
+    double h2 = double.tryParse(relativeHumidity2Controller.text) ?? 0;
+    double h3 = double.tryParse(relativeHumidity3Controller.text) ?? 0;
+
+    double averageH = (h1 + h2 + h3) / 3;
+    averageRelativeHumidityController.text = averageH.toStringAsFixed(2);
+  }
+
+  void _updateAverageThermalRadiationIntensity05m() {
+    double r1 = double.tryParse(thermalRadiationIntensity05m1Controller.text) ?? 0;
+    double r2 = double.tryParse(thermalRadiationIntensity05m2Controller.text) ?? 0;
+    double r3 = double.tryParse(thermalRadiationIntensity05m3Controller.text) ?? 0;
+
+    double averageR = (r1 + r2 + r3) / 3;
+    averageThermalRadiationIntensity05mController.text = averageR.toStringAsFixed(2);
+
+
+    // Слушатели для контроллеров интенсивности теплового излучения на 1 м
+    thermalRadiationIntensity1m1Controller.addListener(_updateAverageThermalRadiationIntensity1m);
+    thermalRadiationIntensity1m2Controller.addListener(_updateAverageThermalRadiationIntensity1m);
+    thermalRadiationIntensity1m3Controller.addListener(_updateAverageThermalRadiationIntensity1m);
+
+    // Слушатели для контроллеров интенсивности теплового излучения на 15 м
+    thermalRadiationIntensity15m1Controller.addListener(_updateAverageThermalRadiationIntensity15m);
+    thermalRadiationIntensity15m2Controller.addListener(_updateAverageThermalRadiationIntensity15m);
+    thermalRadiationIntensity15m3Controller.addListener(_updateAverageThermalRadiationIntensity15m);
+
+    // Слушатели для контроллеров дозы теплового излучения
+    thermalRadiationExposureDose1Controller.addListener(_updateAverageThermalRadiationExposureDose);
+    thermalRadiationExposureDose2Controller.addListener(_updateAverageThermalRadiationExposureDose);
+    thermalRadiationExposureDose3Controller.addListener(_updateAverageThermalRadiationExposureDose);
+  }
+
+  void _updateAverageThermalRadiationIntensity1m() {
+    double r1 = double.tryParse(thermalRadiationIntensity1m1Controller.text) ?? 0;
+    double r2 = double.tryParse(thermalRadiationIntensity1m2Controller.text) ?? 0;
+    double r3 = double.tryParse(thermalRadiationIntensity1m3Controller.text) ?? 0;
+
+    double averageR = (r1 + r2 + r3) / 3;
+    averageThermalRadiationIntensity1mController.text = averageR.toStringAsFixed(2);
+  }
+
+  void _updateAverageThermalRadiationIntensity15m() {
+    double r1 = double.tryParse(thermalRadiationIntensity15m1Controller.text) ?? 0;
+    double r2 = double.tryParse(thermalRadiationIntensity15m2Controller.text) ?? 0;
+    double r3 = double.tryParse(thermalRadiationIntensity15m3Controller.text) ?? 0;
+
+    double averageR = (r1 + r2 + r3) / 3;
+    averageThermalRadiationIntensity15mController.text = averageR.toStringAsFixed(2);
+  }
+
+  void _updateAverageThermalRadiationExposureDose() {
+    double d1 = double.tryParse(thermalRadiationExposureDose1Controller.text) ?? 0;
+    double d2 = double.tryParse(thermalRadiationExposureDose2Controller.text) ?? 0;
+    double d3 = double.tryParse(thermalRadiationExposureDose3Controller.text) ?? 0;
+
+    double averageD = (d1 + d2 + d3) / 3;
+    averageThermalRadiationExposureDoseController.text = averageD.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;
@@ -161,41 +318,25 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
     relativeHumidity3Controller.text = widget.microclimate?.relativeHumidity3 ?? '';
     averageRelativeHumidityController.text = widget.microclimate?.averageRelativeHumidity ?? '';
 
-    thermalRadiationIntensity05m1Controller.text =
-        widget.microclimate?.thermalRadiationIntensity05m1 ?? '';
-    thermalRadiationIntensity05m2Controller.text =
-        widget.microclimate?.thermalRadiationIntensity05m2 ?? '';
-    thermalRadiationIntensity05m3Controller.text =
-        widget.microclimate?.thermalRadiationIntensity05m3 ?? '';
-    averageThermalRadiationIntensity05mController.text =
-        widget.microclimate?.averageThermalRadiationIntensity05m ?? '';
+    thermalRadiationIntensity05m1Controller.text = widget.microclimate?.thermalRadiationIntensity05m1 ?? '';
+    thermalRadiationIntensity05m2Controller.text = widget.microclimate?.thermalRadiationIntensity05m2 ?? '';
+    thermalRadiationIntensity05m3Controller.text = widget.microclimate?.thermalRadiationIntensity05m3 ?? '';
+    averageThermalRadiationIntensity05mController.text = widget.microclimate?.averageThermalRadiationIntensity05m ?? '';
 
-    thermalRadiationIntensity1m1Controller.text =
-        widget.microclimate?.thermalRadiationIntensity1m1 ?? '';
-    thermalRadiationIntensity1m2Controller.text =
-        widget.microclimate?.thermalRadiationIntensity1m2 ?? '';
-    thermalRadiationIntensity1m3Controller.text =
-        widget.microclimate?.thermalRadiationIntensity1m3 ?? '';
-    averageThermalRadiationIntensity1mController.text =
-        widget.microclimate?.averageThermalRadiationIntensity1m ?? '';
+    thermalRadiationIntensity1m1Controller.text = widget.microclimate?.thermalRadiationIntensity1m1 ?? '';
+    thermalRadiationIntensity1m2Controller.text = widget.microclimate?.thermalRadiationIntensity1m2 ?? '';
+    thermalRadiationIntensity1m3Controller.text = widget.microclimate?.thermalRadiationIntensity1m3 ?? '';
+    averageThermalRadiationIntensity1mController.text = widget.microclimate?.averageThermalRadiationIntensity1m ?? '';
 
-    thermalRadiationIntensity15m1Controller.text =
-        widget.microclimate?.thermalRadiationIntensity15m1 ?? '';
-    thermalRadiationIntensity15m2Controller.text =
-        widget.microclimate?.thermalRadiationIntensity15m2 ?? '';
-    thermalRadiationIntensity15m3Controller.text =
-        widget.microclimate?.thermalRadiationIntensity15m3 ?? '';
-    averageThermalRadiationIntensity15mController.text =
-        widget.microclimate?.averageThermalRadiationIntensity15m ?? '';
+    thermalRadiationIntensity15m1Controller.text = widget.microclimate?.thermalRadiationIntensity15m1 ?? '';
+    thermalRadiationIntensity15m2Controller.text = widget.microclimate?.thermalRadiationIntensity15m2 ?? '';
+    thermalRadiationIntensity15m3Controller.text = widget.microclimate?.thermalRadiationIntensity15m3 ?? '';
+    averageThermalRadiationIntensity15mController.text = widget.microclimate?.averageThermalRadiationIntensity15m ?? '';
 
-    thermalRadiationExposureDose1Controller.text =
-        widget.microclimate?.thermalRadiationExposureDose1 ?? '';
-    thermalRadiationExposureDose2Controller.text =
-        widget.microclimate?.thermalRadiationExposureDose2 ?? '';
-    thermalRadiationExposureDose3Controller.text =
-        widget.microclimate?.thermalRadiationExposureDose3 ?? '';
-    averageThermalRadiationExposureDoseController.text =
-        widget.microclimate?.averageThermalRadiationExposureDose ?? '';
+    thermalRadiationExposureDose1Controller.text = widget.microclimate?.thermalRadiationExposureDose1 ?? '';
+    thermalRadiationExposureDose2Controller.text = widget.microclimate?.thermalRadiationExposureDose2 ?? '';
+    thermalRadiationExposureDose3Controller.text = widget.microclimate?.thermalRadiationExposureDose3 ?? '';
+    averageThermalRadiationExposureDoseController.text = widget.microclimate?.averageThermalRadiationExposureDose ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -549,21 +690,6 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                   height: 30,
                 ),
                 TextField(
-                  controller: averageTncIndex01mController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(),
-                    labelText: 'Среднее ТНС на высоте 1.5м',
-                    hintText: 'Введите среднее значение ТНС',
-                  ),
-                ),
-                // Поля для ТНС на высоте 1.5м
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
                   controller: averageTncIndex15mController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
@@ -586,7 +712,7 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Скорость 1',
+                    labelText: 'Скорость на высоте 0.1м №1',
                     hintText: 'Введите скорость 1',
                   ),
                 ),
@@ -600,7 +726,7 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Скорость 2',
+                    labelText: 'Скорость на высоте 0.1м №2',
                     hintText: 'Введите скорость 2',
                   ),
                 ),
@@ -614,7 +740,7 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Скорость 3',
+                    labelText: 'Скорость на высоте 0.1м №3',
                     hintText: 'Введите скорость 3',
                   ),
                 ),
@@ -703,8 +829,8 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Влажность 1',
-                    hintText: 'Введите влажность 1',
+                    labelText: 'Значение относительной влажности №1',
+                    hintText: 'Введите значение относительной влажность №1',
                   ),
                 ),
                 const SizedBox(
@@ -717,8 +843,8 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'Влажность 2',
-                    hintText: 'Введите влажность 2',
+                    labelText: 'Значение относительной влажности №2',
+                    hintText: 'Введите значение влажность №2',
                   ),
                 ),
                 const SizedBox(
@@ -731,8 +857,8 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(),
-                        labelText: "Влажность 3",
-                        hintText: "Введите влажность 3")),
+                        labelText: "Значение относительной влажности №3",
+                        hintText: "Введите значение относительной влажность 3")),
                 const SizedBox(
                   height: 30,
                 ),
@@ -744,7 +870,7 @@ class _AddMicroclimateDialogState extends State<AddMicroclimateDialog> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(),
                         labelText: "Средняя относительная влажность",
-                        hintText: "Введите среднее значение влажности")),
+                        hintText: "Введите среднее значение относительной влажности")),
                 const SizedBox(
                   height: 30,
                 ),
