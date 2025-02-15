@@ -20,6 +20,8 @@ import 'bloc_general_vibration_protocol/bloc_general_vibration_protocol.dart';
 import 'bloc_general_vibration_protocol/general_vibration_protocol_event.dart';
 import 'bloc_intensity_work_process/bloc_intensity_work_process.dart';
 import 'bloc_intensity_work_process/intensity_work_process_event.dart';
+import 'bloc_lighting_protocol/bloc_lighting_protocol.dart';
+import 'bloc_lighting_protocol/lighting_protocol_event.dart';
 import 'bloc_local_vibration_protocol/bloc_local_vibration_protocol.dart';
 import 'bloc_local_vibration_protocol/local_vibration_protocol_event.dart';
 import 'bloc_microclimate_protocol/bloc_microclimate_protocol.dart';
@@ -42,6 +44,7 @@ import 'data/db/dao/device_cert_dao.dart';
 import 'data/db/dao/device_dao.dart';
 import 'data/db/dao/general_vibration_protocol_dao.dart';
 import 'data/db/dao/intensity_work_process_dao.dart';
+import 'data/db/dao/lighting_protocol_dao.dart';
 import 'data/db/dao/local_vibration_protocol_dao.dart';
 import 'data/db/dao/microclimate_protocol_dao.dart';
 import 'data/db/dao/organization_dao.dart';
@@ -77,6 +80,7 @@ class MyApp extends StatelessWidget {
   final IntensityWorkProcessDao intensityWorkProcessDao = IntensityWorkProcessDao();
   final ChemicalProtocolGankDao chemicalProtocolGankDao = ChemicalProtocolGankDao();
   final ChemicalProtocolGeolanDao chemicalProtocolGeolanDao = ChemicalProtocolGeolanDao();
+  final LightingProtocolDao lightingProtocolDao = LightingProtocolDao();
 
   MyApp({super.key});
 
@@ -125,6 +129,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<ChemicalProtocolGeolanBloc>(
               create: (context) => ChemicalProtocolGeolanBloc(chemicalProtocolGeolanDao)
                 ..add(const ChemicalProtocolGeolanEvent.initial())),
+          BlocProvider<LightingProtocolBloc>(
+              create: (context) => LightingProtocolBloc(lightingProtocolDao)
+                ..add(const LightingProtocolEvent.initial())),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

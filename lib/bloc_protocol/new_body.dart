@@ -10,6 +10,7 @@ import '../screen/chemical_protocol_gank_screen.dart';
 import '../screen/chemical_protocol_geolan_screen.dart';
 import '../screen/general_vibration_protocol_screen.dart';
 import '../screen/intensity_work_process_screen.dart';
+import '../screen/lighting_protocol_screen.dart';
 import '../screen/local_vibration_protocol_screen.dart';
 import '../screen/microclimate_protocol_screen.dart';
 import '../screen/primary_protocol_screen.dart';
@@ -106,7 +107,7 @@ class NewProtocolNameBody extends StatelessWidget {
         );
         break;
       case "Освещение":
-        title = PrimaryProtocolScreen(
+        title = LightingProtocolScreen(
           protocolName: protocolNameList?[index],
         );
         break;

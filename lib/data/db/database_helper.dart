@@ -21,6 +21,7 @@ class DatabaseHelper {
   static const table12 = 'intensity_work_process'; // сделал
   static const table13 = 'chemical_protocol_geolan'; // сделал
   static const table14 = 'chemical_protocol_gank'; // сделал
+  static const table15 = 'lighting_protocol'; // сделал
 
   static final DatabaseHelper instance = DatabaseHelper();
   static Database? db;
@@ -383,9 +384,27 @@ class DatabaseHelper {
        concentration1_1 VARCHAR(100) NOT NULL,
        concentration2_1 VARCHAR(100) NOT NULL,
        averageConcentration VARCHAR(100) NOT NULL,
-       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName)
-   );
+       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
 ''');
+
+      db?.execute('''
+       CREATE TABLE IF NOT EXISTS $table15
+       (id INTEGER PRIMARY KEY,
+       organizationName VARCHAR(100) NOT NULL,
+       organizationId VARCHAR(100) NOT NULL,
+       measurementDate VARCHAR(32) NOT NULL,
+       workplace VARCHAR(100) NOT NULL,
+       workplaceId VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       parameterName VARCHAR(100) NOT NULL,
+       parameterValue1 VARCHAR(32) NOT NULL,
+       parameterValue2 VARCHAR(32) NOT NULL,
+       parameterValue3 VARCHAR(32) NOT NULL,
+       averageConcentration VARCHAR(32) NOT NULL,
+       FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
+      ''');
+
     } catch (e) {
       if (kDebugMode) {
         print("Error");
