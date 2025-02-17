@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_dialog.dart';
 import 'package:new_table_flutter/bloc_primary_protocol/primary_protocol_event.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:permission_handler/permission_handler.dart';
 
 import '../data/models/primary_protocol_model/primary_protocol_model.dart';
 import '../data/models/protocol_name_model/protocol_name_model.dart';
@@ -181,7 +183,10 @@ class NewPrimaryProtocolBody extends StatelessWidget {
   }
 
   Future<void> _generatePdf(BuildContext context) async {
+    await requestPermission(); // Запрос разрешений
+
     final pdf = pw.Document();
+
     // Загрузка шрифта
     final ttf = pw.Font.ttf(await rootBundle.load('assets/fonts/Roboto-Regular.ttf'));
 
@@ -252,15 +257,40 @@ class NewPrimaryProtocolBody extends StatelessWidget {
       ),
     );
 
-    // Получаем директорию для сохранения файла
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/первичный_протокол_по_шуму.pdf');
+    Directory? downloadDirectory = await getApplicationDocumentsDirectory();
+
+    if (Platform.isAndroid) {
+      downloadDirectory = Directory('/storage/emulated/0/Download');
+    } else if (Platform.isWindows) {
+      downloadDirectory = await getApplicationDocumentsDirectory();
+    }
+
+    // Проверяем, существует ли директория
+    if (!await downloadDirectory.exists()) {
+      print('Директория загрузок не существует');
+      return;
+    }
+
+    // Генерируем уникальное имя файла с помощью текущей даты и времени
+    String timestamp = DateFormat('yyyyMMdd_HHmmss').format(DateTime.now());
+    String fileName = 'первичный_протокол_по_шуму_$timestamp.pdf';
+
+    // Создаем файл PDF с уникальным именем
+    final file = File('${downloadDirectory.path}/$fileName');
 
     // Сохраняем PDF в файл
     await file.writeAsBytes(await pdf.save());
 
     // Выводим путь к файлу в консоль
     print('PDF сохранен по пути: ${file.path}');
+  }
+
+  Future<void> requestPermission() async {
+    if (await Permission.storage.request().isGranted) {
+      // Разрешение получено
+    } else {
+      print('Разрешение на доступ к хранилищу не получено');
+    }
   }
 
 // Функция для создания ячейки заголовка таблицы

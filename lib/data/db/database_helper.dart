@@ -254,10 +254,29 @@ class DatabaseHelper {
        workplace VARCHAR(32) NOT NULL,
        workplaceId VARCHAR(32) NOT NULL,
        parameterName VARCHAR(100) NOT NULL,
-       uvAIntensityH05_10 VARCHAR(32) NOT NULL,
-       uvAIntensityH15 VARCHAR(32) NOT NULL,
-       uvBIntensityH05_10 VARCHAR(32) NOT NULL,
-       uvBIntensityH15 VARCHAR(32) NOT NULL,
+       protocolId VARCHAR(32) NOT NULL,
+       familyName VARCHAR(32) NOT NULL,
+       
+       uvAIntensityH05_101 VARCHAR(32) NOT NULL,
+       uvAIntensityH05_102 VARCHAR(32) NOT NULL,
+       uvAIntensityH05_103 VARCHAR(32) NOT NULL,
+       averageUvAIntensityH05_10 VARCHAR(32) NOT NULL,
+       
+       uvAIntensityH151 VARCHAR(32) NOT NULL,
+       uvAIntensityH152 VARCHAR(32) NOT NULL,
+       uvAIntensityH153 VARCHAR(32) NOT NULL,
+       averageUvAIntensityH15 VARCHAR(32) NOT NULL,
+         
+       uvBIntensityH05_101 VARCHAR(32) NOT NULL,
+       uvBIntensityH05_102 VARCHAR(32) NOT NULL,
+       uvBIntensityH05_103 VARCHAR(32) NOT NULL,
+       averageUvBIntensityH05_10 VARCHAR(32) NOT NULL,
+       
+       uvBIntensityH151 VARCHAR(32) NOT NULL,
+       uvBIntensityH152 VARCHAR(32) NOT NULL,
+       uvBIntensityH153 VARCHAR(32) NOT NULL,
+       averageUvBIntensityH15 VARCHAR(32) NOT NULL,
+       
        FOREIGN KEY (organizationName) REFERENCES $table2(organizationName));
       ''');
 

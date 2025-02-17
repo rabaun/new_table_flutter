@@ -42,10 +42,28 @@ class NewUltravioletRadiationProtocolBody extends StatelessWidget {
                 _buildListItem('Место работы', ultravioletRadiation?[index].workplace),
                 // _buildListItem('ИД места работы', ultravioletRadiation?[index].workplaceId),
                 _buildListItem('Название параметра', ultravioletRadiation?[index].parameterName),
-                _buildListItem('Ф-А излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].uvAIntensityH05_10),
-                _buildListItem('УФ-А излучение на высоте 1.5м', ultravioletRadiation?[index].uvAIntensityH15),
-                _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].uvBIntensityH05_10),
-                _buildListItem('УФ-В излучение на высоте 1.5м', ultravioletRadiation?[index].uvBIntensityH15),
+                _buildListItem('Фамилия работника', ultravioletRadiation?[index].familyName),
+
+                _buildListItem('Ф-А излучение на высоте 0.5 - 1.0м №1', ultravioletRadiation?[index].uvAIntensityH05_101),
+                _buildListItem('Ф-А излучение на высоте 0.5 - 1.0м №2', ultravioletRadiation?[index].uvAIntensityH05_102),
+                _buildListItem('Ф-А излучение на высоте 0.5 - 1.0м №3', ultravioletRadiation?[index].uvAIntensityH05_103),
+                _buildListItem('Среденее значение УФ-А излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].averageUvAIntensityH05_10),
+
+                _buildListItem('УФ-А излучение на высоте 1.5м №1', ultravioletRadiation?[index].uvAIntensityH151),
+                _buildListItem('УФ-А излучение на высоте 1.5м №2', ultravioletRadiation?[index].uvAIntensityH152),
+                _buildListItem('УФ-А излучение на высоте 1.5м №3', ultravioletRadiation?[index].uvAIntensityH153),
+                _buildListItem('Среднее значение УФ-А излучение на высоте 1.5м', ultravioletRadiation?[index].averageUvAIntensityH15),
+
+                _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м №1', ultravioletRadiation?[index].uvBIntensityH05_101),
+                _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м №2', ultravioletRadiation?[index].uvBIntensityH05_102),
+                _buildListItem('УФ-В излучение на высоте 0.5 - 1.0м №3', ultravioletRadiation?[index].uvBIntensityH05_103),
+                _buildListItem('Среднее значение УФ-В излучение на высоте 0.5 - 1.0м', ultravioletRadiation?[index].averageUvBIntensityH05_10),
+
+                _buildListItem('УФ-В излучение на высоте 1.5м №1', ultravioletRadiation?[index].uvBIntensityH151),
+                _buildListItem('УФ-В излучение на высоте 1.5м №2', ultravioletRadiation?[index].uvBIntensityH152),
+                _buildListItem('УФ-В излучение на высоте 1.5м №3', ultravioletRadiation?[index].uvBIntensityH153),
+                _buildListItem('Среднее значение УФ-В излучение на высоте 1.5м', ultravioletRadiation?[index].averageUvBIntensityH15),
+
                 updateButton(context, index)
               ],
             );

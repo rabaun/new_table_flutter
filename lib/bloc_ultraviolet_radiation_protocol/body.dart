@@ -228,7 +228,7 @@ class _BodyUltravioletRadiationProtocolState extends State<BodyUltravioletRadiat
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH05_10.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH05_101.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -245,7 +245,7 @@ class _BodyUltravioletRadiationProtocolState extends State<BodyUltravioletRadiat
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH15.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].uvAIntensityH151.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -262,7 +262,7 @@ class _BodyUltravioletRadiationProtocolState extends State<BodyUltravioletRadiat
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH05_10.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH05_101.toString()}")),
               )),
           Padding(
               padding: const EdgeInsets.all(6.0),
@@ -279,7 +279,7 @@ class _BodyUltravioletRadiationProtocolState extends State<BodyUltravioletRadiat
                     //   }
                     // },
                     onLongPress: () {},
-                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH15.toString()}")),
+                    child: Text("${widget.ultravioletRadiation?[index].uvBIntensityH151.toString()}")),
               )),
         ],
       ),

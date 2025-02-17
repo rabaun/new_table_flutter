@@ -13,10 +13,29 @@ class UltravioletRadiationProtocolModel with _$UltravioletRadiationProtocolModel
     String? workplace,
     String? workplaceId,
     String? parameterName,
-    String? uvAIntensityH05_10,
-    String? uvAIntensityH15,
-    String? uvBIntensityH05_10,
-    String? uvBIntensityH15,
+    String? protocolId,
+    String? familyName,
+
+    String? uvAIntensityH05_101,
+    String? uvAIntensityH05_102,
+    String? uvAIntensityH05_103,
+    String? averageUvAIntensityH05_10,
+
+    String? uvAIntensityH151,
+    String? uvAIntensityH152,
+    String? uvAIntensityH153,
+    String? averageUvAIntensityH15,
+
+    String? uvBIntensityH05_101,
+    String? uvBIntensityH05_102,
+    String? uvBIntensityH05_103,
+    String? averageUvBIntensityH05_10,
+
+    String? uvBIntensityH151,
+    String? uvBIntensityH152,
+    String? uvBIntensityH153,
+    String? averageUvBIntensityH15
+
   }) = _UltravioletRadiationProtocolModel;
 
   factory UltravioletRadiationProtocolModel.fromJson(Map<String, dynamic> json) => _$UltravioletRadiationProtocolModelFromJson(json);

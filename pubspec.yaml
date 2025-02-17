@@ -61,6 +61,7 @@ dependencies:
   intl_utils: ^2.8.7
   flutter_i18n: ^0.35.1
   uuid: ^3.0.6
+  permission_handler: ^10.2.0
   pdf: ^3.6.0 # Убедитесь, что используете последнюю версию
 #  printing: ^5.6.0 # Для печати и сохранения PDF
 

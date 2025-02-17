@@ -27,10 +27,28 @@ class _AddUltravioletRadiationProtocolDialogState
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final uvAIntensityH05_10Controller = TextEditingController();
-  final uvAIntensityH15Controller = TextEditingController();
-  final uvBIntensityH05_10Controller = TextEditingController();
-  final uvBIntensityH15Controller = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
+
+  final uvAIntensityH05_101Controller = TextEditingController();
+  final uvAIntensityH05_102Controller = TextEditingController();
+  final uvAIntensityH05_103Controller = TextEditingController();
+  final averageUvAIntensityH05_10Controller = TextEditingController();
+
+  final uvAIntensityH151Controller = TextEditingController();
+  final uvAIntensityH152Controller = TextEditingController();
+  final uvAIntensityH153Controller = TextEditingController();
+  final averageUvAIntensityH15Controller = TextEditingController();
+
+  final uvBIntensityH05_101Controller = TextEditingController();
+  final uvBIntensityH05_102Controller = TextEditingController();
+  final uvBIntensityH05_103Controller = TextEditingController();
+  final averageUvBIntensityH05_10Controller = TextEditingController();
+
+  final uvBIntensityH151Controller = TextEditingController();
+  final uvBIntensityH152Controller = TextEditingController();
+  final uvBIntensityH153Controller = TextEditingController();
+  final averageUvBIntensityH15Controller = TextEditingController();
 
   int? selectedId;
   Color _color = Colors.white; // Исходный цвет
@@ -38,6 +56,82 @@ class _AddUltravioletRadiationProtocolDialogState
   @override
   void initState() {
     super.initState();
+
+    // Инициализация значений из виджета
+    uvAIntensityH05_101Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_101 ?? '';
+    uvAIntensityH05_102Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_102 ?? '';
+    uvAIntensityH05_103Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_103 ?? '';
+    averageUvAIntensityH05_10Controller.text =
+        widget.ultravioletRadiation?.uvAIntensityH05_103 ?? '';
+
+    uvAIntensityH151Controller.text = widget.ultravioletRadiation?.uvAIntensityH151 ?? '';
+    uvAIntensityH152Controller.text = widget.ultravioletRadiation?.uvAIntensityH152 ?? '';
+    uvAIntensityH153Controller.text = widget.ultravioletRadiation?.uvAIntensityH153 ?? '';
+    averageUvAIntensityH15Controller.text = widget.ultravioletRadiation?.uvAIntensityH153 ?? '';
+
+    uvBIntensityH05_101Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_101 ?? '';
+    uvBIntensityH05_102Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_102 ?? '';
+    uvBIntensityH05_103Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_103 ?? '';
+    averageUvBIntensityH05_10Controller.text =
+        widget.ultravioletRadiation?.uvBIntensityH05_103 ?? '';
+
+    uvBIntensityH151Controller.text = widget.ultravioletRadiation?.uvBIntensityH151 ?? '';
+    uvBIntensityH152Controller.text = widget.ultravioletRadiation?.uvBIntensityH152 ?? '';
+    uvBIntensityH153Controller.text = widget.ultravioletRadiation?.uvBIntensityH153 ?? '';
+    averageUvBIntensityH15Controller.text = widget.ultravioletRadiation?.uvBIntensityH153 ?? '';
+
+    // Слушатели для контроллеров
+    uvAIntensityH05_101Controller.addListener(_updateAverageUvAIntensityH05);
+    uvAIntensityH05_102Controller.addListener(_updateAverageUvAIntensityH05);
+    uvAIntensityH05_103Controller.addListener(_updateAverageUvAIntensityH05);
+
+    uvAIntensityH151Controller.addListener(_updateAverageUvAIntensityH15);
+    uvAIntensityH152Controller.addListener(_updateAverageUvAIntensityH15);
+    uvAIntensityH153Controller.addListener(_updateAverageUvAIntensityH15);
+
+    uvBIntensityH05_101Controller.addListener(_updateAverageUvBIntensityH05);
+    uvBIntensityH05_102Controller.addListener(_updateAverageUvBIntensityH05);
+    uvBIntensityH05_103Controller.addListener(_updateAverageUvBIntensityH05);
+
+    uvBIntensityH151Controller.addListener(_updateAverageUvBIntensityH15);
+    uvBIntensityH152Controller.addListener(_updateAverageUvBIntensityH15);
+    uvBIntensityH153Controller.addListener(_updateAverageUvBIntensityH15);
+  }
+
+  void _updateAverageUvAIntensityH05() {
+    double h101 = double.tryParse(uvAIntensityH05_101Controller.text) ?? 0;
+    double h102 = double.tryParse(uvAIntensityH05_102Controller.text) ?? 0;
+    double h103 = double.tryParse(uvAIntensityH05_103Controller.text) ?? 0;
+
+    double average = (h101 + h102 + h103) / 3;
+    averageUvAIntensityH05_10Controller.text = average.toStringAsFixed(2);
+  }
+
+  void _updateAverageUvAIntensityH15() {
+    double h151 = double.tryParse(uvAIntensityH151Controller.text) ?? 0;
+    double h152 = double.tryParse(uvAIntensityH152Controller.text) ?? 0;
+    double h153 = double.tryParse(uvAIntensityH153Controller.text) ?? 0;
+
+    double average = (h151 + h152 + h153) / 3;
+    averageUvAIntensityH15Controller.text = average.toStringAsFixed(2);
+  }
+
+  void _updateAverageUvBIntensityH05() {
+    double h101 = double.tryParse(uvBIntensityH05_101Controller.text) ?? 0;
+    double h102 = double.tryParse(uvBIntensityH05_102Controller.text) ?? 0;
+    double h103 = double.tryParse(uvBIntensityH05_103Controller.text) ?? 0;
+
+    double average = (h101 + h102 + h103) / 3;
+    averageUvBIntensityH05_10Controller.text = average.toStringAsFixed(2);
+  }
+
+  void _updateAverageUvBIntensityH15() {
+    double h151 = double.tryParse(uvBIntensityH151Controller.text) ?? 0;
+    double h152 = double.tryParse(uvBIntensityH152Controller.text) ?? 0;
+    double h153 = double.tryParse(uvBIntensityH153Controller.text) ?? 0;
+
+    double average = (h151 + h152 + h153) / 3;
+    averageUvBIntensityH15Controller.text = average.toStringAsFixed(2);
   }
 
   DateTime? selectedDate;
@@ -73,10 +167,31 @@ class _AddUltravioletRadiationProtocolDialogState
         (widget.ultravioletRadiation?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.ultravioletRadiation?.parameterName ?? widget.protocolName?.protocolName)!;
-    uvAIntensityH05_10Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_10 ?? '';
-    uvAIntensityH15Controller.text = widget.ultravioletRadiation?.uvAIntensityH15 ?? '';
-    uvBIntensityH05_10Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_10 ?? '';
-    uvBIntensityH15Controller.text = widget.ultravioletRadiation?.uvBIntensityH15 ?? '';
+    protocolIdController.text =
+        (widget.ultravioletRadiation?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.ultravioletRadiation?.familyName ?? '';
+
+    uvAIntensityH05_101Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_101 ?? '';
+    uvAIntensityH05_102Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_102 ?? '';
+    uvAIntensityH05_103Controller.text = widget.ultravioletRadiation?.uvAIntensityH05_103 ?? '';
+    averageUvAIntensityH05_10Controller.text =
+        widget.ultravioletRadiation?.averageUvAIntensityH05_10 ?? '';
+
+    uvAIntensityH151Controller.text = widget.ultravioletRadiation?.uvAIntensityH151 ?? '';
+    uvAIntensityH152Controller.text = widget.ultravioletRadiation?.uvAIntensityH152 ?? '';
+    uvAIntensityH153Controller.text = widget.ultravioletRadiation?.uvAIntensityH153 ?? '';
+    averageUvAIntensityH15Controller.text = widget.ultravioletRadiation?.averageUvAIntensityH15 ?? '';
+
+    uvBIntensityH05_101Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_101 ?? '';
+    uvBIntensityH05_102Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_102 ?? '';
+    uvBIntensityH05_103Controller.text = widget.ultravioletRadiation?.uvBIntensityH05_103 ?? '';
+    averageUvBIntensityH05_10Controller.text =
+        widget.ultravioletRadiation?.averageUvBIntensityH05_10 ?? '';
+
+    uvBIntensityH151Controller.text = widget.ultravioletRadiation?.uvBIntensityH151 ?? '';
+    uvBIntensityH152Controller.text = widget.ultravioletRadiation?.uvBIntensityH152 ?? '';
+    uvBIntensityH153Controller.text = widget.ultravioletRadiation?.uvBIntensityH153 ?? '';
+    averageUvBIntensityH15Controller.text = widget.ultravioletRadiation?.averageUvBIntensityH15 ?? '';
 
     return Scaffold(
       appBar: AppBar(
@@ -179,60 +294,255 @@ class _AddUltravioletRadiationProtocolDialogState
                   height: 30,
                 ),
                 TextField(
-                  controller: uvAIntensityH05_10Controller,
+                  controller: familyNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'УФ-А излучение на высоте 0.5 - 1.0м',
-                    hintText: 'Введите значение УФ-А излучения на высоте 0.5 - 1.0м',
+                    labelText: 'Фамилия работника',
+                    hintText: 'Введите фамилию работника',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: uvAIntensityH15Controller,
+                  controller: uvAIntensityH05_101Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'УФ-А излучение на высоте 1.5м',
-                    hintText: 'Введите значение УФ-А излучения на высоте 1.5м',
+                    labelText: 'УФ-А излучение на высоте 0.5 - 1.0м №1',
+                    hintText: 'Введите значение УФ-А излучения на высоте 0.5 - 1.0м №1',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: uvBIntensityH05_10Controller,
+                  controller: uvAIntensityH05_102Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'УФ-В излучение на высоте 0.5 - 1.0м',
-                    hintText: 'Введите значение УФ-В излучения на высоте 0.5 - 1.0м',
+                    labelText: 'УФ-А излучение на высоте 0.5 - 1.0м №2',
+                    hintText: 'Введите значение УФ-А излучения на высоте 0.5 - 1.0м №2',
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
-                  controller: uvBIntensityH15Controller,
+                  controller: uvAIntensityH05_103Controller,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     filled: true,
                     //<-- SEE HERE
                     fillColor: Colors.white,
                     border: OutlineInputBorder(),
-                    labelText: 'УФ-В излучение на высоте 1.5м',
-                    hintText: 'Введите значение УФ-В излучения на высоте 1.5м',
+                    labelText: 'УФ-А излучение на высоте 0.5 - 1.0м №3',
+                    hintText: 'Введите значение УФ-А излучения на высоте 0.5 - 1.0м №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageUvAIntensityH05_10Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среденее значение УФ-А излучение на высоте 0.5 - 1.0м',
+                    hintText: 'Введите среденее значение УФ-А излучения на высоте 0.5 - 1.0м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvAIntensityH151Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-А излучение на высоте 1.5м №1',
+                    hintText: 'Введите значение УФ-А излучения на высоте 1.5м №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvAIntensityH152Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-А излучение на высоте 1.5м №2',
+                    hintText: 'Введите значение УФ-А излучения на высоте 1.5м №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvAIntensityH153Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-А излучение на высоте 1.5м №3',
+                    hintText: 'Введите значение УФ-А излучения на высоте 1.5м №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageUvAIntensityH15Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение УФ-А излучение на высоте 1.5м',
+                    hintText: 'Введите значение среднее значение УФ-А излучения на высоте 1.5м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH05_101Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 0.5 - 1.0м №1',
+                    hintText: 'Введите значение УФ-В излучения на высоте 0.5 - 1.0м №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH05_102Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 0.5 - 1.0м №2',
+                    hintText: 'Введите значение УФ-В излучения на высоте 0.5 - 1.0м №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH05_103Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 0.5 - 1.0м №3',
+                    hintText: 'Введите значение УФ-В излучения на высоте 0.5 - 1.0м №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageUvBIntensityH05_10Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение УФ-В излучение на высоте 0.5 - 1.0м',
+                    hintText: 'Введите среднее значение УФ-В излучения на высоте 0.5 - 1.0м',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH151Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 1.5м №1',
+                    hintText: 'Введите значение УФ-В излучения на высоте 1.5м №1',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH152Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 1.5м №2',
+                    hintText: 'Введите значение УФ-В излучения на высоте 1.5м №2',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: uvBIntensityH153Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'УФ-В излучение на высоте 1.5м №3',
+                    hintText: 'Введите значение УФ-В излучения на высоте 1.5м №3',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: averageUvBIntensityH15Controller,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Среднее значение УФ-В излучение на высоте 1.5м',
+                    hintText: 'Введите среднее значение УФ-В излучения на высоте 1.5м',
                   ),
                 ),
                 const SizedBox(
@@ -246,10 +556,28 @@ class _AddUltravioletRadiationProtocolDialogState
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
-                    final uvAIntensityH05_10 = uvAIntensityH05_10Controller.text;
-                    final uvAIntensityH15 = uvAIntensityH15Controller.text;
-                    final uvBIntensityH05_10 = uvBIntensityH05_10Controller.text;
-                    final uvBIntensityH15 = uvBIntensityH15Controller.text;
+                    final protocolId = protocolIdController.text;
+                    final familyName = familyNameController.text;
+
+                    final uvAIntensityH05_101 = uvAIntensityH05_101Controller.text;
+                    final uvAIntensityH05_102 = uvAIntensityH05_102Controller.text;
+                    final uvAIntensityH05_103 = uvAIntensityH05_103Controller.text;
+                    final averageUvAIntensityH05_10 = averageUvAIntensityH05_10Controller.text;
+
+                    final uvAIntensityH151 = uvAIntensityH151Controller.text;
+                    final uvAIntensityH152 = uvAIntensityH152Controller.text;
+                    final uvAIntensityH153 = uvAIntensityH153Controller.text;
+                    final averageUvAIntensityH15 = averageUvAIntensityH15Controller.text;
+
+                    final uvBIntensityH05_101 = uvBIntensityH05_101Controller.text;
+                    final uvBIntensityH05_102 = uvBIntensityH05_102Controller.text;
+                    final uvBIntensityH05_103 = uvBIntensityH05_103Controller.text;
+                    final averageUvBIntensityH05_10 = averageUvBIntensityH05_10Controller.text;
+
+                    final uvBIntensityH151 = uvBIntensityH151Controller.text;
+                    final uvBIntensityH152 = uvBIntensityH152Controller.text;
+                    final uvBIntensityH153 = uvBIntensityH153Controller.text;
+                    final averageUvBIntensityH15 = averageUvBIntensityH15Controller.text;
 
                     if (organizationName.isNotEmpty) {
                       var ultravioletRadiation = UltravioletRadiationProtocolModel(
@@ -260,10 +588,24 @@ class _AddUltravioletRadiationProtocolDialogState
                         workplace: workplaceName,
                         workplaceId: workplaceId,
                         parameterName: parameterName,
-                        uvAIntensityH05_10: uvAIntensityH05_10,
-                        uvAIntensityH15: uvAIntensityH15,
-                        uvBIntensityH05_10: uvBIntensityH05_10,
-                        uvBIntensityH15: uvBIntensityH15,
+                        protocolId: protocolId,
+                        familyName: familyName,
+                        uvAIntensityH05_101: uvAIntensityH05_101,
+                        uvAIntensityH05_102: uvAIntensityH05_102,
+                        uvAIntensityH05_103: uvAIntensityH05_103,
+                        averageUvAIntensityH05_10: averageUvAIntensityH05_10,
+                        uvAIntensityH151: uvAIntensityH151,
+                        uvAIntensityH152: uvAIntensityH152,
+                        uvAIntensityH153: uvAIntensityH153,
+                        averageUvAIntensityH15: averageUvAIntensityH15,
+                        uvBIntensityH05_101: uvBIntensityH05_101,
+                        uvBIntensityH05_102: uvBIntensityH05_102,
+                        uvBIntensityH05_103: uvBIntensityH05_103,
+                        averageUvBIntensityH05_10: averageUvBIntensityH05_10,
+                        uvBIntensityH151: uvBIntensityH151,
+                        uvBIntensityH152: uvBIntensityH152,
+                        uvBIntensityH153: uvBIntensityH153,
+                        averageUvBIntensityH15: averageUvBIntensityH15,
                       );
                       BlocProvider.of<UltravioletRadiationProtocolBloc>(context).add(
                           selectedId == null
@@ -278,11 +620,27 @@ class _AddUltravioletRadiationProtocolDialogState
                       workplaceIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
+                      familyNameController.clear();
+                      uvAIntensityH05_101Controller.clear();
+                      uvAIntensityH05_102Controller.clear();
+                      uvAIntensityH05_103Controller.clear();
 
-                      uvAIntensityH05_10Controller.clear();
-                      uvAIntensityH15Controller.clear();
-                      uvBIntensityH05_10Controller.clear();
-                      uvBIntensityH15Controller.clear();
+                      uvAIntensityH151Controller.clear();
+                      uvAIntensityH152Controller.clear();
+                      uvAIntensityH153Controller.clear();
+
+                      uvBIntensityH05_101Controller.clear();
+                      uvBIntensityH05_102Controller.clear();
+                      uvBIntensityH05_103Controller.clear();
+
+                      uvBIntensityH151Controller.clear();
+                      uvBIntensityH152Controller.clear();
+                      uvBIntensityH153Controller.clear();
+
+                      uvBIntensityH05_101Controller.clear();
+                      uvBIntensityH05_102Controller.clear();
+                      uvBIntensityH05_103Controller.clear();
+
                       Navigator.pop(context);
                     } else {
                       // Показать сообщение об ошибке или подсветить пустые поля
