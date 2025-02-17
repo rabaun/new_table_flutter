@@ -25,10 +25,8 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
-  final uvAIntensityH05_10Controller = TextEditingController();
-  final uvAIntensityH15Controller = TextEditingController();
-  final uvBIntensityH05_10Controller = TextEditingController();
-  final uvBIntensityH15Controller = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
 
   // Контроллеры для перемещения груза на расстояние до 1 м
   late TextEditingController massUpTo1mKgController;
@@ -153,6 +151,8 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
         TextEditingController(text: widget.severityWorkProcess?.distanceUpTo1mM ?? '');
     movementCountUpTo1mController =
         TextEditingController(text: widget.severityWorkProcess?.movementCountUpTo1m ?? '');
+    protocolIdController.text = (widget.severityWorkProcess?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.severityWorkProcess?.familyName ?? '';
 
     // Инициализация контроллеров для перемещения груза на расстояние от 1 до 5 м
     mass1To5mKgController =
@@ -359,6 +359,36 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
                       border: OutlineInputBorder(),
                       labelText: 'Наименование рабочего места',
                       hintText: 'Введите наименование рабочего места',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: familyNameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Фамилия работника',
+                      hintText: 'Введите фамилию работника',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  TextField(
+                    controller: parameterNameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      //<-- SEE HERE
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                      labelText: 'Наименование фактора',
+                      hintText: 'Введите наименование фактора',
                     ),
                   ),
                   const SizedBox(
@@ -865,7 +895,12 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
                   TextField(
                       controller: fixedPosturePercentageController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: 'Процент фиксированной позы (%)')),
+                      decoration: InputDecoration(
+                          filled: true,
+                          //<-- SEE HERE
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(),
+                          labelText: 'Процент фиксированной позы (%)')),
                   const SizedBox(
                     height: 30,
                   ),
@@ -1025,6 +1060,8 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
                       final workplaceName = workplaceController.text;
                       final workplaceId = workplaceIdController.text;
                       final parameterName = parameterNameController.text;
+                      final protocolId = protocolIdController.text;
+                      final familyName = familyNameController.text;
 
                       final massUpTo1mKg = massUpTo1mKgController.text;
                       final distanceUpTo1mM = distanceUpTo1mMController.text;
@@ -1113,6 +1150,9 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
                           workplace: workplaceName,
                           workplaceId: workplaceId,
                           parameterName: parameterName,
+                          protocolId: protocolId,
+                          familyName: familyName,
+
                           massUpTo1mKg: massUpTo1mKg,
                           distanceUpTo1mM: distanceUpTo1mM,
                           movementCountUpTo1m: movementCountUpTo1m,
@@ -1172,6 +1212,7 @@ class _AddSeverityWorkProcessDialogState extends State<AddSeverityWorkProcessDia
                         workplaceIdController.clear();
                         workplaceController.clear();
                         parameterNameController.clear();
+                        familyNameController.clear();
 
                         massUpTo1mKgController.clear();
                         distanceUpTo1mMController.clear();

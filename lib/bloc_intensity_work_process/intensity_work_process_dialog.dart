@@ -25,6 +25,9 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
   final workplaceController = TextEditingController();
   final workplaceIdController = TextEditingController();
   final parameterNameController = TextEditingController();
+  final protocolIdController = TextEditingController();
+  final familyNameController = TextEditingController();
+
   final signalDensityController = TextEditingController();
   final simultaneousObjectsCountController = TextEditingController();
   final opticalDeviceUsageController = TextEditingController();
@@ -77,6 +80,9 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
         (widget.intensityWorkProcess?.workplaceId ?? widget.protocolName?.workplaceId)!;
     parameterNameController.text =
         (widget.intensityWorkProcess?.parameterName ?? widget.protocolName?.protocolName)!;
+    protocolIdController.text = (widget.intensityWorkProcess?.protocolId ?? widget.protocolName?.protocolId)!;
+    familyNameController.text = widget.intensityWorkProcess?.familyName ?? '';
+
     signalDensityController.text = widget.intensityWorkProcess?.signalDensity ?? '';
     simultaneousObjectsCountController.text =
         widget.intensityWorkProcess?.simultaneousObjectsCount ?? '';
@@ -188,6 +194,36 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
                     border: OutlineInputBorder(),
                     labelText: 'Наименование рабочего места',
                     hintText: 'Введите наименование рабочего места',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: familyNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Фамилия работника',
+                    hintText: 'Введите фамилию работника',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  controller: parameterNameController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    //<-- SEE HERE
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    labelText: 'Наименование фактора',
+                    hintText: 'Введите наименование фактора',
                   ),
                 ),
                 const SizedBox(
@@ -351,6 +387,9 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
                     final workplaceName = workplaceController.text;
                     final workplaceId = workplaceIdController.text;
                     final parameterName = parameterNameController.text;
+                    final protocolId = protocolIdController.text;
+                    final familyName = familyNameController.text;
+
                     final signalDensity = signalDensityController.text;
                     final simultaneousObjectsCount = simultaneousObjectsCountController.text;
                     final opticalDeviceUsage = opticalDeviceUsageController.text;
@@ -371,6 +410,8 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
                         workplace: workplaceName,
                         workplaceId: workplaceId,
                         parameterName: parameterName,
+                        protocolId: protocolId,
+                        familyName: familyName,
                         signalDensity: signalDensity,
                         simultaneousObjectsCount: simultaneousObjectsCount,
                         opticalDeviceUsage: opticalDeviceUsage,
@@ -392,6 +433,8 @@ class _AddIntensityWorkProcessDialogState extends State<AddIntensityWorkProcessD
                       organizationIdController.clear();
                       workplaceController.clear();
                       parameterNameController.clear();
+                      familyNameController.clear();
+
                       signalDensityController.clear();
                       simultaneousObjectsCountController.clear();
                       opticalDeviceUsageController.clear();

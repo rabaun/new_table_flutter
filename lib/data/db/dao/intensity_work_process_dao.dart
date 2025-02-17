@@ -28,10 +28,25 @@ class IntensityWorkProcessDao {
   Future<dynamic> addInTableProtocol(IntensityWorkProcessModel? intensityWorkProcess) async {
     final db = await dbHelper.database;
     var result = db?.execute('''INSERT INTO $table 
-    (organizationName, organizationId, measurementDate, workplace, workplaceId, parameterName,  signalDensity,
-     simultaneousObjectsCount,  opticalDeviceUsage, voiceApparatusLoadHours, auditoryAnalyzerLoad,
-     focusedObservationDuration, monotonyLoads, elementsCount, monotonyEnvironment, activeObservationTime)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+    (organizationName, 
+    organizationId, 
+    measurementDate, 
+    workplace, 
+    workplaceId, 
+    parameterName,
+    protocolId, 
+    familyName, 
+    signalDensity,
+    simultaneousObjectsCount,  
+    opticalDeviceUsage, 
+    voiceApparatusLoadHours, 
+    auditoryAnalyzerLoad,
+    focusedObservationDuration, 
+    monotonyLoads, 
+    elementsCount, 
+    monotonyEnvironment, 
+    activeObservationTime)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
         [
           (intensityWorkProcess?.organizationName),
           (intensityWorkProcess?.organizationId),
@@ -39,6 +54,9 @@ class IntensityWorkProcessDao {
           (intensityWorkProcess?.workplace),
           (intensityWorkProcess?.workplaceId),
           (intensityWorkProcess?.parameterName),
+          (intensityWorkProcess?.protocolId),
+          (intensityWorkProcess?.familyName),
+
           (intensityWorkProcess?.signalDensity),
           (intensityWorkProcess?.simultaneousObjectsCount),
           (intensityWorkProcess?.opticalDeviceUsage),
@@ -58,8 +76,8 @@ class IntensityWorkProcessDao {
     final db = await dbHelper.database;
     List<IntensityWorkProcessModel> list = [];
     try {
-      var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationId, protocolName?.workplaceId]);
+      var maps = await db?.select('SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?  AND protocolId = ?',
+          [protocolName?.organizationId, protocolName?.workplaceId, protocolName?.protocolId]);
       list = maps!.isNotEmpty ? maps.map((e) => IntensityWorkProcessModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -74,7 +92,26 @@ class IntensityWorkProcessDao {
     final db = await dbHelper.database;
     try {
       db?.execute(
-        'UPDATE $table SET organizationName = ?, organizationId = ?, measurementDate = ?, workplace = ?,  workplaceId =?, parameterName =?, signalDensity =?, simultaneousObjectsCount =?, opticalDeviceUsage =?, voiceApparatusLoadHours =?, auditoryAnalyzerLoad =?, focusedObservationDuration =?, monotonyLoads =?, elementsCount =?, monotonyEnvironment =?, activeObservationTime =? WHERE id = ?',
+        '''UPDATE $table SET 
+        organizationName = ?, 
+        organizationId = ?, 
+        measurementDate = ?,
+        workplace = ?,  
+        workplaceId =?, 
+        parameterName =?, 
+        protocolId = ?,
+        familyName = ?, 
+        signalDensity =?, 
+        simultaneousObjectsCount =?, 
+        opticalDeviceUsage =?, 
+        voiceApparatusLoadHours =?, 
+        auditoryAnalyzerLoad =?, 
+        focusedObservationDuration =?, 
+        monotonyLoads =?, 
+        elementsCount =?, 
+        monotonyEnvironment =?, 
+        activeObservationTime =? 
+        WHERE id = ?''',
         [
           (intensityWorkProcess?.organizationName),
           (intensityWorkProcess?.organizationId),
@@ -82,6 +119,9 @@ class IntensityWorkProcessDao {
           (intensityWorkProcess?.workplace),
           (intensityWorkProcess?.workplaceId),
           (intensityWorkProcess?.parameterName),
+          (intensityWorkProcess?.protocolId),
+          (intensityWorkProcess?.familyName),
+
           (intensityWorkProcess?.signalDensity),
           (intensityWorkProcess?.simultaneousObjectsCount),
           (intensityWorkProcess?.opticalDeviceUsage),

@@ -27,7 +27,9 @@ mixin _$SeverityWorkProcessModel {
   String? get measurementDate => throw _privateConstructorUsedError;
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
-  String? get parameterName =>
+  String? get parameterName => throw _privateConstructorUsedError;
+  String? get protocolId => throw _privateConstructorUsedError;
+  String? get familyName =>
       throw _privateConstructorUsedError; // Перемещение груза на расстояние до 1 м
   String? get massUpTo1mKg => throw _privateConstructorUsedError;
   String? get distanceUpTo1mM => throw _privateConstructorUsedError;
@@ -122,6 +124,8 @@ abstract class $SeverityWorkProcessModelCopyWith<$Res> {
       String? workplace,
       String? workplaceId,
       String? parameterName,
+      String? protocolId,
+      String? familyName,
       String? massUpTo1mKg,
       String? distanceUpTo1mM,
       String? movementCountUpTo1m,
@@ -191,6 +195,8 @@ class _$SeverityWorkProcessModelCopyWithImpl<$Res,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
     Object? massUpTo1mKg = freezed,
     Object? distanceUpTo1mM = freezed,
     Object? movementCountUpTo1m = freezed,
@@ -264,6 +270,14 @@ class _$SeverityWorkProcessModelCopyWithImpl<$Res,
       parameterName: freezed == parameterName
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       massUpTo1mKg: freezed == massUpTo1mKg
           ? _value.massUpTo1mKg
@@ -474,6 +488,8 @@ abstract class _$$SeverityWorkProcessModelImplCopyWith<$Res>
       String? workplace,
       String? workplaceId,
       String? parameterName,
+      String? protocolId,
+      String? familyName,
       String? massUpTo1mKg,
       String? distanceUpTo1mM,
       String? movementCountUpTo1m,
@@ -542,6 +558,8 @@ class __$$SeverityWorkProcessModelImplCopyWithImpl<$Res>
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
     Object? massUpTo1mKg = freezed,
     Object? distanceUpTo1mM = freezed,
     Object? movementCountUpTo1m = freezed,
@@ -615,6 +633,14 @@ class __$$SeverityWorkProcessModelImplCopyWithImpl<$Res>
       parameterName: freezed == parameterName
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       massUpTo1mKg: freezed == massUpTo1mKg
           ? _value.massUpTo1mKg
@@ -819,6 +845,8 @@ class _$SeverityWorkProcessModelImpl implements _SeverityWorkProcessModel {
       this.workplace,
       this.workplaceId,
       this.parameterName,
+      this.protocolId,
+      this.familyName,
       this.massUpTo1mKg,
       this.distanceUpTo1mM,
       this.movementCountUpTo1m,
@@ -881,6 +909,10 @@ class _$SeverityWorkProcessModelImpl implements _SeverityWorkProcessModel {
   final String? workplaceId;
   @override
   final String? parameterName;
+  @override
+  final String? protocolId;
+  @override
+  final String? familyName;
 // Перемещение груза на расстояние до 1 м
   @override
   final String? massUpTo1mKg;
@@ -988,7 +1020,7 @@ class _$SeverityWorkProcessModelImpl implements _SeverityWorkProcessModel {
 
   @override
   String toString() {
-    return 'SeverityWorkProcessModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, massUpTo1mKg: $massUpTo1mKg, distanceUpTo1mM: $distanceUpTo1mM, movementCountUpTo1m: $movementCountUpTo1m, mass1To5mKg: $mass1To5mKg, distance1To5mM: $distance1To5mM, movementCount1To5m: $movementCount1To5m, massMoreThan5mKg: $massMoreThan5mKg, distanceMoreThan5mM: $distanceMoreThan5mM, movementCountMoreThan5m: $movementCountMoreThan5m, liftingIntermittentMassKg: $liftingIntermittentMassKg, liftingIntermittentMovementCount: $liftingIntermittentMovementCount, liftingConstantMassKg: $liftingConstantMassKg, liftingConstantMovementCount: $liftingConstantMovementCount, liftingFromSurfaceMassKg: $liftingFromSurfaceMassKg, liftingFromSurfaceMovementCount: $liftingFromSurfaceMovementCount, liftingFromFloorMassKg: $liftingFromFloorMassKg, liftingFromFloorMovementCount: $liftingFromFloorMovementCount, stereotypicalLocalMovementPerOperation: $stereotypicalLocalMovementPerOperation, stereotypicalLocalOperationCount: $stereotypicalLocalOperationCount, stereotypicalRegionalMovementPerOperation: $stereotypicalRegionalMovementPerOperation, stereotypicalRegionalOperationCount: $stereotypicalRegionalOperationCount, staticLoadOneHandMassKg: $staticLoadOneHandMassKg, staticLoadOneHandHoldingTimeS: $staticLoadOneHandHoldingTimeS, staticLoadOneHandOperationCount: $staticLoadOneHandOperationCount, staticLoadTwoHandsMassKg: $staticLoadTwoHandsMassKg, staticLoadTwoHandsHoldingTimeS: $staticLoadTwoHandsHoldingTimeS, staticLoadTwoHandsOperationCount: $staticLoadTwoHandsOperationCount, staticLoadBodyAndLegsMassKg: $staticLoadBodyAndLegsMassKg, staticLoadBodyAndLegsHoldingTimeS: $staticLoadBodyAndLegsHoldingTimeS, staticLoadBodyAndLegsOperationCount: $staticLoadBodyAndLegsOperationCount, freePosturePercentage: $freePosturePercentage, standingPosturePercentage: $standingPosturePercentage, uncomfortablePosturePercentage: $uncomfortablePosturePercentage, fixedPosturePercentage: $fixedPosturePercentage, forcedPosturePercentage: $forcedPosturePercentage, sittingPosturePercentage: $sittingPosturePercentage, tiltsPerOperation: $tiltsPerOperation, tiltsOperationCount: $tiltsOperationCount, horizontalMovementDistanceKm: $horizontalMovementDistanceKm, horizontalMovementDistancePerMoveM: $horizontalMovementDistancePerMoveM, horizontalMovementCount: $horizontalMovementCount, verticalMovementDistanceKm: $verticalMovementDistanceKm, verticalMovementDistancePerMoveM: $verticalMovementDistancePerMoveM, verticalMovementCount: $verticalMovementCount)';
+    return 'SeverityWorkProcessModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, protocolId: $protocolId, familyName: $familyName, massUpTo1mKg: $massUpTo1mKg, distanceUpTo1mM: $distanceUpTo1mM, movementCountUpTo1m: $movementCountUpTo1m, mass1To5mKg: $mass1To5mKg, distance1To5mM: $distance1To5mM, movementCount1To5m: $movementCount1To5m, massMoreThan5mKg: $massMoreThan5mKg, distanceMoreThan5mM: $distanceMoreThan5mM, movementCountMoreThan5m: $movementCountMoreThan5m, liftingIntermittentMassKg: $liftingIntermittentMassKg, liftingIntermittentMovementCount: $liftingIntermittentMovementCount, liftingConstantMassKg: $liftingConstantMassKg, liftingConstantMovementCount: $liftingConstantMovementCount, liftingFromSurfaceMassKg: $liftingFromSurfaceMassKg, liftingFromSurfaceMovementCount: $liftingFromSurfaceMovementCount, liftingFromFloorMassKg: $liftingFromFloorMassKg, liftingFromFloorMovementCount: $liftingFromFloorMovementCount, stereotypicalLocalMovementPerOperation: $stereotypicalLocalMovementPerOperation, stereotypicalLocalOperationCount: $stereotypicalLocalOperationCount, stereotypicalRegionalMovementPerOperation: $stereotypicalRegionalMovementPerOperation, stereotypicalRegionalOperationCount: $stereotypicalRegionalOperationCount, staticLoadOneHandMassKg: $staticLoadOneHandMassKg, staticLoadOneHandHoldingTimeS: $staticLoadOneHandHoldingTimeS, staticLoadOneHandOperationCount: $staticLoadOneHandOperationCount, staticLoadTwoHandsMassKg: $staticLoadTwoHandsMassKg, staticLoadTwoHandsHoldingTimeS: $staticLoadTwoHandsHoldingTimeS, staticLoadTwoHandsOperationCount: $staticLoadTwoHandsOperationCount, staticLoadBodyAndLegsMassKg: $staticLoadBodyAndLegsMassKg, staticLoadBodyAndLegsHoldingTimeS: $staticLoadBodyAndLegsHoldingTimeS, staticLoadBodyAndLegsOperationCount: $staticLoadBodyAndLegsOperationCount, freePosturePercentage: $freePosturePercentage, standingPosturePercentage: $standingPosturePercentage, uncomfortablePosturePercentage: $uncomfortablePosturePercentage, fixedPosturePercentage: $fixedPosturePercentage, forcedPosturePercentage: $forcedPosturePercentage, sittingPosturePercentage: $sittingPosturePercentage, tiltsPerOperation: $tiltsPerOperation, tiltsOperationCount: $tiltsOperationCount, horizontalMovementDistanceKm: $horizontalMovementDistanceKm, horizontalMovementDistancePerMoveM: $horizontalMovementDistancePerMoveM, horizontalMovementCount: $horizontalMovementCount, verticalMovementDistanceKm: $verticalMovementDistanceKm, verticalMovementDistancePerMoveM: $verticalMovementDistancePerMoveM, verticalMovementCount: $verticalMovementCount)';
   }
 
   @override
@@ -1009,6 +1041,10 @@ class _$SeverityWorkProcessModelImpl implements _SeverityWorkProcessModel {
                 other.workplaceId == workplaceId) &&
             (identical(other.parameterName, parameterName) ||
                 other.parameterName == parameterName) &&
+            (identical(other.protocolId, protocolId) ||
+                other.protocolId == protocolId) &&
+            (identical(other.familyName, familyName) ||
+                other.familyName == familyName) &&
             (identical(other.massUpTo1mKg, massUpTo1mKg) ||
                 other.massUpTo1mKg == massUpTo1mKg) &&
             (identical(other.distanceUpTo1mM, distanceUpTo1mM) ||
@@ -1091,6 +1127,8 @@ class _$SeverityWorkProcessModelImpl implements _SeverityWorkProcessModel {
         workplace,
         workplaceId,
         parameterName,
+        protocolId,
+        familyName,
         massUpTo1mKg,
         distanceUpTo1mM,
         movementCountUpTo1m,
@@ -1163,6 +1201,8 @@ abstract class _SeverityWorkProcessModel implements SeverityWorkProcessModel {
       final String? workplace,
       final String? workplaceId,
       final String? parameterName,
+      final String? protocolId,
+      final String? familyName,
       final String? massUpTo1mKg,
       final String? distanceUpTo1mM,
       final String? movementCountUpTo1m,
@@ -1224,7 +1264,11 @@ abstract class _SeverityWorkProcessModel implements SeverityWorkProcessModel {
   @override
   String? get workplaceId;
   @override
-  String? get parameterName; // Перемещение груза на расстояние до 1 м
+  String? get parameterName;
+  @override
+  String? get protocolId;
+  @override
+  String? get familyName; // Перемещение груза на расстояние до 1 м
   @override
   String? get massUpTo1mKg;
   @override

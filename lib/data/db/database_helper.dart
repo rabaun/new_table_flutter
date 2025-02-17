@@ -289,6 +289,8 @@ class DatabaseHelper {
       workplace VARCHAR(32) NOT NULL,
       workplaceId VARCHAR(32) NOT NULL,
       parameterName VARCHAR(100) NOT NULL,
+      protocolId VARCHAR(32) NOT NULL,
+      familyName VARCHAR(32) NOT NULL,
       
       massUpTo1mKg VARCHAR(32) NOT NULL,
       distanceUpTo1mM VARCHAR(32) NOT NULL,
@@ -361,6 +363,8 @@ class DatabaseHelper {
       workplace VARCHAR(32) NOT NULL,
       workplaceId VARCHAR(32) NOT NULL,
       parameterName VARCHAR(100) NOT NULL,
+      protocolId VARCHAR(32) NOT NULL,
+      familyName VARCHAR(32) NOT NULL,
       signalDensity VARCHAR(32) NOT NULL,
       simultaneousObjectsCount VARCHAR(32) NOT NULL,
       opticalDeviceUsage VARCHAR(32) NOT NULL,

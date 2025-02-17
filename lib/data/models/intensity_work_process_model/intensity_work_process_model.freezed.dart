@@ -28,6 +28,8 @@ mixin _$IntensityWorkProcessModel {
   String? get workplace => throw _privateConstructorUsedError;
   String? get workplaceId => throw _privateConstructorUsedError;
   String? get parameterName => throw _privateConstructorUsedError;
+  String? get protocolId => throw _privateConstructorUsedError;
+  String? get familyName => throw _privateConstructorUsedError;
   String? get signalDensity => throw _privateConstructorUsedError;
   String? get simultaneousObjectsCount => throw _privateConstructorUsedError;
   String? get opticalDeviceUsage => throw _privateConstructorUsedError;
@@ -63,6 +65,8 @@ abstract class $IntensityWorkProcessModelCopyWith<$Res> {
       String? workplace,
       String? workplaceId,
       String? parameterName,
+      String? protocolId,
+      String? familyName,
       String? signalDensity,
       String? simultaneousObjectsCount,
       String? opticalDeviceUsage,
@@ -98,6 +102,8 @@ class _$IntensityWorkProcessModelCopyWithImpl<$Res,
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
     Object? signalDensity = freezed,
     Object? simultaneousObjectsCount = freezed,
     Object? opticalDeviceUsage = freezed,
@@ -137,6 +143,14 @@ class _$IntensityWorkProcessModelCopyWithImpl<$Res,
       parameterName: freezed == parameterName
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       signalDensity: freezed == signalDensity
           ? _value.signalDensity
@@ -199,6 +213,8 @@ abstract class _$$IntensityWorkProcessModelImplCopyWith<$Res>
       String? workplace,
       String? workplaceId,
       String? parameterName,
+      String? protocolId,
+      String? familyName,
       String? signalDensity,
       String? simultaneousObjectsCount,
       String? opticalDeviceUsage,
@@ -233,6 +249,8 @@ class __$$IntensityWorkProcessModelImplCopyWithImpl<$Res>
     Object? workplace = freezed,
     Object? workplaceId = freezed,
     Object? parameterName = freezed,
+    Object? protocolId = freezed,
+    Object? familyName = freezed,
     Object? signalDensity = freezed,
     Object? simultaneousObjectsCount = freezed,
     Object? opticalDeviceUsage = freezed,
@@ -272,6 +290,14 @@ class __$$IntensityWorkProcessModelImplCopyWithImpl<$Res>
       parameterName: freezed == parameterName
           ? _value.parameterName
           : parameterName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      protocolId: freezed == protocolId
+          ? _value.protocolId
+          : protocolId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       signalDensity: freezed == signalDensity
           ? _value.signalDensity
@@ -328,6 +354,8 @@ class _$IntensityWorkProcessModelImpl implements _IntensityWorkProcessModel {
       this.workplace,
       this.workplaceId,
       this.parameterName,
+      this.protocolId,
+      this.familyName,
       this.signalDensity,
       this.simultaneousObjectsCount,
       this.opticalDeviceUsage,
@@ -357,6 +385,10 @@ class _$IntensityWorkProcessModelImpl implements _IntensityWorkProcessModel {
   @override
   final String? parameterName;
   @override
+  final String? protocolId;
+  @override
+  final String? familyName;
+  @override
   final String? signalDensity;
   @override
   final String? simultaneousObjectsCount;
@@ -379,7 +411,7 @@ class _$IntensityWorkProcessModelImpl implements _IntensityWorkProcessModel {
 
   @override
   String toString() {
-    return 'IntensityWorkProcessModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, signalDensity: $signalDensity, simultaneousObjectsCount: $simultaneousObjectsCount, opticalDeviceUsage: $opticalDeviceUsage, voiceApparatusLoadHours: $voiceApparatusLoadHours, auditoryAnalyzerLoad: $auditoryAnalyzerLoad, focusedObservationDuration: $focusedObservationDuration, monotonyLoads: $monotonyLoads, elementsCount: $elementsCount, monotonyEnvironment: $monotonyEnvironment, activeObservationTime: $activeObservationTime)';
+    return 'IntensityWorkProcessModel(id: $id, organizationName: $organizationName, organizationId: $organizationId, measurementDate: $measurementDate, workplace: $workplace, workplaceId: $workplaceId, parameterName: $parameterName, protocolId: $protocolId, familyName: $familyName, signalDensity: $signalDensity, simultaneousObjectsCount: $simultaneousObjectsCount, opticalDeviceUsage: $opticalDeviceUsage, voiceApparatusLoadHours: $voiceApparatusLoadHours, auditoryAnalyzerLoad: $auditoryAnalyzerLoad, focusedObservationDuration: $focusedObservationDuration, monotonyLoads: $monotonyLoads, elementsCount: $elementsCount, monotonyEnvironment: $monotonyEnvironment, activeObservationTime: $activeObservationTime)';
   }
 
   @override
@@ -400,6 +432,10 @@ class _$IntensityWorkProcessModelImpl implements _IntensityWorkProcessModel {
                 other.workplaceId == workplaceId) &&
             (identical(other.parameterName, parameterName) ||
                 other.parameterName == parameterName) &&
+            (identical(other.protocolId, protocolId) ||
+                other.protocolId == protocolId) &&
+            (identical(other.familyName, familyName) ||
+                other.familyName == familyName) &&
             (identical(other.signalDensity, signalDensity) ||
                 other.signalDensity == signalDensity) &&
             (identical(
@@ -428,25 +464,28 @@ class _$IntensityWorkProcessModelImpl implements _IntensityWorkProcessModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      organizationName,
-      organizationId,
-      measurementDate,
-      workplace,
-      workplaceId,
-      parameterName,
-      signalDensity,
-      simultaneousObjectsCount,
-      opticalDeviceUsage,
-      voiceApparatusLoadHours,
-      auditoryAnalyzerLoad,
-      focusedObservationDuration,
-      monotonyLoads,
-      elementsCount,
-      monotonyEnvironment,
-      activeObservationTime);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        organizationName,
+        organizationId,
+        measurementDate,
+        workplace,
+        workplaceId,
+        parameterName,
+        protocolId,
+        familyName,
+        signalDensity,
+        simultaneousObjectsCount,
+        opticalDeviceUsage,
+        voiceApparatusLoadHours,
+        auditoryAnalyzerLoad,
+        focusedObservationDuration,
+        monotonyLoads,
+        elementsCount,
+        monotonyEnvironment,
+        activeObservationTime
+      ]);
 
   /// Create a copy of IntensityWorkProcessModel
   /// with the given fields replaced by the non-null parameter values.
@@ -474,6 +513,8 @@ abstract class _IntensityWorkProcessModel implements IntensityWorkProcessModel {
       final String? workplace,
       final String? workplaceId,
       final String? parameterName,
+      final String? protocolId,
+      final String? familyName,
       final String? signalDensity,
       final String? simultaneousObjectsCount,
       final String? opticalDeviceUsage,
@@ -502,6 +543,10 @@ abstract class _IntensityWorkProcessModel implements IntensityWorkProcessModel {
   String? get workplaceId;
   @override
   String? get parameterName;
+  @override
+  String? get protocolId;
+  @override
+  String? get familyName;
   @override
   String? get signalDensity;
   @override

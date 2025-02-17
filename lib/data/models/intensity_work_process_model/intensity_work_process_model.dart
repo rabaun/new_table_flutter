@@ -13,6 +13,9 @@ class IntensityWorkProcessModel with _$IntensityWorkProcessModel {
     String? workplace,
     String? workplaceId,
     String? parameterName,
+    String? protocolId,
+    String? familyName,
+
     String? signalDensity,
     String? simultaneousObjectsCount,
     String? opticalDeviceUsage,

@@ -13,6 +13,8 @@ class SeverityWorkProcessModel with _$SeverityWorkProcessModel {
     String? workplace,
     String? workplaceId,
     String? parameterName,
+    String? protocolId,
+    String? familyName,
 
     // Перемещение груза на расстояние до 1 м
     String? massUpTo1mKg,

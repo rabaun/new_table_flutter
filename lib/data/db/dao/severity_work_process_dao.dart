@@ -123,6 +123,8 @@ class SeverityWorkProcessDao {
     workplace,  
     workplaceId,  
     parameterName,
+    protocolId, 
+    familyName, 
     massUpTo1mKg, 
     distanceUpTo1mM,  
     movementCountUpTo1m, 
@@ -167,7 +169,7 @@ class SeverityWorkProcessDao {
     verticalMovementDistanceKm, 
     verticalMovementDistancePerMoveM, 
     verticalMovementCount)
-    VALUES (?, ?, ?,  ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    VALUES (?, ?, ?,  ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       ''', [
       severityWork?.organizationName,
@@ -176,6 +178,8 @@ class SeverityWorkProcessDao {
       severityWork?.workplace,
       severityWork?.workplaceId,
       severityWork?.parameterName,
+      severityWork?.protocolId,
+      severityWork?.familyName,
 
       // Поля для перемещения груза на расстояние до 1 м
       severityWork?.massUpTo1mKg,
@@ -260,8 +264,8 @@ class SeverityWorkProcessDao {
     final db = await dbHelper.database;
     try {
       var maps = await db?.select(
-          'SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ?',
-          [protocolName?.organizationId, protocolName?.workplaceId]);
+          'SELECT * FROM $table WHERE organizationId = ? AND workplaceId = ? AND protocolId = ?',
+          [protocolName?.organizationId, protocolName?.workplaceId, protocolName?.protocolId]);
       list = maps!.isNotEmpty ? maps.map((e) => SeverityWorkProcessModel.fromJson(e)).toList() : [];
     } catch (e) {
       if (kDebugMode) {
@@ -282,6 +286,8 @@ class SeverityWorkProcessDao {
     workplace = ?,  
     workplaceId = ?,  
     parameterName = ?, 
+    protocolId = ?,
+    familyName = ?, 
     massUpTo1mKg = ?, 
     distanceUpTo1mM = ?,  
     movementCountUpTo1m = ?, 
@@ -333,7 +339,8 @@ class SeverityWorkProcessDao {
     severityWork?.workplace,
     severityWork?.workplaceId,
     severityWork?.parameterName,
-
+      severityWork?.protocolId,
+      severityWork?.familyName,
     // Поля для перемещения груза на расстояние до 1 м
     severityWork?.massUpTo1mKg,
     severityWork?.distanceUpTo1mM,
